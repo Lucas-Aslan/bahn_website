@@ -1,53 +1,6 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
-const metrics = [
-  {
-    value: '0.2%',
-    label: 'Verspätungsquote auf Premium-Routen'
-  },
-  {
-    value: '380 km',
-    label: 'Gleichzeitig gesteuerte Korridore'
-  },
-  {
-    value: 'ISO 55001',
-    label: 'Asset-Management Zertifizierung'
-  }
-]
-
-const services = [
-  {
-    title: 'Deep Ops Control',
-    description: 'Adaptive Leitstände mit Predictive Maintenance, KI-Routing und Silent-Switching für maximale Taktfrequenz.',
-    accent: 'Präzision'
-  },
-  {
-    title: 'Signature Logistics',
-    description: 'Premium-Waggons, gesicherte Terminals und kuratierte Last-Mile-Partnerschaften mit goldener Service-Garantie.',
-    accent: 'Exzellenz'
-  },
-  {
-    title: 'Infrastruktur Couture',
-    description: 'High-End-Gleisbauten, Signaltechnik und Energie-Optimierung – als maßgeschneiderte, modulare Programme.',
-    accent: 'Vision'
-  }
-]
-
-const accolades = [
-  {
-    label: 'Einsatzleitung',
-    detail: 'Zugelassene Sicherheitskoordination für hochfrequentierte Bahnkorridore.'
-  },
-  {
-    label: '24/7-Kontrolle',
-    detail: 'Live-Monitoring mit redundanter Leitstelle und vorausschauender Disposition.'
-  },
-  {
-    label: 'Exzellenz-Siegel',
-    detail: 'Goldener Service-Standard mit dokumentierten KPI-Reports pro Einsatz.'
-  }
-]
 
 const scrollOffset = ref(0)
 let revealObserver: IntersectionObserver | null = null
@@ -106,18 +59,9 @@ onBeforeUnmount(() => {
         <div class="hero__tint" />
       </div>
 
-      <div
-        class="hero__nameplate"
-        aria-hidden="true"
-        :style="{ '--nameplate-shift': `${-heroParallax}px` }"
-      >
-        Babylon Bahndienste
-      </div>
-
       <div class="hero__content">
+        <div class="hero__badge"> <span class="hero__gold">Bahndienstleistungen</span></div>
         <p class="hero__title">Babylon Bahndienste</p>
-        <div class="hero__badge">Babylon <span class="hero__gold">Bahndienste</span></div>
-        <h1>Sichere Bahndienste für einen zuverlässigen Betrieb.</h1>
         <p class="hero__lead">
           Babylon Bahndienste unterstützt Projekte rund um die Schiene mit erfahrenen Teams, strukturierten Abläufen und
           höchsten Sicherheitsstandards – termintreu und präzise umgesetzt.
@@ -155,14 +99,6 @@ onBeforeUnmount(() => {
 
     <section class="section js-reveal">
       <div class="section__header">
-        <div>
-          <p class="eyebrow">Refined Performance</p>
-          <h2>Elevated Mobility Experiences</h2>
-          <p class="section__lead">
-            Wir kombinieren kunstvolle Ästhetik mit technischer Dominanz: orchestrierte Routen, immersive Terminals und
-            gläserne Kontrollräume, die jeden Kilometer in ein Signatur-Erlebnis verwandeln.
-          </p>
-        </div>
         <div class="metrics" role="list">
           <div
             v-for="metric in metrics"
