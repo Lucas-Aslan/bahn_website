@@ -14,7 +14,8 @@ type HeroVideo = {
 const heroVideos: HeroVideo[] = [
   {
     sources: [
-      { src: '/videos/hero/video1.mp4', type: 'video/mp4' },
+      { src: '/videos/video1.mp4', type: 'video/mp4' },
+      { src: '/videos/video2.mp4', type: 'video/mp4' },
     ]
   }
 ]
