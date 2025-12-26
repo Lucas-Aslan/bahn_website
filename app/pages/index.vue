@@ -2,11 +2,50 @@
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 
+type HeroVideoSource = {
+  src: string
+  type: string
+}
+
+type HeroVideo = {
+  poster: string
+  sources: HeroVideoSource[]
+}
+
+const heroVideos: HeroVideo[] = [
+  {
+    poster: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80',
+    sources: [
+      { src: '/videos/hero/bahnhof-nacht.mp4', type: 'video/mp4' },
+      { src: '/videos/hero/bahnhof-nacht.webm', type: 'video/webm' }
+    ]
+  },
+  {
+    poster: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80',
+    sources: [
+      { src: '/videos/hero/gleisbau.mp4', type: 'video/mp4' },
+      { src: '/videos/hero/gleisbau.webm', type: 'video/webm' }
+    ]
+  }
+]
+
+const currentVideoIndex = ref(0)
+const heroVideoElement = ref<HTMLVideoElement | null>(null)
 const scrollOffset = ref(0)
 let revealObserver: IntersectionObserver | null = null
 
+const activeHeroVideo = computed(() => heroVideos[currentVideoIndex.value] ?? heroVideos[0])
+
 const handleScroll = () => {
   scrollOffset.value = window.scrollY
+}
+
+const handleHeroVideoEnded = async () => {
+  if (heroVideos.length <= 1) {
+    await heroVideoElement.value?.play().catch(() => {})
+    return
+  }
+  currentVideoIndex.value = (currentVideoIndex.value + 1) % heroVideos.length
 }
 
 const orbitDrift = computed(() => Math.min(scrollOffset.value * 0.08, 80))
@@ -48,13 +87,21 @@ onBeforeUnmount(() => {
     <section class="hero">
       <div class="hero__video" aria-hidden="true">
         <video
+          :key="activeHeroVideo.sources[0]?.src"
+          ref="heroVideoElement"
           autoplay
           muted
-          loop
+          :loop="heroVideos.length === 1"
           playsinline
-          poster="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80"
+          :poster="activeHeroVideo.poster"
+          @ended="handleHeroVideoEnded"
         >
-          <source src="https://cdn.coverr.co/videos/coverr-night-city-train-1572/1080p.mp4" type="video/mp4">
+          <source
+            v-for="source in activeHeroVideo.sources"
+            :key="source.src"
+            :src="source.src"
+            :type="source.type"
+          >
         </video>
         <div class="hero__tint" />
       </div>
