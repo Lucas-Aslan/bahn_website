@@ -27,6 +27,75 @@ type Service = {
   description: string
 }
 
+type PerformanceBlock = {
+  badge: string
+  title: string
+  summary: string
+  points: string[]
+}
+
+const accolades: Accolade[] = [
+  { label: '24/7 Disposition', detail: 'Kurzfristig einsatzbereite Crews für Bau- und Regelbetrieb.' },
+  { label: 'Sicherheitsfokus', detail: 'Unterweisungen, Dokumentation und QS bleiben lückenlos.' },
+  { label: 'Team aus einer Hand', detail: 'Lokführer, Rangierbegleiter und Wagenprüfer nahtlos koordiniert.' }
+]
+
+const metrics: Metric[] = [
+  { value: '15+', label: 'Baureihen-Berechtigungen' },
+  { value: '10k+', label: 'sichere Rangier- & Bau-Einsätze pro Jahr' },
+  { value: '24/7', label: 'Disposition & Einsatzsteuerung' }
+]
+
+const services: Service[] = [
+  { accent: 'Transport', title: 'Güterverkehr', description: 'Traktion, Rangieren und Wagenprüfungen mit klaren Prozessen.' },
+  { accent: 'Bau', title: 'Gleisbaulogistik', description: 'Sicherheit und Präzision auf Baustellen, inkl. Kippberechtigungen.' },
+  { accent: 'Qualität', title: 'Abnahmen & Checks', description: 'Prüfungen, Bremsproben und Dokumentation mit Audit-Tiefe.' }
+]
+
+const performanceBlocks: PerformanceBlock[] = [
+  {
+    badge: 'Lok & Traktion',
+    title: 'Gestellung Triebfahrzeugführer',
+    summary: 'Unsere Triebfahrzeugführer sind u. a. auf folgenden Baureihen berechtigt:',
+    points: [
+      'Vossloh: DE 12 · DE 18 · G1206 · G1700',
+      'Siemens: BR 248 Vectron Dual Mode',
+      'Alstom: BR 214 · BR 203 retrofit · BR 203 Handschaltrad'
+    ]
+  },
+  {
+    badge: 'Rangier',
+    title: 'Gestellung Rangierbegleiter',
+    summary:
+      'Bremsproberechtigte Wagenprüfer mit langjähriger Erfahrung im Güter-, Nah- und Fernverkehr sowie auf Gleisbaustellen.',
+    points: [
+      'Rangierarbeiten im Güter-, Nah- und Fernverkehr',
+      'Rangierarbeiten im Gleisbau',
+      'Rangierarbeiten im Hafen',
+      'Rangierarbeiten in Anschlüssen'
+    ]
+  },
+  {
+    badge: 'Prüfung',
+    title: 'Gestellung Wagenprüfer bis Stufe 4',
+    summary:
+      'Von Stufe 1 bis 4 (ehemals Wagenmeister): Abfertigung, Rangieren und umfassende Wagenprüfungen inklusive Dokumentation.',
+    points: [
+      'Rangierarbeiten im Güter-, Nah- und Fernverkehr',
+      'Rangierarbeiten im Gleisbau und in Häfen',
+      'Rangierarbeiten in Anschlüssen & Abfertigung von Zügen',
+      'Erstellen von Lauffähigkeitsuntersuchungen u. v. m.'
+    ]
+  },
+  {
+    badge: 'Kippen',
+    title: 'Kippwagenberechtigte',
+    summary:
+      'Spezialgeschulte Mitarbeitende für das sichere Kippen auf Gleisbaustellen – immer mit Qualifikation als Rangierbegleiter.',
+    points: ['Geprüft und unterwiesen für Kippvorgänge auf Ihren Baustellen']
+  }
+]
+
 const heroVideos: HeroVideo[] = [
   {
     sources: [
@@ -221,6 +290,44 @@ watch(currentVideoIndex, async () => {
             </NuxtLink>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="performance section js-reveal">
+      <div class="performance__header section__header">
+        <div>
+          <p class="eyebrow">Leistungen</p>
+          <h2>Kompetenz in schwarz und Gold</h2>
+          <p class="section__lead performance__lead">
+            Kurz und knackig zusammengefasst – die Details finden Sie auf der Leistungsseite, hier sehen Sie direkt unsere
+            Kernkompetenzen.
+          </p>
+        </div>
+        <NuxtLink to="/leistungen/transport" class="performance__cta">
+          Alle Leistungen ansehen
+          <span aria-hidden="true">→</span>
+        </NuxtLink>
+      </div>
+
+      <div class="performance__grid">
+        <article
+          v-for="block in performanceBlocks"
+          :key="block.title"
+          class="performance-card"
+        >
+          <div class="performance-card__header">
+            <span class="performance-card__badge">{{ block.badge }}</span>
+            <h3>{{ block.title }}</h3>
+            <p class="performance-card__summary">{{ block.summary }}</p>
+          </div>
+          <ul class="performance-card__list">
+            <li v-for="point in block.points" :key="point" class="performance-card__item">
+              <span class="performance-card__icon" aria-hidden="true">✦</span>
+              <span>{{ point }}</span>
+            </li>
+          </ul>
+          <div class="performance-card__glow" aria-hidden="true" />
+        </article>
       </div>
     </section>
 
@@ -871,6 +978,140 @@ h1 {
   gap: 0.8rem;
 }
 
+.performance {
+  background: radial-gradient(circle at 18% 24%, rgba(249, 210, 112, 0.06), transparent 36%),
+    radial-gradient(circle at 82% 68%, rgba(201, 144, 56, 0.08), transparent 32%),
+    linear-gradient(135deg, #090909, #050505);
+  border: 1px solid rgba(249, 210, 112, 0.18);
+  box-shadow: 0 28px 75px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  color: #f6e6b4;
+}
+
+.performance__lead {
+  color: #e0c78a;
+}
+
+.performance__header {
+  align-items: center;
+}
+
+.performance__cta {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #f9d270, #c99038);
+  color: #0c0a05;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 18px 45px rgba(249, 210, 112, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.performance__cta:hover,
+.performance__cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 60px rgba(249, 210, 112, 0.3);
+}
+
+.performance__grid {
+  margin-top: 1.4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.performance-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.1rem 1.1rem 1rem;
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(12, 12, 14, 0.95), rgba(6, 6, 8, 0.95));
+  border: 1px solid rgba(249, 210, 112, 0.18);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  color: #f6e6b4;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.performance-card:hover,
+.performance-card:focus-within {
+  transform: translateY(-6px);
+  border-color: rgba(249, 210, 112, 0.34);
+  box-shadow: 0 26px 65px rgba(0, 0, 0, 0.65);
+}
+
+.performance-card__header {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.performance-card__badge {
+  width: fit-content;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(249, 210, 112, 0.18);
+  color: #f9d270;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  border: 1px solid rgba(249, 210, 112, 0.2);
+}
+
+.performance-card h3 {
+  margin: 0;
+  font-size: 1.22rem;
+  letter-spacing: -0.01em;
+}
+
+.performance-card__summary {
+  margin: 0;
+  color: #e8d59f;
+  line-height: 1.5;
+}
+
+.performance-card__list {
+  margin: 0.7rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.performance-card__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0.5rem;
+  color: #fdf2c7;
+  font-weight: 600;
+}
+
+.performance-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 210, 112, 0.35), rgba(249, 210, 112, 0));
+  border: 1px solid rgba(249, 210, 112, 0.24);
+  color: #f9d270;
+  font-size: 0.85rem;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.performance-card__glow {
+  position: absolute;
+  inset: -12%;
+  background: radial-gradient(circle at 24% 24%, rgba(249, 210, 112, 0.12), transparent 38%),
+    radial-gradient(circle at 78% 70%, rgba(201, 144, 56, 0.1), transparent 40%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
 .metric {
   padding: 0.9rem 1rem;
   border-radius: 16px;
@@ -971,6 +1212,16 @@ h1 {
 
   .cta {
     width: 100%;
+  }
+
+  .performance__header {
+    grid-template-columns: 1fr;
+  }
+
+  .performance__cta {
+    justify-self: start;
+    width: 100%;
+    justify-content: center;
   }
 }
 </style>
