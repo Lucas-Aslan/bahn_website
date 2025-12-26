@@ -199,17 +199,51 @@ watch(currentVideoIndex, async () => {
 
     <section id="about" class="about section js-reveal">
       <div class="about__inner">
-        <div class="about__intro">
-          <p class="eyebrow">Über uns</p>
-          <h2>Teams, die Bahnhöfe und Baustellen in Bewegung halten – kurz &amp; knapp.</h2>
+        <div class="about__header">
+          <div class="about__eyebrow">
+            <p class="eyebrow">Über uns</p>
+            <span class="about__spark" aria-hidden="true" />
+          </div>
+          <h2>Präzision, Sicherheit, partnerschaftlich.</h2>
           <p class="section__lead">
-            Babylon Bahndienste stellt erfahrene Crews, Safety-Standards und klare Abläufe bereit, damit Bahnprojekte
-            sicher und planbar laufen.
+            Babylon Bahndienste ist Ihr zuverlässiger Partner rund um die Schiene: erfahrene Teams, klare Abläufe und
+            konsequente Sicherheit – von der Planung bis zum Einsatz vor Ort. Transparente Kommunikation und saubere
+            Dokumentation halten Projekte planbar und den Bahnbetrieb stabil.
           </p>
-          <NuxtLink to="/about" class="about__cta">
-            Mehr erfahren
-            <span aria-hidden="true">→</span>
-          </NuxtLink>
+
+          <div class="about__highlights" role="list">
+            <div class="about__highlight" role="listitem">
+              <span class="about__pulse" aria-hidden="true" />
+              <div>
+                <p class="about__label">Einsatzsicherheit</p>
+                <p class="about__description">Sicherungslogik, Unterweisungen und Reporting bleiben lückenlos.</p>
+              </div>
+            </div>
+            <div class="about__highlight" role="listitem">
+              <span class="about__pulse about__pulse--gold" aria-hidden="true" />
+              <div>
+                <p class="about__label">Planung bis Umsetzung</p>
+                <p class="about__description">Von der Crew-Dispo bis zum Vor-Ort-Einsatz alles aus einer Hand.</p>
+              </div>
+            </div>
+            <div class="about__highlight" role="listitem">
+              <span class="about__pulse about__pulse--cyan" aria-hidden="true" />
+              <div>
+                <p class="about__label">Partnerschaftlich</p>
+                <p class="about__description">Transparente Kommunikation und proaktive Abstimmung mit Auftraggebern.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about__actions">
+            <NuxtLink to="/about" class="about__cta about__cta--solid">
+              Mehr über unsere Arbeitsweise
+              <span aria-hidden="true">→</span>
+            </NuxtLink>
+            <NuxtLink to="/kontakt" class="about__cta about__cta--ghost">
+              Gespräch vereinbaren
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </section>
@@ -524,23 +558,53 @@ h1 {
 .about {
   position: relative;
   overflow: hidden;
-  padding: clamp(1.8rem, 3vw, 2.6rem);
+  padding: clamp(2rem, 3vw, 2.8rem);
   background:
-    linear-gradient(145deg, rgba(8, 14, 30, 0.9), rgba(6, 10, 22, 0.92)),
+    linear-gradient(140deg, rgba(8, 14, 30, 0.92), rgba(5, 8, 18, 0.9)),
     radial-gradient(circle at 18% 20%, rgba(0, 255, 255, 0.08), transparent 38%),
     radial-gradient(circle at 82% 70%, rgba(249, 210, 112, 0.12), transparent 32%);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
 }
 
 .about__inner {
   display: grid;
-  gap: 1.8rem;
+  gap: 2.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  align-items: start;
+  position: relative;
 }
 
-.about__intro {
-  max-width: 720px;
+.about__inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.08), transparent 35%),
+    radial-gradient(circle at 80% 60%, rgba(249, 210, 112, 0.1), transparent 32%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about__header {
+  position: relative;
+  z-index: 1;
   display: grid;
-  gap: 0.7rem;
+  gap: 1rem;
+}
+
+.about__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about__spark {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f9d270 0%, rgba(249, 210, 112, 0.4) 70%, transparent 100%);
+  box-shadow: 0 0 0 0 rgba(249, 210, 112, 0.5);
+  animation: pulse 2.2s ease-in-out infinite;
 }
 
 .about__cta {
@@ -551,11 +615,109 @@ h1 {
   color: #f9d270;
   text-decoration: none;
   margin-top: 0.2rem;
+  padding: 0.65rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(249, 210, 112, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  backdrop-filter: blur(6px);
 }
 
 .about__cta:hover,
 .about__cta:focus-visible {
-  text-decoration: underline;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(249, 210, 112, 0.16);
+  border-color: rgba(249, 210, 112, 0.6);
+  background: rgba(249, 210, 112, 0.08);
+  text-decoration: none;
+}
+
+.about__cta--solid {
+  background: linear-gradient(135deg, #f9d270, #f3b547);
+  color: #0c1224;
+  border: none;
+}
+
+.about__cta--solid:hover,
+.about__cta--solid:focus-visible {
+  box-shadow: 0 12px 35px rgba(249, 210, 112, 0.3);
+  transform: translateY(-2px);
+}
+
+.about__cta--ghost {
+  color: #eaf2ff;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.about__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.about__highlights {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.about__highlight {
+  display: grid;
+  gap: 0.1rem;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  padding: 0.7rem 0.8rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.about__pulse {
+  margin-top: 0.12rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.7), rgba(0, 255, 255, 0));
+  box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.4);
+  animation: pulse 1.9s ease-in-out infinite;
+}
+
+.about__pulse--gold {
+  background: radial-gradient(circle, rgba(249, 210, 112, 0.9), rgba(249, 210, 112, 0));
+  box-shadow: 0 0 0 0 rgba(249, 210, 112, 0.45);
+}
+
+.about__pulse--cyan {
+  background: radial-gradient(circle, rgba(142, 197, 255, 0.9), rgba(142, 197, 255, 0));
+  box-shadow: 0 0 0 0 rgba(142, 197, 255, 0.45);
+}
+
+.about__label {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.about__description {
+  margin: 0.08rem 0 0;
+  color: #c8dbff;
+  line-height: 1.5;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 currentColor;
+    transform: scale(1);
+  }
+  60% {
+    box-shadow: 0 0 0 10px transparent;
+    transform: scale(1.06);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+    transform: scale(1);
+  }
 }
 
 .section__header {
