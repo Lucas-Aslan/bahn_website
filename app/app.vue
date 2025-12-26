@@ -81,7 +81,7 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 1.25rem;
-  padding: 1.1rem 1.5rem;
+  padding: 0.8rem 1.3rem;
   margin: 1rem;
   border-radius: 18px;
   background: rgba(10, 10, 12, 0.88);
@@ -99,8 +99,8 @@
 }
 
 .brand-icon {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   display: grid;
   place-items: center;
   border-radius: 12px;
@@ -131,7 +131,7 @@
 
 .nav-link {
   position: relative;
-  padding: 0.65rem 0.95rem;
+  padding: 0.55rem 0.9rem;
   border-radius: 10px;
   color: #e8f0ff;
   text-decoration: none;
@@ -219,7 +219,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.2rem;
+  padding: 0.65rem 1.1rem;
   border-radius: 12px;
   background: linear-gradient(120deg, #f9d270, #c99038);
   color: #0c0a05;

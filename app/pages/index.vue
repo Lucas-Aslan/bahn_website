@@ -354,10 +354,11 @@ watch(currentVideoIndex, async () => {
 
 .hero {
   --hero-overlap: clamp(4.5rem, 12vh, 6.5rem);
+  --hero-bleed: calc(var(--hero-overlap) + 1.25rem);
   position: relative;
   overflow: hidden;
   border-radius: 0;
-  padding: calc(3.5rem + var(--hero-overlap)) clamp(1.4rem, 3vw, 2.4rem) 3.8rem;
+  padding: calc(3.5rem + var(--hero-bleed)) clamp(1.4rem, 3vw, 2.4rem) 3.8rem;
   background: linear-gradient(135deg, rgba(9, 12, 24, 0.92), rgba(5, 11, 24, 0.7));
   box-shadow: 0 35px 90px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   min-height: 540px;
@@ -367,7 +368,7 @@ watch(currentVideoIndex, async () => {
   max-width: none;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  margin-top: calc(-1rem - var(--hero-overlap));
+  margin-top: calc(-1rem - var(--hero-bleed));
 }
 
 .hero__video {
