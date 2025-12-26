@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 
 type HeroVideoSource = {
@@ -15,6 +15,10 @@ const heroVideos: HeroVideo[] = [
   {
     sources: [
       { src: '/videos/video1.mp4', type: 'video/mp4' },
+    ]
+  },
+  {
+    sources: [
       { src: '/videos/video2.mp4', type: 'video/mp4' },
     ]
   }
@@ -45,6 +49,8 @@ onMounted(() => {
   handleScroll()
   window.addEventListener('scroll', handleScroll, { passive: true })
 
+  heroVideoElement.value?.play().catch(() => {})
+
   const revealables = Array.from(document.querySelectorAll<HTMLElement>('.js-reveal'))
   revealObserver = new IntersectionObserver(
     (entries) => {
@@ -71,29 +77,36 @@ onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll)
   revealObserver?.disconnect()
 })
+
+watch(currentVideoIndex, async () => {
+  await nextTick()
+  heroVideoElement.value?.play().catch(() => {})
+})
 </script>
 
 <template>
   <div class="page">
     <section class="hero">
       <div class="hero__video" aria-hidden="true">
-        <video
-          :key="activeHeroVideo.sources[0]?.src"
-          ref="heroVideoElement"
-          autoplay
-          muted
-          :loop="heroVideos.length === 1"
-          playsinline
-          :poster="activeHeroVideo.poster"
-          @ended="handleHeroVideoEnded"
-        >
-          <source
-            v-for="source in activeHeroVideo.sources"
-            :key="source.src"
-            :src="source.src"
-            :type="source.type"
+        <Transition name="hero-video" mode="out-in">
+          <video
+            :key="activeHeroVideo.sources[0]?.src"
+            ref="heroVideoElement"
+            autoplay
+            muted
+            :loop="heroVideos.length === 1"
+            playsinline
+            :poster="activeHeroVideo.poster"
+            @ended="handleHeroVideoEnded"
           >
-        </video>
+            <source
+              v-for="source in activeHeroVideo.sources"
+              :key="source.src"
+              :src="source.src"
+              :type="source.type"
+            >
+          </video>
+        </Transition>
         <div class="hero__tint" />
       </div>
 
@@ -198,14 +211,27 @@ onBeforeUnmount(() => {
   object-fit: cover;
   filter: saturate(1.1) contrast(1.05);
   transform: scale(1.02);
+  opacity: 0.95;
+}
+
+.hero-video-enter-active,
+.hero-video-leave-active {
+  transition: opacity 0.9s ease, transform 1.2s ease;
+}
+
+.hero-video-enter-from,
+.hero-video-leave-to {
+  opacity: 0;
+  transform: scale(1.04);
 }
 
 .hero__tint {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 185, 80, 0.28), transparent 30%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(4, 12, 25, 0.92));
-  backdrop-filter: blur(2px);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 185, 80, 0.22), transparent 32%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(4, 12, 25, 0.8));
+  backdrop-filter: blur(1.5px);
+  mix-blend-mode: screen;
 }
 
 .hero__nameplate {
