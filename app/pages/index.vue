@@ -45,20 +45,7 @@ const heroVideos: HeroVideo[] = [
   }
 ]
 
-const accolades: Accolade[] = [
-  {
-    label: 'Präzision im Gleis',
-    detail: 'Eingespielte Teams, die jede Logistik-Aufgabe auf der Schiene taktisch abwickeln.'
-  },
-  {
-    label: 'Sicherheit zuerst',
-    detail: 'Zertifizierte Prozesse, vorausschauende Planung und lückenlose Dokumentation.'
-  },
-  {
-    label: 'Echte Partnerschaft',
-    detail: 'Wir denken Projekte mit – von der Vorbereitung bis zum letzten Signal.'
-  }
-]
+
 
 const metrics: Metric[] = [
   { value: '24/7', label: 'Einsatzbereit mit Crew & Gerät' },
