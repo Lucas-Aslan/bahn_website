@@ -40,6 +40,8 @@
     <main class="page-body">
       <NuxtPage />
     </main>
+
+    <AnimatedFooter />
   </div>
 </template>
 
