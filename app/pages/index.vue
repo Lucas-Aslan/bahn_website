@@ -1,16 +1,16 @@
 <script setup lang="ts">
 const accolades = [
   {
-    label: 'Präzision auf Schiene',
-    detail: 'Echtzeit-Überwachung & taktische Steuerung'
+    label: 'Sicher',
+    detail: 'Zertifizierte Prozesse & dokumentierte Freigaben'
   },
   {
-    label: '360° Services',
-    detail: 'Von Bau bis Betrieb – orchestriert aus einer Hand'
+    label: 'Termintreu',
+    detail: 'Strukturierte Meilensteine und Live-Transparenz'
   },
   {
-    label: 'Premium Support',
-    detail: '24/7 Einsatzteams mit minutiösen Response-SLAs'
+    label: 'Einsatzbereit',
+    detail: 'Erfahrene Teams mit 24/7 Bereitschaft für Ihr Projekt'
   }
 ]
 
@@ -65,19 +65,16 @@ const services = [
       </div>
 
       <div class="hero__content">
-        <div class="hero__badge">Ultra-Premium Rail Engineering</div>
-        <h1>
-          Babylon
-          <span class="hero__gold">Bahndienste</span>
-        </h1>
+        <div class="hero__badge">Babylon <span class="hero__gold">Bahndienste</span></div>
+        <h1>Sichere Bahndienste für einen zuverlässigen Betrieb.</h1>
         <p class="hero__lead">
-          Nachtglitzernde Trassen, goldene Standards: Wir kuratieren Bahnlogistik als Luxus-Erlebnis – mit
-          orchestrierter Präzision, immersiven Passagen und Services, die jeden Takt in Perfektion kleiden.
+          Babylon Bahndienste unterstützt Projekte rund um die Schiene mit erfahrenen Teams, strukturierten Abläufen und
+          höchsten Sicherheitsstandards – termintreu und präzise umgesetzt.
         </p>
 
         <div class="hero__actions">
-          <NuxtLink to="/kontakt" class="cta cta--solid">Kontakt aufnehmen</NuxtLink>
-          <NuxtLink to="/leistungen/transport" class="cta cta--ghost">Leistungsspektrum</NuxtLink>
+          <NuxtLink to="/kontakt" class="cta cta--solid">Projekt anfragen</NuxtLink>
+          <NuxtLink to="/leistungen/transport" class="cta cta--ghost">Leistungen ansehen</NuxtLink>
         </div>
 
         <div class="hero__accolades" role="list">
