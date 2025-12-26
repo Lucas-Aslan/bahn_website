@@ -209,9 +209,9 @@ watch(currentVideoIndex, async () => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(1.1) contrast(1.05);
-  transform: scale(1.02);
-  opacity: 0.95;
+  filter: saturate(1.05) contrast(1.12) brightness(0.92);
+  transform: scale(1.015);
+  opacity: 0.98;
 }
 
 .hero-video-enter-active,
@@ -228,10 +228,12 @@ watch(currentVideoIndex, async () => {
 .hero__tint {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 185, 80, 0.22), transparent 32%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(4, 12, 25, 0.8));
-  backdrop-filter: blur(1.5px);
-  mix-blend-mode: screen;
+  background:
+    radial-gradient(circle at 32% 30%, rgba(255, 185, 80, 0.22), transparent 34%),
+    linear-gradient(130deg, rgba(6, 12, 24, 0.2), rgba(0, 0, 0, 0.55) 55%, rgba(4, 12, 25, 0.78));
+  backdrop-filter: blur(2px);
+  mix-blend-mode: multiply;
+  opacity: 0.94;
 }
 
 .hero__nameplate {
@@ -256,6 +258,12 @@ watch(currentVideoIndex, async () => {
   display: grid;
   gap: 1.1rem;
   color: #e8f0ff;
+  padding: 1.4rem 1.6rem;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(7, 12, 22, 0.78), rgba(5, 10, 20, 0.64));
+  backdrop-filter: blur(9px) saturate(1.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .hero__title {
@@ -307,6 +315,7 @@ h1 {
   color: #cfe2ff;
   font-size: 1.08rem;
   line-height: 1.6;
+  text-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
 }
 
 .hero__actions {
