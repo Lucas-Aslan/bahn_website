@@ -1,18 +1,4 @@
 <script setup lang="ts">
-const accolades = [
-  {
-    label: 'Sicher',
-    detail: 'Zertifizierte Prozesse & dokumentierte Freigaben'
-  },
-  {
-    label: 'Termintreu',
-    detail: 'Strukturierte Meilensteine und Live-Transparenz'
-  },
-  {
-    label: 'Einsatzbereit',
-    detail: 'Erfahrene Teams mit 24/7 Bereitschaft für Ihr Projekt'
-  }
-]
 
 const metrics = [
   {
