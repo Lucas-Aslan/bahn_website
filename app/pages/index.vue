@@ -1029,6 +1029,8 @@ h1 {
   box-shadow:
     0 24px 60px rgba(0, 0, 0, 0.55),
     0 0 0 1px rgba(249, 210, 112, 0.4);
+  background: linear-gradient(120deg, #f9d270, #d3992c);
+  color: #0d0a06;
   filter: saturate(1.02);
 }
 
