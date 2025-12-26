@@ -662,19 +662,19 @@ h1 {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(246, 197, 76, 0.85), rgba(246, 197, 76, 0));
-  box-shadow: 0 0 0 0 rgba(246, 197, 76, 0.45);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.48);
   animation: pulse 1.9s ease-in-out infinite;
 }
 
 .about__pulse--gold {
-  background: radial-gradient(circle, rgba(236, 168, 44, 0.9), rgba(236, 168, 44, 0));
-  box-shadow: 0 0 0 0 rgba(236, 168, 44, 0.48);
+  background: radial-gradient(circle, rgba(12, 8, 3, 0.9), rgba(12, 8, 3, 0));
+  box-shadow: 0 0 0 0 rgba(12, 8, 3, 0.56);
 }
 
 .about__pulse--cyan {
-  background: radial-gradient(circle, rgba(189, 140, 41, 0.9), rgba(189, 140, 41, 0));
-  box-shadow: 0 0 0 0 rgba(189, 140, 41, 0.45);
+  background: radial-gradient(circle, rgba(18, 13, 6, 0.9), rgba(18, 13, 6, 0));
+  box-shadow: 0 0 0 0 rgba(18, 13, 6, 0.52);
 }
 
 .about__label {
