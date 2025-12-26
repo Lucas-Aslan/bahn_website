@@ -8,23 +8,13 @@ type HeroVideoSource = {
 }
 
 type HeroVideo = {
-  poster: string
   sources: HeroVideoSource[]
 }
 
 const heroVideos: HeroVideo[] = [
   {
-    poster: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80',
     sources: [
-      { src: '/videos/hero/bahnhof-nacht.mp4', type: 'video/mp4' },
-      { src: '/videos/hero/bahnhof-nacht.webm', type: 'video/webm' }
-    ]
-  },
-  {
-    poster: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80',
-    sources: [
-      { src: '/videos/hero/gleisbau.mp4', type: 'video/mp4' },
-      { src: '/videos/hero/gleisbau.webm', type: 'video/webm' }
+      { src: '/videos/hero/video1.mp4', type: 'video/mp4' },
     ]
   }
 ]
