@@ -40,32 +40,6 @@ const heroVideos: HeroVideo[] = [
   }
 ]
 
-
-
-const metrics: Metric[] = [
-  { value: '24/7', label: 'Einsatzbereit mit Crew & Gerät' },
-  { value: '98%', label: 'Termintreue bei Projektübergaben' },
-  { value: '12+', label: 'Großprojekte in Deutschland betreut' }
-]
-
-const services: Service[] = [
-  {
-    accent: 'Transport',
-    title: 'Präzisions-Transport',
-    description: 'Spezialisierte Transporte für Bahnanlagen, Materialien und sensible Komponenten.'
-  },
-  {
-    accent: 'Bau',
-    title: 'Infrastruktur-Bau',
-    description: 'Koordination, Aufbau und Sicherung von Gleis- und Anlagenprojekten.'
-  },
-  {
-    accent: 'Logistik',
-    title: 'Terminal & Logistik',
-    description: 'Steuerung von Materialflüssen, Umschlag und Lagerung entlang der Schiene.'
-  }
-]
-
 const currentVideoIndex = ref(0)
 const heroVideoElement = ref<HTMLVideoElement | null>(null)
 const scrollOffset = ref(0)
@@ -237,11 +211,8 @@ watch(currentVideoIndex, async () => {
 
           <div class="about__actions">
             <NuxtLink to="/about" class="about__cta about__cta--solid">
-              Mehr über unsere Arbeitsweise
+              Mehr über uns
               <span aria-hidden="true">→</span>
-            </NuxtLink>
-            <NuxtLink to="/kontakt" class="about__cta about__cta--ghost">
-              Gespräch vereinbaren
             </NuxtLink>
           </div>
         </div>
