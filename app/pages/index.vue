@@ -34,24 +34,6 @@ type PerformanceBlock = {
   points: string[]
 }
 
-const accolades: Accolade[] = [
-  { label: '24/7 Disposition', detail: 'Kurzfristig einsatzbereite Crews für Bau- und Regelbetrieb.' },
-  { label: 'Sicherheitsfokus', detail: 'Unterweisungen, Dokumentation und QS bleiben lückenlos.' },
-  { label: 'Team aus einer Hand', detail: 'Lokführer, Rangierbegleiter und Wagenprüfer nahtlos koordiniert.' }
-]
-
-const metrics: Metric[] = [
-  { value: '15+', label: 'Baureihen-Berechtigungen' },
-  { value: '10k+', label: 'sichere Rangier- & Bau-Einsätze pro Jahr' },
-  { value: '24/7', label: 'Disposition & Einsatzsteuerung' }
-]
-
-const services: Service[] = [
-  { accent: 'Transport', title: 'Güterverkehr', description: 'Traktion, Rangieren und Wagenprüfungen mit klaren Prozessen.' },
-  { accent: 'Bau', title: 'Gleisbaulogistik', description: 'Sicherheit und Präzision auf Baustellen, inkl. Kippberechtigungen.' },
-  { accent: 'Qualität', title: 'Abnahmen & Checks', description: 'Prüfungen, Bremsproben und Dokumentation mit Audit-Tiefe.' }
-]
-
 const performanceBlocks: PerformanceBlock[] = [
   {
     badge: 'Lok & Traktion',
@@ -297,7 +279,7 @@ watch(currentVideoIndex, async () => {
       <div class="performance__header section__header">
         <div>
           <p class="eyebrow">Leistungen</p>
-          <h2>Kompetenz in schwarz und Gold</h2>
+          <h2>Unsere Leistungen</h2>
           <p class="section__lead performance__lead">
             Kurz und knackig zusammengefasst – die Details finden Sie auf der Leistungsseite, hier sehen Sie direkt unsere
             Kernkompetenzen.
