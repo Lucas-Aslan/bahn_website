@@ -969,12 +969,31 @@ h1 {
 }
 
 .performance {
+  position: relative;
   background: radial-gradient(circle at 18% 24%, rgba(249, 210, 112, 0.06), transparent 36%),
     radial-gradient(circle at 82% 68%, rgba(201, 144, 56, 0.08), transparent 32%),
     linear-gradient(135deg, #090909, #050505);
   border: 1px solid rgba(249, 210, 112, 0.18);
   box-shadow: 0 28px 75px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
   color: #f6e6b4;
+}
+
+.performance::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 20px;
+  background: radial-gradient(circle at 20% 20%, rgba(249, 210, 112, 0.35), transparent 55%),
+    radial-gradient(circle at 80% 75%, rgba(201, 144, 56, 0.28), transparent 55%);
+  filter: blur(14px);
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.performance > * {
+  position: relative;
+  z-index: 1;
 }
 
 .performance__lead {
