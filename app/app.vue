@@ -82,7 +82,8 @@
   align-items: center;
   gap: 1.25rem;
   padding: 0.8rem 1.3rem;
-  margin: 1rem;
+  width: min(1100px, calc(100% - 2rem));
+  margin: 1rem auto;
   border-radius: 18px;
   background: rgba(10, 10, 12, 0.88);
   backdrop-filter: blur(14px);
