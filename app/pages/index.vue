@@ -106,6 +106,14 @@ onBeforeUnmount(() => {
         <div class="hero__tint" />
       </div>
 
+      <div
+        class="hero__nameplate"
+        aria-hidden="true"
+        :style="{ '--nameplate-shift': `${-heroParallax}px` }"
+      >
+        Babylon Bahndienste
+      </div>
+
       <div class="hero__content">
         <p class="hero__title">Babylon Bahndienste</p>
         <div class="hero__badge">Babylon <span class="hero__gold">Bahndienste</span></div>
@@ -224,6 +232,21 @@ onBeforeUnmount(() => {
   background: radial-gradient(circle at 30% 30%, rgba(255, 185, 80, 0.28), transparent 30%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(4, 12, 25, 0.92));
   backdrop-filter: blur(2px);
+}
+
+.hero__nameplate {
+  position: absolute;
+  inset: 12% auto auto 8%;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #f9d270;
+  opacity: 0.12;
+  filter: drop-shadow(0 28px 60px rgba(249, 210, 112, 0.18));
+  transform: translateY(var(--nameplate-shift, 0));
+  transition: transform 0.2s ease-out;
+  pointer-events: none;
 }
 
 .hero__content {
