@@ -172,6 +172,11 @@ watch(currentVideoIndex, async () => {
     </section>
 
     <section id="about" class="about section js-reveal">
+      <div class="about__entry-overlay" aria-hidden="true">
+        <span class="about__beam about__beam--left" />
+        <span class="about__beam about__beam--center" />
+        <span class="about__beam about__beam--right" />
+      </div>
       <div class="about__inner">
         <div class="about__header">
           <div class="about__eyebrow">
@@ -506,6 +511,7 @@ h1 {
   pointer-events: none;
 }
 
+
 .js-reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -537,6 +543,13 @@ h1 {
   border: 1px solid rgba(131, 87, 8, 0.24);
   box-shadow: 0 30px 80px rgba(115, 78, 5, 0.32);
   color: #2a1a04;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  transition:
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.15, 1),
+    opacity 0.9s ease,
+    filter 0.9s ease,
+    box-shadow 0.9s ease;
 }
 
 .about h2 {
@@ -572,10 +585,130 @@ h1 {
   gap: 1rem;
 }
 
+.about__entry-overlay {
+  position: absolute;
+  inset: -10%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  opacity: 0;
+}
+
+.about__beam {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0));
+  filter: blur(24px);
+  transform: translateY(32px) skewX(-12deg) scaleX(0.6);
+  mix-blend-mode: screen;
+  border-radius: 18px;
+  opacity: 0.65;
+}
+
+.about__beam--left {
+  left: -26%;
+  width: 40%;
+}
+
+.about__beam--center {
+  left: 10%;
+  width: 38%;
+  filter: blur(30px);
+  opacity: 0.5;
+}
+
+.about__beam--right {
+  right: -24%;
+  width: 42%;
+  filter: blur(22px);
+  opacity: 0.7;
+}
+
+.about.js-reveal {
+  transform: translateY(28px) scale(0.985) rotateX(5deg);
+  filter: blur(8px) saturate(0.9);
+}
+
+.about.js-reveal.is-visible {
+  transform: translateY(0) scale(1) rotateX(0deg);
+  filter: blur(0) saturate(1.05);
+  box-shadow: 0 35px 90px rgba(115, 78, 5, 0.38), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.about.js-reveal.is-visible .about__entry-overlay {
+  opacity: 1;
+  animation: curtainSweep 1.2s cubic-bezier(0.17, 0.86, 0.25, 1) forwards;
+}
+
+.about.js-reveal.is-visible .about__beam--left {
+  animation: beamSlide 1.2s 0.05s cubic-bezier(0.2, 0.8, 0.1, 1) forwards;
+}
+
+.about.js-reveal.is-visible .about__beam--center {
+  animation: beamSlide 1.2s 0.12s cubic-bezier(0.2, 0.8, 0.1, 1) forwards;
+}
+
+.about.js-reveal.is-visible .about__beam--right {
+  animation: beamSlide 1.2s 0.18s cubic-bezier(0.2, 0.8, 0.1, 1) forwards;
+}
+
+.about.js-reveal.is-visible .about__header,
+.about.js-reveal.is-visible .about__highlights,
+.about.js-reveal.is-visible .about__actions {
+  animation: contentLift 0.8s 0.1s ease forwards;
+}
+
 .about__eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+@keyframes curtainSweep {
+  0% {
+    clip-path: inset(0 0 0 0);
+    opacity: 0.9;
+    transform: translateY(32px);
+  }
+  60% {
+    clip-path: inset(0 0 0 55%);
+    opacity: 0.75;
+    transform: translateY(6px);
+  }
+  100% {
+    clip-path: inset(0 0 0 100%);
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes beamSlide {
+  from {
+    transform: translateY(28px) skewX(-12deg) scaleX(0.6);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.7;
+  }
+  to {
+    transform: translateY(-38px) skewX(-8deg) scaleX(1.05);
+    opacity: 0;
+  }
+}
+
+@keyframes contentLift {
+  from {
+    transform: translateY(18px);
+    opacity: 0;
+  }
+  65% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .about .eyebrow {
