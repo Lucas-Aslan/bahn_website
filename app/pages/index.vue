@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 const metrics = [
   {
@@ -32,6 +33,62 @@ const services = [
     accent: 'Vision'
   }
 ]
+
+const accolades = [
+  {
+    label: 'Einsatzleitung',
+    detail: 'Zugelassene Sicherheitskoordination für hochfrequentierte Bahnkorridore.'
+  },
+  {
+    label: '24/7-Kontrolle',
+    detail: 'Live-Monitoring mit redundanter Leitstelle und vorausschauender Disposition.'
+  },
+  {
+    label: 'Exzellenz-Siegel',
+    detail: 'Goldener Service-Standard mit dokumentierten KPI-Reports pro Einsatz.'
+  }
+]
+
+const scrollOffset = ref(0)
+let revealObserver: IntersectionObserver | null = null
+
+const handleScroll = () => {
+  scrollOffset.value = window.scrollY
+}
+
+const heroParallax = computed(() => Math.min(scrollOffset.value * 0.05, 40))
+const orbitDrift = computed(() => Math.min(scrollOffset.value * 0.08, 80))
+
+onMounted(() => {
+  handleScroll()
+  window.addEventListener('scroll', handleScroll, { passive: true })
+
+  const revealables = Array.from(document.querySelectorAll<HTMLElement>('.js-reveal'))
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          revealObserver?.unobserve(entry.target)
+        }
+      })
+    },
+    {
+      threshold: 0.2,
+      rootMargin: '0px 0px -10% 0px'
+    }
+  )
+
+  revealables.forEach((element, index) => {
+    element.style.setProperty('--reveal-delay', `${index * 80}ms`)
+    revealObserver?.observe(element)
+  })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+  revealObserver?.disconnect()
+})
 </script>
 
 <template>
@@ -48,6 +105,14 @@ const services = [
           <source src="https://cdn.coverr.co/videos/coverr-night-city-train-1572/1080p.mp4" type="video/mp4">
         </video>
         <div class="hero__tint" />
+      </div>
+
+      <div
+        class="hero__nameplate"
+        aria-hidden="true"
+        :style="{ '--nameplate-shift': `${-heroParallax}px` }"
+      >
+        Babylon Bahndienste
       </div>
 
       <div class="hero__content">
@@ -76,11 +141,19 @@ const services = [
         </div>
       </div>
 
-      <div class="hero__orbit hero__orbit--one" aria-hidden="true" />
-      <div class="hero__orbit hero__orbit--two" aria-hidden="true" />
+      <div
+        class="hero__orbit hero__orbit--one"
+        aria-hidden="true"
+        :style="{ transform: `translateY(${orbitDrift * 0.6}px) rotate(${orbitDrift / 2}deg)` }"
+      />
+      <div
+        class="hero__orbit hero__orbit--two"
+        aria-hidden="true"
+        :style="{ transform: `translateY(${orbitDrift * -0.4}px) rotate(${orbitDrift / -3}deg)` }"
+      />
     </section>
 
-    <section class="section">
+    <section class="section js-reveal">
       <div class="section__header">
         <div>
           <p class="eyebrow">Refined Performance</p>
@@ -107,7 +180,7 @@ const services = [
         <article
           v-for="service in services"
           :key="service.title"
-          class="service-card"
+          class="service-card js-reveal"
         >
           <span class="service-card__accent">{{ service.accent }}</span>
           <h3>{{ service.title }}</h3>
@@ -159,6 +232,21 @@ const services = [
   background: radial-gradient(circle at 30% 30%, rgba(255, 185, 80, 0.28), transparent 30%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(4, 12, 25, 0.92));
   backdrop-filter: blur(2px);
+}
+
+.hero__nameplate {
+  position: absolute;
+  inset: 12% auto auto 8%;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #f9d270;
+  opacity: 0.12;
+  filter: drop-shadow(0 28px 60px rgba(249, 210, 112, 0.18));
+  transform: translateY(var(--nameplate-shift, 0));
+  transition: transform 0.2s ease-out;
+  pointer-events: none;
 }
 
 .hero__content {
@@ -308,6 +396,18 @@ h1 {
   background: radial-gradient(circle, rgba(0, 255, 255, 0.18), transparent 60%);
   top: -60px;
   left: 10%;
+}
+
+.js-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section {
