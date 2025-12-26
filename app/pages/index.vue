@@ -112,7 +112,7 @@ watch(currentVideoIndex, async () => {
 
       <div class="hero__content">
         <div class="hero__badge"> <span class="hero__gold">Bahndienstleistungen</span></div>
-        <p class="hero__title">Babylon Bahndienste</p>
+        <p class="hero__title">Babylon Bahndienste UG</p>
         <p class="hero__lead">
           Babylon Bahndienste unterstützt Projekte rund um die Schiene mit erfahrenen Teams, strukturierten Abläufen und
           höchsten Sicherheitsstandards – termintreu und präzise umgesetzt.

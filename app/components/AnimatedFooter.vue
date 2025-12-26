@@ -5,11 +5,11 @@
       <div class="footer__brand">
         <div class="footer__logo">
           <span class="footer__spark" aria-hidden="true" />
-          <span class="footer__initials">BL</span>
+          <span class="footer__initials">LOGO</span>
         </div>
         <div>
           <p class="footer__eyebrow">Bahnlogistik</p>
-          <p class="footer__title">RailPulse</p>
+          <p class="footer__title">Babylon Bahndienste</p>
         </div>
         <p class="footer__tagline">
           Fortschrittliche Lösungen für Schienenverkehr, Infrastruktur und Logistik – präzise, sicher und mit
@@ -56,11 +56,10 @@
     <div class="footer__meta">
       <div class="footer__ticker" aria-hidden="true">
         <span class="footer__pulse" />
-        <span>Next departure in: 02:45</span>
         <span>Netzstabilität: 99.98%</span>
         <span>Flotten-Tracking aktiv</span>
       </div>
-      <p class="footer__legal">© 2024 RailPulse Bahnlogistik – Präzision auf Schienen.</p>
+      <p class="footer__legal">© 2026 Babylon Bahndienste – Präzision auf Schienen.</p>
     </div>
   </footer>
 </template>

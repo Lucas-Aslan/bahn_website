@@ -4,10 +4,10 @@
     <header class="topbar">
       <NuxtRouteAnnouncer />
       <div class="brand">
-        <div class="brand-icon">BL</div>
+        <div class="brand-icon">LOG</div>
         <div>
-          <p class="brand-kicker">Bahnlogistik</p>
-          <p class="brand-name">RailPulse</p>
+          <p class="brand-kicker">Babylon Bahndienste UG</p>
+          <!-- <p class="brand-name">Babylon Bahndienste UG</p> -->
         </div>
       </div>
 
