@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 const metrics = [
   {
@@ -32,6 +33,61 @@ const services = [
     accent: 'Vision'
   }
 ]
+
+const accolades = [
+  {
+    label: 'Einsatzleitung',
+    detail: 'Zugelassene Sicherheitskoordination für hochfrequentierte Bahnkorridore.'
+  },
+  {
+    label: '24/7-Kontrolle',
+    detail: 'Live-Monitoring mit redundanter Leitstelle und vorausschauender Disposition.'
+  },
+  {
+    label: 'Exzellenz-Siegel',
+    detail: 'Goldener Service-Standard mit dokumentierten KPI-Reports pro Einsatz.'
+  }
+]
+
+const scrollOffset = ref(0)
+let revealObserver: IntersectionObserver | null = null
+
+const handleScroll = () => {
+  scrollOffset.value = window.scrollY
+}
+
+const orbitDrift = computed(() => Math.min(scrollOffset.value * 0.08, 80))
+
+onMounted(() => {
+  handleScroll()
+  window.addEventListener('scroll', handleScroll, { passive: true })
+
+  const revealables = Array.from(document.querySelectorAll<HTMLElement>('.js-reveal'))
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          revealObserver?.unobserve(entry.target)
+        }
+      })
+    },
+    {
+      threshold: 0.2,
+      rootMargin: '0px 0px -10% 0px'
+    }
+  )
+
+  revealables.forEach((element, index) => {
+    element.style.setProperty('--reveal-delay', `${index * 80}ms`)
+    revealObserver?.observe(element)
+  })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+  revealObserver?.disconnect()
+})
 </script>
 
 <template>
@@ -51,6 +107,7 @@ const services = [
       </div>
 
       <div class="hero__content">
+        <p class="hero__title">Babylon Bahndienste</p>
         <div class="hero__badge">Babylon <span class="hero__gold">Bahndienste</span></div>
         <h1>Sichere Bahndienste für einen zuverlässigen Betrieb.</h1>
         <p class="hero__lead">
@@ -76,11 +133,19 @@ const services = [
         </div>
       </div>
 
-      <div class="hero__orbit hero__orbit--one" aria-hidden="true" />
-      <div class="hero__orbit hero__orbit--two" aria-hidden="true" />
+      <div
+        class="hero__orbit hero__orbit--one"
+        aria-hidden="true"
+        :style="{ transform: `translateY(${orbitDrift * 0.6}px) rotate(${orbitDrift / 2}deg)` }"
+      />
+      <div
+        class="hero__orbit hero__orbit--two"
+        aria-hidden="true"
+        :style="{ transform: `translateY(${orbitDrift * -0.4}px) rotate(${orbitDrift / -3}deg)` }"
+      />
     </section>
 
-    <section class="section">
+    <section class="section js-reveal">
       <div class="section__header">
         <div>
           <p class="eyebrow">Refined Performance</p>
@@ -107,7 +172,7 @@ const services = [
         <article
           v-for="service in services"
           :key="service.title"
-          class="service-card"
+          class="service-card js-reveal"
         >
           <span class="service-card__accent">{{ service.accent }}</span>
           <h3>{{ service.title }}</h3>
@@ -168,6 +233,18 @@ const services = [
   display: grid;
   gap: 1.1rem;
   color: #e8f0ff;
+}
+
+.hero__title {
+  margin: 0;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  background: linear-gradient(115deg, #f6e6b4, #f9d270 40%, #c99038);
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 12px 28px rgba(249, 210, 112, 0.28));
 }
 
 .hero__badge {
@@ -308,6 +385,18 @@ h1 {
   background: radial-gradient(circle, rgba(0, 255, 255, 0.18), transparent 60%);
   top: -60px;
   left: 10%;
+}
+
+.js-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section {
