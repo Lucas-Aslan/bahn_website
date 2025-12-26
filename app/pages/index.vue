@@ -56,7 +56,6 @@ const handleScroll = () => {
   scrollOffset.value = window.scrollY
 }
 
-const heroParallax = computed(() => Math.min(scrollOffset.value * 0.05, 40))
 const orbitDrift = computed(() => Math.min(scrollOffset.value * 0.08, 80))
 
 onMounted(() => {
@@ -116,6 +115,7 @@ onBeforeUnmount(() => {
       </div>
 
       <div class="hero__content">
+        <p class="hero__title">Babylon Bahndienste</p>
         <div class="hero__badge">Babylon <span class="hero__gold">Bahndienste</span></div>
         <h1>Sichere Bahndienste für einen zuverlässigen Betrieb.</h1>
         <p class="hero__lead">
@@ -256,6 +256,18 @@ onBeforeUnmount(() => {
   display: grid;
   gap: 1.1rem;
   color: #e8f0ff;
+}
+
+.hero__title {
+  margin: 0;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  background: linear-gradient(115deg, #f6e6b4, #f9d270 40%, #c99038);
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 12px 28px rgba(249, 210, 112, 0.28));
 }
 
 .hero__badge {
