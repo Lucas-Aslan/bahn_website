@@ -27,11 +27,6 @@ type Service = {
   description: string
 }
 
-type AboutHighlight = {
-  title: string
-  detail: string
-}
-
 const heroVideos: HeroVideo[] = [
   {
     sources: [
@@ -68,21 +63,6 @@ const services: Service[] = [
     accent: 'Logistik',
     title: 'Terminal & Logistik',
     description: 'Steuerung von Materialflüssen, Umschlag und Lagerung entlang der Schiene.'
-  }
-]
-
-const aboutHighlights: AboutHighlight[] = [
-  {
-    title: 'Crew mit Bahnerfahrung',
-    detail: 'Lokführer, Sicherungsposten und Dispo arbeiten als ein Team – klar geführt und briefingstark.'
-  },
-  {
-    title: 'Planbar & transparent',
-    detail: 'Dashboards, Check-ins und kurze Feedback-Loops halten alle Beteiligten im Takt.'
-  },
-  {
-    title: 'Einsatzbereit in Stunden',
-    detail: 'Wir aktivieren Material und Personal in kürzester Zeit, wenn Projekte Geschwindigkeit brauchen.'
   }
 ]
 
@@ -221,54 +201,15 @@ watch(currentVideoIndex, async () => {
       <div class="about__inner">
         <div class="about__intro">
           <p class="eyebrow">Über uns</p>
-          <h2>Teams, die Bahnhöfe und Baustellen in Bewegung halten.</h2>
+          <h2>Teams, die Bahnhöfe und Baustellen in Bewegung halten – kurz &amp; knapp.</h2>
           <p class="section__lead">
-            Wir verbinden Einsatzbereitschaft, Präzision und klare Kommunikation. Mit kurzen Wegen, viel Erfahrung und
-            einem Auge fürs Detail begleiten wir Bahnprojekte von der ersten Absprache bis zur fertigen Übergabe.
+            Babylon Bahndienste stellt erfahrene Crews, Safety-Standards und klare Abläufe bereit, damit Bahnprojekte
+            sicher und planbar laufen.
           </p>
-          <div class="about__chips" role="list">
-            <span class="about__chip" role="listitem">Operational Excellence</span>
-            <span class="about__chip" role="listitem">Sifa-geschult &amp; zertifiziert</span>
-            <span class="about__chip" role="listitem">Crew ready on call</span>
-          </div>
-        </div>
-
-        <div class="about__layout">
-          <div class="about__panel js-reveal">
-            <div class="about__panel-heading">
-              <span class="about__signal" aria-hidden="true"></span>
-              <div>
-                <p class="about__panel-kicker">Mit jedem Meter abgestimmt</p>
-                <p class="about__panel-title">Wir denken Projekte taktisch.</p>
-              </div>
-            </div>
-            <p class="about__panel-copy">
-              Jede Schicht beginnt mit Briefing, Safety-Check und einem glasklaren Ablaufplan. So bleiben Züge, Menschen
-              und Material sicher im Takt – auch wenn sich die Rahmenbedingungen ändern.
-            </p>
-            <div class="about__panel-stats" role="list">
-              <div class="about__panel-stat" role="listitem">
-                <span class="about__panel-value">15 min</span>
-                <span class="about__panel-label">Reaktionszeit auf Lageänderungen</span>
-              </div>
-              <div class="about__panel-stat" role="listitem">
-                <span class="about__panel-value">0</span>
-                <span class="about__panel-label">Ausfälle bei Sicherheit &amp; QS</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="about__cards">
-            <article
-              v-for="item in aboutHighlights"
-              :key="item.title"
-              class="about__card js-reveal"
-            >
-              <h3>{{ item.title }}</h3>
-              <p>{{ item.detail }}</p>
-              <span class="about__pulse" aria-hidden="true"></span>
-            </article>
-          </div>
+          <NuxtLink to="/about" class="about__cta">
+            Mehr erfahren
+            <span aria-hidden="true">→</span>
+          </NuxtLink>
         </div>
       </div>
     </section>
@@ -597,194 +538,24 @@ h1 {
 }
 
 .about__intro {
-  max-width: 820px;
+  max-width: 720px;
   display: grid;
-  gap: 0.65rem;
+  gap: 0.7rem;
 }
 
-.about__chips {
-  display: flex;
-  gap: 0.55rem;
-  flex-wrap: wrap;
-}
-
-.about__chip {
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(249, 210, 112, 0.18);
-  color: #f6e6b4;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.about__layout {
-  display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(360px, 1.2fr);
-  gap: 1.4rem;
-  align-items: stretch;
-}
-
-.about__panel {
-  position: relative;
-  padding: 1.4rem 1.3rem;
-  border-radius: 18px;
-  background: rgba(8, 12, 20, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.42);
-  overflow: hidden;
-}
-
-.about__panel::after {
-  content: '';
-  position: absolute;
-  inset: -20% -30% auto auto;
-  height: 160px;
-  width: 220px;
-  background: radial-gradient(circle, rgba(249, 210, 112, 0.14), transparent 52%);
-  filter: blur(18px);
-  opacity: 0.8;
-}
-
-.about__panel-heading {
-  display: flex;
+.about__cta {
+  display: inline-flex;
   align-items: center;
-  gap: 0.9rem;
-}
-
-.about__panel-kicker {
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #8ec5ff;
-  font-size: 0.82rem;
-}
-
-.about__panel-title {
-  margin: 0.1rem 0 0;
-  font-size: 1.4rem;
-  letter-spacing: -0.015em;
-}
-
-.about__panel-copy {
-  margin: 1rem 0 1.2rem;
-  color: #d6e6ff;
-  line-height: 1.6;
-}
-
-.about__panel-copy strong {
+  gap: 0.4rem;
+  font-weight: 700;
   color: #f9d270;
+  text-decoration: none;
+  margin-top: 0.2rem;
 }
 
-.about__panel-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.8rem;
-}
-
-.about__panel-stat {
-  padding: 0.9rem 1rem;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-}
-
-.about__panel-value {
-  display: block;
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: #f9d270;
-}
-
-.about__panel-label {
-  color: #cfe2ff;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.about__signal {
-  width: 18px;
-  height: 18px;
-  border-radius: 4px;
-  background: linear-gradient(135deg, #f9d270, #c99038);
-  box-shadow: 0 0 0 6px rgba(249, 210, 112, 0.16), 0 0 0 12px rgba(249, 210, 112, 0.06), 0 12px 30px rgba(249, 210, 112, 0.4);
-  position: relative;
-}
-
-.about__signal::after {
-  content: '';
-  position: absolute;
-  inset: -12px;
-  border-radius: 10px;
-  border: 1px dashed rgba(249, 210, 112, 0.4);
-  animation: signal-pulse 2.6s ease-in-out infinite;
-}
-
-.about__cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-}
-
-.about__card {
-  position: relative;
-  padding: 1.2rem 1rem 1.4rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  min-height: 160px;
-  overflow: hidden;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.36);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.about__card h3 {
-  margin: 0 0 0.35rem;
-  font-size: 1.08rem;
-}
-
-.about__card p {
-  margin: 0;
-  color: #d6e6ff;
-  line-height: 1.5;
-}
-
-.about__card:hover,
-.about__card:focus-within {
-  transform: translateY(-4px);
-  border-color: rgba(249, 210, 112, 0.4);
-  box-shadow: 0 22px 60px rgba(249, 210, 112, 0.22);
-}
-
-.about__pulse {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 18% 28%, rgba(0, 255, 255, 0.12), transparent 36%),
-    radial-gradient(circle at 82% 72%, rgba(249, 210, 112, 0.12), transparent 40%);
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-.about__card:hover .about__pulse,
-.about__card:focus-within .about__pulse {
-  opacity: 1;
-}
-
-@keyframes signal-pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.6;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+.about__cta:hover,
+.about__cta:focus-visible {
+  text-decoration: underline;
 }
 
 .section__header {
