@@ -34,6 +34,23 @@ type PerformanceBlock = {
   points: string[]
 }
 
+const accolades: Accolade[] = [
+  { label: '24/7 Disposition', detail: 'Kurzfristig einsatzbereite Crews für Bau- und Regelbetrieb.' },
+  { label: 'Sicherheitsfokus', detail: 'Unterweisungen, Dokumentation und QS bleiben lückenlos.' },
+  { label: 'Team aus einer Hand', detail: 'Lokführer, Rangierbegleiter und Wagenprüfer nahtlos koordiniert.' }
+]
+
+const metrics: Metric[] = [
+  { value: '15+', label: 'Baureihen-Berechtigungen' },
+  { value: '10k+', label: 'sichere Rangier- & Bau-Einsätze pro Jahr' },
+  { value: '24/7', label: 'Disposition & Einsatzsteuerung' }
+]
+
+const services: Service[] = [
+  { accent: 'Transport', title: 'Güterverkehr', description: 'Traktion, Rangieren und Wagenprüfungen mit klaren Prozessen.' },
+  { accent: 'Bau', title: 'Gleisbaulogistik', description: 'Sicherheit und Präzision auf Baustellen, inkl. Kippberechtigungen.' },
+  { accent: 'Qualität', title: 'Abnahmen & Checks', description: 'Prüfungen, Bremsproben und Dokumentation mit Audit-Tiefe.' }
+]
 
 const performanceBlocks: PerformanceBlock[] = [
   {
@@ -280,6 +297,7 @@ watch(currentVideoIndex, async () => {
       <div class="performance__header section__header">
         <div>
           <p class="eyebrow">Leistungen</p>
+          <h2>Kompetenz in schwarz und Gold</h2>
           <p class="section__lead performance__lead">
             Kurz und knackig zusammengefasst – die Details finden Sie auf der Leistungsseite, hier sehen Sie direkt unsere
             Kernkompetenzen.
@@ -293,9 +311,10 @@ watch(currentVideoIndex, async () => {
 
       <div class="performance__grid">
         <article
-          v-for="block in performanceBlocks"
+          v-for="(block, index) in performanceBlocks"
           :key="block.title"
           class="performance-card"
+          :style="{ '--card-delay': `${index * 100}ms` }"
         >
           <div class="performance-card__header">
             <span class="performance-card__badge">{{ block.badge }}</span>
@@ -1015,14 +1034,22 @@ h1 {
   border: 1px solid rgba(249, 210, 112, 0.18);
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
   color: #f6e6b4;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  opacity: 0;
+  transform: translateY(28px) scale(0.96) rotateX(5deg);
+  filter: blur(12px);
+}
+
+.performance.js-reveal.is-visible .performance-card {
+  animation: performanceCardEnter 0.9s cubic-bezier(0.22, 0.85, 0.35, 1) forwards;
+  animation-delay: var(--card-delay, 0ms);
 }
 
 .performance-card:hover,
 .performance-card:focus-within {
   transform: translateY(-6px);
   border-color: rgba(249, 210, 112, 0.34);
-  box-shadow: 0 26px 65px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 26px 65px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(249, 210, 112, 0.18);
 }
 
 .performance-card__header {
@@ -1040,6 +1067,7 @@ h1 {
   font-size: 0.78rem;
   text-transform: uppercase;
   border: 1px solid rgba(249, 210, 112, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .performance-card h3 {
@@ -1090,8 +1118,56 @@ h1 {
   inset: -12%;
   background: radial-gradient(circle at 24% 24%, rgba(249, 210, 112, 0.12), transparent 38%),
     radial-gradient(circle at 78% 70%, rgba(201, 144, 56, 0.1), transparent 40%);
-  opacity: 0.7;
+  opacity: 0.65;
   pointer-events: none;
+  animation: performanceGlow 6s ease-in-out infinite;
+}
+
+.performance-card::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: 17px;
+  background: linear-gradient(120deg, rgba(249, 210, 112, 0.12), rgba(249, 210, 112, 0));
+  opacity: 0.8;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+.performance-card:hover::after,
+.performance-card:focus-within::after {
+  opacity: 1;
+}
+
+@keyframes performanceCardEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.94) rotateX(6deg);
+    filter: blur(14px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.01) rotateX(0deg);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes performanceGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.92;
+    transform: scale(1.04);
+  }
 }
 
 .metric {
