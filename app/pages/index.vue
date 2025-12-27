@@ -32,20 +32,6 @@
     answer: string
   }
 
-  const accolades: Accolade[] = [
-    {
-      label: 'Zertifizierte Sicherheit',
-      detail: 'EBA-konforme Prozesse, dokumentierte Unterweisungen und revisionssichere Nachweise.'
-    },
-    {
-      label: 'Erfahrene Crews',
-      detail: 'Triebfahrzeugführer, Rangierbegleiter und Wagenprüfer mit Streckenkunde und Praxiserfahrung.'
-    },
-    {
-      label: 'Live Kommunikation',
-      detail: 'Feste Ansprechpartner, Reporting aus der Disposition und klare Übergaben an die Leitstelle.'
-    }
-  ]
 
   const metrics: Metric[] = [
     { value: '24/7', label: 'Disposition & Einsatzsteuerung' },
@@ -754,6 +740,7 @@
     color: transparent;
     filter: drop-shadow(0 12px 28px rgba(249, 210, 112, 0.28));
   }
+  
   
   .hero__badge {
     display: inline-flex;
