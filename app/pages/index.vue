@@ -87,23 +87,23 @@
     {
       tag: 'Einstieg',
       title: 'Ausbildung & Qualifizierung',
-      description: 'Strukturierte Lernpfade, mentores Training und Prüfungsbegleitung für alle Bahn-spezifischen Rollen.',
-      focus: 'Trainingspfade mit realen Szenarien',
-      points: ['Persönliche Pat:innen im Einsatz', 'Prüfungsvorbereitung mit Feedback', 'Zertifizierte Abschlüsse & Nachweise']
+      description: 'Dichte Trainingspfade für Bahnbetrieb, Rangieren und Werkslogistik – kompakt, geprüft, dokumentiert.',
+      focus: 'Ready für den Gleisanschluss',
+      points: ['Mentor:in im ersten Einsatz', 'Prüfungsvorbereitung mit Checklisten', 'Abschlüsse inkl. Nachweis-Tool']
     },
     {
       tag: 'Aufstieg',
       title: 'Spezialisierung & Verantwortung',
-      description: 'Vom Rangierprofi zur Einsatzleitung: Wir entwickeln Talente mit Führungs- und Sicherheitsmodulen.',
+      description: 'Von der Rangierbegleitung bis zur Einsatzleitung: Fokus auf Sicherheit, Disposition und Crewführung.',
       focus: 'Führung & Sicherheit im Fokus',
-      points: ['Leadership-Labs & Coaching', 'Sicherheits-Updates im Monatsrhythmus', 'Transparente Karrierepfade']
+      points: ['Leadership-Sprints & Coaching', 'Monatliche Sicherheits-Updates', 'Klare Entwicklungspfade']
     },
     {
       tag: 'Impact',
       title: 'Teams, die liefern',
-      description: 'Planbare Schichten, saubere Dokumentation und Tools, die den Alltag auf der Strecke erleichtern.',
+      description: 'Schlanke Schichten, schnelle Dispo und Reporting, das Ihre Bahnlogistik transparent hält.',
       focus: 'Digitale Abläufe & starke Crew',
-      points: ['Planbare Einsatzrotationen', 'Digitale Reportings & Checklisten', 'Kultur der kurzen Wege']
+      points: ['Einsatzrotationen mit Vorlauf', 'Digitale Reportings & Handovers', 'Kultur der kurzen Wege']
     }
   ]
 
@@ -422,6 +422,7 @@
           <span class="career__halo career__halo--gold" />
           <span class="career__halo career__halo--cyan" />
           <span class="career__gridlines" />
+          <span class="career__ribbons" />
         </div>
 
         <div class="career__header">
@@ -432,8 +433,8 @@
           <div class="career__intro">
             <h2>Starte Deine Laufbahn bei Babylon Bahndienste</h2>
             <p class="career__lead">
-              Wir kombinieren präzise Abläufe mit persönlichem Coaching: klare Schichten, messbare Entwicklung und Teams,
-              die zusammenhalten. Bewirb Dich in wenigen Minuten und erlebe ein Onboarding mit Tempo, Tiefe und Respekt.
+              Bahnlogistik ist Tempo und Präzision zugleich: Wir koppeln Dich an sichere Prozesse, schnelle Dispo und ein Team,
+              das Schichtübergaben sauber dokumentiert. Bewirb Dich in Minuten – Feedback kommt innerhalb von 48 Stunden.
             </p>
             <div class="career__actions">
               <NuxtLink to="/kontakt" class="cta cta--solid career__cta">
@@ -1528,6 +1529,7 @@
     border: 1px solid rgba(255, 255, 255, 0.06);
     color: #f6f8fb;
     isolation: isolate;
+    padding: clamp(1.1rem, 2vw, 1.6rem);
   }
 
   .career__backdrop {
@@ -1547,6 +1549,20 @@
     opacity: 0.25;
     filter: blur(1px);
     transform: rotate(-2deg) scale(1.1);
+  }
+
+  .career__ribbons {
+    position: absolute;
+    inset: -40% -10% auto -20%;
+    height: 320px;
+    background:
+      linear-gradient(110deg, rgba(249, 210, 112, 0.15), transparent 40%),
+      linear-gradient(120deg, rgba(0, 255, 255, 0.14), transparent 50%),
+      linear-gradient(140deg, rgba(255, 255, 255, 0.08), transparent 55%);
+    transform: skewY(-4deg);
+    filter: blur(18px);
+    opacity: 0.45;
+    animation: careerRibbonSlide 14s linear infinite;
   }
 
   .career__halo {
@@ -1667,7 +1683,7 @@
 
   .career-card:hover,
   .career-card:focus-within {
-    transform: translateY(-6px) scale(1.01);
+    transform: translateY(-6px) scale(1.015) rotate3d(1, 0.2, 0, 2deg);
     border-color: rgba(249, 210, 112, 0.4);
     box-shadow:
       0 24px 60px rgba(0, 0, 0, 0.48),
@@ -1691,6 +1707,17 @@
   .career-card__header {
     display: grid;
     gap: 0.35rem;
+    position: relative;
+  }
+
+  .career-card__header::after {
+    content: '';
+    position: absolute;
+    inset: -10% -5%;
+    background: linear-gradient(115deg, rgba(255, 255, 255, 0.14), transparent 50%);
+    opacity: 0;
+    transform: translateX(-6%);
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
 
   .career-card__pill {
@@ -1734,6 +1761,7 @@
   .career-card__spark {
     color: #f9d270;
     filter: drop-shadow(0 0 8px rgba(249, 210, 112, 0.6));
+    animation: careerSheen 2.6s ease-in-out infinite;
   }
 
   .career-card__list {
@@ -1773,6 +1801,12 @@
     color: #f9d270;
     font-size: 0.9rem;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .career-card:hover .career-card__header::after,
+  .career-card:focus-within .career-card__header::after {
+    opacity: 0.35;
+    transform: translateX(0%);
   }
 
   .career__timeline {
@@ -1938,6 +1972,27 @@
     }
     100% {
       transform: translateY(30px) scale(1.05);
+    }
+  }
+
+  @keyframes careerRibbonSlide {
+    0% {
+      transform: translateX(0) skewY(-4deg);
+    }
+    100% {
+      transform: translateX(-18%) skewY(-4deg);
+    }
+  }
+
+  @keyframes careerSheen {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 8px rgba(249, 210, 112, 0.6));
+      transform: translateY(0);
+    }
+    50% {
+      filter: drop-shadow(0 0 16px rgba(249, 210, 112, 0.9));
+      transform: translateY(-2px);
     }
   }
   
