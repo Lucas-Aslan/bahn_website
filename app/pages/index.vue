@@ -52,34 +52,7 @@
     { label: 'Planbare Leistung', detail: 'Digitale Disposition, transparente Kommunikation und termintreue Umsetzung.' }
   ]
 
-  const metrics: Metric[] = [
-    { value: '50+', label: 'ausgebildete Fachkräfte im aktiven Einsatz' },
-    { value: '12', label: 'Bundesländer, in denen wir regelmäßig disponieren' },
-    { value: '100%', label: 'Sicherheitsbriefings vor jedem Einsatz' }
-  ]
 
-  const services: Service[] = [
-    {
-      accent: 'Lok & Traktion',
-      title: 'Triebfahrzeugführer:innen',
-      description: 'Ausgebildete Crews mit Routinen für Güter-, Nah- und Fernverkehr inklusive Baustellenlogik.'
-    },
-    {
-      accent: 'Rangier',
-      title: 'Rangierbegleiter:innen',
-      description: 'Spezialist:innen für Häfen, Gleisbau und Anschlüsse mit dokumentierten Bremsproben.'
-    },
-    {
-      accent: 'Prüfung',
-      title: 'Wagenprüfer Stufe 1–4',
-      description: 'Geprüfte Teams für Abfertigung, Rangieren und umfassende Wagenprüfungen inklusive Reporting.'
-    },
-    {
-      accent: 'Kippen',
-      title: 'Kippwagenberechtigte',
-      description: 'Unterwiesene Mitarbeitende für sichere Kippvorgänge mit Qualifikation als Rangierbegleitung.'
-    }
-  ]
 
   const careerSignals: CareerSignal[] = [
     {
@@ -108,7 +81,7 @@
     {
       badge: '2',
       title: 'Qualifikations- & Fachgespräch',
-      detail: 'Persönliches Gespräch mit Fachverantwortlichen, Disposition und ggf. Probefahrt.'
+      detail: 'Persönliches Gespräch mit Fachverantwortlichen.'
     },
     {
       badge: '3',
@@ -447,17 +420,6 @@
             </article>
           </div>
 
-          <div class="career__cta-row">
-            <NuxtLink to="/kontakt" class="cta cta--solid career__cta">
-              Jetzt bewerben
-              <span aria-hidden="true">→</span>
-            </NuxtLink>
-            <NuxtLink to="/about" class="cta cta--ghost career__cta">
-              Kultur & Benefits
-              <span aria-hidden="true">→</span>
-            </NuxtLink>
-          </div>
-
           <div class="career-steps">
             <div
               v-for="step in careerSteps"
@@ -474,6 +436,12 @@
               <span class="career-steps__pulse" aria-hidden="true" />
               Wir melden uns in 48h – dann geht&apos;s los.
             </div>
+          </div>
+          <div class="career__cta-row">
+            <NuxtLink to="/kontakt" class="cta cta--solid career__cta">
+              Jetzt bewerben
+              <span aria-hidden="true">→</span>
+            </NuxtLink>
           </div>
         </div>
       </section>
