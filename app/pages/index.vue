@@ -441,25 +441,13 @@
       <section class="gold-cta section js-reveal">
         <div class="gold-cta__wrap">
           <div class="gold-cta__visual" aria-hidden="true">
-            <div class="gold-cta__visual-inner">
-              <span class="gold-cta__visual-pill">Ops Desk</span>
-              <div class="gold-cta__container">
-                <div class="gold-cta__container-top">
-                  <span class="gold-cta__container-dot" />
-                  <span class="gold-cta__container-dot gold-cta__container-dot--glow" />
-                  <span class="gold-cta__container-label">Babylon Bahndienste</span>
-                </div>
-                <div class="gold-cta__container-body">
-                  <span class="gold-cta__container-stripe" />
-                  <span class="gold-cta__container-stripe" />
-                  <span class="gold-cta__container-stripe" />
-                  <span class="gold-cta__container-text">Bahnlogistik</span>
-                </div>
-                <div class="gold-cta__container-base">
-                  <span class="gold-cta__rail" />
-                  <span class="gold-cta__rail gold-cta__rail--alt" />
-                </div>
-              </div>
+            <div class="gold-cta__visual-inner gold-cta__visual-inner--image">
+              <img
+                src="/images/ops-desk-visual.svg"
+                alt="Ops Desk Übersicht von Babylon Bahndiensten"
+                class="gold-cta__image"
+                loading="lazy"
+              >
               <div class="gold-cta__legend">
                 <span class="gold-cta__legend-dot" />
                 <p>Disposition, Einsatzplanung, Reporting</p>
@@ -1905,126 +1893,32 @@
 
   .gold-cta__visual-inner {
     width: min(440px, 100%);
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.72), rgba(12, 9, 6, 0.9));
+    border: 1px solid rgba(249, 210, 112, 0.22);
     border-radius: 14px;
-    padding: 1rem;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    padding: 0.85rem;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 18px 40px rgba(0, 0, 0, 0.35);
     display: grid;
     gap: 0.75rem;
   }
 
-  .gold-cta__visual-pill {
-    width: fit-content;
-    padding: 0.35rem 0.8rem;
-    border-radius: 999px;
-    background: rgba(249, 210, 112, 0.12);
-    color: #f9d270;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    font-size: 0.85rem;
+  .gold-cta__visual-inner--image {
+    background: radial-gradient(circle at 20% 20%, rgba(249, 210, 112, 0.16), transparent 48%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.85));
+    border: 1px solid rgba(249, 210, 112, 0.3);
+    padding: 0.75rem;
   }
 
-  .gold-cta__container {
-    position: relative;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.55));
-    border: 1px solid rgba(249, 210, 112, 0.2);
-    border-radius: 14px;
-    padding: 0.9rem;
+  .gold-cta__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
     box-shadow:
-      0 12px 30px rgba(0, 0, 0, 0.35),
+      0 14px 30px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    display: grid;
-    gap: 0.6rem;
-  }
-
-  .gold-cta__container-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-    color: #f9e3b0;
-    font-weight: 800;
-  }
-
-  .gold-cta__container-label {
-    font-size: 0.95rem;
-    letter-spacing: 0.03em;
-  }
-
-  .gold-cta__container-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #f9d270;
-    box-shadow: 0 0 15px rgba(249, 210, 112, 0.7);
-  }
-
-  .gold-cta__container-dot--glow {
-    background: #6cf0ff;
-    box-shadow: 0 0 16px rgba(108, 240, 255, 0.85);
-  }
-
-  .gold-cta__container-body {
-    display: grid;
-    gap: 0.4rem;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    padding: 0.8rem;
-    border: 1px dashed rgba(249, 210, 112, 0.28);
-  }
-
-  .gold-cta__container-stripe {
-    height: 8px;
-    border-radius: 8px;
-    background: linear-gradient(90deg, rgba(249, 210, 112, 0.6), rgba(255, 255, 255, 0.2));
-  }
-
-  .gold-cta__container-text {
-    margin-top: 0.4rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    color: #f9d270;
-    text-transform: uppercase;
-  }
-
-  .gold-cta__container-base {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.45rem;
-  }
-
-  .gold-cta__rail {
-    height: 4px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, rgba(249, 210, 112, 0.85), rgba(255, 255, 255, 0.3));
-    position: relative;
-    overflow: hidden;
-  }
-
-  .gold-cta__rail::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(249, 210, 112, 0.8), transparent);
-    animation: railSweep 3s ease-in-out infinite;
-  }
-
-  .gold-cta__rail--alt {
-    background: linear-gradient(90deg, rgba(108, 240, 255, 0.8), rgba(255, 255, 255, 0.3));
-  }
-
-  @keyframes railSweep {
-    0% {
-      transform: translateX(-100%);
-    }
-    50% {
-      transform: translateX(60%);
-    }
-    100% {
-      transform: translateX(120%);
-    }
   }
 
   .gold-cta__legend {
