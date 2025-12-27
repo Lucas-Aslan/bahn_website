@@ -298,9 +298,14 @@ watch(currentVideoIndex, async () => {
           :style="{ '--card-delay': `${index * 100}ms` }"
         >
           <div class="performance-card__header">
-            <span class="performance-card__badge">{{ block.badge }}</span>
-            <h3>{{ block.title }}</h3>
-            <p class="performance-card__summary">{{ block.summary }}</p>
+            <div class="performance-card__icon-wrap" aria-hidden="true">
+              <span>{{ block.badge.charAt(0) }}</span>
+            </div>
+            <div class="performance-card__titles">
+              <span class="performance-card__badge">{{ block.badge }}</span>
+              <h3>{{ block.title }}</h3>
+              <p class="performance-card__summary">{{ block.summary }}</p>
+            </div>
           </div>
           <ul class="performance-card__list">
             <li v-for="point in block.points" :key="point" class="performance-card__item">
@@ -969,38 +974,24 @@ h1 {
 
 .performance {
   position: relative;
-  background: linear-gradient(160deg, #050506, #0b0b0f 65%, #050505);
-  border: 1px solid rgba(249, 210, 112, 0.2);
-  box-shadow:
-    0 34px 90px rgba(0, 0, 0, 0.72),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-  color: #eef1f7;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: #1f274a;
+  padding: clamp(1.25rem, 2vw, 1.8rem) 0;
 }
 
 .performance::before {
-  content: '';
-  position: absolute;
-  inset: -12px;
-  border-radius: 20px;
-  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 58%),
-    radial-gradient(circle at 80% 75%, rgba(255, 255, 255, 0.06), transparent 58%);
-  filter: blur(18px);
-  opacity: 0.35;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.performance > * {
-  position: relative;
-  z-index: 1;
+  display: none;
 }
 
 .performance__lead {
-  color: #c7ccd9;
+  color: #4c5774;
 }
 
 .performance__header {
   align-items: center;
+  margin-bottom: 0.4rem;
 }
 
 .performance__cta {
@@ -1008,29 +999,22 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.85rem 1.1rem;
-  border-radius: 12px;
-  background: #111119;
-  color: #f4f4f6;
+  padding: 0.85rem 1.2rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #6b7bff, #4850d8);
+  color: #ffffff;
   text-decoration: none;
   font-weight: 800;
   letter-spacing: 0.02em;
-  box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(249, 210, 112, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 45px rgba(52, 65, 145, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 .performance__cta:hover,
 .performance__cta:focus-visible {
   transform: translateY(-2px);
-  box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(249, 210, 112, 0.4);
-  background: linear-gradient(120deg, #f9d270, #d3992c);
-  color: #0d0a06;
-  filter: saturate(1.02);
+  box-shadow: 0 24px 60px rgba(52, 65, 145, 0.38);
+  filter: saturate(1.06);
 }
 
 .performance__grid {
@@ -1043,21 +1027,16 @@ h1 {
 .performance-card {
   position: relative;
   overflow: hidden;
-  padding: 1.1rem 1.1rem 1rem;
+  padding: 1.35rem 1.2rem 1.1rem;
   border-radius: 18px;
-  background:
-    radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.05), transparent 32%),
-    radial-gradient(circle at 80% 78%, rgba(255, 255, 255, 0.04), transparent 36%),
-    linear-gradient(140deg, rgba(18, 18, 22, 0.96), rgba(10, 10, 14, 0.96));
-  border: 1px solid rgba(249, 210, 112, 0.22);
-  box-shadow:
-    0 22px 55px rgba(0, 0, 0, 0.55),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  color: #f2f4f9;
+  background: #ffffff;
+  border: 1px solid #e6e9f1;
+  box-shadow: 0 24px 55px rgba(37, 44, 97, 0.12);
+  color: #1f274a;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   opacity: 0;
-  transform: translateY(28px) scale(0.96) rotateX(5deg);
-  filter: blur(12px);
+  transform: translateY(22px) scale(0.98);
+  filter: blur(10px);
 }
 
 .performance.js-reveal.is-visible .performance-card {
@@ -1067,61 +1046,80 @@ h1 {
 
 .performance-card:hover,
 .performance-card:focus-within {
-  transform: translateY(-6px);
-  border-color: rgba(249, 210, 112, 0.38);
-  box-shadow:
-    0 26px 70px rgba(0, 0, 0, 0.62),
-    0 0 0 1px rgba(249, 210, 112, 0.2);
+  transform: translateY(-4px);
+  border-color: #d6dcf0;
+  box-shadow: 0 28px 70px rgba(37, 44, 97, 0.18);
 }
 
 .performance-card__header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.performance-card__icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(140deg, #6b7bff, #4e56d8);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  box-shadow: 0 18px 35px rgba(52, 65, 145, 0.35);
+}
+
+.performance-card__titles {
   display: grid;
   gap: 0.35rem;
 }
 
 .performance-card__badge {
   width: fit-content;
-  padding: 0.28rem 0.65rem;
+  padding: 0.28rem 0.7rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  color: #f2f4f9;
+  background: #eef1ff;
+  color: #4e56d8;
   letter-spacing: 0.08em;
   font-size: 0.78rem;
   text-transform: uppercase;
-  border: 1px solid rgba(249, 210, 112, 0.28);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.35),
-    0 10px 26px rgba(0, 0, 0, 0.28);
+  border: 1px solid #dfe4ff;
 }
 
 .performance-card h3 {
   margin: 0;
   font-size: 1.22rem;
   letter-spacing: -0.01em;
-  color: #f6f8fb;
+  color: #1f274a;
 }
 
 .performance-card__summary {
   margin: 0;
-  color: #cbd1de;
-  line-height: 1.5;
+  color: #4f5668;
+  line-height: 1.55;
 }
 
 .performance-card__list {
-  margin: 0.7rem 0 0;
+  margin: 0.9rem 0 0;
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 0.45rem;
+  gap: 0.55rem;
 }
 
 .performance-card__item {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: start;
-  gap: 0.5rem;
-  color: #e9ecf4;
+  gap: 0.55rem;
+  color: #2c3150;
   font-weight: 700;
+  background: #f6f7fb;
+  border-radius: 12px;
+  padding: 0.65rem 0.7rem;
 }
 
 .performance-card__icon {
@@ -1130,41 +1128,17 @@ h1 {
   justify-content: center;
   width: 28px;
   height: 28px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(249, 210, 112, 0.35);
-  color: #f6f7fb;
-  font-size: 0.85rem;
-  box-shadow:
-    0 12px 26px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: #e4e7ff;
+  border: 1px solid #cfd5ff;
+  color: #4e56d8;
+  font-size: 0.9rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
-.performance-card__glow {
-  position: absolute;
-  inset: -12%;
-  background: radial-gradient(circle at 24% 24%, rgba(255, 255, 255, 0.06), transparent 40%),
-    radial-gradient(circle at 78% 70%, rgba(255, 255, 255, 0.05), transparent 42%);
-  opacity: 0.35;
-  pointer-events: none;
-  animation: performanceGlow 6s ease-in-out infinite;
-}
-
+.performance-card__glow,
 .performance-card::after {
-  content: '';
-  position: absolute;
-  inset: 1px;
-  border-radius: 17px;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0));
-  opacity: 0.6;
-  mix-blend-mode: screen;
-  pointer-events: none;
-  filter: blur(1px);
-}
-
-.performance-card:hover::after,
-.performance-card:focus-within::after {
-  opacity: 1;
+  display: none;
 }
 
 @keyframes performanceCardEnter {
