@@ -521,20 +521,19 @@
       </section>
 
       <section class="gold-cta section js-reveal">
-        <div class="gold-cta__wrap">
-          <div class="gold-cta__visual" aria-hidden="true">
-            <div class="gold-cta__visual-inner gold-cta__visual-inner--image">
-              <img
-                src="/images/cta-bild.jpg"
-                alt="Ops Desk Übersicht von Babylon Bahndiensten"
-                class="gold-cta__image"
-                loading="lazy"
-              >
-              <div class="gold-cta__legend">
-                <span class="gold-cta__legend-dot" />
-              </div>
-            </div>
-          </div>
+        <div class="gold-cta__grid">
+          <figure class="gold-cta__media">
+            <img
+              src="/images/cta-bild.jpg"
+              alt="Ops Desk Übersicht von Babylon Bahndiensten"
+              class="gold-cta__image"
+              loading="lazy"
+            >
+            <figcaption class="gold-cta__legend">
+              <span class="gold-cta__legend-dot" aria-hidden="true" />
+              Live gesteuerte Einsätze &amp; Crew-Übersicht
+            </figcaption>
+          </figure>
 
           <div class="gold-cta__content">
             <p class="gold-cta__eyebrow">Mit Babylon Bahndienste durchstarten</p>
@@ -1960,91 +1959,30 @@
     z-index: 0;
   }
 
-  .gold-cta__flare {
-    position: absolute;
-    width: 480px;
-    height: 480px;
-    filter: blur(90px);
-    opacity: 0.6;
-    mix-blend-mode: screen;
-  }
-
-  .gold-cta__flare--top {
-    top: -16%;
-    left: -12%;
-    background: radial-gradient(circle, rgba(255, 240, 199, 0.32), transparent 52%);
-  }
-
-  .gold-cta__flare--bottom {
-    bottom: -24%;
-    right: -10%;
-    background: radial-gradient(circle, rgba(255, 240, 199, 0.18), transparent 52%);
-  }
-
   .gold-cta__grid {
-    position: absolute;
-    inset: -18%;
-    background:
-      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-      linear-gradient(0deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-    background-size: 200px 200px;
-    opacity: 0.25;
-    transform: rotate(-2deg) scale(1.08);
-  }
-
-  .gold-cta__wrap {
-    position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: clamp(1.4rem, 2vw, 2rem);
-    align-items: stretch;
-    background: linear-gradient(145deg, rgba(0, 0, 0, 0.82), rgba(10, 10, 10, 0.92));
-    border: 1px solid rgba(249, 210, 112, 0.2);
-    border-radius: 22px;
-    padding: clamp(1.4rem, 3vw, 2rem);
-    box-shadow:
-      0 25px 60px rgba(0, 0, 0, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    align-items: center;
   }
 
-  .gold-cta__visual {
-    position: relative;
-    background: radial-gradient(circle at 28% 20%, rgba(249, 210, 112, 0.18), transparent 50%),
+  .gold-cta__media {
+    margin: 0;
+    background: radial-gradient(circle at 28% 20%, rgba(249, 210, 112, 0.16), transparent 50%),
       linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.5));
-    border-radius: 16px;
-    border: 1px solid rgba(249, 210, 112, 0.18);
-    overflow: hidden;
-    display: grid;
-    place-items: center;
-    min-height: 320px;
-    padding: 1.2rem;
-  }
-
-  .gold-cta__visual-inner {
-    width: min(440px, 100%);
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.72), rgba(12, 9, 6, 0.9));
+    border-radius: 18px;
     border: 1px solid rgba(249, 210, 112, 0.22);
-    border-radius: 14px;
-    padding: 0.85rem;
+    padding: clamp(0.9rem, 2vw, 1.2rem);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.06),
       0 18px 40px rgba(0, 0, 0, 0.35);
-    display: grid;
-    gap: 0.75rem;
-  }
-
-  .gold-cta__visual-inner--image {
-    background: radial-gradient(circle at 20% 20%, rgba(249, 210, 112, 0.16), transparent 48%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.85));
-    border: 1px solid rgba(249, 210, 112, 0.3);
-    padding: 0.75rem;
   }
 
   .gold-cta__image {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 12px;
+    border-radius: 14px;
     box-shadow:
       0 14px 30px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
