@@ -295,17 +295,30 @@
             v-for="(block, index) in performanceBlocks"
             :key="block.title"
             class="performance-card"
-            :style="{ '--card-delay': `${index * 100}ms` }"
+            :style="{ '--card-delay': `${index * 100}ms`, '--card-index': index + 1 }"
           >
+            <div class="performance-card__beam" aria-hidden="true" />
+            <div class="performance-card__halo" aria-hidden="true" />
             <div class="performance-card__header">
-              <span class="performance-card__badge">{{ block.badge }}</span>
-              <h3>{{ block.title }}</h3>
-              <p class="performance-card__summary">{{ block.summary }}</p>
+              <div class="performance-card__eyeline">
+                <span class="performance-card__index">0{{ index + 1 }}</span>
+                <span class="performance-card__divider" aria-hidden="true" />
+                <span class="performance-card__badge">{{ block.badge }}</span>
+              </div>
+              <div class="performance-card__title">
+                <h3>{{ block.title }}</h3>
+                <p class="performance-card__summary">{{ block.summary }}</p>
+              </div>
             </div>
             <ul class="performance-card__list">
-              <li v-for="point in block.points" :key="point" class="performance-card__item">
+              <li
+                v-for="(point, pointIndex) in block.points"
+                :key="point"
+                class="performance-card__item"
+                :style="{ '--item-index': pointIndex }"
+              >
                 <span class="performance-card__icon" aria-hidden="true">✦</span>
-                <span>{{ point }}</span>
+                <span class="performance-card__item-text">{{ point }}</span>
               </li>
             </ul>
             <div class="performance-card__glow" aria-hidden="true" />
@@ -1034,27 +1047,31 @@
   }
   
   .performance__grid {
-    margin-top: 1.4rem;
+    margin-top: 1.6rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
   }
   
   .performance-card {
     position: relative;
     overflow: hidden;
-    padding: 1.1rem 1.1rem 1rem;
+    padding: 1.2rem 1.2rem 1.1rem;
     border-radius: 18px;
     background:
-      radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.05), transparent 32%),
-      radial-gradient(circle at 80% 78%, rgba(255, 255, 255, 0.04), transparent 36%),
-      linear-gradient(140deg, rgba(18, 18, 22, 0.96), rgba(10, 10, 14, 0.96));
-    border: 1px solid rgba(249, 210, 112, 0.22);
+      radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.05), transparent 32%),
+      radial-gradient(circle at 84% 76%, rgba(255, 255, 255, 0.04), transparent 36%),
+      linear-gradient(140deg, rgba(18, 18, 22, 0.98), rgba(10, 10, 14, 0.96));
+    border: 1px solid rgba(249, 210, 112, 0.26);
     box-shadow:
       0 22px 55px rgba(0, 0, 0, 0.55),
       inset 0 1px 0 rgba(255, 255, 255, 0.04);
     color: #f2f4f9;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      transform 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      filter 0.3s ease;
     opacity: 0;
     transform: translateY(28px) scale(0.96) rotateX(5deg);
     filter: blur(12px);
@@ -1067,18 +1084,53 @@
   
   .performance-card:hover,
   .performance-card:focus-within {
-    transform: translateY(-6px);
-    border-color: rgba(249, 210, 112, 0.38);
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(249, 210, 112, 0.4);
     box-shadow:
       0 26px 70px rgba(0, 0, 0, 0.62),
-      0 0 0 1px rgba(249, 210, 112, 0.2);
+      0 0 0 1px rgba(249, 210, 112, 0.22);
+    filter: saturate(1.08);
   }
   
   .performance-card__header {
     display: grid;
-    gap: 0.35rem;
+    gap: 0.6rem;
   }
   
+  .performance-card__eyeline {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: #c7ccd9;
+    letter-spacing: 0.08em;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+  }
+
+  .performance-card__index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 26px;
+    border-radius: 999px;
+    border: 1px solid rgba(249, 210, 112, 0.34);
+    background: rgba(255, 255, 255, 0.04);
+    font-weight: 800;
+    color: #f9d270;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      0 8px 22px rgba(0, 0, 0, 0.35);
+  }
+
+  .performance-card__divider {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(116, 227, 255, 0.5), rgba(249, 210, 112, 0.4));
+    filter: blur(0.25px);
+    opacity: 0.7;
+  }
+
   .performance-card__badge {
     width: fit-content;
     padding: 0.28rem 0.65rem;
@@ -1094,9 +1146,14 @@
       0 10px 26px rgba(0, 0, 0, 0.28);
   }
   
+  .performance-card__title {
+    display: grid;
+    gap: 0.2rem;
+  }
+
   .performance-card h3 {
     margin: 0;
-    font-size: 1.22rem;
+    font-size: 1.24rem;
     letter-spacing: -0.01em;
     color: #f6f8fb;
   }
@@ -1105,6 +1162,7 @@
     margin: 0;
     color: #cbd1de;
     line-height: 1.5;
+    max-width: 36ch;
   }
   
   .performance-card__list {
@@ -1112,16 +1170,19 @@
     padding: 0;
     list-style: none;
     display: grid;
-    gap: 0.45rem;
+    gap: 0.35rem;
   }
   
   .performance-card__item {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: start;
-    gap: 0.5rem;
+    gap: 0.55rem;
     color: #e9ecf4;
     font-weight: 700;
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(4px);
   }
   
   .performance-card__icon {
@@ -1139,6 +1200,10 @@
       0 12px 26px rgba(0, 0, 0, 0.35),
       inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
+
+  .performance-card__item-text {
+    line-height: 1.45;
+  }
   
   .performance-card__glow {
     position: absolute;
@@ -1148,6 +1213,36 @@
     opacity: 0.35;
     pointer-events: none;
     animation: performanceGlow 6s ease-in-out infinite;
+  }
+
+  .performance-card__beam,
+  .performance-card__halo {
+    position: absolute;
+    pointer-events: none;
+    inset: 0;
+    opacity: 0.75;
+    mix-blend-mode: screen;
+  }
+
+  .performance-card__beam {
+    background: conic-gradient(
+      from 120deg,
+      rgba(249, 210, 112, 0.1),
+      rgba(0, 0, 0, 0),
+      rgba(116, 227, 255, 0.12),
+      rgba(0, 0, 0, 0)
+    );
+    filter: blur(22px);
+    transform: rotate(calc(var(--card-index) * 2deg));
+    animation: performanceBeamSpin 18s linear infinite;
+  }
+
+  .performance-card__halo {
+    background: radial-gradient(circle at 50% 45%, rgba(249, 210, 112, 0.18), transparent 36%),
+      radial-gradient(circle at 20% 80%, rgba(116, 227, 255, 0.16), transparent 34%);
+    filter: blur(20px);
+    animation: performanceHaloPulse 6.5s ease-in-out infinite;
+    opacity: 0.52;
   }
   
   .performance-card::after {
@@ -1165,6 +1260,11 @@
   .performance-card:hover::after,
   .performance-card:focus-within::after {
     opacity: 1;
+  }
+
+  .performance.js-reveal.is-visible .performance-card__item {
+    animation: performanceItemEnter 0.7s cubic-bezier(0.22, 0.85, 0.35, 1) forwards;
+    animation-delay: calc(var(--card-delay, 0ms) + var(--item-index, 0) * 90ms + 120ms);
   }
   
   @keyframes performanceCardEnter {
@@ -1184,7 +1284,25 @@
       filter: blur(0);
     }
   }
-  
+
+  @keyframes performanceItemEnter {
+    0% {
+      opacity: 0;
+      transform: translateY(12px);
+      filter: blur(6px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-2px);
+      filter: blur(2px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
   @keyframes performanceGlow {
     0%,
     100% {
@@ -1193,6 +1311,27 @@
     }
     50% {
       opacity: 0.92;
+      transform: scale(1.04);
+    }
+  }
+
+  @keyframes performanceBeamSpin {
+    0% {
+      transform: rotate(calc(var(--card-index) * 2deg)) scale(1);
+    }
+    100% {
+      transform: rotate(calc(var(--card-index) * 2deg + 360deg)) scale(1.06);
+    }
+  }
+
+  @keyframes performanceHaloPulse {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.95;
       transform: scale(1.04);
     }
   }
