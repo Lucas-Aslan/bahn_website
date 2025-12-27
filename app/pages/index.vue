@@ -28,6 +28,8 @@ type Service = {
 }
 
 type PerformanceBlock = {
+  order: number
+  category: string
   badge: string
   title: string
   summary: string
@@ -36,45 +38,58 @@ type PerformanceBlock = {
 
 const performanceBlocks: PerformanceBlock[] = [
   {
+    order: 1,
+    category: 'Traktion & Lok',
     badge: 'Lok & Traktion',
     title: 'Gestellung Triebfahrzeugführer',
     summary: 'Unsere Triebfahrzeugführer sind u. a. auf folgenden Baureihen berechtigt:',
     points: [
-      'Vossloh: DE 12 · DE 18 · G1206 · G1700',
+      'Alstom: BR 214 · BR 203 retrofit · BR 203 Handschaltrad',
       'Siemens: BR 248 Vectron Dual Mode',
-      'Alstom: BR 214 · BR 203 retrofit · BR 203 Handschaltrad'
+      'Vossloh: DE 12 · DE 18 · G1206 · G1700',
+      'Dokumentation und Einsatzplanung mit festen Ansprechpartnern'
     ]
   },
   {
+    order: 2,
+    category: 'Rangieren',
     badge: 'Rangier',
     title: 'Gestellung Rangierbegleiter',
     summary:
       'Bremsproberechtigte Wagenprüfer mit langjähriger Erfahrung im Güter-, Nah- und Fernverkehr sowie auf Gleisbaustellen.',
     points: [
-      'Rangierarbeiten im Güter-, Nah- und Fernverkehr',
-      'Rangierarbeiten im Gleisbau',
-      'Rangierarbeiten im Hafen',
-      'Rangierarbeiten in Anschlüssen'
+      'Güter-, Nah- und Fernverkehr inklusive Bremsproben',
+      'Rangierarbeiten im Gleisbau mit Sicherungslogik',
+      'Rangierarbeiten in Häfen und Anschlussgleisen',
+      'Vorbereitete Arbeits- und Übergabeprotokolle'
     ]
   },
   {
+    order: 3,
+    category: 'Wagenprüfung',
     badge: 'Prüfung',
     title: 'Gestellung Wagenprüfer bis Stufe 4',
     summary:
       'Von Stufe 1 bis 4 (ehemals Wagenmeister): Abfertigung, Rangieren und umfassende Wagenprüfungen inklusive Dokumentation.',
     points: [
-      'Rangierarbeiten im Güter-, Nah- und Fernverkehr',
-      'Rangierarbeiten im Gleisbau und in Häfen',
-      'Rangierarbeiten in Anschlüssen & Abfertigung von Zügen',
-      'Erstellen von Lauffähigkeitsuntersuchungen u. v. m.'
+      'Wagenprüfungen und Abfertigung inklusive Bremsproben',
+      'Einsätze im Güterverkehr, Gleisbau und Hafenumschlag',
+      'Rangieraufsicht, Dokumentation und Übergabeberichte',
+      'Lauffähigkeitsuntersuchungen und Stufe-4-Gutachten'
     ]
   },
   {
+    order: 4,
+    category: 'Spezialaufgaben',
     badge: 'Kippen',
     title: 'Kippwagenberechtigte',
     summary:
       'Spezialgeschulte Mitarbeitende für das sichere Kippen auf Gleisbaustellen – immer mit Qualifikation als Rangierbegleiter.',
-    points: ['Geprüft und unterwiesen für Kippvorgänge auf Ihren Baustellen']
+    points: [
+      'Unterwiesene Teams mit Rangierberechtigung',
+      'Kippvorgänge auf Gleisbaustellen mit Sicherungslogik',
+      'Abgestimmte Abläufe inkl. Schnittstellen zu Wagenprüfern'
+    ]
   }
 ]
 
@@ -97,6 +112,31 @@ const scrollOffset = ref(0)
 let revealObserver: IntersectionObserver | null = null
 
 const activeHeroVideo = computed(() => heroVideos[currentVideoIndex.value] ?? heroVideos[0])
+
+const sortedPerformanceBlocks = computed(() =>
+  performanceBlocks
+    .slice()
+    .sort((first, second) => first.order - second.order || first.title.localeCompare(second.title, 'de'))
+)
+
+const performanceCategories = computed(() => {
+  const grouped = new Map<string, { count: number; order: number }>()
+
+  performanceBlocks.forEach((block) => {
+    const existing = grouped.get(block.category)
+
+    if (existing) {
+      existing.count += 1
+      existing.order = Math.min(existing.order, block.order)
+    } else {
+      grouped.set(block.category, { count: 1, order: block.order })
+    }
+  })
+
+  return Array.from(grouped.entries())
+    .sort((first, second) => first[1].order - second[1].order || first[0].localeCompare(second[0], 'de'))
+    .map(([name, meta]) => ({ name, count: meta.count }))
+})
 
 const handleScroll = () => {
   scrollOffset.value = window.scrollY
@@ -290,19 +330,39 @@ watch(currentVideoIndex, async () => {
         </NuxtLink>
       </div>
 
+      <div class="performance__legend" role="list">
+        <div
+          v-for="category in performanceCategories"
+          :key="category.name"
+          class="performance__legend-item"
+          role="listitem"
+        >
+          <span class="performance__legend-dot" aria-hidden="true" />
+          <div>
+            <p class="performance__legend-label">{{ category.name }}</p>
+            <p class="performance__legend-meta">
+              {{ category.count }} Leistung{{ category.count === 1 ? '' : 'en' }}
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div class="performance__grid">
         <article
-          v-for="(block, index) in performanceBlocks"
+          v-for="(block, index) in sortedPerformanceBlocks"
           :key="block.title"
           class="performance-card"
           :style="{ '--card-delay': `${index * 100}ms` }"
         >
           <div class="performance-card__header">
             <div class="performance-card__icon-wrap" aria-hidden="true">
-              <span>{{ block.badge.charAt(0) }}</span>
+              <span class="performance-card__order">0{{ block.order }}</span>
             </div>
             <div class="performance-card__titles">
-              <span class="performance-card__badge">{{ block.badge }}</span>
+              <div class="performance-card__meta">
+                <span class="performance-card__category">{{ block.category }}</span>
+                <span class="performance-card__badge">{{ block.badge }}</span>
+              </div>
               <h3>{{ block.title }}</h3>
               <p class="performance-card__summary">{{ block.summary }}</p>
             </div>
@@ -994,6 +1054,46 @@ h1 {
   margin-bottom: 0.4rem;
 }
 
+.performance__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.6rem;
+}
+
+.performance__legend-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.65rem 0.9rem;
+  background: #f6f7fb;
+  border: 1px solid #e6e9f1;
+  border-radius: 14px;
+  min-width: 220px;
+}
+
+.performance__legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #4e56d8;
+  box-shadow: 0 0 0 4px #eef1ff;
+}
+
+.performance__legend-label {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #1f274a;
+}
+
+.performance__legend-meta {
+  margin: 0;
+  color: #4f5668;
+  font-size: 0.95rem;
+}
+
 .performance__cta {
   justify-self: end;
   display: inline-flex;
@@ -1067,8 +1167,8 @@ h1 {
   color: #ffffff;
   display: grid;
   place-items: center;
-  font-weight: 800;
-  font-size: 1.2rem;
+  font-weight: 900;
+  font-size: 1rem;
   box-shadow: 0 18px 35px rgba(52, 65, 145, 0.35);
 }
 
@@ -1077,16 +1177,44 @@ h1 {
   gap: 0.35rem;
 }
 
-.performance-card__badge {
-  width: fit-content;
-  padding: 0.28rem 0.7rem;
-  border-radius: 999px;
-  background: #eef1ff;
-  color: #4e56d8;
-  letter-spacing: 0.08em;
-  font-size: 0.78rem;
+.performance-card__meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.performance-card__category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 12px;
+  background: #f0f3ff;
+  color: #1f274a;
+  letter-spacing: 0.04em;
+  font-size: 0.82rem;
   text-transform: uppercase;
   border: 1px solid #dfe4ff;
+  font-weight: 800;
+}
+
+.performance-card__category::before {
+  content: '▸';
+  color: #4e56d8;
+}
+
+.performance-card__badge {
+  width: fit-content;
+  padding: 0.26rem 0.7rem;
+  border-radius: 999px;
+  background: #e6f6ff;
+  color: #0c5187;
+  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  border: 1px solid #c5e4ff;
+  font-weight: 800;
 }
 
 .performance-card h3 {
@@ -1100,6 +1228,11 @@ h1 {
   margin: 0;
   color: #4f5668;
   line-height: 1.55;
+}
+
+.performance-card__order {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.12em;
 }
 
 .performance-card__list {
@@ -1275,6 +1408,14 @@ h1 {
 
   .performance__header {
     grid-template-columns: 1fr;
+  }
+
+  .performance__legend {
+    flex-direction: column;
+  }
+
+  .performance__legend-item {
+    width: 100%;
   }
 
   .performance__cta {
