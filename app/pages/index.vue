@@ -27,21 +27,14 @@
     description: string
   }
 
-  type CareerTrack = {
-    tag: string
+  type CareerSignal = {
     title: string
-    description: string
-    focus: string
-    points: string[]
-  }
-
-  type CareerMoment = {
-    label: string
     detail: string
-    emphasis: string
+    accent: 'gold' | 'cyan' | 'magenta'
   }
 
-  type CareerHighlight = {
+  type CareerStep = {
+    badge: string
     title: string
     detail: string
   }
@@ -88,60 +81,39 @@
     }
   ]
 
-  const careerTracks: CareerTrack[] = [
+  const careerSignals: CareerSignal[] = [
     {
-      tag: 'Einstieg',
-      title: 'Begleitete Einsätze',
-      description: 'Du startest mit erfahrenen Kolleg:innen im Rücken und klaren Abläufen vor Ort.',
-      focus: 'Ankommen mit System',
-      points: ['Persönliche Einarbeitung auf der Strecke', 'Sicherheitsbriefings mit klaren Checks']
+      title: '48h Antwort',
+      detail: 'Kurzbewerbung, direkte Rückmeldung und klare Starttermine.',
+      accent: 'gold'
     },
     {
-      tag: 'Profil',
-      title: 'Deine Spur wechseln',
-      description: 'Wechsle Richtung Dispo oder Spezialisierung, ohne Papierstau und mit klaren Ansprechpartnern.',
-      focus: 'Profil schärfen',
-      points: ['Quartalsgespräche mit Feedback', 'Zertifikate digital dokumentiert']
+      title: 'Mentor:in on Track',
+      detail: 'Shadowing, Safety-Briefings und dokumentierte Übergaben.',
+      accent: 'cyan'
     },
     {
-      tag: 'Impact',
-      title: 'Crew-Lead & Projekte',
-      description: 'Übernimm Touren, führe kleine Teams und halte Übergaben sauber und nachvollziehbar.',
-      focus: 'Führen im Einsatz',
-      points: ['Einsatzrotationen mit Plan', 'Übergaben & Reports aus einer Hand']
+      title: 'Digitale Dispo',
+      detail: 'Live-Updates, feste Ansprechpartner:innen und planbare Zulagen.',
+      accent: 'magenta'
     }
   ]
 
-  const careerMoments: CareerMoment[] = [
+  const careerSteps: CareerStep[] = [
     {
-      label: 'Kontakt in 48h',
-      detail: 'Kurzes Kennenlernen, klare Rückmeldung statt Funkstille.',
-      emphasis: 'Verlässlich'
+      badge: '1',
+      title: '60 Sekunden Bewerbung',
+      detail: 'Ohne Anschreiben, direkt mit Deinem Wunsch-Einsatzort.'
     },
     {
-      label: 'Mentor:innen vor Ort',
-      detail: 'Du gehst nie allein raus: erste Schichten im Tandem und klar dokumentiert.',
-      emphasis: 'Sicher begleitet'
+      badge: '2',
+      title: 'Kickstart mit Mentor:in',
+      detail: 'Erste Schicht im Tandem, Safety-Checks und Feedback in Echtzeit.'
     },
     {
-      label: 'Wachstum in Etappen',
-      detail: 'Check-ins alle 90 Tage: neue Strecken, neue Verantwortung, transparente Zulagen.',
-      emphasis: 'Nachvollziehbar'
-    }
-  ]
-
-  const careerHighlights: CareerHighlight[] = [
-    {
-      title: 'Echter Praxiseinstieg',
-      detail: 'Probeschicht, Sicherheitscheck und Begleitung auf der Strecke.'
-    },
-    {
-      title: 'Planbare Schichten',
-      detail: 'Digitale Dispo, feste Ansprechpersonen und saubere Übergaben.'
-    },
-    {
-      title: 'Weiterbildung on-the-job',
-      detail: 'Kurzformate, Gerätekunde und Feedback-Loops direkt aus dem Einsatz.'
+      badge: '3',
+      title: 'Upgrade & Benefits',
+      detail: 'Planbare Schichten, transparente Zulagen und neue Strecken nach Wunsch.'
     }
   ]
   
@@ -442,130 +414,64 @@
           <span class="career__halo career__halo--gold" />
           <span class="career__halo career__halo--cyan" />
           <span class="career__gridlines" />
-          <span class="career__ribbons" />
         </div>
 
-        <div class="career__hero">
-          <div class="career__content">
-            <div class="career__eyebrow">
-              <span class="career__spark" aria-hidden="true" />
-              <p class="eyebrow">Karriere</p>
-              <span class="career__eyebrow-pill">Crew & Zukunft</span>
-            </div>
-            <h2>Gestalte die nächste Schicht Bahnlogistik mit uns</h2>
+        <div class="career__shell">
+          <div class="career__eyebrow">
+            <span class="career__spark" aria-hidden="true" />
+            <p class="eyebrow">Karriere</p>
+            <span class="career__eyebrow-pill">High-Speed Bewerbung</span>
+          </div>
+          <div class="career__headline">
+            <h2>60 Sekunden. Antwort garantiert.</h2>
             <p class="career__lead">
-              Wir kombinieren sichere Prozesse, digitale Dispo und starke Teams. Bewirb Dich in Minuten und starte mit
-              klarer Begleitung – Feedback gibt&apos;s innerhalb von 48 Stunden.
+              Modern, sicher, sofort startklar: Komm ins Team, das Schichten plant wie ein Flightdeck.
             </p>
-            <ul class="career__highlights">
-              <li v-for="highlight in careerHighlights" :key="highlight.title" class="career__highlight">
-                <span class="career__bullet" aria-hidden="true">✺</span>
-                <div>
-                  <p class="career__highlight-title">{{ highlight.title }}</p>
-                  <p class="career__highlight-detail">{{ highlight.detail }}</p>
-                </div>
-              </li>
-            </ul>
-            <div class="career__actions">
-              <NuxtLink to="/kontakt" class="cta cta--solid career__cta">
-                Jetzt bewerben
-                <span aria-hidden="true">→</span>
-              </NuxtLink>
-              <NuxtLink to="/about" class="cta cta--ghost career__cta">
-                Kultur kennenlernen
-                <span aria-hidden="true">→</span>
-              </NuxtLink>
-            </div>
-            <div class="career__response">
-              <div class="career__response-badge">48h Rückmeldung</div>
-              <p>Kurze Wege zur Dispo, verlässliche Zeitpläne und klare Ansprechpartner:innen.</p>
-            </div>
           </div>
 
-          <div class="career__visual">
-            <div class="career__tag">Einsatzteam</div>
-            <div class="career__photo">
-              <span class="career__photo-glow" aria-hidden="true" />
-              <img src="/images/career-illustration.svg" alt="Illustration eines Einsatzteams im Bahnbetrieb" loading="lazy" />
-              <div class="career__note-card">
-                <p>24/7 Disposition</p>
-                <span>Live-Updates & sichere Übergaben</span>
-              </div>
-              <div class="career__stat-card">
-                <p class="career__stat-value">3 Schritte</p>
-                <span class="career__stat-label">bis zum ersten Einsatz</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="career__grid-header">
-          <div>
-            <p class="eyebrow">Deine Route</p>
-            <h3>Von den ersten Schichten bis zum Crew-Lead</h3>
-          </div>
-          <p class="career__grid-lead">
-            Wir halten Dich nicht mit Formularen auf. Du bekommst klare Begleitung, digitale Nachweise und einen Plan,
-            der zu Deinem Alltag passt.
-          </p>
-        </div>
-
-        <div class="career__grid">
-          <div class="career__tracks">
+          <div class="career__signals">
             <article
-              v-for="(track, index) in careerTracks"
-              :key="track.title"
-              class="career-card"
-              :style="{ '--track-delay': `${index * 120}ms` }"
+              v-for="signal in careerSignals"
+              :key="signal.title"
+              class="career-signal"
+              :data-accent="signal.accent"
             >
-              <div class="career-card__header">
-                <span class="career-card__pill">{{ track.tag }}</span>
-                <div>
-                  <h3>{{ track.title }}</h3>
-                  <p class="career-card__description">{{ track.description }}</p>
-                </div>
+              <span class="career-signal__glow" aria-hidden="true" />
+              <span class="career-signal__pulse" aria-hidden="true" />
+              <div class="career-signal__header">
+                <span class="career-signal__badge">{{ signal.title }}</span>
+                <span class="career-signal__icon" aria-hidden="true">✹</span>
               </div>
-              <div class="career-card__focus">
-                <span class="career-card__spark" aria-hidden="true">✦</span>
-                <span>{{ track.focus }}</span>
-              </div>
-              <ul class="career-card__list">
-                <li
-                  v-for="(point, pointIndex) in track.points"
-                  :key="point"
-                  class="career-card__item"
-                  :style="{ '--career-item-index': pointIndex }"
-                >
-                  <span class="career-card__icon" aria-hidden="true">➜</span>
-                  <span>{{ point }}</span>
-                </li>
-              </ul>
+              <p class="career-signal__detail">{{ signal.detail }}</p>
             </article>
           </div>
 
-          <div class="career__timeline">
-            <div class="career-timeline__glass">
-              <p class="career-timeline__eyebrow">Roadmap</p>
-              <h3>Dein Weg in 3 Schritten</h3>
-              <div class="career-timeline__items" role="list">
-                <div
-                  v-for="moment in careerMoments"
-                  :key="moment.label"
-                  class="career-timeline__item"
-                  role="listitem"
-                >
-                  <div class="career-timeline__dot" aria-hidden="true" />
-                  <div>
-                    <p class="career-timeline__label">{{ moment.label }}</p>
-                    <p class="career-timeline__detail">{{ moment.detail }}</p>
-                    <span class="career-timeline__emphasis">{{ moment.emphasis }}</span>
-                  </div>
-                </div>
+          <div class="career__cta-row">
+            <NuxtLink to="/kontakt" class="cta cta--solid career__cta">
+              Jetzt bewerben
+              <span aria-hidden="true">→</span>
+            </NuxtLink>
+            <NuxtLink to="/about" class="cta cta--ghost career__cta">
+              Kultur & Benefits
+              <span aria-hidden="true">→</span>
+            </NuxtLink>
+          </div>
+
+          <div class="career-steps">
+            <div
+              v-for="step in careerSteps"
+              :key="step.title"
+              class="career-step"
+            >
+              <div class="career-step__badge">{{ step.badge }}</div>
+              <div>
+                <p class="career-step__title">{{ step.title }}</p>
+                <p class="career-step__detail">{{ step.detail }}</p>
               </div>
-              <div class="career-timeline__cta">
-                <span class="career-timeline__pulse" aria-hidden="true" />
-                Bereit? Wir melden uns spätestens innerhalb von 48 Stunden.
-              </div>
+            </div>
+            <div class="career-steps__note">
+              <span class="career-steps__pulse" aria-hidden="true" />
+              Wir melden uns in 48h – dann geht&apos;s los.
             </div>
           </div>
         </div>
@@ -1584,13 +1490,15 @@
   .career {
     position: relative;
     overflow: hidden;
-    background: radial-gradient(circle at 18% 12%, rgba(249, 210, 112, 0.12), transparent 32%),
-      radial-gradient(circle at 78% 80%, rgba(0, 255, 255, 0.08), transparent 36%),
+    background: radial-gradient(circle at 18% 12%, rgba(249, 210, 112, 0.14), transparent 32%),
+      radial-gradient(circle at 78% 80%, rgba(0, 255, 255, 0.12), transparent 36%),
       linear-gradient(145deg, #060a14, #0c1528 50%, #060914);
     border: 1px solid rgba(255, 255, 255, 0.06);
     color: #f6f8fb;
     isolation: isolate;
-    padding: clamp(1.1rem, 2vw, 1.6rem);
+    padding: clamp(1.2rem, 2vw, 1.8rem);
+    border-radius: 22px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
   }
 
   .career__backdrop {
@@ -1610,20 +1518,6 @@
     opacity: 0.25;
     filter: blur(1px);
     transform: rotate(-2deg) scale(1.1);
-  }
-
-  .career__ribbons {
-    position: absolute;
-    inset: -40% -10% auto -20%;
-    height: 320px;
-    background:
-      linear-gradient(110deg, rgba(249, 210, 112, 0.15), transparent 40%),
-      linear-gradient(120deg, rgba(0, 255, 255, 0.14), transparent 50%),
-      linear-gradient(140deg, rgba(255, 255, 255, 0.08), transparent 55%);
-    transform: skewY(-4deg);
-    filter: blur(18px);
-    opacity: 0.45;
-    animation: careerRibbonSlide 14s linear infinite;
   }
 
   .career__halo {
@@ -1650,26 +1544,11 @@
     animation-delay: 0.5s;
   }
 
-  .career__hero {
+  .career__shell {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
-    gap: 1.1rem;
-    align-items: stretch;
-    margin-bottom: 1.2rem;
-  }
-
-  .career__content {
-    padding: 1rem 1.1rem;
-    border-radius: 22px;
-    background: linear-gradient(150deg, rgba(12, 19, 35, 0.9), rgba(8, 11, 20, 0.94));
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow:
-      0 18px 45px rgba(0, 0, 0, 0.42),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    display: grid;
-    gap: 0.7rem;
+    gap: 1rem;
   }
 
   .career__eyebrow {
@@ -1707,63 +1586,130 @@
     border: 1px solid rgba(0, 255, 255, 0.25);
   }
 
+  .career__headline h2 {
+    margin: 0.2rem 0 0.2rem;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    letter-spacing: -0.02em;
+  }
+
   .career__lead {
     margin: 0;
     color: #dbe5ff;
     line-height: 1.6;
     font-size: 1.02rem;
+    max-width: 720px;
   }
 
-  .career__highlights {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  .career__signals {
     display: grid;
-    gap: 0.45rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.9rem;
   }
 
-  .career__highlight {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.6rem;
-    align-items: start;
-    padding: 0.7rem 0.8rem;
-    border-radius: 14px;
+  .career-signal {
+    position: relative;
+    overflow: hidden;
+    padding: 1rem 0.9rem;
+    border-radius: 18px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    isolation: isolate;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.25s ease;
   }
 
-  .career__highlight-title {
-    margin: 0;
+  .career-signal__glow {
+    position: absolute;
+    inset: -30% -10% auto;
+    height: 70%;
+    background: radial-gradient(circle, rgba(249, 210, 112, 0.16), transparent 55%);
+    filter: blur(24px);
+    opacity: 0.8;
+    z-index: 0;
+    transform: translate3d(0, 0, 0);
+    animation: careerGlow 6s ease-in-out infinite;
+  }
+
+  .career-signal__pulse {
+    position: absolute;
+    inset: auto -20% -40% auto;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.18), transparent 60%);
+    filter: blur(18px);
+    opacity: 0.7;
+    z-index: 0;
+    animation: careerGlow 5s ease-in-out infinite reverse;
+  }
+
+  .career-signal[data-accent='cyan'] .career-signal__glow {
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.16), transparent 55%);
+  }
+
+  .career-signal[data-accent='magenta'] .career-signal__glow {
+    background: radial-gradient(circle, rgba(255, 135, 255, 0.18), transparent 55%);
+  }
+
+  .career-signal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .career-signal__badge {
+    padding: 0.35rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     font-weight: 800;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #f9d270;
+    font-size: 0.85rem;
   }
 
-  .career__highlight-detail {
-    margin: 0.2rem 0 0;
-    color: #cfd9f2;
-    line-height: 1.5;
-  }
-
-  .career__bullet {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(249, 210, 112, 0.45), rgba(0, 255, 255, 0.25));
+  .career-signal__icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #0a0f1c;
-    font-weight: 800;
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.2),
-      0 10px 20px rgba(0, 0, 0, 0.25);
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #fff;
+    font-weight: 900;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
 
-  .career__actions {
+  .career-signal__detail {
+    margin: 0.6rem 0 0;
+    color: #dbe5ff;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .career-signal:hover,
+  .career-signal:focus-within {
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(249, 210, 112, 0.4);
+    box-shadow:
+      0 26px 60px rgba(0, 0, 0, 0.48),
+      0 0 0 1px rgba(249, 210, 112, 0.16);
+  }
+
+  .career__cta-row {
     display: flex;
-    gap: 0.8rem;
     flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
   }
 
   .career__cta {
@@ -1771,453 +1717,69 @@
     backdrop-filter: blur(10px);
   }
 
-  .career__response {
-    display: grid;
-    gap: 0.25rem;
-    padding: 0.75rem 0.9rem;
-    border-radius: 14px;
-    background: rgba(249, 210, 112, 0.12);
-    color: #f9e7be;
-    border: 1px solid rgba(249, 210, 112, 0.3);
-  }
-
-  .career__response p {
-    margin: 0;
-    color: #f6f1e3;
-  }
-
-  .career__response-badge {
-    width: fit-content;
-    padding: 0.25rem 0.6rem;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: #f9d270;
-  }
-
-  .career__visual {
-    position: relative;
-    z-index: 1;
+  .career-steps {
     display: grid;
     gap: 0.6rem;
-  }
-
-  .career__tag {
-    width: fit-content;
-    padding: 0.35rem 0.75rem;
-    border-radius: 999px;
-    background: rgba(0, 255, 255, 0.14);
-    color: #74e3ff;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    border: 1px solid rgba(0, 255, 255, 0.2);
-  }
-
-  .career__photo {
-    position: relative;
-    overflow: hidden;
-    border-radius: 22px;
-    background: linear-gradient(160deg, rgba(9, 13, 24, 0.8), rgba(6, 9, 18, 0.9));
+    padding: 0.85rem 1rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow:
-      0 18px 45px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
 
-  .career__photo img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    mix-blend-mode: screen;
-  }
-
-  .career__photo-glow {
-    position: absolute;
-    inset: -20% -10% auto -10%;
-    height: 60%;
-    background: radial-gradient(circle at 30% 40%, rgba(249, 210, 112, 0.25), transparent 50%),
-      radial-gradient(circle at 80% 60%, rgba(0, 255, 255, 0.18), transparent 55%);
-    filter: blur(30px);
-    opacity: 0.9;
-    pointer-events: none;
-  }
-
-  .career__note-card {
-    position: absolute;
-    left: 12px;
-    bottom: 12px;
-    padding: 0.7rem 0.85rem;
-    border-radius: 14px;
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #f6f8fb;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
-  }
-
-  .career__note-card p {
-    margin: 0;
-    font-weight: 800;
-  }
-
-  .career__note-card span {
-    display: block;
-    margin-top: 0.1rem;
-    color: #cfd9f2;
-  }
-
-  .career__stat-card {
-    position: absolute;
-    right: 12px;
-    top: 12px;
-    padding: 0.6rem 0.75rem;
-    border-radius: 12px;
-    background: rgba(9, 11, 22, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #f9d270;
-    text-align: right;
-  }
-
-  .career__stat-value {
-    margin: 0;
-    font-weight: 900;
-    font-size: 1.05rem;
-  }
-
-  .career__stat-label {
-    color: #dbe5ff;
-    font-size: 0.9rem;
-  }
-
-  .career__grid-header {
-    position: relative;
-    z-index: 1;
+  .career-step {
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-    gap: 1rem;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
     align-items: center;
-    margin-bottom: 0.6rem;
   }
 
-  .career__grid-lead {
+  .career-step__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    background: linear-gradient(140deg, rgba(249, 210, 112, 0.4), rgba(0, 255, 255, 0.28));
+    color: #0a0f1c;
+    font-weight: 900;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      0 14px 30px rgba(0, 0, 0, 0.28);
+  }
+
+  .career-step__title {
     margin: 0;
-    color: #dbe5ff;
-    line-height: 1.6;
-  }
-
-  .career__grid {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 1.6fr) minmax(320px, 1fr);
-    gap: 1.2rem;
-    align-items: stretch;
-    margin-top: 0.4rem;
-  }
-
-  .career__tracks {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 0.9rem;
-  }
-
-  .career-card {
-    position: relative;
-    overflow: hidden;
-    padding: 1.1rem 1rem;
-    border-radius: 18px;
-    background: linear-gradient(150deg, rgba(15, 22, 40, 0.9), rgba(13, 17, 30, 0.92));
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow:
-      0 18px 45px rgba(0, 0, 0, 0.42),
-      inset 0 1px 0 rgba(255, 255, 255, 0.04);
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.25s ease;
-    backdrop-filter: blur(8px);
-    opacity: 0;
-    transform: translateY(16px) scale(0.98);
-    filter: blur(8px);
-  }
-
-  .career.js-reveal.is-visible .career-card {
-    animation: careerCardReveal 0.8s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
-    animation-delay: var(--track-delay, 0ms);
-  }
-
-  .career-card:hover,
-  .career-card:focus-within {
-    transform: translateY(-6px) scale(1.015) rotate3d(1, 0.2, 0, 2deg);
-    border-color: rgba(249, 210, 112, 0.4);
-    box-shadow:
-      0 24px 60px rgba(0, 0, 0, 0.48),
-      0 0 0 1px rgba(249, 210, 112, 0.18);
-  }
-
-  .career-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, rgba(249, 210, 112, 0.2), transparent 45%, rgba(0, 255, 255, 0.16));
-    opacity: 0;
-    transition: opacity 0.35s ease;
-  }
-
-  .career-card:hover::after,
-  .career-card:focus-within::after {
-    opacity: 0.35;
-  }
-
-  .career-card__header {
-    display: grid;
-    gap: 0.35rem;
-    position: relative;
-  }
-
-  .career-card__header::after {
-    content: '';
-    position: absolute;
-    inset: -10% -5%;
-    background: linear-gradient(115deg, rgba(255, 255, 255, 0.14), transparent 50%);
-    opacity: 0;
-    transform: translateX(-6%);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-
-  .career-card__pill {
-    width: fit-content;
-    padding: 0.28rem 0.75rem;
-    border-radius: 999px;
-    background: rgba(249, 210, 112, 0.12);
-    color: #f9d270;
     font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 0.78rem;
-    border: 1px solid rgba(249, 210, 112, 0.34);
-  }
-
-  .career-card h3 {
-    margin: 0;
-    font-size: 1.12rem;
     letter-spacing: -0.01em;
   }
 
-  .career-card__description {
-    margin: 0;
+  .career-step__detail {
+    margin: 0.12rem 0 0;
     color: #cfd9f2;
     line-height: 1.5;
   }
 
-  .career-card__focus {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    margin: 0.65rem 0 0.4rem;
-    padding: 0.45rem 0.7rem;
+  .career-steps__note {
+    position: relative;
+    padding: 0.65rem 0.85rem;
     border-radius: 12px;
-    background: rgba(0, 255, 255, 0.08);
-    color: #74e3ff;
-    font-weight: 700;
-    border: 1px solid rgba(0, 255, 255, 0.2);
-  }
-
-  .career-card__spark {
-    color: #f9d270;
-    filter: drop-shadow(0 0 8px rgba(249, 210, 112, 0.6));
-    animation: careerSheen 2.6s ease-in-out infinite;
-  }
-
-  .career-card__list {
-    list-style: none;
-    margin: 0.4rem 0 0;
-    padding: 0;
-    display: grid;
-    gap: 0.28rem;
-  }
-
-  .career-card__item {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.5rem;
-    align-items: center;
-    color: #e7ecf7;
-    font-weight: 700;
-    opacity: 0;
-    transform: translateY(8px);
-    filter: blur(6px);
-  }
-
-  .career.js-reveal.is-visible .career-card__item {
-    animation: careerItemIn 0.6s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
-    animation-delay: calc(var(--track-delay, 0ms) + var(--career-item-index, 0) * 80ms + 100ms);
-  }
-
-  .career-card__icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 26px;
-    height: 26px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #f9d270;
-    font-size: 0.9rem;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-
-  .career-card:hover .career-card__header::after,
-  .career-card:focus-within .career-card__header::after {
-    opacity: 0.35;
-    transform: translateX(0%);
-  }
-
-  .career__timeline {
-    position: relative;
-  }
-
-  .career-timeline__glass {
-    position: relative;
-    height: 100%;
-    padding: 1.1rem;
-    border-radius: 20px;
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow:
-      0 18px 45px rgba(0, 0, 0, 0.35),
-      inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(10px) saturate(1.05);
-    overflow: hidden;
-  }
-
-  .career-timeline__glass::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 10%;
-    bottom: 10%;
-    width: 2px;
-    background: linear-gradient(180deg, rgba(249, 210, 112, 0.6), rgba(0, 255, 255, 0.5));
-    border-radius: 999px;
-    opacity: 0.7;
-  }
-
-  .career-timeline__eyebrow {
-    margin: 0;
-    letter-spacing: 0.08em;
-    font-size: 0.82rem;
-    color: #9bc9ff;
-  }
-
-  .career-timeline__items {
-    display: grid;
-    gap: 1rem;
-    margin-top: 0.8rem;
-  }
-
-  .career-timeline__item {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.65rem;
-    align-items: start;
-    position: relative;
-    padding-left: 0.4rem;
-  }
-
-  .career-timeline__dot {
-    position: relative;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #f9d270, #c99038);
-    box-shadow:
-      0 0 0 8px rgba(249, 210, 112, 0.12),
-      0 0 25px rgba(249, 210, 112, 0.45);
-    margin-left: 8px;
-    animation: pulse 1.6s ease-in-out infinite;
-  }
-
-  .career-timeline__label {
-    margin: 0;
-    font-weight: 800;
-    letter-spacing: 0.01em;
-    color: #f6f8fb;
-  }
-
-  .career-timeline__detail {
-    margin: 0.1rem 0 0.25rem;
-    color: #d9e2ff;
-    line-height: 1.6;
-  }
-
-  .career-timeline__emphasis {
-    display: inline-flex;
-    padding: 0.35rem 0.65rem;
-    border-radius: 10px;
-    background: rgba(0, 255, 255, 0.12);
-    color: #74e3ff;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-  }
-
-  .career-timeline__cta {
-    margin-top: 1rem;
-    padding: 0.8rem 0.9rem;
-    border-radius: 14px;
     background: rgba(249, 210, 112, 0.12);
     color: #f9e7be;
     font-weight: 800;
-    position: relative;
     overflow: hidden;
   }
 
-  .career-timeline__pulse {
+  .career-steps__pulse {
     position: absolute;
-    inset: -40% auto auto -10%;
-    width: 220px;
-    height: 220px;
-    background: radial-gradient(circle, rgba(249, 210, 112, 0.22), transparent 55%);
-    filter: blur(18px);
+    inset: -30% auto auto -10%;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(249, 210, 112, 0.2), transparent 60%);
+    filter: blur(14px);
     animation: careerGlow 5s ease-in-out infinite;
-  }
-
-  @keyframes careerCardReveal {
-    0% {
-      opacity: 0;
-      transform: translateY(18px) scale(0.96);
-      filter: blur(10px);
-    }
-    60% {
-      opacity: 1;
-      transform: translateY(-4px) scale(1.01);
-      filter: blur(4px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0);
-    }
-  }
-
-  @keyframes careerItemIn {
-    0% {
-      opacity: 0;
-      transform: translateY(12px);
-      filter: blur(8px);
-    }
-    60% {
-      opacity: 1;
-      transform: translateY(-1px);
-      filter: blur(3px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-      filter: blur(0);
-    }
   }
 
   @keyframes careerGlow {
@@ -2238,27 +1800,6 @@
     }
     100% {
       transform: translateY(30px) scale(1.05);
-    }
-  }
-
-  @keyframes careerRibbonSlide {
-    0% {
-      transform: translateX(0) skewY(-4deg);
-    }
-    100% {
-      transform: translateX(-18%) skewY(-4deg);
-    }
-  }
-
-  @keyframes careerSheen {
-    0%,
-    100% {
-      filter: drop-shadow(0 0 8px rgba(249, 210, 112, 0.6));
-      transform: translateY(0);
-    }
-    50% {
-      filter: drop-shadow(0 0 16px rgba(249, 210, 112, 0.9));
-      transform: translateY(-2px);
     }
   }
   
@@ -2372,22 +1913,6 @@
       justify-self: start;
       width: 100%;
       justify-content: center;
-    }
-
-    .career__hero {
-      grid-template-columns: 1fr;
-    }
-
-    .career__grid-header {
-      grid-template-columns: 1fr;
-    }
-
-    .career__visual {
-      order: -1;
-    }
-
-    .career__grid {
-      grid-template-columns: 1fr;
     }
 
     .career__cta {
