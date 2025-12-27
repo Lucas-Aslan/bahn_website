@@ -46,14 +46,6 @@
     points: string[]
   }
 
-  const accolades: Accolade[] = [
-    { label: 'Einsatzbereit', detail: '24/7-Teams mit geprüften Qualifikationen und klaren Abläufen.' },
-    { label: 'Sicherheitsfokus', detail: 'Fortlaufende Unterweisungen, dokumentierte Checks und zuverlässige Reports.' },
-    { label: 'Planbare Leistung', detail: 'Digitale Disposition, transparente Kommunikation und termintreue Umsetzung.' }
-  ]
-
-
-
   const careerSignals: CareerSignal[] = [
     {
       title: 'Vollständige Unterlagen',
