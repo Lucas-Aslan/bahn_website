@@ -646,9 +646,9 @@
     box-shadow: 0 35px 90px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
     min-height: 540px;
     display: grid;
-    grid-template-columns: 1fr minmax(0, 760px);
+    grid-template-columns: minmax(0, 760px) 1fr;
     align-items: start;
-    justify-content: center;
+    justify-content: start;
     column-gap: clamp(1.5rem, 5vw, 3.5rem);
     width: 100vw;
     max-width: none;
@@ -724,8 +724,8 @@
     backdrop-filter: blur(9px) saturate(1.05);
     border: 1px solid rgba(255, 255, 255, 0.06);
     box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    grid-column: 2;
-    justify-self: end;
+    grid-column: 1;
+    justify-self: start;
     align-self: start;
   }
   
