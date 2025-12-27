@@ -478,6 +478,68 @@
         </div>
       </section>
 
+      <section class="gold-cta section js-reveal">
+        <div class="gold-cta__backdrop" aria-hidden="true">
+          <span class="gold-cta__flare gold-cta__flare--left" />
+          <span class="gold-cta__flare gold-cta__flare--right" />
+          <span class="gold-cta__grid" />
+        </div>
+
+        <div class="gold-cta__grid-shell">
+          <div class="gold-cta__visual">
+            <div class="gold-cta__visual-inner">
+              <div class="gold-cta__label">Babylon Bahnlogistik</div>
+              <div class="gold-cta__container">
+                <div class="gold-cta__container-top">
+                  <span class="gold-cta__rail gold-cta__rail--one" />
+                  <span class="gold-cta__rail gold-cta__rail--two" />
+                  <span class="gold-cta__rail gold-cta__rail--three" />
+                </div>
+                <div class="gold-cta__container-body">
+                  <div class="gold-cta__logo">
+                    <span class="gold-cta__logo-mark">BB</span>
+                    <span class="gold-cta__logo-text">Bahnlogistik</span>
+                  </div>
+                  <div class="gold-cta__chevrons" aria-hidden="true">
+                    <span class="gold-cta__chevron" />
+                    <span class="gold-cta__chevron" />
+                    <span class="gold-cta__chevron" />
+                  </div>
+                  <p class="gold-cta__url">babylon-bahndienste.de</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gold-cta__content">
+            <p class="gold-cta__eyebrow">Consulting · Crews · Disposition</p>
+            <h2>Mit Babylon Bahnlogistik durchstarten.</h2>
+            <p class="gold-cta__lead">
+              Wir bündeln Personalgestellung, operative Steuerung und klare Kommunikation – präzise, sicher und
+              deutschlandweit. Für Auftraggeber bedeutet das planbare Ressourcen, dokumentierte Qualität und souveräne
+              Einsätze.
+            </p>
+
+            <div class="gold-cta__tags" role="list">
+              <span class="gold-cta__tag" role="listitem">Schnelle Kontaktaufnahme</span>
+              <span class="gold-cta__tag" role="listitem">Verlässliche Einsatzplanung</span>
+              <span class="gold-cta__tag" role="listitem">Erfahrene Bahnteams</span>
+            </div>
+
+            <div class="gold-cta__actions">
+              <NuxtLink to="/kontakt" class="gold-cta__button gold-cta__button--solid">
+                Kontaktieren
+                <span aria-hidden="true">→</span>
+              </NuxtLink>
+              <NuxtLink to="/karriere" class="gold-cta__button gold-cta__button--outline">
+                Starte deine Karriere
+                <span aria-hidden="true">→</span>
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section js-reveal">
         <div class="section__header">
           <div class="metrics" role="list">
@@ -1803,7 +1865,307 @@
       transform: translateY(30px) scale(1.05);
     }
   }
-  
+
+  .gold-cta {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.12), transparent 34%),
+      radial-gradient(circle at 82% 76%, rgba(255, 255, 255, 0.1), transparent 36%),
+      linear-gradient(135deg, #f8d770, #e8b94f);
+    color: #111;
+    border: 1px solid rgba(131, 87, 8, 0.24);
+    box-shadow: 0 30px 80px rgba(115, 78, 5, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    border-radius: 24px;
+    isolation: isolate;
+  }
+
+  .gold-cta__backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .gold-cta__flare {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    filter: blur(80px);
+    opacity: 0.55;
+    mix-blend-mode: screen;
+  }
+
+  .gold-cta__flare--left {
+    top: -18%;
+    left: -10%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.26), transparent 50%);
+  }
+
+  .gold-cta__flare--right {
+    bottom: -20%;
+    right: -12%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 55%);
+  }
+
+  .gold-cta__grid {
+    position: absolute;
+    inset: -20%;
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+    background-size: 240px 240px;
+    opacity: 0.35;
+    transform: rotate(-2deg) scale(1.05);
+  }
+
+  .gold-cta__grid-shell {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    align-items: center;
+    gap: clamp(1rem, 2vw, 1.6rem);
+  }
+
+  .gold-cta__visual {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gold-cta__visual-inner {
+    position: relative;
+    background: linear-gradient(145deg, #111, #151515);
+    color: #f9d270;
+    border-radius: 22px;
+    padding: 1rem;
+    width: min(520px, 90vw);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .gold-cta__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.8rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.7rem;
+    color: #f9d270;
+  }
+
+  .gold-cta__container {
+    border-radius: 18px;
+    background: linear-gradient(120deg, #1b1b1b, #0f0f0f);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    overflow: hidden;
+  }
+
+  .gold-cta__container-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.2rem;
+    padding: 0.5rem 0.6rem 0.3rem;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .gold-cta__rail {
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(249, 210, 112, 0.9), rgba(249, 210, 112, 0.45));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gold-cta__rail::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0));
+    animation: railGlow 2.8s ease-in-out infinite;
+  }
+
+  .gold-cta__rail--two::after {
+    animation-delay: 0.3s;
+  }
+
+  .gold-cta__rail--three::after {
+    animation-delay: 0.6s;
+  }
+
+  .gold-cta__container-body {
+    padding: 1.1rem 1.2rem 1rem;
+    display: grid;
+    gap: 0.65rem;
+    color: #f6f6f6;
+  }
+
+  .gold-cta__logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .gold-cta__logo-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(145deg, #f9d270, #c99038);
+    color: #111;
+    font-weight: 900;
+    font-size: 1.2rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  .gold-cta__logo-text {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .gold-cta__chevrons {
+    display: inline-flex;
+    gap: 0.15rem;
+  }
+
+  .gold-cta__chevron {
+    width: 32px;
+    height: 8px;
+    background: linear-gradient(120deg, rgba(249, 210, 112, 0.92), rgba(249, 210, 112, 0.65));
+    clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%, 25% 50%);
+    filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.35));
+  }
+
+  .gold-cta__url {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #f9d270;
+  }
+
+  .gold-cta__content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .gold-cta__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.08);
+    color: #2a1a04;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    width: fit-content;
+  }
+
+  .gold-cta h2 {
+    margin: 0;
+    font-size: clamp(1.9rem, 3vw, 2.4rem);
+    letter-spacing: -0.02em;
+    color: #0f0a05;
+  }
+
+  .gold-cta__lead {
+    margin: 0;
+    color: #2f1b04;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    max-width: 720px;
+  }
+
+  .gold-cta__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .gold-cta__tag {
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.06);
+    color: #1a1206;
+    font-weight: 700;
+    border: 1px solid rgba(33, 23, 9, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+
+  .gold-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+    margin-top: 0.3rem;
+  }
+
+  .gold-cta__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.9rem 1.2rem;
+    border-radius: 999px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    border: 1px solid #0f0a05;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  }
+
+  .gold-cta__button--solid {
+    background: #0f0a05;
+    color: #f9d270;
+  }
+
+  .gold-cta__button--outline {
+    background: #0f0a05;
+    color: #f9d270;
+    border-color: rgba(15, 10, 5, 0.7);
+    box-shadow:
+      0 14px 40px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .gold-cta__button:hover,
+  .gold-cta__button:focus-visible {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
+  }
+
+  .gold-cta__button--outline:hover,
+  .gold-cta__button--outline:focus-visible {
+    background: rgba(15, 10, 5, 0.06);
+  }
+
+  @keyframes railGlow {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(120%);
+      opacity: 0.4;
+    }
+  }
+
   .metric {
     padding: 0.9rem 1rem;
     border-radius: 16px;
@@ -1919,6 +2281,27 @@
     .career__cta {
       width: 100%;
       justify-content: center;
+    }
+
+    .gold-cta__grid-shell {
+      grid-template-columns: 1fr;
+    }
+
+    .gold-cta__visual-inner {
+      width: 100%;
+    }
+
+    .gold-cta__actions,
+    .gold-cta__tags {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .gold-cta__button,
+    .gold-cta__tag {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
     }
   }
   </style>
