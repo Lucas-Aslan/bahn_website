@@ -655,12 +655,15 @@
     position: relative;
     overflow: hidden;
     border-radius: 0;
-    padding: calc(3.5rem + var(--hero-bleed)) clamp(1.4rem, 3vw, 2.4rem) 3.8rem;
+    padding: calc(1.2rem + var(--hero-overlap)) clamp(2rem, 4vw, 3rem) 3.6rem;
     background: linear-gradient(135deg, rgba(9, 12, 24, 0.92), rgba(5, 11, 24, 0.7));
     box-shadow: 0 35px 90px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
     min-height: 540px;
     display: grid;
-    align-items: center;
+    grid-template-columns: 1fr minmax(0, 760px);
+    align-items: start;
+    justify-content: center;
+    column-gap: clamp(1.5rem, 5vw, 3.5rem);
     width: 100vw;
     max-width: none;
     margin-left: calc(-50vw + 50%);
@@ -725,6 +728,7 @@
     position: relative;
     z-index: 1;
     max-width: 720px;
+    width: min(100%, 720px);
     display: grid;
     gap: 1.1rem;
     color: #e8f0ff;
@@ -734,6 +738,9 @@
     backdrop-filter: blur(9px) saturate(1.05);
     border: 1px solid rgba(255, 255, 255, 0.06);
     box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    grid-column: 2;
+    justify-self: end;
+    align-self: start;
   }
   
   .hero__title {
@@ -916,6 +923,20 @@
   .js-reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  @media (max-width: 1100px) {
+    .hero {
+      grid-template-columns: 1fr;
+      justify-content: stretch;
+      padding: calc(1.4rem + var(--hero-overlap)) clamp(1.4rem, 3vw, 2.4rem) 3.6rem;
+    }
+
+    .hero__content {
+      grid-column: 1;
+      justify-self: start;
+      width: 100%;
+    }
   }
   
   .section {
