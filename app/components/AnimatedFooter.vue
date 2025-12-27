@@ -25,16 +25,14 @@
 
       <div class="footer__columns">
         <div class="footer__column">
-          <p class="footer__heading">Leistungen</p>
           <ul class="footer__list">
-            <li><NuxtLink to="/leistungen/transport">Präzisions-Transport</NuxtLink></li>
-            <li><NuxtLink to="/leistungen/infrastruktur">Infrastruktur-Bau</NuxtLink></li>
-            <li><NuxtLink to="/leistungen/logistik">Terminal &amp; Logistik</NuxtLink></li>
+            <li><NuxtLink to="/leistungen/impressum">Impressum</NuxtLink></li>
+            <li><NuxtLink to="/leistungen/datenschutz">Datenschutz</NuxtLink></li>
+            <li><NuxtLink to="/leistungen/barrierefreiheit">Barrierefreiheit</NuxtLink></li>
           </ul>
         </div>
 
         <div class="footer__column">
-          <p class="footer__heading">Unternehmen</p>
           <ul class="footer__list">
             <li><NuxtLink to="/about">Über uns</NuxtLink></li>
             <li><NuxtLink to="/kontakt">Kontakt</NuxtLink></li>
@@ -56,8 +54,8 @@
     <div class="footer__meta">
       <div class="footer__ticker" aria-hidden="true">
         <span class="footer__pulse" />
-        <span>Netzstabilität: 99.98%</span>
-        <span>Flotten-Tracking aktiv</span>
+        <p class="footer__legal">© 2026 Babylon Bahndienste – Präzision auf Schienen.</p>
+
       </div>
       <p class="footer__legal">© 2026 Babylon Bahndienste – Präzision auf Schienen.</p>
     </div>

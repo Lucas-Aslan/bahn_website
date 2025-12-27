@@ -188,7 +188,6 @@ watch(currentVideoIndex, async () => {
         </p>
 
         <div class="hero__actions">
-          <NuxtLink to="/kontakt" class="cta cta--solid">Projekt anfragen</NuxtLink>
           <NuxtLink to="/leistungen/transport" class="cta cta--ghost">Leistungen ansehen</NuxtLink>
         </div>
 
