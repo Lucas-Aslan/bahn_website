@@ -83,18 +83,18 @@
 
   const careerSignals: CareerSignal[] = [
     {
-      title: '48h Antwort',
-      detail: 'Kurzbewerbung, direkte Rückmeldung und klare Starttermine.',
+      title: 'Vollständige Unterlagen',
+      detail: 'Lebenslauf, Qualifikationen und Nachweise sorgen für eine fundierte Entscheidung.',
       accent: 'gold'
     },
     {
-      title: 'Mentor:in on Track',
-      detail: 'Shadowing, Safety-Briefings und dokumentierte Übergaben.',
+      title: 'Fachliches Gespräch',
+      detail: 'Persönlicher Austausch mit Disposition und Fachbereich zu Einsätzen und Erwartungen.',
       accent: 'cyan'
     },
     {
-      title: 'Digitale Dispo',
-      detail: 'Live-Updates, feste Ansprechpartner:innen und planbare Zulagen.',
+      title: 'Onboarding & Sicherheit',
+      detail: 'Verbindliche Unterweisungen, dokumentierte Checks und klarer Starttermin.',
       accent: 'magenta'
     }
   ]
@@ -102,18 +102,18 @@
   const careerSteps: CareerStep[] = [
     {
       badge: '1',
-      title: '60 Sekunden Bewerbung',
-      detail: 'Ohne Anschreiben, direkt mit Deinem Wunsch-Einsatzort.'
+      title: 'Bewerbungsunterlagen senden',
+      detail: 'Lebenslauf, Qualifikationen und Wunsch-Einsatzorte über unser Formular übermitteln.'
     },
     {
       badge: '2',
-      title: 'Kickstart mit Mentor:in',
-      detail: 'Erste Schicht im Tandem, Safety-Checks und Feedback in Echtzeit.'
+      title: 'Qualifikations- & Fachgespräch',
+      detail: 'Persönliches Gespräch mit Fachverantwortlichen, Disposition und ggf. Probefahrt.'
     },
     {
       badge: '3',
-      title: 'Upgrade & Benefits',
-      detail: 'Planbare Schichten, transparente Zulagen und neue Strecken nach Wunsch.'
+      title: 'Onboarding & Einsatzstart',
+      detail: 'Verbindliche Unterweisungen, ausgestattete Arbeitsmittel und klarer Einsatzplan.'
     }
   ]
   
@@ -420,12 +420,13 @@
           <div class="career__eyebrow">
             <span class="career__spark" aria-hidden="true" />
             <p class="eyebrow">Karriere</p>
-            <span class="career__eyebrow-pill">High-Speed Bewerbung</span>
+            <span class="career__eyebrow-pill">Strukturiertes Bewerbungsverfahren</span>
           </div>
           <div class="career__headline">
-            <h2>60 Sekunden. Antwort garantiert.</h2>
+            <h2>Kompetent bewerben. Verlässlich starten.</h2>
             <p class="career__lead">
-              Modern, sicher, sofort startklar: Komm ins Team, das Schichten plant wie ein Flightdeck.
+              Reiche vollständige Unterlagen ein, sprich mit uns über Deinen Werdegang und erhalte einen klaren Fahrplan
+              für Deinen Einstieg.
             </p>
           </div>
 
