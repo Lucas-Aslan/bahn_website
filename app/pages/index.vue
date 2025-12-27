@@ -447,105 +447,57 @@
       </section>
 
       <section class="gold-cta section js-reveal">
-        <div class="gold-cta__backdrop" aria-hidden="true">
-          <span class="gold-cta__flare gold-cta__flare--top" />
-          <span class="gold-cta__flare gold-cta__flare--bottom" />
-          <span class="gold-cta__grid" />
-        </div>
-
-        <div class="gold-cta__shell">
-          <div class="gold-cta__summary">
-            <div class="gold-cta__pill-row">
-              <span class="gold-cta__pill gold-cta__pill--solid">Consulting · Crews · Disposition</span>
-              <span class="gold-cta__pill gold-cta__pill--ghost">Antwort in unter 2h</span>
+        <div class="gold-cta__wrap">
+          <div class="gold-cta__visual" aria-hidden="true">
+            <div class="gold-cta__visual-inner">
+              <span class="gold-cta__visual-pill">Ops Desk</span>
+              <div class="gold-cta__container">
+                <div class="gold-cta__container-top">
+                  <span class="gold-cta__container-dot" />
+                  <span class="gold-cta__container-dot gold-cta__container-dot--glow" />
+                  <span class="gold-cta__container-label">Babylon Bahndienste</span>
+                </div>
+                <div class="gold-cta__container-body">
+                  <span class="gold-cta__container-stripe" />
+                  <span class="gold-cta__container-stripe" />
+                  <span class="gold-cta__container-stripe" />
+                  <span class="gold-cta__container-text">Bahnlogistik</span>
+                </div>
+                <div class="gold-cta__container-base">
+                  <span class="gold-cta__rail" />
+                  <span class="gold-cta__rail gold-cta__rail--alt" />
+                </div>
+              </div>
+              <div class="gold-cta__legend">
+                <span class="gold-cta__legend-dot" />
+                <p>Disposition, Einsatzplanung, Reporting</p>
+              </div>
             </div>
+          </div>
 
-            <h2>Bereit für den nächsten Einsatz.</h2>
+          <div class="gold-cta__content">
+            <p class="gold-cta__eyebrow">Mit Babylon Bahndienste durchstarten</p>
+            <h2>Präzise Bahnlogistik – klar gesteuert, schnell gestartet.</h2>
             <p class="gold-cta__lead">
-              Wir bündeln Personalgestellung, operative Steuerung und klare Kommunikation – präzise, sicher und
-              deutschlandweit. Planbare Ressourcen, dokumentierte Qualität und souveräne Einsätze sind unser Standard.
+              Zuverlässige Crews, klare Abläufe und direkte Ansprechpartner. Wir übernehmen Personalgestellung,
+              Consulting und operative Steuerung – präzise, sicher und deutschlandweit.
             </p>
 
-            <div class="gold-cta__meta">
-              <div class="gold-cta__meta-card">
-                <p class="gold-cta__meta-label">Reaktionszeit</p>
-                <p class="gold-cta__meta-value">unter 2 Stunden</p>
-                <p class="gold-cta__meta-note">mit Crew-Vorschlag & Verfügbarkeiten</p>
-              </div>
-              <div class="gold-cta__meta-card">
-                <p class="gold-cta__meta-label">Einsatzgebiet</p>
-                <p class="gold-cta__meta-value">Deutschlandweit</p>
-                <p class="gold-cta__meta-note">Disposition, Dokumentation & Reporting</p>
-              </div>
-              <div class="gold-cta__meta-card">
-                <p class="gold-cta__meta-label">Sicherheit</p>
-                <p class="gold-cta__meta-value">Zertifizierte Crews</p>
-                <p class="gold-cta__meta-note">Unterweisungen & Checklisten aktuell</p>
-              </div>
+            <div class="gold-cta__highlights">
+              <span class="gold-cta__chip">Antwort in unter 2h</span>
+              <span class="gold-cta__chip">Deutschlandweit</span>
+              <span class="gold-cta__chip">Zertifizierte Teams</span>
             </div>
 
             <div class="gold-cta__actions">
               <NuxtLink to="/kontakt" class="gold-cta__button gold-cta__button--solid">
-                Projekt anfragen
-                <span aria-hidden="true">→</span>
+                Kontaktieren
+                <span aria-hidden="true">↗</span>
               </NuxtLink>
-              <NuxtLink to="/karriere" class="gold-cta__button gold-cta__button--outline">
-                Team verstärken
-                <span aria-hidden="true">→</span>
+              <NuxtLink to="/karriere" class="gold-cta__button gold-cta__button--ghost">
+                Starte deine Karriere
+                <span aria-hidden="true">↗</span>
               </NuxtLink>
-              <NuxtLink to="/leistungen/transport" class="gold-cta__ghost-link">
-                Leistungen im Detail
-                <span aria-hidden="true">→</span>
-              </NuxtLink>
-            </div>
-          </div>
-
-          <div class="gold-cta__board">
-            <article class="gold-cta__card gold-cta__card--primary">
-              <div class="gold-cta__card-headline">
-                <span class="gold-cta__card-pill">Ops Desk</span>
-                <p class="gold-cta__card-title">Disposition & Einsatzsteuerung</p>
-                <p class="gold-cta__card-text">
-                  Wir übernehmen die vollständige Koordination: Crew-Vorschläge, Einsatzplanung, Sicherheits-Checks und
-                  ein klarer Ansprechpartner.
-                </p>
-              </div>
-              <ul class="gold-cta__list">
-                <li>Verbindliche Crew-Zusagen inklusive Ansprechpartner</li>
-                <li>Digitale Reports mit Zeiten, Fotos und Übergaben</li>
-                <li>Proaktive Abstimmung mit Leitstelle & Bauleitung</li>
-              </ul>
-              <div class="gold-cta__rail">
-                <span class="gold-cta__rail-dot" />
-                <span class="gold-cta__rail-dot gold-cta__rail-dot--glow" />
-              </div>
-            </article>
-
-            <div class="gold-cta__card-grid">
-              <article class="gold-cta__card gold-cta__card--secondary">
-                <p class="gold-cta__card-title">Kontaktwege</p>
-                <ul class="gold-cta__list gold-cta__list--compact">
-                  <li>Telefon: +49 30 123 45 67</li>
-                  <li>E-Mail: dispo@babylon-bahndienste.de</li>
-                  <li>Formular: Schnellbriefing & Rückruf</li>
-                </ul>
-              </article>
-              <article class="gold-cta__card gold-cta__card--secondary">
-                <p class="gold-cta__card-title">Bereitgestellte Qualifikationen</p>
-                <ul class="gold-cta__list gold-cta__list--compact">
-                  <li>Triebfahrzeugführer: Vossloh · Siemens · Alstom</li>
-                  <li>Rangierbegleiter & Wagenprüfer (bis Stufe 4)</li>
-                  <li>Kippwagenberechtigte & sicherheitsunterwiesene Teams</li>
-                </ul>
-              </article>
-              <article class="gold-cta__card gold-cta__card--secondary">
-                <p class="gold-cta__card-title">Servicefenster</p>
-                <ul class="gold-cta__list gold-cta__list--compact">
-                  <li>24/7-Einsatzsteuerung</li>
-                  <li>Geführtes Onboarding für neue Crews</li>
-                  <li>Planbare Vertretungen bei Bedarf</li>
-                </ul>
-              </article>
             </div>
           </div>
         </div>
@@ -1931,61 +1883,200 @@
     transform: rotate(-2deg) scale(1.08);
   }
 
-  .gold-cta__shell {
+  .gold-cta__wrap {
     position: relative;
-    z-index: 1;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    align-items: start;
-    gap: clamp(1.3rem, 2vw, 1.8rem);
+    gap: clamp(1.4rem, 2vw, 2rem);
+    align-items: stretch;
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.82), rgba(10, 10, 10, 0.92));
+    border: 1px solid rgba(249, 210, 112, 0.2);
+    border-radius: 22px;
+    padding: clamp(1.4rem, 3vw, 2rem);
+    box-shadow:
+      0 25px 60px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
 
-  .gold-cta__summary {
+  .gold-cta__visual {
+    position: relative;
+    background: radial-gradient(circle at 28% 20%, rgba(249, 210, 112, 0.18), transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.5));
+    border-radius: 16px;
+    border: 1px solid rgba(249, 210, 112, 0.18);
+    overflow: hidden;
     display: grid;
-    gap: 0.9rem;
+    place-items: center;
+    min-height: 320px;
+    padding: 1.2rem;
+  }
+
+  .gold-cta__visual-inner {
+    width: min(440px, 100%);
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .gold-cta__visual-pill {
+    width: fit-content;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(249, 210, 112, 0.12);
+    color: #f9d270;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+
+  .gold-cta__container {
+    position: relative;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.55));
+    border: 1px solid rgba(249, 210, 112, 0.2);
+    border-radius: 14px;
+    padding: 0.9rem;
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .gold-cta__container-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    color: #f9e3b0;
+    font-weight: 800;
+  }
+
+  .gold-cta__container-label {
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+  }
+
+  .gold-cta__container-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #f9d270;
+    box-shadow: 0 0 15px rgba(249, 210, 112, 0.7);
+  }
+
+  .gold-cta__container-dot--glow {
+    background: #6cf0ff;
+    box-shadow: 0 0 16px rgba(108, 240, 255, 0.85);
+  }
+
+  .gold-cta__container-body {
+    display: grid;
+    gap: 0.4rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 0.8rem;
+    border: 1px dashed rgba(249, 210, 112, 0.28);
+  }
+
+  .gold-cta__container-stripe {
+    height: 8px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgba(249, 210, 112, 0.6), rgba(255, 255, 255, 0.2));
+  }
+
+  .gold-cta__container-text {
+    margin-top: 0.4rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #f9d270;
+    text-transform: uppercase;
+  }
+
+  .gold-cta__container-base {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.45rem;
+  }
+
+  .gold-cta__rail {
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(249, 210, 112, 0.85), rgba(255, 255, 255, 0.3));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gold-cta__rail::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(249, 210, 112, 0.8), transparent);
+    animation: railSweep 3s ease-in-out infinite;
+  }
+
+  .gold-cta__rail--alt {
+    background: linear-gradient(90deg, rgba(108, 240, 255, 0.8), rgba(255, 255, 255, 0.3));
+  }
+
+  @keyframes railSweep {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(60%);
+    }
+    100% {
+      transform: translateX(120%);
+    }
+  }
+
+  .gold-cta__legend {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: #f4e3b8;
+    font-size: 0.95rem;
+    margin-top: 0.2rem;
+  }
+
+  .gold-cta__legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #f9d270;
+    box-shadow: 0 0 14px rgba(249, 210, 112, 0.6);
+  }
+
+  .gold-cta__content {
     background: rgba(8, 6, 4, 0.7);
-    border-radius: 20px;
-    padding: clamp(1.2rem, 2vw, 1.6rem);
+    border-radius: 16px;
+    padding: clamp(1.2rem, 2.5vw, 1.8rem);
     border: 1px solid rgba(249, 210, 112, 0.28);
     box-shadow:
       0 18px 50px rgba(0, 0, 0, 0.45),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    display: grid;
+    gap: 0.85rem;
   }
 
-  .gold-cta__pill-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .gold-cta__pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    padding: 0.45rem 0.85rem;
-    border-radius: 999px;
-    font-weight: 800;
-    letter-spacing: 0.02em;
+  .gold-cta__eyebrow {
+    margin: 0;
     text-transform: uppercase;
-    font-size: 0.86rem;
-  }
-
-  .gold-cta__pill--solid {
-    background: linear-gradient(120deg, #f9d270, #c99038);
-    color: #0c0a05;
-    box-shadow: 0 14px 35px rgba(249, 210, 112, 0.45);
-  }
-
-  .gold-cta__pill--ghost {
-    background: rgba(255, 255, 255, 0.08);
-    color: #f9edd0;
-    border: 1px solid rgba(249, 210, 112, 0.3);
+    letter-spacing: 0.06em;
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: #f9d270;
   }
 
   .gold-cta h2 {
     margin: 0;
-    font-size: clamp(2rem, 3vw, 2.5rem);
-    letter-spacing: -0.02em;
+    font-size: clamp(1.95rem, 3vw, 2.4rem);
+    letter-spacing: -0.01em;
     color: #fff6dd;
   }
 
@@ -1994,53 +2085,32 @@
     color: #f4e3b8;
     line-height: 1.6;
     font-size: 1.05rem;
-    max-width: 720px;
   }
 
-  .gold-cta__meta {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 0.75rem;
-    margin: 0.2rem 0 0.4rem;
+  .gold-cta__highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
-  .gold-cta__meta-card {
-    padding: 0.85rem 1rem;
-    border-radius: 16px;
-    background: linear-gradient(130deg, rgba(255, 255, 255, 0.05), rgba(249, 210, 112, 0.1));
-    border: 1px solid rgba(249, 210, 112, 0.24);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  }
-
-  .gold-cta__meta-label {
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+  .gold-cta__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #f9edd0;
+    border: 1px solid rgba(249, 210, 112, 0.22);
     font-weight: 700;
-    color: rgba(249, 237, 208, 0.86);
-    font-size: 0.78rem;
-  }
-
-  .gold-cta__meta-value {
-    margin: 0.1rem 0 0.1rem;
-    font-weight: 900;
-    font-size: 1.15rem;
-    color: #f9d270;
-  }
-
-  .gold-cta__meta-note {
-    margin: 0;
-    color: #f4e3b8;
-    opacity: 0.9;
-    font-size: 0.95rem;
+    letter-spacing: 0.02em;
   }
 
   .gold-cta__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.9rem;
+    gap: 0.85rem;
     align-items: center;
-    margin-top: 0.2rem;
   }
 
   .gold-cta__button {
@@ -2063,7 +2133,7 @@
     color: #0c0a05;
   }
 
-  .gold-cta__button--outline {
+  .gold-cta__button--ghost {
     background: rgba(255, 255, 255, 0.06);
     color: #f9edd0;
   }
@@ -2072,137 +2142,6 @@
   .gold-cta__button:focus-visible {
     transform: translateY(-1px) scale(1.01);
     box-shadow: 0 22px 55px rgba(0, 0, 0, 0.45);
-  }
-
-  .gold-cta__ghost-link {
-    color: #f9d270;
-    font-weight: 800;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.65rem 0.4rem;
-    border-radius: 10px;
-    transition: color 0.2s ease, transform 0.2s ease, background 0.2s ease;
-  }
-
-  .gold-cta__ghost-link:hover,
-  .gold-cta__ghost-link:focus-visible {
-    color: #ffeec0;
-    background: rgba(255, 255, 255, 0.06);
-    transform: translateY(-2px);
-  }
-
-  .gold-cta__board {
-    display: grid;
-    gap: 0.9rem;
-  }
-
-  .gold-cta__card {
-    position: relative;
-    border-radius: 18px;
-    padding: 1.1rem 1.2rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(0, 0, 0, 0.38);
-    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    overflow: hidden;
-  }
-
-  .gold-cta__card--primary {
-    background: radial-gradient(circle at 18% 20%, rgba(249, 210, 112, 0.2), transparent 50%),
-      linear-gradient(140deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.35));
-    border-color: rgba(249, 210, 112, 0.4);
-  }
-
-  .gold-cta__card--secondary {
-    background: linear-gradient(130deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.48));
-  }
-
-  .gold-cta__card-headline {
-    display: grid;
-    gap: 0.4rem;
-  }
-
-  .gold-cta__card-pill {
-    width: fit-content;
-    padding: 0.35rem 0.7rem;
-    border-radius: 999px;
-    background: rgba(249, 210, 112, 0.16);
-    color: #f9d270;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-  }
-
-  .gold-cta__card-title {
-    margin: 0;
-    font-weight: 800;
-    font-size: 1.2rem;
-    color: #fff1c5;
-  }
-
-  .gold-cta__card-text {
-    margin: 0;
-    color: #f4e3b8;
-    line-height: 1.55;
-  }
-
-  .gold-cta__card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 0.75rem;
-  }
-
-  .gold-cta__list {
-    margin: 0.4rem 0 0;
-    padding-left: 1.2rem;
-    display: grid;
-    gap: 0.3rem;
-    color: #f7eac2;
-    line-height: 1.45;
-  }
-
-  .gold-cta__list--compact {
-    gap: 0.2rem;
-  }
-
-  .gold-cta__rail {
-    margin-top: 0.8rem;
-    height: 4px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, rgba(249, 210, 112, 0.8), rgba(255, 255, 255, 0.4));
-    position: relative;
-    overflow: hidden;
-  }
-
-  .gold-cta__rail-dot {
-    position: absolute;
-    top: 50%;
-    left: 6%;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #f9d270;
-    transform: translateY(-50%);
-    box-shadow: 0 0 20px rgba(249, 210, 112, 0.7);
-  }
-
-  .gold-cta__rail-dot--glow {
-    left: 58%;
-    animation: railPulse 2.6s ease-in-out infinite;
-  }
-
-  @keyframes railPulse {
-    0%,
-    100% {
-      transform: translateY(-50%) scale(1);
-      box-shadow: 0 0 18px rgba(249, 210, 112, 0.55);
-    }
-    50% {
-      transform: translateY(-50%) scale(1.15);
-      box-shadow: 0 0 28px rgba(249, 210, 112, 0.85);
-    }
   }
 
   .metric {
