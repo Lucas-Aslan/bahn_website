@@ -1,88 +1,174 @@
 <script setup lang="ts">
-  import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
-  
-  
-  type HeroVideoSource = {
-    src: string
-    type: string
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+
+
+type HeroVideoSource = {
+  src: string
+  type: string
+}
+
+type HeroVideo = {
+  sources: HeroVideoSource[]
+}
+
+type Accolade = {
+  label: string
+  detail: string
+}
+
+type Metric = {
+  value: string
+  label: string
+}
+
+type Service = {
+  accent: string
+  title: string
+  description: string
+}
+
+type PerformanceBlock = {
+  order: number
+  category: string
+  badge: string
+  title: string
+  summary: string
+  points: string[]
+}
+
+const performanceBlocks: PerformanceBlock[] = [
+  {
+    order: 1,
+    category: 'Traktion & Lok',
+    badge: 'Lok & Traktion',
+    title: 'Gestellung Triebfahrzeugführer',
+    summary: 'Unsere Triebfahrzeugführer sind u. a. auf folgenden Baureihen berechtigt:',
+    points: [
+      'Alstom: BR 214 · BR 203 retrofit · BR 203 Handschaltrad',
+      'Siemens: BR 248 Vectron Dual Mode',
+      'Vossloh: DE 12 · DE 18 · G1206 · G1700',
+      'Dokumentation und Einsatzplanung mit festen Ansprechpartnern'
+    ]
+  },
+  {
+    order: 2,
+    category: 'Rangieren',
+    badge: 'Rangier',
+    title: 'Gestellung Rangierbegleiter',
+    summary:
+      'Bremsproberechtigte Wagenprüfer mit langjähriger Erfahrung im Güter-, Nah- und Fernverkehr sowie auf Gleisbaustellen.',
+    points: [
+      'Güter-, Nah- und Fernverkehr inklusive Bremsproben',
+      'Rangierarbeiten im Gleisbau mit Sicherungslogik',
+      'Rangierarbeiten in Häfen und Anschlussgleisen',
+      'Vorbereitete Arbeits- und Übergabeprotokolle'
+    ]
+  },
+  {
+    order: 3,
+    category: 'Wagenprüfung',
+    badge: 'Prüfung',
+    title: 'Gestellung Wagenprüfer bis Stufe 4',
+    summary:
+      'Von Stufe 1 bis 4 (ehemals Wagenmeister): Abfertigung, Rangieren und umfassende Wagenprüfungen inklusive Dokumentation.',
+    points: [
+      'Wagenprüfungen und Abfertigung inklusive Bremsproben',
+      'Einsätze im Güterverkehr, Gleisbau und Hafenumschlag',
+      'Rangieraufsicht, Dokumentation und Übergabeberichte',
+      'Lauffähigkeitsuntersuchungen und Stufe-4-Gutachten'
+    ]
+  },
+  {
+    order: 4,
+    category: 'Spezialaufgaben',
+    badge: 'Kippen',
+    title: 'Kippwagenberechtigte',
+    summary:
+      'Spezialgeschulte Mitarbeitende für das sichere Kippen auf Gleisbaustellen – immer mit Qualifikation als Rangierbegleiter.',
+    points: [
+      'Unterwiesene Teams mit Rangierberechtigung',
+      'Kippvorgänge auf Gleisbaustellen mit Sicherungslogik',
+      'Abgestimmte Abläufe inkl. Schnittstellen zu Wagenprüfern'
+    ]
   }
-  
-  type HeroVideo = {
-    sources: HeroVideoSource[]
+]
+
+const heroVideos: HeroVideo[] = [
+  {
+    sources: [
+      { src: '/videos/video1.mp4', type: 'video/mp4' },
+    ]
+  },
+  {
+    sources: [
+      { src: '/videos/video2.mp4', type: 'video/mp4' },
+    ]
   }
-  
-  type Accolade = {
-    label: string
-    detail: string
-  }
-  
-  type Metric = {
-    value: string
-    label: string
-  }
-  
-  type Service = {
-    accent: string
-    title: string
-    description: string
-  }
-  
-  type PerformanceBlock = {
-    badge: string
-    title: string
-    summary: string
-    points: string[]
-  }
-  
-  const performanceBlocks: PerformanceBlock[] = [
-    {
-      badge: 'Lok & Traktion',
-      title: 'Gestellung Triebfahrzeugführer',
-      summary: 'Unsere Triebfahrzeugführer sind u. a. auf folgenden Baureihen berechtigt:',
-      points: [
-        'Vossloh: DE 12 · DE 18 · G1206 · G1700',
-        'Siemens: BR 248 Vectron Dual Mode',
-        'Alstom: BR 214 · BR 203 retrofit · BR 203 Handschaltrad'
-      ]
-    },
-    {
-      badge: 'Rangier',
-      title: 'Gestellung Rangierbegleiter',
-      summary:
-        'Bremsproberechtigte Wagenprüfer mit langjähriger Erfahrung im Güter-, Nah- und Fernverkehr sowie auf Gleisbaustellen.',
-      points: [
-        'Rangierarbeiten im Güter-, Nah- und Fernverkehr',
-        'Rangierarbeiten im Gleisbau',
-        'Rangierarbeiten im Hafen',
-        'Rangierarbeiten in Anschlüssen'
-      ]
-    },
-    {
-      badge: 'Prüfung',
-      title: 'Gestellung Wagenprüfer bis Stufe 4',
-      summary:
-        'Von Stufe 1 bis 4 (ehemals Wagenmeister): Abfertigung, Rangieren und umfassende Wagenprüfungen inklusive Dokumentation.',
-      points: [
-        'Rangierarbeiten im Güter-, Nah- und Fernverkehr',
-        'Rangierarbeiten im Gleisbau und in Häfen',
-        'Rangierarbeiten in Anschlüssen & Abfertigung von Zügen',
-        'Erstellen von Lauffähigkeitsuntersuchungen u. v. m.'
-      ]
-    },
-    {
-      badge: 'Kippen',
-      title: 'Kippwagenberechtigte',
-      summary:
-        'Spezialgeschulte Mitarbeitende für das sichere Kippen auf Gleisbaustellen – immer mit Qualifikation als Rangierbegleiter.',
-      points: ['Geprüft und unterwiesen für Kippvorgänge auf Ihren Baustellen']
+]
+
+const currentVideoIndex = ref(0)
+const heroVideoElement = ref<HTMLVideoElement | null>(null)
+const scrollOffset = ref(0)
+let revealObserver: IntersectionObserver | null = null
+
+const activeHeroVideo = computed(() => heroVideos[currentVideoIndex.value] ?? heroVideos[0])
+
+const sortedPerformanceBlocks = computed(() =>
+  performanceBlocks
+    .slice()
+    .sort((first, second) => first.order - second.order || first.title.localeCompare(second.title, 'de'))
+)
+
+const performanceCategories = computed(() => {
+  const grouped = new Map<string, { count: number; order: number }>()
+
+  performanceBlocks.forEach((block) => {
+    const existing = grouped.get(block.category)
+
+    if (existing) {
+      existing.count += 1
+      existing.order = Math.min(existing.order, block.order)
+    } else {
+      grouped.set(block.category, { count: 1, order: block.order })
     }
-  ]
-  
-  const heroVideos: HeroVideo[] = [
-    {
-      sources: [
-        { src: '/videos/video1.mp4', type: 'video/mp4' },
-      ]
+  })
+
+  return Array.from(grouped.entries())
+    .sort((first, second) => first[1].order - second[1].order || first[0].localeCompare(second[0], 'de'))
+    .map(([name, meta]) => ({ name, count: meta.count }))
+})
+
+const handleScroll = () => {
+  scrollOffset.value = window.scrollY
+}
+
+const handleHeroVideoEnded = async () => {
+  if (heroVideos.length <= 1) {
+    await heroVideoElement.value?.play().catch(() => {})
+    return
+  }
+  currentVideoIndex.value = (currentVideoIndex.value + 1) % heroVideos.length
+}
+
+const orbitDrift = computed(() => Math.min(scrollOffset.value * 0.08, 80))
+
+const heroFlow = computed(() => Math.min(scrollOffset.value * 0.18, 160))
+
+onMounted(() => {
+  handleScroll()
+  window.addEventListener('scroll', handleScroll, { passive: true })
+
+  heroVideoElement.value?.play().catch(() => {})
+
+  const revealables = Array.from(document.querySelectorAll<HTMLElement>('.js-reveal'))
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          revealObserver?.unobserve(entry.target)
+        }
+      })
     },
     {
       sources: [
@@ -289,16 +375,45 @@
             <span aria-hidden="true">→</span>
           </NuxtLink>
         </div>
-  
-        <div class="performance__grid">
-          <article
-            v-for="(block, index) in performanceBlocks"
-            :key="block.title"
-            class="performance-card"
-            :style="{ '--card-delay': `${index * 100}ms` }"
-          >
-            <div class="performance-card__header">
-              <span class="performance-card__badge">{{ block.badge }}</span>
+        <NuxtLink to="/leistungen/transport" class="performance__cta">
+          Alle Leistungen ansehen
+          <span aria-hidden="true">→</span>
+        </NuxtLink>
+      </div>
+
+      <div class="performance__legend" role="list">
+        <div
+          v-for="category in performanceCategories"
+          :key="category.name"
+          class="performance__legend-item"
+          role="listitem"
+        >
+          <span class="performance__legend-dot" aria-hidden="true" />
+          <div>
+            <p class="performance__legend-label">{{ category.name }}</p>
+            <p class="performance__legend-meta">
+              {{ category.count }} Leistung{{ category.count === 1 ? '' : 'en' }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="performance__grid">
+        <article
+          v-for="(block, index) in sortedPerformanceBlocks"
+          :key="block.title"
+          class="performance-card"
+          :style="{ '--card-delay': `${index * 100}ms` }"
+        >
+          <div class="performance-card__header">
+            <div class="performance-card__icon-wrap" aria-hidden="true">
+              <span class="performance-card__order">0{{ block.order }}</span>
+            </div>
+            <div class="performance-card__titles">
+              <div class="performance-card__meta">
+                <span class="performance-card__category">{{ block.category }}</span>
+                <span class="performance-card__badge">{{ block.badge }}</span>
+              </div>
               <h3>{{ block.title }}</h3>
               <p class="performance-card__summary">{{ block.summary }}</p>
             </div>
@@ -619,74 +734,412 @@
     opacity: 1;
     transform: translateY(0);
   }
-  
-  .section {
-    background: rgba(6, 12, 26, 0.8);
-    border-radius: 24px;
-    padding: clamp(1.5rem, 2vw, 2rem);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+.about .eyebrow {
+  color: #734703;
+}
+
+.about__spark {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f9d270 0%, rgba(249, 210, 112, 0.4) 70%, transparent 100%);
+  box-shadow: 0 0 0 0 rgba(249, 210, 112, 0.5);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+.about__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  color: #3b2400;
+  text-decoration: none;
+  margin-top: 0.2rem;
+  padding: 0.65rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(99, 64, 2, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  backdrop-filter: blur(6px);
+}
+
+.about__cta:hover,
+.about__cta:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(99, 64, 2, 0.18);
+  border-color: rgba(99, 64, 2, 0.36);
+  background: rgba(255, 255, 255, 0.18);
+  text-decoration: none;
+}
+
+.about__cta--solid {
+  background: linear-gradient(135deg, #0c0a05, #151008);
+  color: #f6c54c;
+  border: 1px solid rgba(246, 197, 76, 0.4);
+}
+
+.about__cta--solid:hover,
+.about__cta--solid:focus-visible {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(246, 197, 76, 0.32);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.about__cta--ghost {
+  color: #eaf2ff;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.about__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.about__highlights {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.about__highlight {
+  display: grid;
+  gap: 0.1rem;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  padding: 0.7rem 0.8rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(122, 83, 8, 0.2);
+  box-shadow: 0 12px 30px rgba(122, 83, 8, 0.18);
+}
+
+.about__pulse {
+  margin-top: 0.12rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.48);
+  animation: pulse 1.9s ease-in-out infinite;
+}
+
+.about__pulse--gold {
+  background: radial-gradient(circle, rgba(12, 8, 3, 0.9), rgba(12, 8, 3, 0));
+  box-shadow: 0 0 0 0 rgba(12, 8, 3, 0.56);
+}
+
+.about__pulse--cyan {
+  background: radial-gradient(circle, rgba(18, 13, 6, 0.9), rgba(18, 13, 6, 0));
+  box-shadow: 0 0 0 0 rgba(18, 13, 6, 0.52);
+}
+
+.about__label {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #241503;
+}
+
+.about__description {
+  margin: 0.08rem 0 0;
+  color: #4a3200;
+  line-height: 1.5;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 currentColor;
+    transform: scale(1);
   }
-  
-  .about {
-    position: relative;
-    overflow: hidden;
-    padding: clamp(2rem, 3vw, 2.8rem);
-    background:
-      linear-gradient(135deg, #f8d770, #e8b94f),
-      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.28), transparent 40%),
-      radial-gradient(circle at 82% 72%, rgba(233, 175, 60, 0.32), transparent 36%);
-    border: 1px solid rgba(131, 87, 8, 0.24);
-    box-shadow: 0 30px 80px rgba(115, 78, 5, 0.32);
-    color: #2a1a04;
-    transform-style: preserve-3d;
-    transform-origin: center center;
-    transition:
-      transform 0.9s cubic-bezier(0.2, 0.7, 0.15, 1),
-      opacity 0.9s ease,
-      filter 0.9s ease,
-      box-shadow 0.9s ease;
+  60% {
+    box-shadow: 0 0 0 10px transparent;
+    transform: scale(1.06);
   }
-  
-  .about h2 {
-    color: #1c1403;
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+    transform: scale(1);
   }
-  
-  .about .section__lead {
-    color: #4a3200;
-  }
-  
-  .about__inner {
-    display: grid;
-    gap: 2.4rem;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    align-items: start;
-    position: relative;
-  }
-  
-  .about__inner::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 30% 28%, rgba(255, 244, 214, 0.25), transparent 36%),
-      radial-gradient(circle at 82% 62%, rgba(233, 175, 60, 0.2), transparent 32%);
-    pointer-events: none;
-    z-index: 0;
-  }
-  
-  .about__header {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    gap: 1rem;
-  }
-  
-  .about__entry-overlay {
-    position: absolute;
-    inset: -10%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
+}
+
+.section__header {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem;
+  align-items: end;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8ec5ff;
+  font-size: 0.82rem;
+}
+
+.section h2 {
+  margin: 0.2rem 0 0.35rem;
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  letter-spacing: -0.01em;
+}
+
+.section__lead {
+  margin: 0;
+  color: #c8dbff;
+  line-height: 1.6;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.8rem;
+}
+
+.performance {
+  position: relative;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: #1f274a;
+  padding: clamp(1.25rem, 2vw, 1.8rem) 0;
+}
+
+.performance::before {
+  display: none;
+}
+
+.performance__lead {
+  color: #4c5774;
+}
+
+.performance__header {
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+
+.performance__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.6rem;
+}
+
+.performance__legend-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.65rem 0.9rem;
+  background: #f6f7fb;
+  border: 1px solid #e6e9f1;
+  border-radius: 14px;
+  min-width: 220px;
+}
+
+.performance__legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #4e56d8;
+  box-shadow: 0 0 0 4px #eef1ff;
+}
+
+.performance__legend-label {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #1f274a;
+}
+
+.performance__legend-meta {
+  margin: 0;
+  color: #4f5668;
+  font-size: 0.95rem;
+}
+
+.performance__cta {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.85rem 1.2rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #6b7bff, #4850d8);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 18px 45px rgba(52, 65, 145, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.performance__cta:hover,
+.performance__cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 60px rgba(52, 65, 145, 0.38);
+  filter: saturate(1.06);
+}
+
+.performance__grid {
+  margin-top: 1.4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.performance-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.35rem 1.2rem 1.1rem;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #e6e9f1;
+  box-shadow: 0 24px 55px rgba(37, 44, 97, 0.12);
+  color: #1f274a;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  opacity: 0;
+  transform: translateY(22px) scale(0.98);
+  filter: blur(10px);
+}
+
+.performance.js-reveal.is-visible .performance-card {
+  animation: performanceCardEnter 0.9s cubic-bezier(0.22, 0.85, 0.35, 1) forwards;
+  animation-delay: var(--card-delay, 0ms);
+}
+
+.performance-card:hover,
+.performance-card:focus-within {
+  transform: translateY(-4px);
+  border-color: #d6dcf0;
+  box-shadow: 0 28px 70px rgba(37, 44, 97, 0.18);
+}
+
+.performance-card__header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.performance-card__icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(140deg, #6b7bff, #4e56d8);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 1rem;
+  box-shadow: 0 18px 35px rgba(52, 65, 145, 0.35);
+}
+
+.performance-card__titles {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.performance-card__meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.performance-card__category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 12px;
+  background: #f0f3ff;
+  color: #1f274a;
+  letter-spacing: 0.04em;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  border: 1px solid #dfe4ff;
+  font-weight: 800;
+}
+
+.performance-card__category::before {
+  content: '▸';
+  color: #4e56d8;
+}
+
+.performance-card__badge {
+  width: fit-content;
+  padding: 0.26rem 0.7rem;
+  border-radius: 999px;
+  background: #e6f6ff;
+  color: #0c5187;
+  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  border: 1px solid #c5e4ff;
+  font-weight: 800;
+}
+
+.performance-card h3 {
+  margin: 0;
+  font-size: 1.22rem;
+  letter-spacing: -0.01em;
+  color: #1f274a;
+}
+
+.performance-card__summary {
+  margin: 0;
+  color: #4f5668;
+  line-height: 1.55;
+}
+
+.performance-card__order {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.12em;
+}
+
+.performance-card__list {
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.performance-card__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0.55rem;
+  color: #2c3150;
+  font-weight: 700;
+  background: #f6f7fb;
+  border-radius: 12px;
+  padding: 0.65rem 0.7rem;
+}
+
+.performance-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  background: #e4e7ff;
+  border: 1px solid #cfd5ff;
+  color: #4e56d8;
+  font-size: 0.9rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.performance-card__glow,
+.performance-card::after {
+  display: none;
+}
+
+@keyframes performanceCardEnter {
+  0% {
     opacity: 0;
   }
   
@@ -1002,7 +1455,15 @@
   .performance__header {
     align-items: center;
   }
-  
+
+  .performance__legend {
+    flex-direction: column;
+  }
+
+  .performance__legend-item {
+    width: 100%;
+  }
+
   .performance__cta {
     justify-self: end;
     display: inline-flex;
