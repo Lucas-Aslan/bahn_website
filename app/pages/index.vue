@@ -41,6 +41,11 @@
     emphasis: string
   }
 
+  type CareerHighlight = {
+    title: string
+    detail: string
+  }
+
   type PerformanceBlock = {
     badge: string
     title: string
@@ -86,42 +91,57 @@
   const careerTracks: CareerTrack[] = [
     {
       tag: 'Einstieg',
-      title: 'Ausbildung & Qualifizierung',
-      description: 'Klare Trainings für Bahnbetrieb und Sicherheit, damit Du schnell einsatzbereit bist.',
-      focus: 'Begleitet starten',
-      points: ['Mentor:in in den ersten Schichten', 'Abschlüsse mit Nachweis-Tool']
+      title: 'Begleitete Einsätze',
+      description: 'Du startest mit erfahrenen Kolleg:innen im Rücken und klaren Abläufen vor Ort.',
+      focus: 'Ankommen mit System',
+      points: ['Persönliche Einarbeitung auf der Strecke', 'Sicherheitsbriefings mit klaren Checks']
     },
     {
-      tag: 'Aufstieg',
-      title: 'Spezialisierung & Verantwortung',
-      description: 'Wachse Richtung Disposition oder Führung – mit kurzen Feedback-Loops.',
-      focus: 'Sicher führen',
-      points: ['Leadership-Impulse', 'Monatliche Sicherheits-Updates']
+      tag: 'Profil',
+      title: 'Deine Spur wechseln',
+      description: 'Wechsle Richtung Dispo oder Spezialisierung, ohne Papierstau und mit klaren Ansprechpartnern.',
+      focus: 'Profil schärfen',
+      points: ['Quartalsgespräche mit Feedback', 'Zertifikate digital dokumentiert']
     },
     {
       tag: 'Impact',
-      title: 'Teams, die liefern',
-      description: 'Digitale Dispo, saubere Übergaben und Crews, die Einsätze zuverlässig liefern.',
-      focus: 'Starke Crew',
-      points: ['Geplante Einsatzrotationen', 'Digitale Reportings & Handovers']
+      title: 'Crew-Lead & Projekte',
+      description: 'Übernimm Touren, führe kleine Teams und halte Übergaben sauber und nachvollziehbar.',
+      focus: 'Führen im Einsatz',
+      points: ['Einsatzrotationen mit Plan', 'Übergaben & Reports aus einer Hand']
     }
   ]
 
   const careerMoments: CareerMoment[] = [
     {
-      label: '48h Feedback',
-      detail: 'Bewerbung senden, kurzes Kennenlernen, Feedback nach spätestens 48 Stunden.',
-      emphasis: 'Schnell & verbindlich'
+      label: 'Kontakt in 48h',
+      detail: 'Kurzes Kennenlernen, klare Rückmeldung statt Funkstille.',
+      emphasis: 'Verlässlich'
     },
     {
-      label: 'Onboarding mit Mentoring',
-      detail: 'Geführtes Onboarding mit Sicherheitsbriefing und persönlichem Mentoring.',
-      emphasis: 'Sicher ankommen'
+      label: 'Mentor:innen vor Ort',
+      detail: 'Du gehst nie allein raus: erste Schichten im Tandem und klar dokumentiert.',
+      emphasis: 'Sicher begleitet'
     },
     {
-      label: 'Entwicklung in Sprints',
-      detail: 'Quartalsweise Sprints mit klaren Lernzielen und dokumentierten Fortschritten.',
-      emphasis: 'Messbar wachsen'
+      label: 'Wachstum in Etappen',
+      detail: 'Check-ins alle 90 Tage: neue Strecken, neue Verantwortung, transparente Zulagen.',
+      emphasis: 'Nachvollziehbar'
+    }
+  ]
+
+  const careerHighlights: CareerHighlight[] = [
+    {
+      title: 'Echter Praxiseinstieg',
+      detail: 'Probeschicht, Sicherheitscheck und Begleitung auf der Strecke.'
+    },
+    {
+      title: 'Planbare Schichten',
+      detail: 'Digitale Dispo, feste Ansprechpersonen und saubere Übergaben.'
+    },
+    {
+      title: 'Weiterbildung on-the-job',
+      detail: 'Kurzformate, Gerätekunde und Feedback-Loops direkt aus dem Einsatz.'
     }
   ]
   
@@ -425,17 +445,27 @@
           <span class="career__ribbons" />
         </div>
 
-        <div class="career__header">
-          <div class="career__eyebrow">
-            <span class="career__spark" aria-hidden="true" />
-            <p class="eyebrow">Karriere</p>
-          </div>
-          <div class="career__intro">
-            <h2>Starte Deine Laufbahn bei Babylon Bahndienste</h2>
+        <div class="career__hero">
+          <div class="career__content">
+            <div class="career__eyebrow">
+              <span class="career__spark" aria-hidden="true" />
+              <p class="eyebrow">Karriere</p>
+              <span class="career__eyebrow-pill">Crew & Zukunft</span>
+            </div>
+            <h2>Gestalte die nächste Schicht Bahnlogistik mit uns</h2>
             <p class="career__lead">
-              Bewirb Dich in Minuten und starte mit sicheren Prozessen, schneller Dispo und einem Team, das Dich trägt –
-              Feedback kommt innerhalb von 48 Stunden.
+              Wir kombinieren sichere Prozesse, digitale Dispo und starke Teams. Bewirb Dich in Minuten und starte mit
+              klarer Begleitung – Feedback gibt&apos;s innerhalb von 48 Stunden.
             </p>
+            <ul class="career__highlights">
+              <li v-for="highlight in careerHighlights" :key="highlight.title" class="career__highlight">
+                <span class="career__bullet" aria-hidden="true">✺</span>
+                <div>
+                  <p class="career__highlight-title">{{ highlight.title }}</p>
+                  <p class="career__highlight-detail">{{ highlight.detail }}</p>
+                </div>
+              </li>
+            </ul>
             <div class="career__actions">
               <NuxtLink to="/kontakt" class="cta cta--solid career__cta">
                 Jetzt bewerben
@@ -446,7 +476,38 @@
                 <span aria-hidden="true">→</span>
               </NuxtLink>
             </div>
+            <div class="career__response">
+              <div class="career__response-badge">48h Rückmeldung</div>
+              <p>Kurze Wege zur Dispo, verlässliche Zeitpläne und klare Ansprechpartner:innen.</p>
+            </div>
           </div>
+
+          <div class="career__visual">
+            <div class="career__tag">Einsatzteam</div>
+            <div class="career__photo">
+              <span class="career__photo-glow" aria-hidden="true" />
+              <img src="/images/career-illustration.svg" alt="Illustration eines Einsatzteams im Bahnbetrieb" loading="lazy" />
+              <div class="career__note-card">
+                <p>24/7 Disposition</p>
+                <span>Live-Updates & sichere Übergaben</span>
+              </div>
+              <div class="career__stat-card">
+                <p class="career__stat-value">3 Schritte</p>
+                <span class="career__stat-label">bis zum ersten Einsatz</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="career__grid-header">
+          <div>
+            <p class="eyebrow">Deine Route</p>
+            <h3>Von den ersten Schichten bis zum Crew-Lead</h3>
+          </div>
+          <p class="career__grid-lead">
+            Wir halten Dich nicht mit Formularen auf. Du bekommst klare Begleitung, digitale Nachweise und einen Plan,
+            der zu Deinem Alltag passt.
+          </p>
         </div>
 
         <div class="career__grid">
@@ -1524,8 +1585,8 @@
     position: relative;
     overflow: hidden;
     background: radial-gradient(circle at 18% 12%, rgba(249, 210, 112, 0.12), transparent 32%),
-      radial-gradient(circle at 78% 80%, rgba(0, 255, 255, 0.1), transparent 36%),
-      linear-gradient(145deg, #070b17, #0c1224 50%, #070b16);
+      radial-gradient(circle at 78% 80%, rgba(0, 255, 255, 0.08), transparent 36%),
+      linear-gradient(145deg, #060a14, #0c1528 50%, #060914);
     border: 1px solid rgba(255, 255, 255, 0.06);
     color: #f6f8fb;
     isolation: isolate;
@@ -1589,21 +1650,35 @@
     animation-delay: 0.5s;
   }
 
-  .career__header {
+  .career__hero {
     position: relative;
     z-index: 1;
     display: grid;
-    gap: 0.5rem;
-    margin-bottom: 1.4rem;
+    grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+    gap: 1.1rem;
+    align-items: stretch;
+    margin-bottom: 1.2rem;
+  }
+
+  .career__content {
+    padding: 1rem 1.1rem;
+    border-radius: 22px;
+    background: linear-gradient(150deg, rgba(12, 19, 35, 0.9), rgba(8, 11, 20, 0.94));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+      0 18px 45px rgba(0, 0, 0, 0.42),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: grid;
+    gap: 0.7rem;
   }
 
   .career__eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
-    padding: 0.3rem 0.6rem;
+    gap: 0.5rem;
+    padding: 0.35rem 0.8rem;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.08);
     width: fit-content;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
@@ -1620,10 +1695,16 @@
     animation: pulse 1.4s ease-in-out infinite;
   }
 
-  .career__intro {
-    display: grid;
-    gap: 0.6rem;
-    max-width: 820px;
+  .career__eyebrow-pill {
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(0, 255, 255, 0.12);
+    color: #74e3ff;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border: 1px solid rgba(0, 255, 255, 0.25);
   }
 
   .career__lead {
@@ -1631,6 +1712,52 @@
     color: #dbe5ff;
     line-height: 1.6;
     font-size: 1.02rem;
+  }
+
+  .career__highlights {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .career__highlight {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.6rem;
+    align-items: start;
+    padding: 0.7rem 0.8rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .career__highlight-title {
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  .career__highlight-detail {
+    margin: 0.2rem 0 0;
+    color: #cfd9f2;
+    line-height: 1.5;
+  }
+
+  .career__bullet {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(249, 210, 112, 0.45), rgba(0, 255, 255, 0.25));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a0f1c;
+    font-weight: 800;
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+      0 10px 20px rgba(0, 0, 0, 0.25);
   }
 
   .career__actions {
@@ -1644,6 +1771,144 @@
     backdrop-filter: blur(10px);
   }
 
+  .career__response {
+    display: grid;
+    gap: 0.25rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 14px;
+    background: rgba(249, 210, 112, 0.12);
+    color: #f9e7be;
+    border: 1px solid rgba(249, 210, 112, 0.3);
+  }
+
+  .career__response p {
+    margin: 0;
+    color: #f6f1e3;
+  }
+
+  .career__response-badge {
+    width: fit-content;
+    padding: 0.25rem 0.6rem;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #f9d270;
+  }
+
+  .career__visual {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .career__tag {
+    width: fit-content;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(0, 255, 255, 0.14);
+    color: #74e3ff;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+  }
+
+  .career__photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+    background: linear-gradient(160deg, rgba(9, 13, 24, 0.8), rgba(6, 9, 18, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 18px 45px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .career__photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: screen;
+  }
+
+  .career__photo-glow {
+    position: absolute;
+    inset: -20% -10% auto -10%;
+    height: 60%;
+    background: radial-gradient(circle at 30% 40%, rgba(249, 210, 112, 0.25), transparent 50%),
+      radial-gradient(circle at 80% 60%, rgba(0, 255, 255, 0.18), transparent 55%);
+    filter: blur(30px);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  .career__note-card {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    padding: 0.7rem 0.85rem;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #f6f8fb;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  .career__note-card p {
+    margin: 0;
+    font-weight: 800;
+  }
+
+  .career__note-card span {
+    display: block;
+    margin-top: 0.1rem;
+    color: #cfd9f2;
+  }
+
+  .career__stat-card {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    padding: 0.6rem 0.75rem;
+    border-radius: 12px;
+    background: rgba(9, 11, 22, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f9d270;
+    text-align: right;
+  }
+
+  .career__stat-value {
+    margin: 0;
+    font-weight: 900;
+    font-size: 1.05rem;
+  }
+
+  .career__stat-label {
+    color: #dbe5ff;
+    font-size: 0.9rem;
+  }
+
+  .career__grid-header {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.6rem;
+  }
+
+  .career__grid-lead {
+    margin: 0;
+    color: #dbe5ff;
+    line-height: 1.6;
+  }
+
   .career__grid {
     position: relative;
     z-index: 1;
@@ -1651,6 +1916,7 @@
     grid-template-columns: minmax(0, 1.6fr) minmax(320px, 1fr);
     gap: 1.2rem;
     align-items: stretch;
+    margin-top: 0.4rem;
   }
 
   .career__tracks {
@@ -2101,11 +2367,23 @@
     .performance__header {
       grid-template-columns: 1fr;
     }
-  
+
     .performance__cta {
       justify-self: start;
       width: 100%;
       justify-content: center;
+    }
+
+    .career__hero {
+      grid-template-columns: 1fr;
+    }
+
+    .career__grid-header {
+      grid-template-columns: 1fr;
+    }
+
+    .career__visual {
+      order: -1;
     }
 
     .career__grid {
