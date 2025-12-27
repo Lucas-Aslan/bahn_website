@@ -443,14 +443,13 @@
           <div class="gold-cta__visual" aria-hidden="true">
             <div class="gold-cta__visual-inner gold-cta__visual-inner--image">
               <img
-                src="/images/ops-desk-visual.svg"
+                src="/images/cta-bild.jpg"
                 alt="Ops Desk Übersicht von Babylon Bahndiensten"
                 class="gold-cta__image"
                 loading="lazy"
               >
               <div class="gold-cta__legend">
                 <span class="gold-cta__legend-dot" />
-                <p>Disposition, Einsatzplanung, Reporting</p>
               </div>
             </div>
           </div>
@@ -462,13 +461,6 @@
               Zuverlässige Crews, klare Abläufe und direkte Ansprechpartner. Wir übernehmen Personalgestellung,
               Consulting und operative Steuerung – präzise, sicher und deutschlandweit.
             </p>
-
-            <div class="gold-cta__highlights">
-              <span class="gold-cta__chip">Antwort in unter 2h</span>
-              <span class="gold-cta__chip">Deutschlandweit</span>
-              <span class="gold-cta__chip">Zertifizierte Teams</span>
-            </div>
-
             <div class="gold-cta__actions">
               <NuxtLink to="/kontakt" class="gold-cta__button gold-cta__button--solid">
                 Kontaktieren
