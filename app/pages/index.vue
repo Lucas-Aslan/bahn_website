@@ -87,40 +87,40 @@
     {
       tag: 'Einstieg',
       title: 'Ausbildung & Qualifizierung',
-      description: 'Dichte Trainingspfade für Bahnbetrieb, Rangieren und Werkslogistik – kompakt, geprüft, dokumentiert.',
-      focus: 'Ready für den Gleisanschluss',
-      points: ['Mentor:in im ersten Einsatz', 'Prüfungsvorbereitung mit Checklisten', 'Abschlüsse inkl. Nachweis-Tool']
+      description: 'Klare Trainings für Bahnbetrieb und Sicherheit, damit Du schnell einsatzbereit bist.',
+      focus: 'Begleitet starten',
+      points: ['Mentor:in in den ersten Schichten', 'Abschlüsse mit Nachweis-Tool']
     },
     {
       tag: 'Aufstieg',
       title: 'Spezialisierung & Verantwortung',
-      description: 'Von der Rangierbegleitung bis zur Einsatzleitung: Fokus auf Sicherheit, Disposition und Crewführung.',
-      focus: 'Führung & Sicherheit im Fokus',
-      points: ['Leadership-Sprints & Coaching', 'Monatliche Sicherheits-Updates', 'Klare Entwicklungspfade']
+      description: 'Wachse Richtung Disposition oder Führung – mit kurzen Feedback-Loops.',
+      focus: 'Sicher führen',
+      points: ['Leadership-Impulse', 'Monatliche Sicherheits-Updates']
     },
     {
       tag: 'Impact',
       title: 'Teams, die liefern',
-      description: 'Schlanke Schichten, schnelle Dispo und Reporting, das Ihre Bahnlogistik transparent hält.',
-      focus: 'Digitale Abläufe & starke Crew',
-      points: ['Einsatzrotationen mit Vorlauf', 'Digitale Reportings & Handovers', 'Kultur der kurzen Wege']
+      description: 'Digitale Dispo, saubere Übergaben und Crews, die Einsätze zuverlässig liefern.',
+      focus: 'Starke Crew',
+      points: ['Geplante Einsatzrotationen', 'Digitale Reportings & Handovers']
     }
   ]
 
   const careerMoments: CareerMoment[] = [
     {
       label: '48h Feedback',
-      detail: 'Bewerbung absenden, Kennenlernen, verbindliches Feedback innerhalb von zwei Werktagen.',
+      detail: 'Bewerbung senden, kurzes Kennenlernen, Feedback nach spätestens 48 Stunden.',
       emphasis: 'Schnell & verbindlich'
     },
     {
       label: 'Onboarding mit Mentoring',
-      detail: 'Geführtes Onboarding, Sicherheitsbriefings und ein persönlicher Mentor für die ersten Einsätze.',
+      detail: 'Geführtes Onboarding mit Sicherheitsbriefing und persönlichem Mentoring.',
       emphasis: 'Sicher ankommen'
     },
     {
       label: 'Entwicklung in Sprints',
-      detail: 'Quartalsweise Development-Sprints mit klaren Lernzielen und dokumentierten Fortschritten.',
+      detail: 'Quartalsweise Sprints mit klaren Lernzielen und dokumentierten Fortschritten.',
       emphasis: 'Messbar wachsen'
     }
   ]
@@ -433,8 +433,8 @@
           <div class="career__intro">
             <h2>Starte Deine Laufbahn bei Babylon Bahndienste</h2>
             <p class="career__lead">
-              Bahnlogistik ist Tempo und Präzision zugleich: Wir koppeln Dich an sichere Prozesse, schnelle Dispo und ein Team,
-              das Schichtübergaben sauber dokumentiert. Bewirb Dich in Minuten – Feedback kommt innerhalb von 48 Stunden.
+              Bewirb Dich in Minuten und starte mit sicheren Prozessen, schneller Dispo und einem Team, das Dich trägt –
+              Feedback kommt innerhalb von 48 Stunden.
             </p>
             <div class="career__actions">
               <NuxtLink to="/kontakt" class="cta cta--solid career__cta">
