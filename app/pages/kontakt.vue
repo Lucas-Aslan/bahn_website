@@ -90,7 +90,7 @@ onBeforeUnmount(() => {
           <div class="form-grid">
             <label class="field">
               <span>Vorname</span>
-              <input name="firstName" type="text" placeholder="Ihr Name" autocomplete="given-name">
+              <input name="firstName" type="text" placeholder="Vorname" autocomplete="given-name">
             </label>
             <label class="field">
               <span>Nachname *</span>
@@ -106,7 +106,7 @@ onBeforeUnmount(() => {
             </label>
             <label class="field">
               <span>Telefonnummer *</span>
-              <input name="phone" type="tel" placeholder="+49" autocomplete="tel" required>
+              <input name="phone" type="tel" placeholder="+49 123 456 789" autocomplete="tel" required>
             </label>
             <label class="field">
               <span>Leistung *</span>
@@ -168,42 +168,31 @@ onBeforeUnmount(() => {
               <span class="contact-icon" aria-hidden="true">📍</span>
               <div>
                 <p class="contact-label">Standort Leitstelle</p>
-                <p>Bahnhofsblick 12 · 31785 Hameln</p>
+                <p>Frankfurter Weg 27 · 33106 Paderborn</p>
               </div>
             </li>
             <li>
               <span class="contact-icon" aria-hidden="true">✉️</span>
               <div>
                 <p class="contact-label">E-Mail</p>
-                <p>hello@babylon-bahndienste.de</p>
+                <p>info@babylon-bahndienste.de</p>
               </div>
             </li>
             <li>
               <span class="contact-icon" aria-hidden="true">☎️</span>
               <div>
                 <p class="contact-label">Telefon</p>
-                <p>+49 5161 301 700</p>
+                <p>+49 123 456 789</p>
               </div>
             </li>
             <li>
               <span class="contact-icon" aria-hidden="true">🕒</span>
               <div>
                 <p class="contact-label">Verfügbarkeit</p>
-                <p>Disposition rund um die Uhr, Rückmeldung werktags <strong>&lt; 2 Std.</strong></p>
+                <p>Disposition rund um die Uhr!</p>
               </div>
             </li>
           </ul>
-
-          <div class="cta-row">
-            <div>
-              <p class="micro">Lieber persönlich?</p>
-              <p class="micro micro--strong">Wir vereinbaren sofort einen digitalen Kick-off.</p>
-            </div>
-            <a href="tel:+495161301700" class="card-cta">
-              Direkt anrufen
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
         </aside>
       </div>
     </section>
