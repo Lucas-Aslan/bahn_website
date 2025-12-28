@@ -1,41 +1,55 @@
 <script setup lang="ts">
 const companyDetails = [
   { label: 'Firma', value: 'Babylon Bahndienste UG (haftungsbeschränkt)' },
-  { label: 'Adresse', value: 'Frankfurter Weg 27 · 33106 Paderborn' },
-  { label: 'Vertretungsberechtigte Person', value: 'Geschäftsführer: Marlon Becker' },
+  { label: 'Angaben gemäß § 5 DDG', value: 'Frankfurter Weg 27 · 33106 Paderborn' },
+  { label: 'Vertreten durch', value: 'Geschäftsführer: Marlon Becker' },
   { label: 'Handelsregister', value: 'Amtsgericht Bielefeld · HRB 123456' },
-  { label: 'USt-IdNr.', value: 'DE123456789' }
+  { label: 'Umsatzsteuer-ID', value: 'DE123456789' }
 ]
 
 const contactDetails = [
   { label: 'Telefon', value: '+49 123 456 789' },
+  { label: 'Telefax', value: 'Derzeit nicht im Einsatz' },
   { label: 'E-Mail', value: 'info@babylon-bahndienste.de' },
-  { label: 'Ansprechpartner Rechtliches', value: 'legal@babylon-bahndienste.de' },
-  { label: 'Erreichbarkeit', value: 'Montag–Freitag · 08:00–18:00 Uhr' }
+  { label: 'Ansprechpartner Rechtliches', value: 'legal@babylon-bahndienste.de' }
 ]
 
 const oversightDetails = [
-  { label: 'Zuständige Aufsichtsbehörde', value: 'Eisenbahn-Bundesamt (EBA), Heinemannstraße 6, 53175 Bonn' },
-  { label: 'Berufsrechtliche Regelungen', value: 'Eisenbahnrechtliche Vorschriften, AEG/EBO sowie zutreffende Sicherheitsrichtlinien' },
-  { label: 'Berufshaftpflicht', value: 'Allianz Versicherungs-AG · Geltungsbereich: EU-Mitgliedsstaaten' },
-  { label: 'Hinweis nach § 36 VSBG', value: 'Wir nehmen an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle nicht teil.' }
+  {
+    label: 'Aufsichtsbehörde',
+    value: 'Eisenbahn-Bundesamt (EBA), Heinemannstraße 6, 53175 Bonn'
+  },
+  {
+    label: 'Online-Streitbeilegung',
+    value: 'Plattform der EU-Kommission:',
+    link: 'https://ec.europa.eu/consumers/odr',
+    note: 'Unsere E-Mail-Adresse finden Sie oben im Impressum.'
+  },
+  {
+    label: 'Verbraucherschlichtung',
+    value: 'Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.'
+  },
+  {
+    label: 'Berufshaftpflicht',
+    value: 'Allianz Versicherungs-AG · Geltungsbereich: EU-Mitgliedsstaaten'
+  }
 ]
 
 const liabilityNotes = [
   {
     title: 'Haftung für Inhalte',
     text:
-      'Die Inhalte dieser Website werden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine Gewähr. Rechtliche Hinweise und Darstellungen ersetzen keine individuelle Beratung.'
+      'Als Diensteanbieter sind wir gemäß § 5 Abs. 1 DDG für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine Haftung ist erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich; bei Bekanntwerden werden wir entsprechende Inhalte umgehend entfernen.'
   },
   {
     title: 'Haftung für Links',
     text:
-      'Diese Website enthält ggf. Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.'
+      'Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte übernehmen wir keine Gewähr; verantwortlich sind die jeweiligen Anbieter. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft; rechtswidrige Inhalte waren nicht erkennbar. Bei Bekanntwerden von Rechtsverletzungen entfernen wir Links umgehend.'
   },
   {
     title: 'Urheberrecht',
     text:
-      'Die auf dieser Website veröffentlichten Inhalte und Werke unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung oder jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der vorherigen schriftlichen Zustimmung.'
+      'Die durch den Seitenbetreiber erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung oder jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der vorherigen schriftlichen Zustimmung. Inhalte Dritter werden als solche gekennzeichnet; sollten Sie eine Urheberrechtsverletzung feststellen, informieren Sie uns bitte, damit wir die Inhalte umgehend entfernen.'
   }
 ]
 </script>
@@ -52,7 +66,7 @@ const liabilityNotes = [
         </p>
 
         <div class="hero-chips" role="list">
-          <span class="chip" role="listitem">Verantwortlich nach § 5 TMG</span>
+          <span class="chip" role="listitem">Verantwortlich nach § 5 DDG</span>
           <span class="chip" role="listitem">Schnelle Kontaktwege &amp; 24/7-Dispo</span>
         </div>
       </div>
@@ -97,7 +111,7 @@ const liabilityNotes = [
     <section class="impressum-details">
       <div class="card">
         <div class="card-head">
-          <p class="eyebrow">§ 5 TMG</p>
+          <p class="eyebrow">§ 5 DDG</p>
           <h2>Angaben zum Unternehmen</h2>
           <p class="lede">Rechtlich Verantwortliche und registrierte Angaben zu Babylon Bahndienste.</p>
         </div>
@@ -136,7 +150,15 @@ const liabilityNotes = [
         <div class="oversight-grid" role="list">
           <article v-for="item in oversightDetails" :key="item.label" class="oversight-tile" role="listitem">
             <p class="tile-label">{{ item.label }}</p>
-            <p class="tile-value">{{ item.value }}</p>
+            <p class="tile-value">
+              <span>{{ item.value }}</span>
+              <template v-if="item.link">
+                <a :href="item.link" class="tile-link" rel="noopener noreferrer" target="_blank">
+                  {{ item.link }}
+                </a>
+              </template>
+              <span v-if="item.note" class="tile-note">{{ item.note }}</span>
+            </p>
           </article>
         </div>
       </div>
@@ -159,7 +181,8 @@ const liabilityNotes = [
       <div class="liability-bottom">
         <p class="micro">
           Hinweise auf Rechtsverstöße oder fehlerhafte Inhalte können Sie jederzeit an legal@babylon-bahndienste.de
-          richten. Wir prüfen Eingaben umgehend und aktualisieren betroffene Inhalte schnellstmöglich.
+          richten. Wir prüfen Eingaben umgehend und aktualisieren betroffene Inhalte schnellstmöglich. Softwareunternehmen:
+          www.eulah.de · Fotos: Babylon Bahndienste.
         </p>
       </div>
     </section>
@@ -476,6 +499,24 @@ dd {
   margin: 0;
   color: #dbe8ff;
   line-height: 1.5;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.tile-link {
+  color: #f9d270;
+  font-weight: 700;
+  word-break: break-all;
+  text-decoration: none;
+}
+
+.tile-link:hover,
+.tile-link:focus-visible {
+  text-decoration: underline;
+}
+
+.tile-note {
+  color: #c7d7f7;
 }
 
 .liability {
