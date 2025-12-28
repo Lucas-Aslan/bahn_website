@@ -63,7 +63,10 @@ onBeforeUnmount(() => {
     <section class="kontakt-hero">
       <div class="hero-header">
         <p class="eyebrow">Kontakt</p>
-        <h1>Gemeinsam fahren wir Ihre Projekte sicher ins Ziel.</h1>
+        <div class="title-row">
+          <h1>Gemeinsam fahren wir Ihre Projekte sicher ins Ziel.</h1>
+          <span class="title-photo" aria-hidden="true" />
+        </div>
         <p class="lede">
           Präzise Bahndienstleistungen, klare Absprachen und schnelle Reaktionszeiten. Teilen Sie uns Ihr Vorhaben mit –
           wir setzen uns zeitnah mit Ihnen in Verbindung.
@@ -151,6 +154,7 @@ onBeforeUnmount(() => {
         >
           <div class="card-halo" aria-hidden="true" />
           <div class="card-header">
+            <div class="card-photo" aria-hidden="true" />
             <div class="badge">
               <span class="badge-icon">◎</span>
               <span>Kontaktieren Sie uns</span>
@@ -289,6 +293,28 @@ h1 {
   margin: 0;
   font-size: clamp(2rem, 3vw + 1rem, 3rem);
   line-height: 1.15;
+}
+
+.title-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.title-photo {
+  width: clamp(120px, 12vw, 150px);
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(249, 210, 112, 0.4), rgba(201, 144, 56, 0.4)),
+    url("data:image/svg+xml,%3Csvg width='400' height='300' viewBox='0 0 400 300' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='40' y1='20' x2='360' y2='280' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23F9D270'/%3E%3Cstop offset='1' stop-color='%23525B7A'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' y1='0' x2='0' y2='300' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23101014'/%3E%3Cstop offset='1' stop-color='%2307070A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' rx='26' fill='url(%23b)'/%3E%3Cpath d='M40 220H360' stroke='url(%23a)' stroke-width='14' stroke-linecap='round' stroke-dasharray='10 18' opacity='0.7'/%3E%3Cpath d='M60 190H340' stroke='%23F9D270' stroke-width='6' stroke-linecap='round' stroke-dasharray='6 12' opacity='0.35'/%3E%3Cpath d='M120 160C120 142.327 134.327 128 152 128H248C265.673 128 280 142.327 280 160V190H120V160Z' fill='url(%23a)' opacity='0.85'/%3E%3Crect x='148' y='144' width='104' height='42' rx='10' fill='%23040507' opacity='0.55'/%3E%3Crect x='160' y='152' width='22' height='26' rx='6' fill='%23F9D270'/%3E%3Crect x='190' y='152' width='22' height='26' rx='6' fill='%23F9D270' opacity='0.8'/%3E%3Crect x='220' y='152' width='22' height='26' rx='6' fill='%23F9D270' opacity='0.65'/%3E%3Ccircle cx='200' cy='210' r='26' fill='%23040507' stroke='%23F9D270' stroke-width='4'/%3E%3Ccircle cx='200' cy='210' r='10' fill='%23F9D270'/%3E%3Ccircle cx='138' cy='210' r='20' fill='%23040507' stroke='%23F9D270' stroke-width='4' opacity='0.7'/%3E%3Ccircle cx='262' cy='210' r='20' fill='%23040507' stroke='%23F9D270' stroke-width='4' opacity='0.7'/%3E%3Ccircle cx='90' cy='80' r='18' fill='%23F9D270' opacity='0.4'/%3E%3Cpath d='M310 90C310 90 322 82 340 82C358 82 368 90 368 90' stroke='%23F9D270' stroke-width='5' stroke-linecap='round' opacity='0.6'/%3E%3Ccircle cx='330' cy='70' r='10' fill='%23F9D270' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(249, 210, 112, 0.26);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 h2 {
@@ -540,6 +566,7 @@ textarea:focus {
 }
 
 .card-header,
+.card-photo,
 .contact-list,
 .cta-row {
   position: relative;
@@ -580,6 +607,22 @@ textarea:focus {
 .card-subtitle {
   margin: 0;
   color: #c8d6f0;
+}
+
+.card-photo {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  margin-bottom: 0.8rem;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(249, 210, 112, 0.18), transparent 45%),
+    url("data:image/svg+xml,%3Csvg width='640' height='360' viewBox='0 0 640 360' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='c' x1='40' y1='40' x2='600' y2='320' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23F9D270'/%3E%3Cstop offset='1' stop-color='%23454D6D'/%3E%3C/linearGradient%3E%3ClinearGradient id='d' x1='0' y1='0' x2='0' y2='360' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23101014'/%3E%3Cstop offset='1' stop-color='%23050608'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='640' height='360' rx='26' fill='url(%23d)'/%3E%3Crect x='180' y='92' width='280' height='140' rx='22' fill='url(%23c)' opacity='0.9'/%3E%3Crect x='208' y='120' width='224' height='84' rx='16' fill='%23040507' opacity='0.55'/%3E%3Crect x='224' y='136' width='44' height='52' rx='10' fill='%23F9D270'/%3E%3Crect x='280' y='136' width='44' height='52' rx='10' fill='%23F9D270' opacity='0.85'/%3E%3Crect x='336' y='136' width='44' height='52' rx='10' fill='%23F9D270' opacity='0.7'/%3E%3Cpath d='M150 246H490' stroke='url(%23c)' stroke-width='18' stroke-linecap='round' stroke-dasharray='12 22' opacity='0.75'/%3E%3Ccircle cx='252' cy='270' r='34' fill='%23040507' stroke='%23F9D270' stroke-width='6'/%3E%3Ccircle cx='252' cy='270' r='12' fill='%23F9D270'/%3E%3Ccircle cx='182' cy='270' r='26' fill='%23040507' stroke='%23F9D270' stroke-width='6' opacity='0.7'/%3E%3Ccircle cx='322' cy='270' r='26' fill='%23040507' stroke='%23F9D270' stroke-width='6' opacity='0.7'/%3E%3Ccircle cx='462' cy='110' r='18' fill='%23F9D270' opacity='0.45'/%3E%3Cpath d='M100 120C100 120 124 108 156 108C188 108 206 120 206 120' stroke='%23F9D270' stroke-width='6' stroke-linecap='round' opacity='0.65'/%3E%3Ccircle cx='136' cy='94' r='12' fill='%23F9D270' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(249, 210, 112, 0.2);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 .contact-list {
