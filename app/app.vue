@@ -29,6 +29,8 @@
           </div>
         </div>
 
+        <NuxtLink to="/karriere" class="nav-link">Karriere</NuxtLink>
+
         <NuxtLink to="/about" class="nav-link">Über uns</NuxtLink>
       </nav>
 
