@@ -161,6 +161,10 @@
               <p class="meta-label">Weiterbildung</p>
               <p class="meta-value">individuelle Budgets</p>
             </div>
+            <div class="meta-card">
+              <p class="meta-label">Arbeitsumfeld</p>
+              <p class="meta-value">Familiär und kollegial</p>
+            </div>
           </div>
         </div>
 
@@ -963,9 +967,9 @@
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.1rem 1.25rem;
-  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 320px));
+  justify-content: space-between;   /* verteilt Restbreite als Abstand */
+  gap: 1.1rem 1.75rem;              /* mehr Abstand zwischen den Spalten */
 }
 
 .field {
@@ -992,8 +996,8 @@
   color: #fefefe;
   font-size: 1rem;
   font-family: inherit;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .field input:focus,
@@ -1107,6 +1111,14 @@
 
   .application__header {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 960px) {
+  .form-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    justify-content: stretch;
+    gap: 1.1rem 1.25rem;
   }
 }
 </style>
