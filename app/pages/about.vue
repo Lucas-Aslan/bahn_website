@@ -129,29 +129,51 @@ onBeforeUnmount(() => {
         <div class="about-hero__ring about-hero__ring--cyan" :style="{ transform: `rotate(${orbitSpin * -1.2}deg)` }" />
       </div>
 
-      <div class="about-hero__content js-reveal">
-        <p class="eyebrow">Über Babylon Bahndienste</p>
-        <h1>Wir halten Bahndienste planbar, sicher und messbar.</h1>
-        <p class="about-hero__lead">
-          Unsere Teams sichern Bau, Cargo, Terminal und Hafenlogistik – mit klaren Prozessen, 24/7-Disposition und
-          revisionssicherer Dokumentation. So bleiben Umläufe stabil und Audits stressfrei.
-        </p>
-        <div class="about-hero__highlights">
-          <div class="about-hero__chip">
-            <span class="dot dot--gold" aria-hidden="true" />
-            Einsatzsteuerung & Reporting
+      <div class="about-hero__grid">
+        <div class="about-hero__content js-reveal">
+          <p class="eyebrow">Über Babylon Bahndienste</p>
+          <h1>Wir halten Bahndienste planbar, sicher und messbar.</h1>
+          <p class="about-hero__lead">
+            Unsere Teams sichern Bau, Cargo, Terminal und Hafenlogistik – mit klaren Prozessen, 24/7-Disposition und
+            revisionssicherer Dokumentation. So bleiben Umläufe stabil und Audits stressfrei.
+          </p>
+          <div class="about-hero__highlights">
+            <div class="about-hero__chip">
+              <span class="dot dot--gold" aria-hidden="true" />
+              Einsatzsteuerung & Reporting
+            </div>
+            <div class="about-hero__chip">
+              <span class="dot dot--cyan" aria-hidden="true" />
+              Triebfahrzeugführer, Rangierbegleiter & Wagenprüfer
+            </div>
           </div>
-          <div class="about-hero__chip">
-            <span class="dot dot--cyan" aria-hidden="true" />
-            Triebfahrzeugführer, Rangierbegleiter & Wagenprüfer
+          <div class="about-hero__actions">
+            <NuxtLink to="/kontakt" class="cta cta--solid">
+              Anfrage starten
+              <span aria-hidden="true">↗</span>
+            </NuxtLink>
+            <NuxtLink to="/leistungen/transport" class="cta cta--ghost">Leistungen ansehen</NuxtLink>
           </div>
         </div>
-        <div class="about-hero__actions">
-          <NuxtLink to="/kontakt" class="cta cta--solid">
-            Anfrage starten
-            <span aria-hidden="true">↗</span>
-          </NuxtLink>
-          <NuxtLink to="/leistungen/transport" class="cta cta--ghost">Leistungen ansehen</NuxtLink>
+
+        <div class="about-hero__visual js-reveal">
+          <div class="about-hero__image-frame">
+            <img
+              src="/images/cta-bild.jpg"
+              alt="Crew von Babylon Bahndiensten koordiniert einen Einsatz"
+              class="about-hero__image"
+              loading="lazy"
+            >
+            <div class="about-hero__image-overlay" aria-hidden="true" />
+            <div class="about-hero__image-badge">
+              <span class="dot dot--magenta" aria-hidden="true" />
+              Einsatzbereit in 24h
+            </div>
+          </div>
+          <p class="about-hero__visual-copy">
+            Wir stellen einsatzbereite Teams, sichern Strecken und dokumentieren jeden Schritt – damit dein Betrieb
+            stabil bleibt.
+          </p>
         </div>
       </div>
     </section>
@@ -335,6 +357,17 @@ h2 {
   box-shadow: 0 40px 110px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
+.about-hero__grid {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1.2rem, 4vw, 2rem);
+  align-items: center;
+}
+
 .about-hero__bg {
   position: absolute;
   inset: 0;
@@ -384,10 +417,6 @@ h2 {
 }
 
 .about-hero__content {
-  position: relative;
-  z-index: 1;
-  max-width: 1100px;
-  margin: 0 auto;
   display: grid;
   gap: 1rem;
 }
@@ -477,6 +506,57 @@ h2 {
 .cta--ghost:hover,
 .cta--ghost:focus-visible {
   box-shadow: 0 18px 40px rgba(255, 255, 255, 0.12);
+}
+
+.about-hero__visual {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.about-hero__image-frame {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+  isolation: isolate;
+}
+
+.about-hero__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.03);
+}
+
+.about-hero__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.55));
+}
+
+.about-hero__image-badge {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fcecff;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.about-hero__visual-copy {
+  margin: 0;
+  color: #dfeeff;
+  line-height: 1.6;
+  max-width: 520px;
 }
 
 .about-hero__meta {
