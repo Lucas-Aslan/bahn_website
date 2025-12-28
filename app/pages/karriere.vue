@@ -151,11 +151,6 @@
             Wir verbinden Sicherheit, moderne Technik und eine Kultur des Miteinanders. Ganz gleich, ob du einsteigst,
             quer einsteigst oder den nächsten Karriereschritt planst – wir machen den Weg frei.
           </p>
-          <div class="career-hero__chips">
-            <span class="chip">Auditierbare Einsätze</span>
-            <span class="chip chip--ghost">24/7-Disposition</span>
-            <span class="chip chip--accent">Gesicherte Schichten</span>
-          </div>
           <div class="career-hero__actions">
             <a class="cta cta--solid" href="#jobs">
               Zu den Stellenangeboten
