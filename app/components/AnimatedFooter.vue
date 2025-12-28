@@ -31,36 +31,48 @@
       <div class="footer__columns">
         <div class="footer__column">
           <div class="footer__card footer__contact-card">
+            <span class="footer__badge">24/7 Leitstelle</span>
             <p class="footer__card-label">Kontakt</p>
             <p class="footer__card-text">
               Babylon Bahndienste UG (haftungsbeschränkt)<br>
               Frankfurter Weg 27<br>
               33106 Paderborn
             </p>
-            <p class="footer__card-text footer__contact-links">
+            <div class="footer__contact-links">
               <span>Telefon: <a href="tel:+49123456789">+49 123 456 789</a></span>
               <span>E-Mail: <a href="mailto:info@babylon-bahndienste.de">info@babylon-bahndienste.de</a></span>
-            </p>
+            </div>
+            <div class="footer__contact-actions" aria-label="Direkte Kontaktoptionen">
+              <a class="footer__action" href="tel:+49123456789">
+                <span class="footer__action-dot" aria-hidden="true" />
+                Jetzt anrufen
+              </a>
+              <a class="footer__action" href="mailto:info@babylon-bahndienste.de">
+                <span class="footer__action-dot" aria-hidden="true" />
+                E-Mail senden
+              </a>
+            </div>
             <NuxtLink to="/kontakt" class="footer__cta">Kontakt aufnehmen</NuxtLink>
           </div>
         </div>
 
         <div class="footer__column">
+          <p class="footer__heading">Unternehmen</p>
+          <ul class="footer__list">
+            <li><NuxtLink to="/about">Über uns</NuxtLink></li>
+            <li><NuxtLink to="/karriere">Karriere</NuxtLink></li>
+            <li><NuxtLink to="/kontakt">Kontakt</NuxtLink></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <p class="footer__heading">Rechtliches</p>
           <ul class="footer__list">
             <li><NuxtLink to="/impressum">Impressum</NuxtLink></li>
             <li><NuxtLink to="/datenschutz">Datenschutz</NuxtLink></li>
             <li><NuxtLink to="/barrierefreiheit">Barrierefreiheit</NuxtLink></li>
           </ul>
         </div>
-
-        <div class="footer__column">
-          <ul class="footer__list">
-            <li><NuxtLink to="/about">Über uns</NuxtLink></li>
-            <li><NuxtLink to="/kontakt">Kontakt</NuxtLink></li>
-            <li><NuxtLink to="/karriere">Karriere</NuxtLink></li>
-          </ul>
-        </div>
-
       </div>
     </div>
 
@@ -225,18 +237,25 @@
 
 @media (min-width: 640px) {
   .footer__columns {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   }
 }
 
 @media (min-width: 960px) {
   .footer__columns {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1.25fr) repeat(2, minmax(0, 1fr));
     justify-self: end;
     align-self: center;
     margin-top: 0.9rem;
     padding-right: 0.8rem;
     width: fit-content;
+  }
+}
+
+@media (min-width: 1200px) {
+  .footer__columns {
+    gap: 1.5rem;
+    grid-template-columns: minmax(0, 1.25fr) repeat(2, minmax(0, 1.05fr));
   }
 }
 
@@ -331,12 +350,63 @@
 }
 
 .footer__contact-card {
-  gap: 0.6rem;
+  gap: 0.7rem;
 }
 
 .footer__contact-links {
   display: grid;
   gap: 0.35rem;
+}
+
+.footer__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(249, 210, 112, 0.12);
+  border: 1px solid rgba(249, 210, 112, 0.35);
+  color: #f9d270;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.footer__contact-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.45rem;
+}
+
+.footer__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(249, 210, 112, 0.18);
+  background: rgba(255, 255, 255, 0.03);
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.footer__action:hover,
+.footer__action:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(249, 210, 112, 0.32);
+  background: rgba(249, 210, 112, 0.08);
+}
+
+.footer__action-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(120deg, #f9d270, #c99038);
+  box-shadow: 0 0 12px rgba(249, 210, 112, 0.65);
 }
 
 .footer__card a {
