@@ -2,16 +2,14 @@
 const companyDetails = [
   { label: 'Firma', value: 'Babylon Bahndienste UG (haftungsbeschränkt)' },
   { label: 'Angaben gemäß § 5 DDG', value: 'Frankfurter Weg 27 · 33106 Paderborn' },
-  { label: 'Vertreten durch', value: 'Geschäftsführer: Marlon Becker' },
+  { label: 'Vertreten durch', value: 'Geschäftsführer: Sanharip Aras' },
   { label: 'Handelsregister', value: 'Amtsgericht Bielefeld · HRB 123456' },
   { label: 'Umsatzsteuer-ID', value: 'DE123456789' }
 ]
 
 const contactDetails = [
   { label: 'Telefon', value: '+49 123 456 789' },
-  { label: 'Telefax', value: 'Derzeit nicht im Einsatz' },
   { label: 'E-Mail', value: 'info@babylon-bahndienste.de' },
-  { label: 'Ansprechpartner Rechtliches', value: 'legal@babylon-bahndienste.de' }
 ]
 
 const oversightDetails = [
@@ -180,11 +178,15 @@ const liabilityNotes = [
 
       <div class="liability-bottom">
         <p class="micro">
-          Hinweise auf Rechtsverstöße oder fehlerhafte Inhalte können Sie jederzeit an legal@babylon-bahndienste.de
-          richten. Wir prüfen Eingaben umgehend und aktualisieren betroffene Inhalte schnellstmöglich. Softwareunternehmen:
-          www.eulah.de · Fotos: Babylon Bahndienste.
+          Hinweise auf Rechtsverstöße oder fehlerhafte Inhalte können Sie jederzeit an
+          <a href="mailto:info@babylon-bahndienste.de">info@babylon-bahndienste.de</a>
+          richten. Wir prüfen Eingaben umgehend und aktualisieren betroffene Inhalte schnellstmöglich.
+          Softwareunternehmen:
+          <a href="https://www.eulah.de" target="_blank" rel="noopener noreferrer">www.eulah.de</a>
+          · Fotos: Babylon Bahndienste.
         </p>
       </div>
+
     </section>
   </div>
 </template>
