@@ -18,7 +18,6 @@
     title: string
     category: string
     description: string
-    shift: string
     link: string
   }
 
@@ -78,21 +77,18 @@
       title: 'Triebfahrzeugführer (m/w/d) – Cargo & Bau',
       category: 'Lok & Traktion',
       description: 'Fahre moderne Loks im Güter- und Bauzugverkehr – sicher, pünktlich und dokumentiert.',
-      shift: 'Vollzeit · Schichtbetrieb',
       link: '/kontakt'
     },
     {
       title: 'Zweiwegebaggerführer (m/w/d)',
       category: 'Bau & Infrastruktur',
       description: 'Bewege Schotter, Schwellen und Schienen punktgenau und unterstützt Baustellenlogistik.',
-      shift: 'Vollzeit · Projektbezogen',
       link: '/kontakt'
     },
     {
       title: 'Rangierbegleiter:in Bau (m/w/d)',
       category: 'Rangier & Sicherheit',
       description: 'Sorge auf Baustellen und Werksgleisen für sichere Rangierabläufe und reibungslose Übergaben.',
-      shift: 'Vollzeit · Schichtbetrieb',
       link: '/kontakt'
     },
     {
@@ -100,7 +96,6 @@
       category: 'Prüfung & Qualität',
       description:
         'Führe Wagenprüfungen durch, erstelle Lauffähigkeitsuntersuchungen und dokumentiere auditierbar.',
-      shift: 'Vollzeit · Gleitend',
       link: '/kontakt'
     }
   ]
