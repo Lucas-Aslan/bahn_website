@@ -862,6 +862,8 @@
 
 .contact-card__cta {
   width: 100%;
+  max-width: 300px;
+  align-self: center;
   justify-content: center;
 }
 
