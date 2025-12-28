@@ -265,17 +265,17 @@
           <div class="contact-card">
             <div class="contact-card__header">
               <p class="eyebrow">Ansprechpartner</p>
-              <h3>Serhat Kaya</h3>
-              <p class="contact-card__role">Leitung Recruiting</p>
+              <h3>Sanharip Aras</h3>
+              <p class="contact-card__role">Leitung</p>
             </div>
             <div class="contact-card__details">
               <a class="contact-link" href="mailto:karriere@babylon-bahndienste.de">
                 <span aria-hidden="true">✉️</span>
-                karriere@babylon-bahndienste.de
+                info@babylon-bahndienste.de
               </a>
               <a class="contact-link" href="tel:+491607050005">
                 <span aria-hidden="true">📞</span>
-                +49 160 7050005
+                +49 123 456 789
               </a>
             </div>
             <NuxtLink to="/kontakt" class="cta cta--solid contact-card__cta">
