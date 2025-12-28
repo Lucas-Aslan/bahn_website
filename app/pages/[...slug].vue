@@ -27,6 +27,15 @@ if (!page.value) {
 .datenschutz-content :deep(h4),
 .datenschutz-content :deep(h5),
 .datenschutz-content :deep(h6) {
-  color: #ffffff;
+  color: #ffffff !important;
+}
+
+.datenschutz-content :deep(h1 a),
+.datenschutz-content :deep(h2 a),
+.datenschutz-content :deep(h3 a),
+.datenschutz-content :deep(h4 a),
+.datenschutz-content :deep(h5 a),
+.datenschutz-content :deep(h6 a) {
+  color: inherit;
 }
 </style>
