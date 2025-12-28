@@ -31,36 +31,7 @@
     question: string
     answer: string
   }
-
-
-  const metrics: Metric[] = [
-    { value: '24/7', label: 'Disposition & Einsatzsteuerung' },
-    { value: '120+', label: 'abgeschlossene Projekte pro Jahr' },
-    { value: '40+', label: 'zertifizierte Fachkräfte im Einsatz' }
-  ]
-
-  const services: Service[] = [
-    {
-      accent: 'Lok & Traktion',
-      title: 'Triebfahrzeugführer für Cargo & Bau',
-      description: 'Mehrfach berechtigte Tf für Güter-, Bau- und Baustellenverkehre inkl. Streckenkunde.'
-    },
-    {
-      accent: 'Infrastruktur',
-      title: 'Rangierbegleiter & Wagenprüfer',
-      description: 'Sicherungslogik, Bremsproben und Wagenprüfungen bis Stufe 4 – dokumentiert und auditsicher.'
-    },
-    {
-      accent: 'Terminal & Logistik',
-      title: 'Operative Steuerung & Planung',
-      description: 'Disposition, Slot-Management und Statusmeldungen für stabile Umläufe und belastbare KPIs.'
-    },
-    {
-      accent: 'Consulting',
-      title: 'Prozessdesign & Compliance',
-      description: 'Unterstützung bei Regelwerken, Auditvorbereitung und rollierender Sicherheitskommunikation.'
-    }
-  ]
+      
 
   const faqItems: FAQItem[] = [
     {

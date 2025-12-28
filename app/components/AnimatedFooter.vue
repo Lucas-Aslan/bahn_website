@@ -1,19 +1,24 @@
 <template>
   <footer class="footer">
     <div class="footer__glow" aria-hidden="true" />
+
     <div class="footer__grid">
       <div class="footer__brand">
-        <div class="footer__logo">
-          <span class="footer__spark" aria-hidden="true" />
-          <span class="footer__initials">LOGO</span>
+        <div class="footer__brand-head">
+          <div class="footer__logo">
+            <span class="footer__spark" aria-hidden="true" />
+            <span class="footer__initials">LOGO</span>
+          </div>
+
+          <div class="footer__brand-text">
+            <p class="footer__eyebrow">Bahnlogistik</p>
+            <p class="footer__title">Babylon Bahndienste</p>
+          </div>
         </div>
-        <div>
-          <p class="footer__eyebrow">Bahnlogistik</p>
-          <p class="footer__title">Babylon Bahndienste</p>
-        </div>
+
         <p class="footer__tagline">
-          Fortschrittliche Lösungen für Schienenverkehr, Infrastruktur und Logistik – präzise, sicher und mit
-          goldener Effizienz.
+          Fortschrittliche Lösungen für Schienenverkehr, Infrastruktur und Logistik – präzise, sicher und mit goldener
+          Effizienz.
         </p>
 
         <div class="footer__pills" role="list">
@@ -40,24 +45,14 @@
           </ul>
         </div>
 
-        <div class="footer__column">
-          <p class="footer__heading">Direktkontakt</p>
-          <div class="footer__card">
-            <p class="footer__card-label">Projektbriefing</p>
-            <p class="footer__card-text">Schnelle Abstimmung mit einem Lead-Ingenieur.</p>
-            <NuxtLink to="/kontakt" class="footer__cta">Termin sichern</NuxtLink>
-          </div>
-        </div>
       </div>
     </div>
 
     <div class="footer__meta">
-      <div class="footer__ticker" aria-hidden="true">
-        <span class="footer__pulse" />
+      <div class="footer__ticker">
+        <span class="footer__pulse" aria-hidden="true" />
         <p class="footer__legal">© 2026 Babylon Bahndienste – Präzision auf Schienen.</p>
-
       </div>
-      <p class="footer__legal">© 2026 Babylon Bahndienste – Präzision auf Schienen.</p>
     </div>
   </footer>
 </template>
@@ -80,8 +75,7 @@
 .footer__glow {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 30% 60%, rgba(249, 210, 112, 0.12), transparent 30%),
+  background: radial-gradient(circle at 30% 60%, rgba(249, 210, 112, 0.12), transparent 30%),
     radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.05), transparent 34%);
   filter: blur(35px);
   opacity: 0.8;
@@ -90,24 +84,50 @@
   z-index: 0;
 }
 
+/* ---------- Layout (responsive) ---------- */
 .footer__grid {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.8rem;
   align-items: start;
+  /* Mobile-first: eine Spalte */
+  grid-template-columns: 1fr;
+}
+
+.footer__brand,
+.footer__columns {
+  min-width: 0; /* verhindert Overflow in Grid */
+}
+
+@media (min-width: 960px) {
+  .footer__grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 2.2rem;
+  }
 }
 
 .footer__brand {
   display: grid;
-  gap: 0.8rem;
+  gap: 0.9rem;
+}
+
+.footer__brand-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer__brand-text {
+  min-width: 0;
 }
 
 .footer__logo {
   position: relative;
   width: 64px;
   height: 64px;
+  flex: 0 0 auto;
   border-radius: 18px;
   background: linear-gradient(135deg, #f9d270, #c99038);
   box-shadow: 0 20px 45px rgba(249, 210, 112, 0.36);
@@ -180,10 +200,23 @@
   animation: shimmer 3.6s ease-in-out infinite;
 }
 
+/* Columns: Mobile-first 1 Spalte, dann 2, dann 3 */
 .footer__columns {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .footer__columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .footer__columns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .footer__heading {
@@ -207,15 +240,18 @@
   text-decoration: none;
   font-weight: 600;
   position: relative;
-  padding-left: 0.9rem;
+  padding: 0.15rem 0 0.15rem 0.9rem;
   transition: color 0.2s ease, transform 0.2s ease;
+  line-height: 1.35;
+  display: inline-block;
+  max-width: 100%;
 }
 
 .footer__list a::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 0.6em;
+  top: 0.62em;
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -291,6 +327,7 @@
   box-shadow: 0 16px 40px rgba(201, 144, 56, 0.4);
 }
 
+/* Meta: immer sauber umbrechen, auf Mobile zentrieren */
 .footer__meta {
   position: relative;
   z-index: 1;
@@ -299,7 +336,6 @@
   padding-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 0.8rem;
   color: #cfe2ff;
   font-size: 0.95rem;
@@ -314,11 +350,13 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(249, 210, 112, 0.18);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  max-width: 100%;
 }
 
 .footer__pulse {
   width: 10px;
   height: 10px;
+  flex: 0 0 auto;
   border-radius: 50%;
   background: #f9d270;
   box-shadow: 0 0 0 0 rgba(249, 210, 112, 0.6);
@@ -327,6 +365,46 @@
 
 .footer__legal {
   margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 720px) {
+  .footer {
+    margin: 1rem 1rem 2rem;
+    padding: 1.8rem 1.1rem;
+  }
+
+  .footer__brand-head {
+    gap: 0.85rem;
+  }
+
+  .footer__title {
+    font-size: 1.25rem;
+  }
+
+  .footer__ticker {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer__meta {
+    justify-content: center;
+  }
+}
+
+/* Extra-small: CTA & Pills noch kompakter */
+@media (max-width: 420px) {
+  .footer__pill {
+    font-size: 0.86rem;
+    padding: 0.4rem 0.7rem;
+  }
+
+  .footer__cta {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 @keyframes glowShift {
@@ -383,25 +461,6 @@
   }
   to {
     transform: translate3d(18px, -6px, 0) rotate(3deg);
-  }
-}
-
-@media (max-width: 720px) {
-  .footer {
-    margin: 1rem 1rem 2rem;
-  }
-
-  .footer__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer__ticker {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .footer__meta {
-    flex-direction: column;
   }
 }
 </style>
