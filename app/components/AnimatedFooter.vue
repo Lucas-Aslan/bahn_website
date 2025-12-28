@@ -30,6 +30,22 @@
 
       <div class="footer__columns">
         <div class="footer__column">
+          <div class="footer__card footer__contact-card">
+            <p class="footer__card-label">Kontakt</p>
+            <p class="footer__card-text">
+              Babylon Bahndienste UG (haftungsbeschränkt)<br>
+              Frankfurter Weg 27<br>
+              33106 Paderborn
+            </p>
+            <p class="footer__card-text footer__contact-links">
+              <span>Telefon: <a href="tel:+49123456789">+49 123 456 789</a></span>
+              <span>E-Mail: <a href="mailto:info@babylon-bahndienste.de">info@babylon-bahndienste.de</a></span>
+            </p>
+            <NuxtLink to="/kontakt" class="footer__cta">Kontakt aufnehmen</NuxtLink>
+          </div>
+        </div>
+
+        <div class="footer__column">
           <ul class="footer__list">
             <li><NuxtLink to="/impressum">Impressum</NuxtLink></li>
             <li><NuxtLink to="/datenschutz">Datenschutz</NuxtLink></li>
@@ -312,6 +328,28 @@
 .footer__card-text {
   margin: 0;
   color: #dce7ff;
+}
+
+.footer__contact-card {
+  gap: 0.6rem;
+}
+
+.footer__contact-links {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.footer__card a {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer__card a:hover,
+.footer__card a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
 .footer__cta {
