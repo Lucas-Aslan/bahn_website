@@ -230,7 +230,7 @@
             Ob Ausbildung, Quereinstieg oder Führung: Wir begleiten dich mit klaren Onboarding-Pfaden und Mentor:innen.
           </p>
         </div>
-        <NuxtLink to="/kontakt" class="cta cta--ghost">Kontakt aufnehmen</NuxtLink>
+        <NuxtLink to="/kontakt" class="cta cta--gold">Kontakt aufnehmen</NuxtLink>
       </div>
       <div class="tracks-grid">
         <article v-for="track in tracks" :key="track.title" class="track-card" :data-accent="track.accent">
@@ -566,6 +566,13 @@
   border-color: rgba(255, 255, 255, 0.15);
 }
 
+.cta--gold {
+  background: linear-gradient(135deg, #f9d270, #c99038);
+  color: #0c0a05;
+  border-color: rgba(249, 210, 112, 0.65);
+  box-shadow: 0 18px 36px rgba(249, 210, 112, 0.35), 0 0 0 1px rgba(249, 210, 112, 0.1);
+}
+
 .cta--inline {
   padding: 0.35rem 0;
   background: transparent;
@@ -584,6 +591,12 @@
 .cta--ghost:focus-visible {
   color: #ffffff;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+.cta--gold:hover,
+.cta--gold:focus-visible {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 24px 48px rgba(249, 210, 112, 0.45), 0 0 0 1px rgba(249, 210, 112, 0.16);
 }
 
 .career-hero__meta {
