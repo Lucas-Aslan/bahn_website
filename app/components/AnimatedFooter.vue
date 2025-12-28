@@ -216,6 +216,11 @@
 @media (min-width: 960px) {
   .footer__columns {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-self: end;
+    align-self: center;
+    margin-top: 0.9rem;
+    padding-right: 0.8rem;
+    width: fit-content;
   }
 }
 
