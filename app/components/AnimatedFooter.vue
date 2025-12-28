@@ -26,36 +26,34 @@
           <span class="footer__pill" role="listitem">Zertifizierte Teams</span>
           <span class="footer__pill" role="listitem">Deutschlandweit</span>
         </div>
+
+        <div class="footer__card footer__contact-card">
+          <span class="footer__badge">24/7 Leitstelle</span>
+          <p class="footer__card-label">Kontakt</p>
+          <p class="footer__card-text">
+            Babylon Bahndienste UG (haftungsbeschränkt)<br>
+            Frankfurter Weg 27<br>
+            33106 Paderborn
+          </p>
+          <div class="footer__contact-links">
+            <span>Telefon: <a href="tel:+49123456789">+49 123 456 789</a></span>
+            <span>E-Mail: <a href="mailto:info@babylon-bahndienste.de">info@babylon-bahndienste.de</a></span>
+          </div>
+          <div class="footer__contact-actions" aria-label="Direkte Kontaktoptionen">
+            <a class="footer__action" href="tel:+49123456789">
+              <span class="footer__action-dot" aria-hidden="true" />
+              Jetzt anrufen
+            </a>
+            <a class="footer__action" href="mailto:info@babylon-bahndienste.de">
+              <span class="footer__action-dot" aria-hidden="true" />
+              E-Mail senden
+            </a>
+          </div>
+          <NuxtLink to="/kontakt" class="footer__cta">Kontakt aufnehmen</NuxtLink>
+        </div>
       </div>
 
       <div class="footer__columns">
-        <div class="footer__column">
-          <div class="footer__card footer__contact-card">
-            <span class="footer__badge">24/7 Leitstelle</span>
-            <p class="footer__card-label">Kontakt</p>
-            <p class="footer__card-text">
-              Babylon Bahndienste UG (haftungsbeschränkt)<br>
-              Frankfurter Weg 27<br>
-              33106 Paderborn
-            </p>
-            <div class="footer__contact-links">
-              <span>Telefon: <a href="tel:+49123456789">+49 123 456 789</a></span>
-              <span>E-Mail: <a href="mailto:info@babylon-bahndienste.de">info@babylon-bahndienste.de</a></span>
-            </div>
-            <div class="footer__contact-actions" aria-label="Direkte Kontaktoptionen">
-              <a class="footer__action" href="tel:+49123456789">
-                <span class="footer__action-dot" aria-hidden="true" />
-                Jetzt anrufen
-              </a>
-              <a class="footer__action" href="mailto:info@babylon-bahndienste.de">
-                <span class="footer__action-dot" aria-hidden="true" />
-                E-Mail senden
-              </a>
-            </div>
-            <NuxtLink to="/kontakt" class="footer__cta">Kontakt aufnehmen</NuxtLink>
-          </div>
-        </div>
-
         <div class="footer__column">
           <p class="footer__heading">Unternehmen</p>
           <ul class="footer__list">
@@ -237,13 +235,13 @@
 
 @media (min-width: 640px) {
   .footer__columns {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 960px) {
   .footer__columns {
-    grid-template-columns: minmax(0, 1.25fr) repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-self: end;
     align-self: center;
     margin-top: 0.9rem;
@@ -255,7 +253,7 @@
 @media (min-width: 1200px) {
   .footer__columns {
     gap: 1.5rem;
-    grid-template-columns: minmax(0, 1.25fr) repeat(2, minmax(0, 1.05fr));
+    grid-template-columns: repeat(2, minmax(0, 1.05fr));
   }
 }
 
