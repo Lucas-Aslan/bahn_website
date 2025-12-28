@@ -861,9 +861,10 @@
 .position-card {
   padding: 1.1rem;
   border-radius: 16px;
-  background: rgba(7, 7, 9, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #f9d270, #d8a63e);
+  border: 1px solid #c99038;
+  box-shadow: 0 16px 40px rgba(201, 144, 56, 0.35);
+  color: #0c0a05;
 }
 
 .position-card__meta {
@@ -877,7 +878,7 @@
 .position-card__category {
   margin: 0;
   font-weight: 700;
-  color: #f9d270;
+  color: #0c0a05;
 }
 
 .pill {
@@ -886,31 +887,44 @@
   gap: 0.3rem;
   padding: 0.35rem 0.65rem;
   border-radius: 999px;
-  background: rgba(249, 210, 112, 0.12);
-  color: #fefefe;
-  border: 1px solid rgba(249, 210, 112, 0.25);
+  background: #fbe4a3;
+  color: #0c0a05;
+  border: 1px solid #c99038;
   font-weight: 600;
 }
 
 .pill--ghost {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.08);
-  color: #c7d4ec;
+  background: #f6cf68;
+  border-color: #a8761d;
+  color: #0c0a05;
 }
 
 .position-card h3 {
   margin: 0;
+  color: #0c0a05;
 }
 
 .position-card p {
   margin: 0.4rem 0 0.75rem;
-  color: #c7d4ec;
+  color: #0c0a05;
 }
 
 .position-card__actions {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+
+.position-card__actions .cta--inline {
+  color: #0c0a05;
+  font-weight: 800;
+  box-shadow: none;
+}
+
+.position-card__actions .cta--inline:hover,
+.position-card__actions .cta--inline:focus-visible {
+  box-shadow: none;
+  text-decoration: underline;
 }
 
 .section--panel .application {
