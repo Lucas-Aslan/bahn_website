@@ -31,9 +31,9 @@
       <div class="footer__columns">
         <div class="footer__column">
           <ul class="footer__list">
-            <li><NuxtLink to="/leistungen/impressum">Impressum</NuxtLink></li>
-            <li><NuxtLink to="/leistungen/datenschutz">Datenschutz</NuxtLink></li>
-            <li><NuxtLink to="/leistungen/barrierefreiheit">Barrierefreiheit</NuxtLink></li>
+            <li><NuxtLink to="/impressum">Impressum</NuxtLink></li>
+            <li><NuxtLink to="/datenschutz">Datenschutz</NuxtLink></li>
+            <li><NuxtLink to="/barrierefreiheit">Barrierefreiheit</NuxtLink></li>
           </ul>
         </div>
 
