@@ -46,28 +46,6 @@ const pillars: Pillar[] = [
   }
 ]
 
-const milestones: Milestone[] = [
-  {
-    year: '2018',
-    title: 'Start Babylon Bahndienste',
-    detail: 'Gestellung von Triebfahrzeugführern für Güter- und Bauverkehre – mit klarer Sicherheitslogik.'
-  },
-  {
-    year: '2020',
-    title: 'Leitstelle 24/7',
-    detail: 'Aufbau der eigenen Einsatzsteuerung mit Echtzeit-Reporting, Slot-Management und digitalen Unterweisungen.'
-  },
-  {
-    year: '2022',
-    title: 'Terminal & Hafen',
-    detail: 'Erweiterung um Rangierbegleiter und Wagenprüfer für Umschlagplätze und komplexe Baustellenprojekte.'
-  },
-  {
-    year: '2024',
-    title: 'Consulting & Compliance',
-    detail: 'Begleitung bei Auditvorbereitung, Prozessdesign und rollierender Sicherheitskommunikation.'
-  }
-]
 
 const focusAreas: FocusArea[] = [
   {
@@ -167,10 +145,6 @@ onBeforeUnmount(() => {
             <span class="dot dot--cyan" aria-hidden="true" />
             Triebfahrzeugführer, Rangierbegleiter & Wagenprüfer
           </div>
-          <div class="about-hero__chip">
-            <span class="dot dot--magenta" aria-hidden="true" />
-            Consulting & Auditvorbereitung
-          </div>
         </div>
         <div class="about-hero__actions">
           <NuxtLink to="/kontakt" class="cta cta--solid">
@@ -178,20 +152,6 @@ onBeforeUnmount(() => {
             <span aria-hidden="true">↗</span>
           </NuxtLink>
           <NuxtLink to="/leistungen/transport" class="cta cta--ghost">Leistungen ansehen</NuxtLink>
-        </div>
-        <div class="about-hero__meta">
-          <div class="meta-card">
-            <p class="meta-card__value">24/7</p>
-            <p class="meta-card__label">Leitstelle & Dispo</p>
-          </div>
-          <div class="meta-card">
-            <p class="meta-card__value">40+</p>
-            <p class="meta-card__label">zertifizierte Fachkräfte</p>
-          </div>
-          <div class="meta-card">
-            <p class="meta-card__value">120+</p>
-            <p class="meta-card__label">Einsätze pro Jahr</p>
-          </div>
         </div>
       </div>
     </section>
@@ -213,32 +173,6 @@ onBeforeUnmount(() => {
           <h3>{{ pillar.title }}</h3>
           <p>{{ pillar.description }}</p>
           <span class="pillar-card__glow" aria-hidden="true" />
-        </article>
-      </div>
-    </section>
-
-    <section class="milestones section js-reveal">
-      <div class="section__header">
-        <div>
-          <p class="eyebrow">Stationen</p>
-          <h2>Von der ersten Schicht bis zur Leitstelle</h2>
-          <p class="section__lead">
-            Unsere Entwicklung zeigt: Wir wachsen, wenn Einsätze sicher laufen, Crews vorbereitet sind und Auftraggeber
-            messbare Ergebnisse erhalten.
-          </p>
-        </div>
-      </div>
-      <div class="milestones__track" aria-hidden="true" />
-      <div class="milestones__list">
-        <article v-for="milestone in milestones" :key="milestone.year" class="milestone">
-          <div class="milestone__time">
-            <span class="milestone__year">{{ milestone.year }}</span>
-            <span class="milestone__pulse" aria-hidden="true" />
-          </div>
-          <div class="milestone__content">
-            <h3>{{ milestone.title }}</h3>
-            <p>{{ milestone.detail }}</p>
-          </div>
         </article>
       </div>
     </section>
