@@ -175,18 +175,6 @@
               <p class="headline">Wir setzen auf Teams, die Verantwortung übernehmen und Sicherheit leben.</p>
             </div>
             <div class="career-hero__stats">
-              <div class="stat">
-                <span class="stat__value">30</span>
-                <span class="stat__label">Urlaubstage</span>
-              </div>
-              <div class="stat">
-                <span class="stat__value">24/7</span>
-                <span class="stat__label">Disposition</span>
-              </div>
-              <div class="stat">
-                <span class="stat__value">100%</span>
-                <span class="stat__label">PSA gestellt</span>
-              </div>
             </div>
             <div class="career-hero__image">
               <img src="/images/cta-bild.jpg" alt="Team von Babylon Bahndienste im Einsatz" loading="lazy">
@@ -351,10 +339,6 @@
             <label class="field">
               <span>Telefonnummer *</span>
               <input type="tel" name="telefon" placeholder="+49" required>
-            </label>
-            <label class="field">
-              <span>Wunsch-Einsatzort</span>
-              <input type="text" name="standort" placeholder="z. B. Hannover, Hamburg">
             </label>
           </div>
           <label class="field field--wide">
