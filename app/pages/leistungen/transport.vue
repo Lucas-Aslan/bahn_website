@@ -119,6 +119,12 @@ onBeforeUnmount(() => {
         </div>
         <div class="leistungen-hero__visual">
           <div class="visual__frame">
+            <img
+              src="/images/cta-bild.jpg"
+              alt="Güterzug im Abendlicht als Symbol für präzise Darstellung"
+              class="visual__image"
+              loading="lazy"
+            />
             <div class="visual__glow" aria-hidden="true" />
             <div class="visual__beam" aria-hidden="true" />
             <div class="visual__grid" aria-hidden="true" />
@@ -310,6 +316,16 @@ onBeforeUnmount(() => {
   position: absolute;
   inset: 0;
   pointer-events: none;
+}
+
+.visual__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  filter: saturate(1.05);
 }
 
 .visual__glow {
