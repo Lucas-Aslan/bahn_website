@@ -5,10 +5,6 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <div class="footer__brand-head">
-          <div class="footer__logo">
-            <span class="footer__spark" aria-hidden="true" />
-            <span class="footer__initials">LOGO</span>
-          </div>
 
           <div class="footer__brand-text">
             <p class="footer__eyebrow">Bahnlogistik</p>
@@ -16,16 +12,6 @@
           </div>
         </div>
 
-        <p class="footer__tagline">
-          Fortschrittliche Lösungen für Schienenverkehr, Infrastruktur und Logistik – präzise, sicher und mit goldener
-          Effizienz.
-        </p>
-
-        <div class="footer__pills" role="list">
-          <span class="footer__pill" role="listitem">24/7 Einsatzbereit</span>
-          <span class="footer__pill" role="listitem">Zertifizierte Teams</span>
-          <span class="footer__pill" role="listitem">Deutschlandweit</span>
-        </div>
 
         <div class="footer__card footer__contact-card">
           <span class="footer__badge">24/7 Leitstelle</span>
