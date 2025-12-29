@@ -122,6 +122,7 @@ onBeforeUnmount(() => {
             <div class="visual__glow" aria-hidden="true" />
             <div class="visual__beam" aria-hidden="true" />
             <div class="visual__grid" aria-hidden="true" />
+            
             <div class="visual__badge">
               <span class="badge__icon">⚡</span>
               Präzise Darstellung
