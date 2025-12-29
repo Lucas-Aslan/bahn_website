@@ -16,10 +16,6 @@
 
       <div class="nav-dropdown" role="presentation">
         <button class="nav-link" type="button">Leistungen</button>
-        <div class="dropdown-panel" role="menu">
-          <NuxtLink to="/leistungen/transport" class="dropdown-item">Portfolio & Spezialisierungen</NuxtLink>
-          <NuxtLink to="/about" class="dropdown-item">Über Babylon Bahndienste</NuxtLink>
-        </div>
       </div>
 
         <NuxtLink to="/karriere" class="nav-link">Karriere</NuxtLink>
