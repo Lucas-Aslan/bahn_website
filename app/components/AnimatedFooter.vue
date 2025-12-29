@@ -6,6 +6,7 @@
       <div class="footer__brand">
         <div class="footer__brand-head">
 
+
           <div class="footer__brand-text">
             <p class="footer__eyebrow">Bahnlogistik</p>
             <p class="footer__title">Babylon Bahndienste</p>

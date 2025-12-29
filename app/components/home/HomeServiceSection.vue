@@ -10,34 +10,6 @@ type Service = {
   description: string
 }
 
-const metrics: Metric[] = [
-  { value: '24/7', label: 'Disposition & Einsatzsteuerung' },
-  { value: '48h', label: 'Einsatzstart nach Beauftragung' },
-  { value: 'Bundesweit', label: 'Einsatzgebiet mit Streckenkunde' }
-]
-
-const services: Service[] = [
-  {
-    accent: 'Traktion',
-    title: 'Triebfahrzeugführer für Cargo & Bau',
-    description: 'Mehrfach berechtigte Tf mit Streckenkunde, Baustellenberechtigungen und sauberer Dokumentation.'
-  },
-  {
-    accent: 'Rangier',
-    title: 'Rangierbegleiter & Wagenprüfer',
-    description: 'Bremsproben, Wagenprüfungen bis Stufe 4 sowie sichere Rangierabläufe im Güter- und Baustellenverkehr.'
-  },
-  {
-    accent: 'Steuerung',
-    title: 'Disposition & Reporting',
-    description: 'Slot-Management, Tagesreportings und KPI-Tracking aus der Leitstelle – transparent und auditierbar.'
-  },
-  {
-    accent: 'Consulting',
-    title: 'Bahnprojekte planen',
-    description: 'Unterstützung bei Zulassung, Sicherheitskonzepten und operativer Vorbereitung Ihrer Bahnprojekte.'
-  }
-]
 </script>
 
 <template>

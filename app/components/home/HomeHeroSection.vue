@@ -25,20 +25,6 @@ const heroVideos: HeroVideo[] = [
   }
 ]
 
-const accolades: Accolade[] = [
-  {
-    label: 'Einsatzbereit in 24h',
-    detail: 'Disposition und Streckenkunde stehen bereit, sodass Crews kurzfristig starten können.'
-  },
-  {
-    label: 'EBA-konform dokumentiert',
-    detail: 'Unterweisungen, Risikobeurteilungen und Checks werden revisionssicher festgehalten.'
-  },
-  {
-    label: 'Bundesweit im Einsatz',
-    detail: 'Teams mit Streckenkunde und Baustellenerfahrung unterstützen deutschlandweit.'
-  }
-]
 
 const currentVideoIndex = ref(0)
 const heroVideoElement = ref<HTMLVideoElement | null>(null)

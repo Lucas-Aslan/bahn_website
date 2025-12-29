@@ -16,17 +16,6 @@
 
         <div class="nav-dropdown" role="presentation">
           <button class="nav-link" type="button">Leistungen</button>
-          <div class="dropdown-panel" role="menu">
-            <NuxtLink to="/leistungen/transport" class="dropdown-item" role="menuitem">
-              Präzisions-Transport
-            </NuxtLink>
-            <NuxtLink to="/leistungen/infrastruktur" class="dropdown-item" role="menuitem">
-              Infrastruktur-Bau
-            </NuxtLink>
-            <NuxtLink to="/leistungen/logistik" class="dropdown-item" role="menuitem">
-              Terminal &amp; Logistik
-            </NuxtLink>
-          </div>
         </div>
 
         <NuxtLink to="/karriere" class="nav-link">Karriere</NuxtLink>
