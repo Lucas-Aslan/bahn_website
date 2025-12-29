@@ -354,16 +354,16 @@
 .footer__social-list {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.85rem;
 }
 
 .footer__social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   color: #9da8ba;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -372,8 +372,8 @@
 }
 
 .footer__social-icon {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   fill: currentColor;
 }
 
