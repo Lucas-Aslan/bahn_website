@@ -531,7 +531,7 @@
   gap: 0.35rem;
   padding: 0.75rem 1.1rem;
   border-radius: 12px;
-  border: 1px solid rgba(199, 117, 139, 0.35);
+  border: 1px solid rgba(0, 72, 49, 0.35);
   color: #ffffff;
   text-decoration: none;
   font-weight: 700;
@@ -540,47 +540,47 @@
 }
 
 .cta--solid {
-  background: linear-gradient(135deg, var(--color-rose), var(--color-forest));
-  box-shadow: 0 15px 35px rgba(199, 117, 139, 0.28);
+  background: var(--color-forest);
+  box-shadow: 0 15px 35px rgba(0, 72, 49, 0.28);
 }
 
 .cta--ghost {
-  background: rgba(255, 255, 255, 0.04);
-  color: #fefefe;
-  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 72, 49, 0.08);
+  color: var(--color-forest);
+  border-color: rgba(0, 72, 49, 0.25);
 }
 
 .cta--gold {
-  background: linear-gradient(135deg, var(--color-rose), var(--color-forest));
+  background: var(--color-forest);
   color: #ffffff;
-  border-color: rgba(199, 117, 139, 0.65);
-  box-shadow: 0 18px 36px rgba(199, 117, 139, 0.35), 0 0 0 1px rgba(199, 117, 139, 0.1);
+  border-color: rgba(0, 72, 49, 0.55);
+  box-shadow: 0 18px 36px rgba(0, 72, 49, 0.32), 0 0 0 1px rgba(0, 72, 49, 0.12);
 }
 
 .cta--inline {
   padding: 0.35rem 0;
   background: transparent;
   border: none;
-  color: var(--color-rose);
+  color: var(--color-forest);
   box-shadow: none;
 }
 
 .cta:hover,
 .cta:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 20px 40px rgba(199, 117, 139, 0.35);
+  box-shadow: 0 20px 40px rgba(0, 72, 49, 0.32);
 }
 
 .cta--ghost:hover,
 .cta--ghost:focus-visible {
-  color: #ffffff;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  color: var(--color-forest);
+  box-shadow: 0 15px 35px rgba(0, 72, 49, 0.25);
 }
 
 .cta--gold:hover,
 .cta--gold:focus-visible {
   transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 24px 48px rgba(199, 117, 139, 0.45), 0 0 0 1px rgba(199, 117, 139, 0.16);
+  box-shadow: 0 24px 48px rgba(0, 72, 49, 0.38), 0 0 0 1px rgba(0, 72, 49, 0.16);
 }
 
 .career-hero__meta {

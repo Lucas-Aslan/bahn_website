@@ -499,18 +499,18 @@
   width: fit-content;
   padding: 0.65rem 0.95rem;
   border-radius: 12px;
-  background: linear-gradient(120deg, var(--color-rose), var(--color-forest));
+  background: var(--color-forest);
   color: #ffffff;
   font-weight: 800;
   text-decoration: none;
-  box-shadow: 0 12px 30px rgba(199, 117, 139, 0.26);
+  box-shadow: 0 12px 30px rgba(0, 72, 49, 0.22);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .footer__cta:hover,
 .footer__cta:focus-visible {
   transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 16px 40px rgba(0, 72, 49, 0.28);
 }
 
 /* Meta: immer sauber umbrechen, auf Mobile zentrieren */

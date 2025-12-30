@@ -178,14 +178,15 @@
 }
 
 .gold-cta__button--solid {
-  background: linear-gradient(120deg, var(--color-rose), var(--color-forest));
+  background: var(--color-forest);
   color: #ffffff;
-  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.25);
+  box-shadow: 0 18px 45px rgba(0, 72, 49, 0.25);
 }
 
 .gold-cta__button--ghost {
-  background: rgba(0, 72, 49, 0.06);
+  background: rgba(0, 72, 49, 0.08);
   color: var(--color-forest);
+  border-color: rgba(0, 72, 49, 0.3);
 }
 
 .gold-cta__button:hover,

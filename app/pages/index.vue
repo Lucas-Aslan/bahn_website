@@ -111,15 +111,15 @@ onBeforeUnmount(() => {
 }
 
 :global(.cta--solid) {
-  background: linear-gradient(120deg, var(--color-rose), var(--color-forest));
+  background: var(--color-forest);
   color: #ffffff;
-  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: 0 18px 45px rgba(0, 72, 49, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 :global(.cta--solid:hover),
 :global(.cta--solid:focus-visible) {
   transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 22px 60px rgba(0, 72, 49, 0.25);
+  box-shadow: 0 22px 60px rgba(0, 72, 49, 0.3);
 }
 
 :global(.cta--ghost) {
@@ -132,7 +132,7 @@ onBeforeUnmount(() => {
 :global(.cta--ghost:hover),
 :global(.cta--ghost:focus-visible) {
   transform: translateY(-1px);
-  background: rgba(199, 117, 139, 0.12);
+  background: rgba(0, 72, 49, 0.12);
 }
 
 :global(.js-reveal) {
