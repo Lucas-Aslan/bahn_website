@@ -120,7 +120,7 @@ onBeforeUnmount(() => {
         <div class="leistungen-hero__visual">
           <div class="visual__frame">
             <img
-              src="/images/cta-bild.jpg"
+              src="/images/babylon-bahndienste-leistungen.jpg"
               alt="Güterzug im Abendlicht als Symbol für präzise Darstellung"
               class="visual__image"
               loading="lazy"
@@ -129,16 +129,11 @@ onBeforeUnmount(() => {
             <div class="visual__beam" aria-hidden="true" />
             <div class="visual__grid" aria-hidden="true" />
             
-            <div class="visual__badge">
-              <span class="badge__icon">⚡</span>
-              Präzise Darstellung
-            </div>
-            <div class="visual__badge visual__badge--right">
+            <div class="visual__badge visual__badge">
               <span class="badge__icon">✦</span>
               Fokus auf Fakten
             </div>
           </div>
-          <p class="visual__caption">Lange, edle Container – mit Glow, Linien und smoothen Animationen.</p>
         </div>
       </div>
     </section>
