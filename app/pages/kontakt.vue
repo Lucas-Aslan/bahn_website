@@ -242,31 +242,31 @@ onBeforeUnmount(() => {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  mask-image: radial-gradient(circle at 60% 40%, rgba(0, 0, 0, 0.55), transparent 70%);
+  mask-image: radial-gradient(circle at 60% 40%, rgba(0, 72, 49, 0.12), transparent 70%);
 }
 
 .grid-line {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(249, 210, 112, 0.1), transparent 18%, transparent 82%, rgba(249, 210, 112, 0.08));
+  background: linear-gradient(90deg, rgba(199, 117, 139, 0.1), transparent 18%, transparent 82%, rgba(199, 117, 139, 0.08));
   background-size: 240px 1px;
   opacity: 0.45;
 }
 
 .grid-line--horizontal {
-  background: linear-gradient(180deg, rgba(249, 210, 112, 0.12), transparent 14%, transparent 80%, rgba(249, 210, 112, 0.09));
+  background: linear-gradient(180deg, rgba(199, 117, 139, 0.12), transparent 14%, transparent 80%, rgba(199, 117, 139, 0.09));
   background-size: 1px 220px;
 }
 
 .kontakt-hero {
   position: relative;
-  border: 1px solid rgba(249, 210, 112, 0.12);
+  border: 1px solid rgba(199, 117, 139, 0.12);
   border-radius: 28px;
   padding: 2rem;
-  background: radial-gradient(circle at 30% 20%, rgba(249, 210, 112, 0.08), transparent 28%),
-    radial-gradient(circle at 90% 0%, rgba(100, 220, 255, 0.05), transparent 30%),
-    rgba(10, 10, 12, 0.9);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  background: radial-gradient(circle at 30% 20%, rgba(199, 117, 139, 0.08), transparent 28%),
+    radial-gradient(circle at 90% 0%, rgba(0, 72, 49, 0.05), transparent 30%),
+    rgba(255, 250, 243, 0.95);
+  box-shadow: 0 25px 60px rgba(0, 72, 49, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
   overflow: hidden;
 }
 
@@ -284,7 +284,7 @@ onBeforeUnmount(() => {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.75rem;
-  color: #f9d270;
+  color: var(--color-rose);
   font-weight: 700;
 }
 
@@ -309,7 +309,7 @@ h2 {
 }
 
 .lede {
-  color: #dbe8ff;
+  color: var(--color-muted);
   max-width: 780px;
   margin: 0;
 }
@@ -326,9 +326,9 @@ h2 {
   gap: 0.45rem;
   padding: 0.5rem 0.9rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(249, 210, 112, 0.14);
-  color: #f7f1e7;
+  background: rgba(0, 72, 49, 0.08);
+  border: 1px solid rgba(0, 72, 49, 0.16);
+  color: var(--color-forest);
   font-weight: 600;
 }
 
@@ -336,15 +336,15 @@ h2 {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #f9d270;
+  background: var(--color-rose);
   position: relative;
-  box-shadow: 0 0 0 0 rgba(249, 210, 112, 0.6);
+  box-shadow: 0 0 0 0 rgba(199, 117, 139, 0.6);
   animation: pulse 2.4s ease-out infinite;
 }
 
 .pulse--cyan {
   background: #76e1ff;
-  box-shadow: 0 0 0 0 rgba(118, 225, 255, 0.6);
+  box-shadow: 0 0 0 0 rgba(0, 72, 49, 0.6);
 }
 
 .pulse--magenta {
@@ -354,13 +354,13 @@ h2 {
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(249, 210, 112, 0.6);
+    box-shadow: 0 0 0 0 rgba(199, 117, 139, 0.6);
   }
   70% {
-    box-shadow: 0 0 0 16px rgba(249, 210, 112, 0);
+    box-shadow: 0 0 0 16px rgba(199, 117, 139, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(249, 210, 112, 0);
+    box-shadow: 0 0 0 0 rgba(199, 117, 139, 0);
   }
 }
 
@@ -372,11 +372,11 @@ h2 {
 }
 
 .kontakt-form {
-  background: rgba(8, 8, 10, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  background: rgba(255, 250, 243, 0.9);
+  border: 1px solid rgba(0, 72, 49, 0.12);
   border-radius: 24px;
   padding: 1.3rem;
-  box-shadow: inset 0 0 0 1px rgba(249, 210, 112, 0.08), 0 16px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 16px 40px rgba(0, 72, 49, 0.08);
   display: grid;
   gap: 1rem;
 }
@@ -390,13 +390,13 @@ h2 {
 .field {
   display: grid;
   gap: 0.4rem;
-  color: #e6edff;
-  font-weight: 600;
+  color: var(--color-ink);
+  font-weight: 700;
   font-size: 0.95rem;
 }
 
 .field span {
-  color: #c7d7f7;
+  color: var(--color-muted);
 }
 
 input,
@@ -404,10 +404,10 @@ select,
 textarea {
   width: 100%;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 72, 49, 0.16);
   padding: 0.9rem 1rem;
-  background: rgba(255, 255, 255, 0.03);
-  color: #fdfdfd;
+  background: #ffffff;
+  color: var(--color-ink);
   font-size: 1rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   outline: none;
@@ -415,7 +415,7 @@ textarea {
 
 select {
   appearance: none;
-  background-image: linear-gradient(135deg, transparent 50%, #f9d270 50%), linear-gradient(45deg, transparent 50%, #f9d270 50%);
+  background-image: linear-gradient(135deg, transparent 50%, var(--color-rose) 50%), linear-gradient(45deg, transparent 50%, var(--color-rose) 50%);
   background-position: calc(100% - 18px) 55%, calc(100% - 12px) 55%;
   background-size: 8px 8px, 8px 8px;
   background-repeat: no-repeat;
@@ -429,8 +429,8 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: rgba(249, 210, 112, 0.7);
-  box-shadow: 0 0 0 3px rgba(249, 210, 112, 0.18);
+  border-color: rgba(199, 117, 139, 0.7);
+  box-shadow: 0 0 0 3px rgba(199, 117, 139, 0.18);
   transform: translateY(-1px);
 }
 
@@ -449,7 +449,7 @@ textarea:focus {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  color: #dbe8ff;
+  color: var(--color-muted);
   font-weight: 600;
   cursor: pointer;
   user-select: none;
@@ -463,9 +463,9 @@ textarea:focus {
   width: 52px;
   height: 28px;
   border-radius: 999px;
-  background: linear-gradient(120deg, rgba(249, 210, 112, 0.75), rgba(201, 144, 56, 0.85));
+  background: linear-gradient(120deg, rgba(199, 117, 139, 0.75), rgba(0, 72, 49, 0.85));
   position: relative;
-  box-shadow: 0 6px 18px rgba(249, 210, 112, 0.3);
+  box-shadow: 0 6px 18px rgba(199, 117, 139, 0.3);
 }
 
 .toggle-slider::after {
@@ -476,8 +476,8 @@ textarea:focus {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #0a0a0c;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 72, 49, 0.12);
   transition: transform 0.2s ease;
 }
 
@@ -496,20 +496,20 @@ textarea:focus {
   gap: 0.5rem;
   padding: 0.95rem 1.3rem;
   border-radius: 14px;
-  background: linear-gradient(120deg, #f9d270, #c99038);
-  color: #0c0a05;
+  background: linear-gradient(120deg, var(--color-rose), var(--color-forest));
+  color: #ffffff;
   font-weight: 800;
   font-size: 1rem;
   border: none;
   cursor: pointer;
-  box-shadow: 0 18px 45px rgba(249, 210, 112, 0.35);
+  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.35);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .cta:hover,
 .cta:focus-visible {
   transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 22px 55px rgba(201, 144, 56, 0.38);
+  box-shadow: 0 22px 55px rgba(0, 72, 49, 0.38);
 }
 
 .cta-icon {
@@ -532,11 +532,11 @@ textarea:focus {
   overflow: hidden;
   border-radius: 22px;
   padding: 1.4rem;
-  background: radial-gradient(circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(249, 210, 112, 0.12), transparent 30%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.55)),
-    #040405;
-  border: 1px solid rgba(249, 210, 112, 0.18);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  background: radial-gradient(circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(199, 117, 139, 0.12), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(0, 72, 49, 0.12)),
+    var(--color-paper);
+  border: 1px solid rgba(199, 117, 139, 0.18);
+  box-shadow: 0 20px 50px rgba(0, 72, 49, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   display: grid;
   gap: 1rem;
 }
@@ -544,8 +544,8 @@ textarea:focus {
 .card-halo {
   position: absolute;
   inset: 12% 8%;
-  background: radial-gradient(circle at 20% 20%, rgba(249, 210, 112, 0.08), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(118, 225, 255, 0.06), transparent 42%);
+  background: radial-gradient(circle at 20% 20%, rgba(199, 117, 139, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(0, 72, 49, 0.06), transparent 42%);
   filter: blur(10px);
   z-index: 0;
 }
@@ -562,10 +562,10 @@ textarea:focus {
   align-items: center;
   gap: 0.55rem;
   padding: 0.45rem 0.85rem;
-  background: rgba(249, 210, 112, 0.12);
+  background: rgba(199, 117, 139, 0.12);
   border-radius: 999px;
-  border: 1px solid rgba(249, 210, 112, 0.28);
-  color: #f9d270;
+  border: 1px solid rgba(199, 117, 139, 0.28);
+  color: var(--color-rose);
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -577,20 +577,20 @@ textarea:focus {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: rgba(249, 210, 112, 0.2);
-  color: #0a0a0c;
+  background: rgba(199, 117, 139, 0.2);
+  color: #ffffff;
 }
 
 .card-title {
   margin: 0.6rem 0 0.25rem;
   font-size: 1.4rem;
   line-height: 1.3;
-  color: #fdfdfd;
+  color: #ffffff;
 }
 
 .card-subtitle {
   margin: 0;
-  color: #c8d6f0;
+  color: var(--color-muted);
 }
 
 
@@ -609,8 +609,8 @@ textarea:focus {
   align-items: start;
   padding: 0.75rem 0.8rem;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #ffffff;
+  border: 1px solid rgba(0, 72, 49, 0.14);
 }
 
 .contact-icon {
@@ -619,13 +619,13 @@ textarea:focus {
 
 .contact-label {
   margin: 0;
-  color: #f9d270;
+  color: var(--color-rose);
   font-weight: 700;
 }
 
 .contact-list p {
   margin: 0;
-  color: #e8f0ff;
+  color: var(--color-muted);
 }
 
 .cta-row {
@@ -635,18 +635,18 @@ textarea:focus {
   gap: 0.8rem;
   padding: 0.9rem 1rem;
   border-radius: 16px;
-  background: linear-gradient(90deg, rgba(249, 210, 112, 0.08), rgba(0, 0, 0, 0.4));
-  border: 1px solid rgba(249, 210, 112, 0.3);
+  background: linear-gradient(90deg, rgba(199, 117, 139, 0.08), rgba(0, 72, 49, 0.08));
+  border: 1px solid rgba(199, 117, 139, 0.3);
 }
 
 .micro {
   margin: 0;
-  color: #dbe8ff;
+  color: var(--color-muted);
   font-size: 0.95rem;
 }
 
 .micro--strong {
-  color: #ffffff;
+  color: var(--color-forest);
   font-weight: 700;
 }
 
@@ -656,18 +656,18 @@ textarea:focus {
   gap: 0.35rem;
   padding: 0.75rem 1rem;
   border-radius: 12px;
-  background: rgba(0, 0, 0, 0.4);
-  color: #f9d270;
+  background: rgba(0, 72, 49, 0.08);
+  color: var(--color-rose);
   text-decoration: none;
-  border: 1px solid rgba(249, 210, 112, 0.4);
+  border: 1px solid rgba(199, 117, 139, 0.4);
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .card-cta:hover,
 .card-cta:focus-visible {
   transform: translateY(-1px);
-  border-color: rgba(249, 210, 112, 0.65);
-  background: rgba(249, 210, 112, 0.08);
+  border-color: rgba(199, 117, 139, 0.65);
+  background: rgba(199, 117, 139, 0.08);
 }
 
 .assurance {
@@ -678,9 +678,9 @@ textarea:focus {
   position: relative;
   padding: 2rem;
   border-radius: 24px;
-  border: 1px solid rgba(249, 210, 112, 0.14);
-  background: rgba(10, 10, 12, 0.88);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(199, 117, 139, 0.14);
+  background: var(--color-paper);
+  box-shadow: 0 20px 60px rgba(0, 72, 49, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
   display: grid;
   gap: 1.2rem;
 }
@@ -689,7 +689,7 @@ textarea:focus {
   position: absolute;
   inset: -30% 20% auto;
   height: 120%;
-  background: linear-gradient(120deg, rgba(249, 210, 112, 0.18), rgba(118, 225, 255, 0));
+  background: linear-gradient(120deg, rgba(199, 117, 139, 0.18), rgba(0, 72, 49, 0));
   filter: blur(40px);
   transform: rotate(-4deg);
   opacity: 0.6;
@@ -710,8 +710,8 @@ textarea:focus {
 .tile {
   padding: 1rem;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #ffffff;
+  border: 1px solid rgba(0, 72, 49, 0.14);
   display: grid;
   gap: 0.4rem;
   position: relative;
@@ -722,7 +722,7 @@ textarea:focus {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(249, 210, 112, 0.14), transparent 40%);
+  background: radial-gradient(circle at 20% 20%, rgba(199, 117, 139, 0.14), transparent 40%);
   opacity: 0;
   transition: opacity 0.2s ease;
 }
@@ -734,7 +734,7 @@ textarea:focus {
 
 .tile-badge {
   margin: 0;
-  color: #f9d270;
+  color: var(--color-rose);
   font-weight: 700;
   letter-spacing: 0.06em;
 }
@@ -747,7 +747,7 @@ textarea:focus {
 
 .tile-copy {
   margin: 0;
-  color: #c7d7f7;
+  color: var(--color-muted);
 }
 
 @media (max-width: 1024px) {

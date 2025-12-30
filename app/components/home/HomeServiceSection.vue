@@ -53,9 +53,9 @@ type Service = {
 .metric {
   padding: 0.9rem 1rem;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(0, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(135deg, rgba(199, 117, 139, 0.12), rgba(0, 72, 49, 0.08));
+  border: 1px solid rgba(0, 72, 49, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   display: grid;
   gap: 0.18rem;
 }
@@ -63,11 +63,11 @@ type Service = {
 .metric__value {
   font-size: 1.3rem;
   font-weight: 800;
-  color: #f9d270;
+  color: var(--color-forest);
 }
 
 .metric__label {
-  color: #d6e6ff;
+  color: var(--color-muted);
   font-size: 0.95rem;
   line-height: 1.4;
 }
@@ -84,18 +84,18 @@ type Service = {
   overflow: hidden;
   padding: 1.4rem 1.2rem;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 72, 49, 0.12);
   min-height: 180px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .service-card:hover,
 .service-card:focus-within {
   transform: translateY(-4px);
-  border-color: rgba(249, 210, 112, 0.4);
-  box-shadow: 0 24px 60px rgba(249, 210, 112, 0.2);
+  border-color: rgba(199, 117, 139, 0.35);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
 }
 
 .service-card h3 {
@@ -105,7 +105,7 @@ type Service = {
 
 .service-card p {
   margin: 0;
-  color: #d6e6ff;
+  color: var(--color-muted);
   line-height: 1.5;
   font-size: 0.98rem;
 }
@@ -114,8 +114,8 @@ type Service = {
   display: inline-flex;
   padding: 0.3rem 0.65rem;
   border-radius: 999px;
-  background: rgba(0, 255, 255, 0.14);
-  color: #74e3ff;
+  background: rgba(0, 72, 49, 0.08);
+  color: var(--color-forest);
   font-size: 0.85rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -124,8 +124,8 @@ type Service = {
 .service-card__glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(249, 210, 112, 0.14), transparent 45%),
-    radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.12), transparent 40%);
+  background: radial-gradient(circle at 80% 20%, rgba(199, 117, 139, 0.12), transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(0, 72, 49, 0.12), transparent 40%);
   opacity: 0;
   transition: opacity 0.2s ease;
 }

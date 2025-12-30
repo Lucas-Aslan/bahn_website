@@ -41,12 +41,14 @@
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 18% 20%, rgba(249, 210, 112, 0.22), transparent 34%),
-    radial-gradient(circle at 78% 68%, rgba(249, 210, 112, 0.18), transparent 34%),
-    linear-gradient(135deg, #0e0a06, #1a1208 55%, #0f0a05);
-  color: #f9edd0;
-  border: 1px solid rgba(249, 210, 112, 0.26);
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    radial-gradient(circle at 18% 20%, rgba(199, 117, 139, 0.16), transparent 42%),
+    radial-gradient(circle at 82% 72%, rgba(0, 72, 49, 0.12), transparent 42%),
+    linear-gradient(135deg, var(--color-paper), var(--color-cream));
+  color: var(--color-ink);
+  border: 1px solid rgba(0, 72, 49, 0.12);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
   border-radius: 24px;
   isolation: isolate;
   padding: clamp(2rem, 3vw, 2.8rem);
@@ -61,14 +63,15 @@
 
 .gold-cta__media {
   margin: 0;
-  background: radial-gradient(circle at 28% 20%, rgba(249, 210, 112, 0.16), transparent 50%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.5));
+  background:
+    radial-gradient(circle at 28% 20%, rgba(199, 117, 139, 0.12), transparent 52%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 250, 243, 0.65));
   border-radius: 18px;
-  border: 1px solid rgba(249, 210, 112, 0.22);
+  border: 1px solid rgba(0, 72, 49, 0.12);
   padding: clamp(0.9rem, 2vw, 1.2rem);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 18px 40px rgba(0, 0, 0, 0.35);
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 18px 45px rgba(0, 0, 0, 0.08);
 }
 
 .gold-cta__image {
@@ -77,15 +80,15 @@
   display: block;
   border-radius: 14px;
   box-shadow:
-    0 14px 30px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 14px 30px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .gold-cta__legend {
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  color: #f4e3b8;
+  color: var(--color-muted);
   font-size: 0.95rem;
   margin-top: 0.2rem;
 }
@@ -94,18 +97,18 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #f9d270;
-  box-shadow: 0 0 14px rgba(249, 210, 112, 0.6);
+  background: var(--color-rose);
+  box-shadow: 0 0 14px rgba(199, 117, 139, 0.35);
 }
 
 .gold-cta__content {
-  background: rgba(8, 6, 4, 0.7);
+  background: rgba(255, 250, 243, 0.86);
   border-radius: 16px;
   padding: clamp(1.2rem, 2.5vw, 1.8rem);
-  border: 1px solid rgba(249, 210, 112, 0.28);
+  border: 1px solid rgba(0, 72, 49, 0.12);
   box-shadow:
-    0 18px 50px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 18px 50px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
   display: grid;
   gap: 0.85rem;
 }
@@ -116,19 +119,19 @@
   letter-spacing: 0.06em;
   font-weight: 800;
   font-size: 0.9rem;
-  color: #f9d270;
+  color: var(--color-forest);
 }
 
 .gold-cta h2 {
   margin: 0;
   font-size: clamp(1.95rem, 3vw, 2.4rem);
   letter-spacing: -0.01em;
-  color: #fff6dd;
+  color: var(--color-ink);
 }
 
 .gold-cta__lead {
   margin: 0;
-  color: #f4e3b8;
+  color: var(--color-muted);
   line-height: 1.6;
   font-size: 1.05rem;
 }
@@ -145,9 +148,9 @@
   gap: 0.45rem;
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #f9edd0;
-  border: 1px solid rgba(249, 210, 112, 0.22);
+  background: rgba(0, 72, 49, 0.06);
+  color: var(--color-forest);
+  border: 1px solid rgba(0, 72, 49, 0.18);
   font-weight: 700;
   letter-spacing: 0.02em;
 }
@@ -169,25 +172,26 @@
   font-weight: 800;
   text-decoration: none;
   letter-spacing: 0.01em;
-  border: 1px solid rgba(249, 210, 112, 0.4);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 72, 49, 0.18);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .gold-cta__button--solid {
-  background: linear-gradient(120deg, #f9d270, #c99038);
-  color: #0c0a05;
+  background: linear-gradient(120deg, var(--color-rose), var(--color-forest));
+  color: #ffffff;
+  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.25);
 }
 
 .gold-cta__button--ghost {
-  background: rgba(255, 255, 255, 0.06);
-  color: #f9edd0;
+  background: rgba(0, 72, 49, 0.06);
+  color: var(--color-forest);
 }
 
 .gold-cta__button:hover,
 .gold-cta__button:focus-visible {
   transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.12);
 }
 
 @media (max-width: 700px) {
