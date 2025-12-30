@@ -59,11 +59,11 @@ onBeforeUnmount(() => {
 }
 
 :global(.section) {
-  background: rgba(6, 12, 26, 0.8);
+  background: linear-gradient(145deg, rgba(255, 250, 243, 0.9), rgba(246, 241, 235, 0.95));
   border-radius: 24px;
   padding: clamp(1.5rem, 2vw, 2rem);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 72, 49, 0.12);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.06);
 }
 
 :global(.section__header) {
@@ -77,11 +77,12 @@ onBeforeUnmount(() => {
   margin: 0.2rem 0 0.35rem;
   font-size: clamp(1.8rem, 3vw, 2.3rem);
   letter-spacing: -0.01em;
+  color: var(--color-forest);
 }
 
 :global(.section__lead) {
   margin: 0;
-  color: #c8dbff;
+  color: var(--color-muted);
   line-height: 1.6;
 }
 
@@ -89,8 +90,11 @@ onBeforeUnmount(() => {
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #8ec5ff;
+  color: var(--color-rose);
   font-size: 0.82rem;
+  background: rgba(199, 117, 139, 0.12);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
 }
 
 :global(.cta) {
@@ -107,28 +111,28 @@ onBeforeUnmount(() => {
 }
 
 :global(.cta--solid) {
-  background: linear-gradient(120deg, #f9d270, #c99038);
-  color: #0c0a05;
-  box-shadow: 0 18px 45px rgba(249, 210, 112, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: linear-gradient(120deg, var(--color-rose), var(--color-forest));
+  color: #ffffff;
+  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 :global(.cta--solid:hover),
 :global(.cta--solid:focus-visible) {
   transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 22px 60px rgba(249, 210, 112, 0.45);
+  box-shadow: 0 22px 60px rgba(0, 72, 49, 0.25);
 }
 
 :global(.cta--ghost) {
-  background: rgba(255, 255, 255, 0.04);
-  color: #f6e6b4;
-  border-color: rgba(255, 226, 153, 0.3);
+  background: rgba(0, 72, 49, 0.06);
+  color: var(--color-forest);
+  border-color: rgba(0, 72, 49, 0.2);
   backdrop-filter: blur(8px);
 }
 
 :global(.cta--ghost:hover),
 :global(.cta--ghost:focus-visible) {
   transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(199, 117, 139, 0.12);
 }
 
 :global(.js-reveal) {
