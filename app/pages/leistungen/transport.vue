@@ -179,19 +179,19 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  color: #f6f7fb;
+  color: var(--color-ink);
 }
 
 .leistungen-hero {
   position: relative;
   overflow: hidden;
-  background: radial-gradient(circle at 20% 30%, rgba(249, 210, 112, 0.08), transparent 32%),
-    radial-gradient(circle at 80% 70%, rgba(116, 227, 255, 0.12), transparent 38%),
-    linear-gradient(135deg, #040506, #0b0c12 50%, #07080b);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle at 20% 30%, rgba(199, 117, 139, 0.08), transparent 32%),
+    radial-gradient(circle at 80% 70%, rgba(0, 72, 49, 0.12), transparent 38%),
+    linear-gradient(135deg, var(--color-paper), var(--color-cream));
+  border: 1px solid rgba(0, 72, 49, 0.12);
   box-shadow:
-    0 32px 80px rgba(0, 0, 0, 0.65),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 32px 80px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .hero__bg {
@@ -206,7 +206,7 @@ onBeforeUnmount(() => {
   width: 380px;
   height: 380px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(249, 210, 112, 0.3), transparent 60%);
+  background: radial-gradient(circle, rgba(199, 117, 139, 0.3), transparent 60%);
   opacity: 0.4;
   animation: float 12s ease-in-out infinite;
 }
@@ -229,9 +229,9 @@ onBeforeUnmount(() => {
   top: -10%;
   width: 2px;
   height: 120%;
-  background: linear-gradient(180deg, transparent, rgba(249, 210, 112, 0.5), transparent);
+  background: linear-gradient(180deg, transparent, rgba(199, 117, 139, 0.5), transparent);
   transform: translateX(-50%);
-  filter: drop-shadow(0 0 12px rgba(249, 210, 112, 0.6));
+  filter: drop-shadow(0 0 12px rgba(199, 117, 139, 0.6));
   animation: beamPulse 5s ease-in-out infinite;
 }
 
@@ -269,7 +269,7 @@ onBeforeUnmount(() => {
   padding: 0.75rem 1rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(249, 210, 112, 0.3);
+  border: 1px solid rgba(199, 117, 139, 0.3);
   box-shadow:
     0 16px 40px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
@@ -280,8 +280,8 @@ onBeforeUnmount(() => {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: linear-gradient(120deg, #f9d270, #74e3ff);
-  box-shadow: 0 0 16px rgba(249, 210, 112, 0.65);
+  background: linear-gradient(120deg, var(--color-rose), #74e3ff);
+  box-shadow: 0 0 16px rgba(199, 117, 139, 0.65);
   animation: pulse 1.8s ease-in-out infinite;
 }
 
@@ -296,7 +296,7 @@ onBeforeUnmount(() => {
   aspect-ratio: 4 / 3;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: radial-gradient(circle at 25% 30%, rgba(249, 210, 112, 0.2), transparent 42%),
+  background: radial-gradient(circle at 25% 30%, rgba(199, 117, 139, 0.2), transparent 42%),
     radial-gradient(circle at 80% 70%, rgba(116, 227, 255, 0.2), transparent 40%),
     linear-gradient(140deg, rgba(14, 14, 20, 0.8), rgba(5, 5, 8, 0.9));
   overflow: hidden;
@@ -326,9 +326,9 @@ onBeforeUnmount(() => {
 .visual__glow {
   background: conic-gradient(
     from 120deg,
-    rgba(249, 210, 112, 0.18),
+    rgba(199, 117, 139, 0.18),
     rgba(116, 227, 255, 0.18),
-    rgba(249, 210, 112, 0.18)
+    rgba(199, 117, 139, 0.18)
   );
   mix-blend-mode: screen;
   filter: blur(26px);
@@ -361,7 +361,7 @@ onBeforeUnmount(() => {
   padding: 0.6rem 0.9rem;
   border-radius: 999px;
   background: rgba(6, 12, 20, 0.75);
-  border: 1px solid rgba(249, 210, 112, 0.32);
+  border: 1px solid rgba(199, 117, 139, 0.32);
   color: #f6f7fb;
   font-weight: 700;
   box-shadow:
@@ -402,9 +402,9 @@ onBeforeUnmount(() => {
   inset: 0;
   left: 24px;
   width: 2px;
-  background: linear-gradient(180deg, rgba(116, 227, 255, 0.4), rgba(249, 210, 112, 0.4));
+  background: linear-gradient(180deg, rgba(116, 227, 255, 0.4), rgba(199, 117, 139, 0.4));
   opacity: 0.4;
-  box-shadow: 0 0 18px rgba(249, 210, 112, 0.4);
+  box-shadow: 0 0 18px rgba(199, 117, 139, 0.4);
 }
 
 .leistung-card {
@@ -433,17 +433,17 @@ onBeforeUnmount(() => {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: radial-gradient(circle, #f9d270, transparent 70%);
-  box-shadow: 0 0 16px rgba(249, 210, 112, 0.75);
+  background: radial-gradient(circle, var(--color-rose), transparent 70%);
+  box-shadow: 0 0 16px rgba(199, 117, 139, 0.75);
 }
 
 .leistung-card:hover,
 .leistung-card:focus-within {
   transform: translateY(-6px) scale(1.01);
-  border-color: rgba(249, 210, 112, 0.4);
+  border-color: rgba(199, 117, 139, 0.4);
   box-shadow:
     0 32px 82px rgba(0, 0, 0, 0.65),
-    0 0 0 1px rgba(249, 210, 112, 0.18);
+    0 0 0 1px rgba(199, 117, 139, 0.18);
   filter: saturate(1.04);
 }
 
@@ -455,7 +455,7 @@ onBeforeUnmount(() => {
 .leistung-card__halo {
   position: absolute;
   inset: -24%;
-  background: radial-gradient(circle at 30% 30%, rgba(249, 210, 112, 0.22), transparent 38%),
+  background: radial-gradient(circle at 30% 30%, rgba(199, 117, 139, 0.22), transparent 38%),
     radial-gradient(circle at 80% 60%, rgba(116, 227, 255, 0.22), transparent 42%);
   filter: blur(24px);
   opacity: 0.45;
@@ -485,12 +485,12 @@ onBeforeUnmount(() => {
   width: 44px;
   height: 26px;
   border-radius: 999px;
-  border: 1px solid rgba(249, 210, 112, 0.45);
+  border: 1px solid rgba(199, 117, 139, 0.45);
   background: rgba(255, 255, 255, 0.05);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.18),
     0 10px 24px rgba(0, 0, 0, 0.35);
-  color: #f9d270;
+  color: var(--color-rose);
   font-weight: 800;
 }
 
@@ -519,7 +519,7 @@ onBeforeUnmount(() => {
 
 .leistung-card__subline {
   margin: 0.1rem 0 0;
-  color: #f9d270;
+  color: var(--color-rose);
   font-weight: 700;
 }
 
@@ -556,7 +556,7 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: center;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(249, 210, 112, 0.4);
+  border: 1px solid rgba(199, 117, 139, 0.4);
   box-shadow:
     0 10px 24px rgba(0, 0, 0, 0.32),
     inset 0 1px 0 rgba(255, 255, 255, 0.16);
@@ -586,7 +586,7 @@ onBeforeUnmount(() => {
   transform: translateY(-2px);
   box-shadow:
     0 22px 50px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(249, 210, 112, 0.22);
+    0 0 0 1px rgba(199, 117, 139, 0.22);
   filter: saturate(1.06);
 }
 
@@ -634,7 +634,7 @@ onBeforeUnmount(() => {
   0%,
   100% {
     transform: scale(0.98);
-    box-shadow: 0 0 12px rgba(249, 210, 112, 0.7);
+    box-shadow: 0 0 12px rgba(199, 117, 139, 0.7);
   }
   50% {
     transform: scale(1.08);

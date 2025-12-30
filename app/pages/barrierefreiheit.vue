@@ -211,11 +211,11 @@ const partialAreas = [
   align-items: stretch;
   border-radius: 26px;
   padding: clamp(1.4rem, 2vw, 2rem);
-  background: radial-gradient(circle at 24% 24%, rgba(249, 210, 112, 0.12), transparent 38%),
-    radial-gradient(circle at 80% 16%, rgba(255, 255, 255, 0.06), transparent 36%),
-    rgba(10, 10, 12, 0.92);
-  border: 1px solid rgba(249, 210, 112, 0.18);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.48), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  background: radial-gradient(circle at 24% 24%, rgba(199, 117, 139, 0.12), transparent 38%),
+    radial-gradient(circle at 80% 16%, rgba(0, 72, 49, 0.08), transparent 36%),
+    linear-gradient(135deg, var(--color-paper), var(--color-cream));
+  border: 1px solid rgba(199, 117, 139, 0.18);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
   overflow: hidden;
 }
 
@@ -223,7 +223,7 @@ const partialAreas = [
   position: absolute;
   inset: -60% 30% auto -40%;
   height: 120%;
-  background: radial-gradient(circle, rgba(249, 210, 112, 0.18), transparent 42%);
+  background: radial-gradient(circle, rgba(199, 117, 139, 0.18), transparent 42%);
   filter: blur(38px);
   opacity: 0.9;
   animation: float 9s ease-in-out infinite alternate;
@@ -244,7 +244,7 @@ const partialAreas = [
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.82rem;
-  color: #f9d270;
+  color: var(--color-rose);
   font-weight: 700;
 }
 
@@ -280,16 +280,16 @@ h2 {
   padding: 0.5rem 0.9rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(249, 210, 112, 0.14);
+  border: 1px solid rgba(199, 117, 139, 0.14);
   color: #f7f2e6;
   font-weight: 600;
 }
 
 .chip--solid {
-  background: linear-gradient(120deg, #f9d270, #c99038);
-  color: #0c0a05;
+  background: linear-gradient(120deg, var(--color-rose), var(--color-forest));
+  color: #ffffff;
   border: none;
-  box-shadow: 0 12px 30px rgba(249, 210, 112, 0.3);
+  box-shadow: 0 12px 30px rgba(199, 117, 139, 0.3);
 }
 
 .hero__panel {
@@ -299,7 +299,7 @@ h2 {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 0 0 1px rgba(249, 210, 112, 0.08), 0 16px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 0 1px rgba(199, 117, 139, 0.08), 0 16px 40px rgba(0, 0, 0, 0.4);
   display: grid;
   gap: 0.6rem;
 }
@@ -307,7 +307,7 @@ h2 {
 .panel__halo {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(249, 210, 112, 0.15), transparent 36%),
+  background: radial-gradient(circle at 20% 20%, rgba(199, 117, 139, 0.15), transparent 36%),
     radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05), transparent 45%);
   filter: blur(12px);
   pointer-events: none;
@@ -359,30 +359,30 @@ h2 {
   position: relative;
   border-radius: 22px;
   padding: 1.4rem;
-  background: rgba(12, 14, 18, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.42), inset 0 0 0 1px rgba(249, 210, 112, 0.04);
+  background: #ffffff;
+  border: 1px solid rgba(0, 72, 49, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
 }
 
 .card--primary {
-  background: radial-gradient(circle at 18% 14%, rgba(249, 210, 112, 0.08), transparent 34%),
-    rgba(12, 12, 16, 0.95);
-  border-color: rgba(249, 210, 112, 0.16);
+  background: radial-gradient(circle at 18% 14%, rgba(199, 117, 139, 0.08), transparent 34%),
+    var(--color-paper);
+  border-color: rgba(199, 117, 139, 0.16);
 }
 
 .card--glass {
-  background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 72, 49, 0.12);
 }
 
 .card--meta {
-  background: rgba(255, 255, 255, 0.02);
-  border-color: rgba(249, 210, 112, 0.12);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(199, 117, 139, 0.12);
 }
 
 .card--note {
-  background: rgba(10, 12, 16, 0.9);
-  border: 1px dashed rgba(249, 210, 112, 0.3);
+  background: var(--color-paper);
+  border: 1px dashed rgba(199, 117, 139, 0.3);
 }
 
 .card__head {
@@ -394,7 +394,7 @@ h2 {
 .card__body {
   display: grid;
   gap: 0.8rem;
-  color: #e4e8f9;
+  color: var(--color-muted);
 }
 
 .card__title {
@@ -404,7 +404,7 @@ h2 {
 
 .card__text {
   margin: 0;
-  color: #cbd6f5;
+  color: var(--color-muted);
 }
 
 .link-pills {
@@ -419,19 +419,19 @@ h2 {
   gap: 0.35rem;
   padding: 0.5rem 0.85rem;
   border-radius: 999px;
-  background: rgba(249, 210, 112, 0.14);
+  background: rgba(199, 117, 139, 0.14);
   color: #fefcf6;
   text-decoration: none;
   font-weight: 700;
-  border: 1px solid rgba(249, 210, 112, 0.26);
+  border: 1px solid rgba(199, 117, 139, 0.26);
   transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .link-pill:hover,
 .link-pill:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 12px 30px rgba(249, 210, 112, 0.24);
-  border-color: rgba(249, 210, 112, 0.4);
+  box-shadow: 0 12px 30px rgba(199, 117, 139, 0.24);
+  border-color: rgba(199, 117, 139, 0.4);
 }
 
 .link-pill--ghost {
@@ -446,13 +446,13 @@ h2 {
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 0 0 1px rgba(249, 210, 112, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(199, 117, 139, 0.06);
 }
 
 .callout__label {
   margin: 0 0 0.25rem;
   font-weight: 700;
-  color: #f9d270;
+  color: var(--color-rose);
 }
 
 .callout__text {
@@ -507,8 +507,8 @@ h2 {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(249, 210, 112, 0.15);
-  color: #f9d270;
+  background: rgba(199, 117, 139, 0.15);
+  color: var(--color-rose);
   font-size: 1.1rem;
 }
 
@@ -519,7 +519,7 @@ h2 {
 }
 
 a {
-  color: #f9d270;
+  color: var(--color-rose);
   text-decoration: none;
   font-weight: 700;
 }
@@ -561,7 +561,7 @@ a:focus-visible {
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 0 0 1px rgba(249, 210, 112, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(199, 117, 139, 0.05);
 }
 
 .tile__badge {
@@ -570,8 +570,8 @@ a:focus-visible {
   border-radius: 999px;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #f9d270, #c99038);
-  color: #0c0a05;
+  background: linear-gradient(135deg, var(--color-rose), var(--color-forest));
+  color: #ffffff;
   font-weight: 800;
 }
 
