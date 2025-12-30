@@ -232,19 +232,19 @@
   justify-content: center;
   padding: 0.65rem 1.1rem;
   border-radius: 12px;
-  background: linear-gradient(120deg, var(--color-rose), var(--color-forest));
+  background: var(--color-forest);
   color: #ffffff;
   font-weight: 800;
   text-decoration: none;
   letter-spacing: 0.02em;
-  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.25);
+  box-shadow: 0 18px 45px rgba(0, 72, 49, 0.25);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .cta-button:hover,
 .cta-button:focus-visible {
   transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 22px 55px rgba(0, 72, 49, 0.28);
+  box-shadow: 0 22px 55px rgba(0, 72, 49, 0.32);
 }
 
 .page-body {

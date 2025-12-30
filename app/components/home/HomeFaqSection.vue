@@ -122,13 +122,13 @@ const toggleFaq = (index: number) => {
   gap: 0.35rem;
   padding: 0.85rem 1.15rem;
   border-radius: 12px;
-  background: linear-gradient(120deg, var(--color-rose), var(--color-forest));
+  background: var(--color-forest);
   color: #ffffff;
   text-decoration: none;
   font-weight: 800;
   letter-spacing: 0.02em;
-  border: 1px solid rgba(0, 72, 49, 0.18);
-  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 72, 49, 0.24);
+  box-shadow: 0 18px 45px rgba(0, 72, 49, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 

@@ -266,19 +266,19 @@
   transform: translateY(-1px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   border-color: rgba(0, 72, 49, 0.36);
-  background: rgba(199, 117, 139, 0.08);
+  background: rgba(0, 72, 49, 0.08);
   text-decoration: none;
 }
 
 .about__cta--solid {
-  background: linear-gradient(135deg, var(--color-rose), var(--color-forest));
+  background: var(--color-forest);
   color: #ffffff;
-  border: 1px solid rgba(0, 72, 49, 0.18);
+  border: 1px solid rgba(0, 72, 49, 0.28);
 }
 
 .about__cta--solid:hover,
 .about__cta--solid:focus-visible {
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(199, 117, 139, 0.2);
+  box-shadow: 0 12px 35px rgba(0, 72, 49, 0.2), 0 0 0 1px rgba(0, 72, 49, 0.18);
   transform: translateY(-2px) scale(1.01);
 }
 

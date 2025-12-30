@@ -25,5 +25,11 @@ const decrement = () => {
 <style scoped>
 button {
   margin: 5px;
+  background: #004831;
+  color: #ffffff;
+  border: 1px solid rgba(0, 72, 49, 0.4);
+  border-radius: 8px;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
 }
 </style>

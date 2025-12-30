@@ -484,28 +484,28 @@ h2 {
   border-radius: 12px;
   font-weight: 700;
   text-decoration: none;
-  color: #0c0c0c;
-  background: linear-gradient(120deg, var(--color-rose), var(--color-forest));
-  box-shadow: 0 14px 40px rgba(199, 117, 139, 0.3);
+  color: #ffffff;
+  background: var(--color-forest);
+  box-shadow: 0 14px 40px rgba(0, 72, 49, 0.28);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .cta--ghost {
-  background: transparent;
-  color: var(--color-muted);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: none;
+  background: rgba(0, 72, 49, 0.08);
+  color: var(--color-forest);
+  border: 1px solid rgba(0, 72, 49, 0.28);
+  box-shadow: 0 10px 28px rgba(0, 72, 49, 0.18);
 }
 
 .cta:hover,
 .cta:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 18px 50px rgba(199, 117, 139, 0.35);
+  box-shadow: 0 18px 50px rgba(0, 72, 49, 0.35);
 }
 
 .cta--ghost:hover,
 .cta--ghost:focus-visible {
-  box-shadow: 0 18px 40px rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 40px rgba(0, 72, 49, 0.25);
 }
 
 .about-hero__visual {
@@ -958,14 +958,14 @@ h2 {
 }
 
 .gold-cta__button--solid {
-  background: linear-gradient(120deg, var(--color-rose), var(--color-forest));
-  color: #0c0c0c;
-  box-shadow: 0 18px 50px rgba(199, 117, 139, 0.35);
+  background: var(--color-forest);
+  color: #ffffff;
+  box-shadow: 0 18px 50px rgba(0, 72, 49, 0.32);
 }
 
 .gold-cta__button--ghost {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: var(--color-muted);
+  border: 1px solid rgba(0, 72, 49, 0.3);
+  color: var(--color-forest);
 }
 
 .js-reveal {

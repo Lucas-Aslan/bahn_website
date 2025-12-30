@@ -496,20 +496,20 @@ textarea:focus {
   gap: 0.5rem;
   padding: 0.95rem 1.3rem;
   border-radius: 14px;
-  background: linear-gradient(120deg, var(--color-rose), var(--color-forest));
+  background: var(--color-forest);
   color: #ffffff;
   font-weight: 800;
   font-size: 1rem;
   border: none;
   cursor: pointer;
-  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.35);
+  box-shadow: 0 18px 45px rgba(0, 72, 49, 0.28);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .cta:hover,
 .cta:focus-visible {
   transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 22px 55px rgba(0, 72, 49, 0.38);
+  box-shadow: 0 22px 55px rgba(0, 72, 49, 0.36);
 }
 
 .cta-icon {
@@ -656,18 +656,19 @@ textarea:focus {
   gap: 0.35rem;
   padding: 0.75rem 1rem;
   border-radius: 12px;
-  background: rgba(0, 72, 49, 0.08);
-  color: var(--color-rose);
+  background: var(--color-forest);
+  color: #ffffff;
   text-decoration: none;
-  border: 1px solid rgba(199, 117, 139, 0.4);
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  border: 1px solid rgba(0, 72, 49, 0.35);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-cta:hover,
 .card-cta:focus-visible {
   transform: translateY(-1px);
-  border-color: rgba(199, 117, 139, 0.65);
-  background: rgba(199, 117, 139, 0.08);
+  border-color: rgba(0, 72, 49, 0.6);
+  background: #004831;
+  box-shadow: 0 15px 35px rgba(0, 72, 49, 0.28);
 }
 
 .assurance {

@@ -152,13 +152,13 @@ const performanceBlocks: PerformanceBlock[] = [
   gap: 0.35rem;
   padding: 0.85rem 1.1rem;
   border-radius: 12px;
-  background: linear-gradient(120deg, var(--color-rose), var(--color-forest));
+  background: var(--color-forest);
   color: #ffffff;
   text-decoration: none;
   font-weight: 800;
   letter-spacing: 0.02em;
   box-shadow:
-    0 18px 45px rgba(199, 117, 139, 0.2),
+    0 18px 45px rgba(0, 72, 49, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
   border: 1px solid rgba(0, 72, 49, 0.18);
@@ -169,7 +169,7 @@ const performanceBlocks: PerformanceBlock[] = [
   transform: translateY(-2px);
   box-shadow:
     0 24px 60px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(199, 117, 139, 0.16);
+    0 0 0 1px rgba(0, 72, 49, 0.2);
   filter: saturate(1.02);
 }
 
