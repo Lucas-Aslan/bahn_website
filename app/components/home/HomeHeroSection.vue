@@ -209,6 +209,7 @@ watch(currentVideoIndex, async () => {
   grid-column: 1;
   justify-self: start;
   align-self: start;
+  transform: translateX(clamp(0.75rem, 10vw, 10.5rem));
 }
 
 .hero__title {
@@ -359,6 +360,9 @@ watch(currentVideoIndex, async () => {
 
   .hero__actions {
     width: 100%;
+  }
+  .hero__content {
+    transform: none;
   }
 }
 </style>
