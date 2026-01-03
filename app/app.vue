@@ -24,9 +24,6 @@
       </nav>
 
       <div class="cta-group">
-        <NuxtLink to="/leistungen/transport" class="cta-button">
-          Leistungen ansehen
-        </NuxtLink>
         <NuxtLink to="/kontakt" class="cta-button">
           Kontakt
         </NuxtLink>
