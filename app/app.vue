@@ -95,10 +95,10 @@
   max-width: 1100px;
   width: calc(100% - 2rem);
   border-radius: 18px;
-  background: rgba(255, 250, 243, 0.88);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(0, 72, 49, 0.08);
-  border: 1px solid rgba(199, 117, 139, 0.18);
+  background: #000000;
+  color: #f5f5f5;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .brand {
@@ -144,7 +144,7 @@
   position: relative;
   padding: 0.55rem 0.9rem;
   border-radius: 10px;
-  color: var(--color-muted);
+  color: #ffffff;
   text-decoration: none;
   font-weight: 600;
   letter-spacing: 0.01em;
