@@ -23,9 +23,14 @@
         <NuxtLink to="/about" class="nav-link">Über uns</NuxtLink>
       </nav>
 
-      <NuxtLink to="/kontakt" class="cta-button">
-        Kontakt
-      </NuxtLink>
+      <div class="cta-group">
+        <NuxtLink to="/leistungen/transport" class="cta-button">
+          Leistungen ansehen
+        </NuxtLink>
+        <NuxtLink to="/kontakt" class="cta-button">
+          Kontakt
+        </NuxtLink>
+      </div>
     </header>
 
     <main class="page-body">
@@ -247,6 +252,12 @@
   box-shadow: 0 22px 55px rgba(0, 72, 49, 0.32);
 }
 
+.cta-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
 .page-body {
   padding: 1rem 1.5rem 3rem;
   max-width: 1200px;
@@ -262,6 +273,11 @@
 
   .nav-links {
     flex-wrap: wrap;
+  }
+
+  .cta-group {
+    width: 100%;
+    flex-direction: column;
   }
 
   .cta-button {
