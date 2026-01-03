@@ -260,17 +260,17 @@ watch(currentVideoIndex, async () => {
 }
 
 .hero :global(.cta--ghost) {
-  background: #004831;
+  background: linear-gradient(135deg, #1fbf75, #0c9f5c);
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 18px 45px rgba(0, 72, 49, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 18px 45px rgba(31, 191, 117, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .hero :global(.cta--ghost:hover),
 .hero :global(.cta--ghost:focus-visible) {
-  background: #006a4f;
+  background: linear-gradient(135deg, #26d483, #10b36b);
   transform: translateY(-1px);
-  box-shadow: 0 22px 60px rgba(0, 72, 49, 0.4);
+  box-shadow: 0 22px 60px rgba(16, 179, 107, 0.35);
 }
 
 .hero__accolades {
