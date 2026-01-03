@@ -219,7 +219,7 @@ watch(currentVideoIndex, async () => {
   font-weight: 900;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #c7758b;
   text-shadow: 0 18px 36px rgba(0, 0, 0, 0.6);
 }
 
@@ -260,17 +260,17 @@ watch(currentVideoIndex, async () => {
 }
 
 .hero :global(.cta--ghost) {
-  background: #2dbf77;
+  background: #004831;
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 18px 45px rgba(45, 191, 119, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  box-shadow: 0 18px 45px rgba(0, 72, 49, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .hero :global(.cta--ghost:hover),
 .hero :global(.cta--ghost:focus-visible) {
-  background: #28a968;
+  background: #006a4f;
   transform: translateY(-1px);
-  box-shadow: 0 22px 60px rgba(45, 191, 119, 0.4);
+  box-shadow: 0 22px 60px rgba(0, 72, 49, 0.4);
 }
 
 .hero__accolades {
