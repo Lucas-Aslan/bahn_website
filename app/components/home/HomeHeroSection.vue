@@ -92,8 +92,7 @@ watch(currentVideoIndex, async () => {
       </div>
       <p class="hero__title">Babylon Bahndienste</p>
       <p class="hero__lead">
-        Babylon Bahndienste unterstützt Projekte rund um die Schiene mit erfahrenen Teams, strukturierten Abläufen und
-        höchsten Sicherheitsstandards – termintreu und präzise umgesetzt.
+        Babylon Bahndienste liefert zuverlässige Bahndienstleistungen aus einer Hand – mit eingespielten Teams, klaren Abläufen und kompromisslosen Sicherheitsstandards. Termintreu, sauber dokumentiert, sicher umgesetzt.
       </p>
 
       <div class="hero__actions">
