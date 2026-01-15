@@ -97,8 +97,8 @@
   max-width: 1100px;
   width: calc(100% - 2rem);
   border-radius: 18px;
-  background: #000000;
-  color: #f5f5f5;
+  background: var(--color-forest);
+  color: #ffffff;
   box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
@@ -126,7 +126,7 @@
 .brand-kicker {
   margin: 0;
   font-size: 0.7rem;
-  color: var(--color-muted);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .brand-name {
@@ -172,8 +172,8 @@
 
 .nav-link:hover,
 .nav-link:focus-visible {
-  color: var(--color-forest);
-  background: rgba(0, 72, 49, 0.06);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
   transform: translateY(-1px);
 }
 
@@ -234,19 +234,19 @@
   justify-content: center;
   padding: 0.65rem 1.1rem;
   border-radius: 12px;
-  background: var(--color-forest);
+  background: #c7758b;
   color: #ffffff;
   font-weight: 800;
   text-decoration: none;
   letter-spacing: 0.02em;
-  box-shadow: 0 18px 45px rgba(0, 72, 49, 0.25);
+  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.35);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .cta-button:hover,
 .cta-button:focus-visible {
   transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 22px 55px rgba(0, 72, 49, 0.32);
+  box-shadow: 0 22px 55px rgba(199, 117, 139, 0.42);
 }
 
 .cta-group {
