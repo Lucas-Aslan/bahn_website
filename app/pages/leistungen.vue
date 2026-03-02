@@ -11,56 +11,33 @@ type PerformanceDetail = {
 }
 
 const details: PerformanceDetail[] = [
-  {
-    id: 'triebfahrzeugfuehrer',
-    label: 'Lok & Traktion',
-    title: 'Gestellung Triebfahrzeugführer',
-    intro: 'Unsere Triebfahrzeugführer sind u. a. auf folgenden Baureihen berechtigt:',
-    bullets: ['Vossloh: DE 12 | DE 18 | G1206 | G1700', 'Siemens: BR 248 Vectron Dual Mode', 'Alstom: BR 214 | BR 203 retrofit | BR 203 Handschaltrad']
-  },
+{
+  id: 'triebfahrzeugfuehrer',
+  label: 'Lok & Traktion',
+  title: 'Gestellung Triebfahrzeugführer',
+  intro:
+    'Wir stellen qualifizierte Triebfahrzeugführer mit den erforderlichen Berechtigungen für verschiedene Traktions- und Fahrzeugeinsätze. Eine Übersicht der verfügbaren Baureihen und Einsatzmöglichkeiten erhalten Sie gerne auf Anfrage.'
+},
   {
     id: 'rangierbegleiter',
     label: 'Rangier',
     title: 'Gestellung Rangierbegleiter',
     intro:
-      'Unsere Rangierbegleiter sind gleichzeitig Bremsproberechtigte, Wagenprüfer und verfügen über mehrere Jahre Erfahrung im Güter-, Nah- und Fernverkehr sowie auf Gleisbaustellen.',
+      'Unsere Rangierbegleiter sind gleichzeitig Bremsproberechtigte, Wagenprüfer und verfügen über mehrere Jahre Erfahrung im Güter- und Fernverkehr sowie auf Gleisbaustellen.',
     subline: 'Ihre Einsatzgebiete umfassen:',
     bullets: [
-      'Rangierarbeiten im Güter-, Nah- und Fernverkehr',
+      'Rangierarbeiten im Güter- und Fernverkehr',
       'Rangierarbeiten im Gleisbau',
-      'Rangierarbeiten im Hafen',
       'Rangierarbeiten in Anschlüssen'
     ]
   },
   {
     id: 'zbv',
     label: 'ZbV',
-    title: 'Gestellung ZbV',
+    title: 'Gestellung ZbV und Hilfslogistik',
     intro:
       'Unsere Mitarbeiter für die Funktion der besonderen Verfügung auf Ihren Gleisbaustellen erfüllen mindestens die Qualifikationen des Rangierbegleiters.'
   },
-  {
-    id: 'wagenpruefer',
-    label: 'Prüfung',
-    title: 'Gestellung Wagenprüfer bis Stufe 4',
-    intro:
-      'Unsere Wagenprüfer in den Stufen 1 bis 4 (Stufe 4 = ehemals Wagenmeister) erfüllen mindestens die Qualifikationen Rangierbegleiters. Darüber hinaus sind sie mit der Stufe 3 berechtigt Züge abzufertigen sowie auch die umfassenden Tätigkeiten des Wagenprüfers Stufe 4 durchzuführen. Ihre Einsatzgebiete umfassen:',
-    bullets: [
-      'Rangierarbeiten im Güter- Nah- und Fernverkehr',
-      'Rangierarbeiten im Gleisbau',
-      'Rangierarbeiten im Hafen',
-      'Rangierarbeiten in Anschlüssen',
-      'Abfertigung von Zügen',
-      'Erstellen von u.a. Lauffähigkeitsuntersuchungen uvm'
-    ]
-  },
-  {
-    id: 'kippwagen',
-    label: 'Kipp',
-    title: 'Kippwagenberechtigte',
-    intro:
-      'Unsere Mitarbeiter für die Funktion der Kippberechtigten auf Ihren Gleisbaustellen erfüllen mindestens die Qualifikationen des Rangierbegleiters und darüber hinaus explizit auf das Kippen geschult und durch eine Prüfungsbescheinigung berechtigt'
-  }
 ]
 
 let revealObserver: IntersectionObserver | null = null

@@ -15,9 +15,10 @@
         <NuxtLink to="/" class="nav-link">Startseite</NuxtLink>
 
       <div class="nav-dropdown" role="presentation">
-        <button class="nav-link" type="button">Leistungen</button>
       </div>
 
+        <NuxtLink to="/leistungen" class="nav-link">Leistungen</NuxtLink>
+        
         <NuxtLink to="/karriere" class="nav-link">Karriere</NuxtLink>
 
         <NuxtLink to="/about" class="nav-link">Über uns</NuxtLink>

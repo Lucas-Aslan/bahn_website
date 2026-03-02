@@ -7,14 +7,12 @@ type PerformanceBlock = {
 }
 
 const performanceBlocks: PerformanceBlock[] = [
-  {
+{
     badge: 'Lok & Traktion',
     title: 'Gestellung Triebfahrzeugführer',
     summary: 'Unsere Triebfahrzeugführer sind u. a. auf folgenden Baureihen berechtigt:',
     points: [
-      'Vossloh: DE 12 · DE 18 · G1206 · G1700',
-      'Siemens: BR 248 Vectron Dual Mode',
-      'Alstom: BR 214 · BR 203 retrofit · BR 203 Handschaltrad'
+      'Wir stellen qualifizierte Triebfahrzeugführer mit den erforderlichen Berechtigungen für verschiedene Traktions- und Fahrzeugeinsätze. Detaillierte Informationen zu verfügbaren Baureihen und Einsatzmöglichkeiten erhalten Sie gerne auf Anfrage.'
     ]
   },
   {
@@ -29,25 +27,6 @@ const performanceBlocks: PerformanceBlock[] = [
       'Rangierarbeiten in Anschlüssen'
     ]
   },
-  {
-    badge: 'Prüfung',
-    title: 'Gestellung Wagenprüfer bis Stufe 4',
-    summary:
-      'Von Stufe 1 bis 4 (ehemals Wagenmeister): Abfertigung, Rangieren und umfassende Wagenprüfungen inklusive Dokumentation.',
-    points: [
-      'Rangierarbeiten im Güter-, Nah- und Fernverkehr',
-      'Rangierarbeiten im Gleisbau und in Häfen',
-      'Rangierarbeiten in Anschlüssen & Abfertigung von Zügen',
-      'Erstellen von Lauffähigkeitsuntersuchungen u. v. m.'
-    ]
-  },
-  {
-    badge: 'Kippen',
-    title: 'Kippwagenberechtigte',
-    summary:
-      'Spezialgeschulte Mitarbeitende für das sichere Kippen auf Gleisbaustellen – immer mit Qualifikation als Rangierbegleiter.',
-    points: ['Geprüft und unterwiesen für Kippvorgänge auf Ihren Baustellen']
-  }
 ]
 </script>
 
@@ -62,7 +41,7 @@ const performanceBlocks: PerformanceBlock[] = [
           Kernkompetenzen.
         </p>
       </div>
-      <NuxtLink to="/leistungen/transport" class="performance__cta">
+      <NuxtLink to="/leistungen" class="performance__cta">
         Alle Leistungen ansehen
         <span aria-hidden="true">→</span>
       </NuxtLink>

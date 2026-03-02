@@ -18,11 +18,6 @@ const faqItems: FAQItem[] = [
       'Unsere Teams verfügen über aktuelle Tauglichkeiten, Zusatzbescheinigungen für Bau- und Güterverkehre sowie Baureihenberechtigungen u. a. für Vossloh DE 12/18, G1206, Siemens BR 248 und Alstom BR 214/203. Rangierbegleiter sind bremsproberechtigt und wagenprüfgeschult.'
   },
   {
-    question: 'Übernehmen Sie auch die Einsatzsteuerung und das Reporting?',
-    answer:
-      'Ja. Wir bieten eine vollständige Einsatzsteuerung inklusive Slot-Management, Statusmeldungen, Tagesreportings und KPI-Tracking. Auftraggeber erhalten feste Ansprechpartner und revisionssichere Dokumentation aus der Leitstelle.'
-  },
-  {
     question: 'Arbeiten Sie nach EBA-Standards und unterstützen Sie Audits?',
     answer:
       'Wir orientieren uns strikt an EBA-Vorgaben, dokumentieren Unterweisungen, Risikobeurteilungen und Fahrzeugprüfungen digital und unterstützen Sie bei Auditvorbereitung sowie Compliance-Checks.'
@@ -30,7 +25,7 @@ const faqItems: FAQItem[] = [
   {
     question: 'Decken Sie Projekte deutschlandweit ab?',
     answer:
-      'Ja. Wir begleiten Projekte bundesweit – von Güterverkehrskorridoren über Baustellenlogistik bis zu Terminal- und Hafenumschlag. Reise- und Schichtplanung erfolgen zentral, damit Ihre Umläufe stabil bleiben.'
+      'Ja. Wir begleiten Projekte bundesweit – von Güterverkehrskorridoren bis Baustellenlogistik. Reise- und Schichtplanung erfolgen zentral, damit Ihre Umläufe stabil bleiben.'
   }
 ]
 

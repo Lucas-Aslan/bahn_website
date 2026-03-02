@@ -22,6 +22,16 @@
   }
 
   const benefits: Benefit[] = [
+   {
+    icon: '🏋️',
+    title: 'Hansefit',
+    description: 'Mit Hansefit unterstützen wir deine Gesundheit und Fitness – flexibel nutzbar bei zahlreichen Sport- und Gesundheitspartnern.'
+    },
+    {
+      icon: '🚗',
+      title: 'Dienstwagen',
+      description: 'Wir stellen einen Dienstwagen zur Verfügung – für eine verlässliche und komfortable Mobilität im Arbeitsalltag.'
+    },
     {
       icon: '📈',
       title: 'Stabiler Wirtschaftszweig',
@@ -77,12 +87,6 @@
       title: 'Triebfahrzeugführer (m/w/d) – Cargo & Bau',
       category: 'Lok & Traktion',
       description: 'Fahre moderne Loks im Güter- und Bauzugverkehr – sicher, pünktlich und dokumentiert.',
-      link: '/kontakt'
-    },
-    {
-      title: 'Zweiwegebaggerführer (m/w/d)',
-      category: 'Bau & Infrastruktur',
-      description: 'Bewege Schotter, Schwellen und Schienen punktgenau und unterstützt Baustellenlogistik.',
       link: '/kontakt'
     },
     {

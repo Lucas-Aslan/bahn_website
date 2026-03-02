@@ -4,10 +4,8 @@ import { onBeforeUnmount, onMounted } from 'vue'
 import HomeAboutSection from '~/components/home/HomeAboutSection.vue'
 import HomeCareerSection from '~/components/home/HomeCareerSection.vue'
 import HomeFaqSection from '~/components/home/HomeFaqSection.vue'
-import HomeGoldCtaSection from '~/components/home/HomeGoldCtaSection.vue'
 import HomeHeroSection from '~/components/home/HomeHeroSection.vue'
 import HomePerformanceSection from '~/components/home/HomePerformanceSection.vue'
-import HomeServiceSection from '~/components/home/HomeServiceSection.vue'
 
 let revealObserver: IntersectionObserver | null = null
 
@@ -45,9 +43,7 @@ onBeforeUnmount(() => {
     <HomeAboutSection />
     <HomePerformanceSection />
     <HomeCareerSection />
-    <HomeGoldCtaSection />
     <HomeFaqSection />
-    <HomeServiceSection />
   </div>
 </template>
 

@@ -152,7 +152,7 @@ onBeforeUnmount(() => {
               Anfrage starten
               <span aria-hidden="true">↗</span>
             </NuxtLink>
-            <NuxtLink to="/leistungen/transport" class="cta cta--ghost">Leistungen ansehen</NuxtLink>
+            <NuxtLink to="/leistungen" class="cta cta--ghost">Leistungen ansehen</NuxtLink>
           </div>
         </div>
 
@@ -285,7 +285,7 @@ onBeforeUnmount(() => {
               Kontaktieren
               <span aria-hidden="true">↗</span>
             </NuxtLink>
-            <NuxtLink to="/leistungen/transport" class="gold-cta__button gold-cta__button--ghost">
+            <NuxtLink to="/leistungen" class="gold-cta__button gold-cta__button--ghost">
               Leistungen entdecken
               <span aria-hidden="true">↗</span>
             </NuxtLink>
