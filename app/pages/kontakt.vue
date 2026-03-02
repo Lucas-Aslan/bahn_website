@@ -136,7 +136,7 @@ onBeforeUnmount(() => {
           <ul class="contact-list">
             <li><strong>Standort:</strong> Frankfurter Weg 27 · 33106 Paderborn</li>
             <li><strong>E-Mail:</strong> info@babylon-bahndienste.de</li>
-            <li><strong>Telefon:</strong> +49 123 456 789</li>
+            <li><strong>Telefon:</strong> +49 160 216 1223</li>
             <li><strong>Verfügbarkeit:</strong> Disposition rund um die Uhr</li>
           </ul>
           <NuxtLink to="/" class="text-link">Zur Startseite →</NuxtLink>
