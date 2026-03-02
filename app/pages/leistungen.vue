@@ -77,7 +77,7 @@ onBeforeUnmount(() => {
       <div class="leistungen-hero__grid">
         <div class="leistungen-hero__copy">
           <p class="eyebrow">Unsere Leistungen im Überblick</p>
-          <h1>Leistungsseite mit maximaler Klarheit</h1>
+          <h1>Unsere Leistungen</h1>
           <p class="leistungen-hero__lead">Alle Angaben basieren exakt auf den bereitgestellten Informationen.</p>
           <div class="leistungen-hero__chips">
             <span
