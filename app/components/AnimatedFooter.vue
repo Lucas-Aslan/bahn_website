@@ -2,6 +2,12 @@
   <footer class="footer">
     <div class="footer__glow" aria-hidden="true" />
 
+    <div class="footer__topbar" aria-label="Stärken von Babylon Bahndienste">
+      <span class="footer__top-item">24/7 Einsatzbereitschaft</span>
+      <span class="footer__top-item">Bundesweit im Einsatz</span>
+      <span class="footer__top-item">Sicher · Pünktlich · Verlässlich</span>
+    </div>
+
     <div class="footer__grid">
       <div class="footer__brand">
         <div class="footer__brand-head">
@@ -11,6 +17,17 @@
             <p class="footer__eyebrow">Bahnlogistik</p>
             <p class="footer__title">Babylon Bahndienste</p>
           </div>
+        </div>
+
+        <p class="footer__tagline">
+          Wir unterstützen Bahnbetriebe mit eingespielten Teams, klaren Abläufen und einer Leitstelle,
+          die auch in Spitzenzeiten den Überblick behält.
+        </p>
+
+        <div class="footer__pills" aria-label="Leistungsmerkmale">
+          <span class="footer__pill">Baustellensicherung</span>
+          <span class="footer__pill">Rangierbegleitung</span>
+          <span class="footer__pill">Notfallkoordination</span>
         </div>
 
 
@@ -74,6 +91,7 @@
                   d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9A4.5 4.5 0 0 1 16.5 21h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Zm0 1.5A3 3 0 0 0 4.5 7.5v9A3 3 0 0 0 7.5 19.5h9A3 3 0 0 0 19.5 16.5v-9A3 3 0 0 0 16.5 4.5h-9Zm9.75 1.05a.9.9 0 1 1-.9.9.9.9 0 0 1 .9-.9ZM12 8.25A3.75 3.75 0 1 1 8.25 12 3.75 3.75 0 0 1 12 8.25Zm0 1.5A2.25 2.25 0 1 0 14.25 12 2.25 2.25 0 0 0 12 9.75Z"
                 />
               </svg>
+              <span>Instagram</span>
             </a>
             <a
               class="footer__social-link"
@@ -87,6 +105,7 @@
                   d="M6.7 9.25V18H4V9.25h2.7ZM5.36 6a1.57 1.57 0 0 1 1.6 1.54A1.57 1.57 0 0 1 5.36 9 1.57 1.57 0 0 1 3.75 7.54 1.57 1.57 0 0 1 5.36 6Zm4.26 3.25h2.59v1.19h.04a2.84 2.84 0 0 1 2.55-1.4c2.73 0 3.24 1.8 3.24 4.15V18h-2.7v-3.87c0-.92 0-2.11-1.29-2.11s-1.49 1-1.49 2.05V18h-2.7Z"
                 />
               </svg>
+              <span>LinkedIn</span>
             </a>
             <a
               class="footer__social-link"
@@ -100,6 +119,7 @@
                   d="M15.86 6.21a4.6 4.6 0 0 0 .06.62 3.67 3.67 0 0 0 1.52 2.3 3.92 3.92 0 0 0 2.42.76V12a6.58 6.58 0 0 1-2.9-.58 6.83 6.83 0 0 1-.56-.31v4.72a3.57 3.57 0 0 1-.63 2.09 3.76 3.76 0 0 1-3.18 1.7 3.84 3.84 0 0 1-2.12-.6 3.76 3.76 0 0 1-1.32-1.57 3.64 3.64 0 0 1 .81-4.1 3.91 3.91 0 0 1 2.63-1 3.88 3.88 0 0 1 1.06.15v2.16a1.75 1.75 0 0 0-.9-.24 1.74 1.74 0 0 0-.95.29 1.62 1.62 0 0 0-.6.77 1.56 1.56 0 0 0 .13 1.26 1.66 1.66 0 0 0 .74.68 1.73 1.73 0 0 0 .89.13 1.66 1.66 0 0 0 .87-.35 1.83 1.83 0 0 0 .4-.47 1.64 1.64 0 0 0 .18-.6 2.1 2.1 0 0 0 0-.34v-9h2.54a3.44 3.44 0 0 1-.38-1.4Z"
                 />
               </svg>
+              <span>TikTok</span>
             </a>
           </div>
         </div>
@@ -110,6 +130,11 @@
       <div class="footer__ticker">
         <span class="footer__pulse" aria-hidden="true" />
         <p class="footer__legal">© 2026 Babylon Bahndienste – Präzision auf Schienen.</p>
+      </div>
+      <div class="footer__meta-links">
+        <NuxtLink to="/impressum">Impressum</NuxtLink>
+        <NuxtLink to="/datenschutz">Datenschutz</NuxtLink>
+        <NuxtLink to="/barrierefreiheit">Barrierefreiheit</NuxtLink>
       </div>
     </div>
   </footer>
@@ -140,6 +165,26 @@
   animation: glowShift 9s ease-in-out infinite alternate;
   pointer-events: none;
   z-index: 0;
+}
+
+.footer__topbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+
+.footer__top-item {
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 72, 49, 0.2);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--color-forest);
+  font-size: 0.83rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 /* ---------- Layout (responsive) ---------- */
@@ -352,17 +397,18 @@
 }
 
 .footer__social-list {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
+  display: grid;
+  gap: 0.6rem;
 }
 
 .footer__social-link {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
+  justify-content: flex-start;
+  gap: 0.65rem;
+  width: 100%;
+  min-height: 52px;
+  padding: 0.55rem 0.75rem;
   border-radius: 14px;
   color: var(--color-forest);
   background: rgba(199, 117, 139, 0.08);
@@ -372,9 +418,14 @@
 }
 
 .footer__social-icon {
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   fill: currentColor;
+  flex: 0 0 auto;
+}
+
+.footer__social-link span {
+  font-weight: 700;
 }
 
 .footer__social-link:hover,
@@ -525,6 +576,8 @@
   gap: 0.8rem;
   color: var(--color-muted);
   font-size: 0.95rem;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer__ticker {
@@ -555,6 +608,28 @@
   overflow-wrap: anywhere;
 }
 
+.footer__meta-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.footer__meta-links a {
+  color: var(--color-forest);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 72, 49, 0.18);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.footer__meta-links a:hover,
+.footer__meta-links a:focus-visible {
+  background: rgba(199, 117, 139, 0.15);
+  border-color: rgba(199, 117, 139, 0.35);
+}
+
 @media (max-width: 720px) {
   .footer {
     margin: 1rem 1rem 2rem;
@@ -576,6 +651,10 @@
   }
 
   .footer__meta {
+    justify-content: center;
+  }
+
+  .footer__meta-links {
     justify-content: center;
   }
 }
