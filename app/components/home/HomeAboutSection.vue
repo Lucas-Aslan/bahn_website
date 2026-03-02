@@ -49,6 +49,50 @@
           </NuxtLink>
         </div>
       </div>
+
+      <aside class="about__visual" aria-label="Babylon Bahndienste Qualitätsversprechen">
+        <div class="about__visual-panel">
+          <p class="about__visual-title">Qualität mit System</p>
+          <p class="about__visual-copy">
+            Von der ersten Gefährdungsanalyse bis zum abgeschlossenen Einsatz arbeiten wir mit klaren Übergaben,
+            dokumentierten Prozessen und festen Ansprechpartnern.
+          </p>
+          <div class="about__metrics" role="list">
+            <article class="about__metric" role="listitem">
+              <p class="about__metric-value">24/7</p>
+              <p class="about__metric-label">Einsatzbereitschaft</p>
+            </article>
+            <article class="about__metric" role="listitem">
+              <p class="about__metric-value">100%</p>
+              <p class="about__metric-label">Nachvollziehbare Dokumentation</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="about__timeline" role="list" aria-label="Ablauf unserer Einsätze">
+          <div class="about__timeline-item" role="listitem">
+            <p class="about__timeline-step">01</p>
+            <div>
+              <p class="about__timeline-title">Briefing & Planung</p>
+              <p class="about__timeline-copy">Risiken bewerten, Team abstimmen, Ablauf sichern.</p>
+            </div>
+          </div>
+          <div class="about__timeline-item" role="listitem">
+            <p class="about__timeline-step">02</p>
+            <div>
+              <p class="about__timeline-title">Sicherer Einsatz</p>
+              <p class="about__timeline-copy">Vor-Ort-Koordination mit klaren Verantwortlichkeiten.</p>
+            </div>
+          </div>
+          <div class="about__timeline-item" role="listitem">
+            <p class="about__timeline-step">03</p>
+            <div>
+              <p class="about__timeline-title">Reporting & Übergabe</p>
+              <p class="about__timeline-copy">Vollständige Dokumentation für Transparenz und Nachweis.</p>
+            </div>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 </template>
@@ -85,7 +129,7 @@
 .about__inner {
   display: grid;
   gap: 2.4rem;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: minmax(320px, 1.2fr) minmax(260px, 0.8fr);
   align-items: start;
   position: relative;
 }
@@ -105,6 +149,105 @@
   z-index: 1;
   display: grid;
   gap: 1rem;
+}
+
+.about__visual {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1rem;
+}
+
+.about__visual-panel,
+.about__timeline {
+  border-radius: 18px;
+  border: 1px solid rgba(0, 72, 49, 0.14);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.92), rgba(247, 252, 249, 0.9));
+  box-shadow: 0 18px 45px rgba(6, 24, 16, 0.12);
+}
+
+.about__visual-panel {
+  padding: 1.1rem;
+}
+
+.about__visual-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.about__visual-copy {
+  margin: 0.6rem 0 0;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+.about__metrics {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.about__metric {
+  margin: 0;
+  padding: 0.8rem;
+  border-radius: 14px;
+  background: rgba(0, 72, 49, 0.06);
+  border: 1px solid rgba(0, 72, 49, 0.1);
+}
+
+.about__metric-value {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-forest);
+}
+
+.about__metric-label {
+  margin: 0.2rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.86rem;
+}
+
+.about__timeline {
+  padding: 1rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.about__timeline-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0.7rem;
+  padding: 0.72rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 72, 49, 0.1);
+}
+
+.about__timeline-step {
+  margin: 0;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  background: rgba(0, 72, 49, 0.12);
+}
+
+.about__timeline-title {
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.about__timeline-copy {
+  margin: 0.15rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.92rem;
 }
 
 .about__entry-overlay {
@@ -310,6 +453,22 @@
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(0, 72, 49, 0.14);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 960px) {
+  .about__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about__visual {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .about__metrics {
+    grid-template-columns: 1fr;
+  }
 }
 
 .about__pulse {
