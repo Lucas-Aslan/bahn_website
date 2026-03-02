@@ -28,6 +28,7 @@ if (!page.value) {
 .datenschutz-content :deep(h5),
 .datenschutz-content :deep(h6) {
   color: #ffffff !important;
+  line-height: 1.3;
 }
 
 .datenschutz-content :deep(h1 a),
@@ -37,5 +38,24 @@ if (!page.value) {
 .datenschutz-content :deep(h5 a),
 .datenschutz-content :deep(h6 a) {
   color: inherit;
+}
+
+.datenschutz-content {
+  max-width: 72ch;
+  margin: 0 auto;
+  padding: 0 0 2.5rem;
+}
+
+.datenschutz-content :deep(p),
+.datenschutz-content :deep(li),
+.datenschutz-content :deep(blockquote) {
+  font-size: clamp(1.04rem, 0.35vw + 1rem, 1.12rem);
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+.datenschutz-content :deep(ul),
+.datenschutz-content :deep(ol) {
+  padding-left: 1.4rem;
 }
 </style>
