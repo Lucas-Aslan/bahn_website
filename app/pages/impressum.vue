@@ -21,12 +21,12 @@ const companyDetails: Detail[] = [
   { label: 'Firma', value: 'Babylon Bahndienste UG (haftungsbeschränkt)' },
   { label: 'Angaben gemäß § 5 DDG', value: 'Frankfurter Weg 27 · 33106 Paderborn' },
   { label: 'Vertreten durch', value: 'Geschäftsführer: Sanharip Aras' },
-  { label: 'Handelsregister', value: 'Amtsgericht Bielefeld · HRB 123456' },
-  { label: 'Umsatzsteuer-ID', value: 'DE123456789' }
+  { label: 'Handelsregister', value: 'Amtsgericht Paderborn · HRB 16943' },
+  { label: 'Umsatzsteuer-ID', value: 'DE366907962' }
 ]
 
 const contactDetails: Detail[] = [
-  { label: 'Telefon', value: '+49 123 456 789' },
+  { label: 'Telefon', value: '+49 160 216 1223' },
   { label: 'E-Mail', value: 'info@babylon-bahndienste.de' },
   { label: 'Dispo', value: '24/7 für eilbedürftige Einsätze erreichbar' }
 ]
