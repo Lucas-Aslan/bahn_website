@@ -271,17 +271,17 @@ watch(currentVideoIndex, async () => {
 }
 
 .hero :global(.cta--contact) {
-  background: #2f9e44;
+  background: #005f46;
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.28);
-  box-shadow: 0 18px 45px rgba(47, 158, 68, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  box-shadow: 0 18px 45px rgba(0, 95, 70, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .hero :global(.cta--contact:hover),
 .hero :global(.cta--contact:focus-visible) {
-  background: #27853a;
+  background: #004f3a;
   transform: translateY(-1px);
-  box-shadow: 0 22px 60px rgba(47, 158, 68, 0.42);
+  box-shadow: 0 22px 60px rgba(0, 95, 70, 0.42);
 }
 
 .hero__accolades {
