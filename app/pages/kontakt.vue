@@ -104,13 +104,13 @@ onBeforeUnmount(() => {
               <span>Telefonnummer *</span>
               <input name="phone" type="tel" placeholder="+49 123 456 789" autocomplete="tel" required>
             </label>
-            <label class="field">
+            <!-- <label class="field">
               <span>Leistung *</span>
               <select name="service" required>
                 <option value="">Leistung auswählen</option>
                 <option v-for="service in services" :key="service" :value="service">{{ service }}</option>
               </select>
-            </label>
+            </label> -->
           </div>
 
           <label class="field field--wide">
