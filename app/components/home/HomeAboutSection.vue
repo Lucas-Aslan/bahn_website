@@ -106,8 +106,8 @@
     linear-gradient(135deg, var(--color-paper), var(--color-cream)),
     radial-gradient(circle at 14% 20%, rgba(199, 117, 139, 0.16), transparent 40%),
     radial-gradient(circle at 82% 72%, rgba(0, 72, 49, 0.12), transparent 36%);
-  border: 1px solid rgba(0, 72, 49, 0.14);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
+  border: none;
+  box-shadow: none;
   color: var(--color-ink);
   transform-style: preserve-3d;
   transform-origin: center center;
@@ -161,9 +161,9 @@
 .about__visual-panel,
 .about__timeline {
   border-radius: 18px;
-  border: 1px solid rgba(0, 72, 49, 0.14);
-  background: linear-gradient(150deg, rgba(255, 255, 255, 0.92), rgba(247, 252, 249, 0.9));
-  box-shadow: 0 18px 45px rgba(6, 24, 16, 0.12);
+  border: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 .about__visual-panel {
@@ -194,8 +194,8 @@
   margin: 0;
   padding: 0.8rem;
   border-radius: 14px;
-  background: rgba(0, 72, 49, 0.06);
-  border: 1px solid rgba(0, 72, 49, 0.1);
+  background: transparent;
+  border: none;
 }
 
 .about__metric-value {
@@ -224,8 +224,8 @@
   gap: 0.7rem;
   padding: 0.72rem;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 72, 49, 0.1);
+  background: transparent;
+  border: none;
 }
 
 .about__timeline-step {
@@ -297,7 +297,7 @@
 .about.js-reveal.is-visible {
   transform: translateY(0) scale(1) rotateX(0deg);
   filter: blur(0) saturate(1.05);
-  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 72, 49, 0.08);
+  box-shadow: none;
 }
 
 .about.js-reveal.is-visible .about__entry-overlay {
@@ -450,9 +450,9 @@
   align-items: start;
   padding: 0.7rem 0.8rem;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 72, 49, 0.14);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 @media (max-width: 960px) {
