@@ -98,10 +98,10 @@ const toggleFaq = (index: number) => {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 18% 18%, rgba(199, 117, 139, 0.12), transparent 42%),
-    radial-gradient(circle at 82% 82%, rgba(0, 72, 49, 0.14), transparent 46%),
-    linear-gradient(135deg, var(--color-paper), var(--color-cream));
-  border: 1px solid rgba(0, 72, 49, 0.12);
+    radial-gradient(circle at 18% 18%, rgba(0, 95, 66, 0.12), transparent 44%),
+    radial-gradient(circle at 82% 82%, rgba(0, 95, 66, 0.1), transparent 46%),
+    linear-gradient(135deg, rgba(245, 255, 250, 0.9), rgba(239, 253, 247, 0.82));
+  border: 1px solid rgba(0, 95, 66, 0.2);
   color: var(--color-ink);
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.08);
 }
@@ -117,20 +117,20 @@ const toggleFaq = (index: number) => {
   gap: 0.35rem;
   padding: 0.85rem 1.15rem;
   border-radius: 12px;
-  background: var(--color-forest);
+  background: linear-gradient(135deg, #be7691, #b16b85);
   color: #ffffff;
   text-decoration: none;
   font-weight: 800;
   letter-spacing: 0.02em;
-  border: 1px solid rgba(0, 72, 49, 0.24);
-  box-shadow: 0 18px 45px rgba(0, 72, 49, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(177, 107, 133, 0.55);
+  box-shadow: 0 18px 45px rgba(177, 107, 133, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .faq__cta:hover,
 .faq__cta:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 22px 55px rgba(177, 107, 133, 0.34), 0 0 0 1px rgba(177, 107, 133, 0.26);
   color: #ffffff;
 }
 
@@ -220,7 +220,7 @@ const toggleFaq = (index: number) => {
   width: 14px;
   height: 2px;
   border-radius: 999px;
-  background: var(--color-forest);
+  background: linear-gradient(135deg, #be7691, #b16b85);
   transition: transform 0.2s ease;
 }
 
