@@ -29,6 +29,14 @@ const benefits: Benefit[] = [
   {
     title: 'Starkes Team',
     description: 'Respektvolle Zusammenarbeit, kurze Entscheidungswege und gelebte Verantwortung im Betrieb.'
+  },
+  {
+    title: 'Hansefit inklusive',
+    description: 'Mit Hansefit trainierst du flexibel bei vielen Partnern und stärkst aktiv deine Gesundheit.'
+  },
+  {
+    title: 'Sehr modernes Auto für alle',
+    description: 'Jede:r Mitarbeitende erhält ein sehr modernes Dienstfahrzeug für einen komfortablen Arbeitsalltag.'
   }
 ]
 
