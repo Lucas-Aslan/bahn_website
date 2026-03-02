@@ -146,7 +146,7 @@ onBeforeUnmount(() => {
               <span class="contact-icon" aria-hidden="true">☎️</span>
               <div>
                 <p class="contact-label">Telefon</p>
-                <a href="tel:+49123456789">+49 160 216 1223</a>
+                <a href="tel:+49 160 216 1223">+49 160 216 1223</a>
               </div>
             </li>
           </ul>

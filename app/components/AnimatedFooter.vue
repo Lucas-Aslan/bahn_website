@@ -23,7 +23,7 @@
             33106 Paderborn
           </p>
           <div class="footer__contact-links">
-            <span>Telefon: <a href="tel:+49123456789">+49 123 456 789</a></span>
+            <span>Telefon: <a href="tel:+49 160 216 1223">+49 123 456 789</a></span>
             <span>E-Mail: <a href="mailto:info@babylon-bahndienste.de">info@babylon-bahndienste.de</a></span>
           </div>
           <div class="footer__contact-actions" aria-label="Direkte Kontaktoptionen">
