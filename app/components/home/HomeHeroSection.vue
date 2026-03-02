@@ -98,6 +98,7 @@ watch(currentVideoIndex, async () => {
 
       <div class="hero__actions">
         <NuxtLink to="/leistungen" class="cta cta--ghost">Leistungen ansehen</NuxtLink>
+        <NuxtLink to="/kontakt" class="cta cta--contact">Kontakt aufnehmen</NuxtLink>
       </div>
 
       <div class="hero__accolades" role="list">
@@ -209,7 +210,7 @@ watch(currentVideoIndex, async () => {
 
 .hero__title {
   margin: 0;
-  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-size: clamp(3.3rem, 8vw, 6rem);
   font-weight: 900;
   letter-spacing: -0.03em;
   text-transform: uppercase;
@@ -267,6 +268,20 @@ watch(currentVideoIndex, async () => {
   background: #b8687d;
   transform: translateY(-1px);
   box-shadow: 0 22px 60px rgba(199, 117, 139, 0.38);
+}
+
+.hero :global(.cta--contact) {
+  background: #2f9e44;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 18px 45px rgba(47, 158, 68, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.hero :global(.cta--contact:hover),
+.hero :global(.cta--contact:focus-visible) {
+  background: #27853a;
+  transform: translateY(-1px);
+  box-shadow: 0 22px 60px rgba(47, 158, 68, 0.42);
 }
 
 .hero__accolades {
