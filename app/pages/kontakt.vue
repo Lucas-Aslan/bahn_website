@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-type Spotlight = {
-  x: number
-  y: number
-}
-
 const services = [
   'Leistungsdisposition & Einsatzsteuerung',
   'Triebfahrzeugführer & Rangierpersonal',
@@ -15,19 +10,8 @@ const services = [
   'Beratung & Projektstart'
 ]
 
-const spotlight = ref<Spotlight>({ x: 50, y: 50 })
 const submitted = ref(false)
-const shimmerInterval = ref<number | null>(null)
-
-const handlePointerMove = (event: PointerEvent) => {
-  const target = event.currentTarget as HTMLElement | null
-  if (!target) return
-
-  const rect = target.getBoundingClientRect()
-  const x = ((event.clientX - rect.left) / rect.width) * 100
-  const y = ((event.clientY - rect.top) / rect.height) * 100
-  spotlight.value = { x, y }
-}
+let revealObserver: IntersectionObserver | null = null
 
 const handleSubmit = (event: Event) => {
   event.preventDefault()
@@ -38,54 +22,67 @@ const handleSubmit = (event: Event) => {
 }
 
 onMounted(() => {
-  shimmerInterval.value = window.setInterval(() => {
-    spotlight.value = {
-      x: Math.random() * 100,
-      y: Math.random() * 100
+  const revealables = Array.from(document.querySelectorAll<HTMLElement>('.js-reveal'))
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          revealObserver?.unobserve(entry.target)
+        }
+      })
+    },
+    {
+      threshold: 0.2,
+      rootMargin: '0px 0px -10% 0px'
     }
-  }, 2600)
+  )
+
+  revealables.forEach((element, index) => {
+    element.style.setProperty('--reveal-delay', `${index * 70}ms`)
+    revealObserver?.observe(element)
+  })
 })
 
 onBeforeUnmount(() => {
-  if (shimmerInterval.value) {
-    window.clearInterval(shimmerInterval.value)
-  }
+  revealObserver?.disconnect()
 })
 </script>
 
 <template>
-  <div class="kontakt-page" @pointermove="handlePointerMove">
-    <div class="kontakt-grid" aria-hidden="true">
-      <span class="grid-line" />
-      <span class="grid-line grid-line--horizontal" />
-    </div>
-
-    <section class="kontakt-hero">
-      <div class="hero-header">
+  <div class="contact-page">
+    <section class="contact-hero section js-reveal">
+      <div class="contact-hero__content">
         <p class="eyebrow">Kontakt</p>
-        <div class="title-row">
-          <h1>Gemeinsam fahren wir Ihre Projekte sicher ins Ziel.</h1>
-        </div>
-        <p class="lede">
+        <h1>Gemeinsam fahren wir Ihr Projekt sicher ins Ziel.</h1>
+        <p class="section__lead">
           Präzise Bahndienstleistungen, klare Absprachen und schnelle Reaktionszeiten. Teilen Sie uns Ihr Vorhaben mit –
-          wir setzen uns zeitnah mit Ihnen in Verbindung.
+          wir melden uns zeitnah mit einem konkreten Vorschlag.
         </p>
+        <div class="contact-hero__actions">
+          <a href="#kontaktformular" class="cta cta--solid">Anfrage senden</a>
+          <NuxtLink to="/karriere" class="cta cta--ghost">Zur Karriereseite</NuxtLink>
+        </div>
+      </div>
+      <div class="contact-hero__image-wrap">
+        <img src="/images/cta-bild.jpg" alt="Babylon Bahndienste Kontakt" class="contact-hero__image" loading="lazy">
+      </div>
+    </section>
 
-        <div class="signal-row" role="list">
-          <span class="signal-chip" role="listitem">
-            <span class="pulse" aria-hidden="true" /> 24/7 Bereitschaft
-          </span>
-          <span class="signal-chip" role="listitem">
-            <span class="pulse pulse--cyan" aria-hidden="true" /> Sicherheitszertifizierte Teams
-          </span>
-          <span class="signal-chip" role="listitem">
-            <span class="pulse pulse--magenta" aria-hidden="true" /> Bundesweit einsatzbereit
-          </span>
+    <section id="kontaktformular" class="section js-reveal">
+      <div class="section__header">
+        <div>
+          <p class="eyebrow">Kontaktformular</p>
+          <h2>Direkter Draht zu Disposition & Einsatzleitung</h2>
+          <p class="section__lead">
+            Nutzen Sie das Formular für Anfragen zu Personal, Einsatzsteuerung und Projekten. Wir antworten verlässlich
+            und strukturiert.
+          </p>
         </div>
       </div>
 
-      <div class="kontakt-panels">
-        <form class="kontakt-form" @submit="handleSubmit">
+      <div class="contact-grid">
+        <form class="contact-form" @submit="handleSubmit">
           <div class="form-grid">
             <label class="field">
               <span>Vorname</span>
@@ -111,9 +108,7 @@ onBeforeUnmount(() => {
               <span>Leistung *</span>
               <select name="service" required>
                 <option value="">Leistung auswählen</option>
-                <option v-for="service in services" :key="service" :value="service">
-                  {{ service }}
-                </option>
+                <option v-for="service in services" :key="service" :value="service">{{ service }}</option>
               </select>
             </label>
           </div>
@@ -124,651 +119,258 @@ onBeforeUnmount(() => {
               name="message"
               rows="4"
               placeholder="Beschreiben Sie Ihr Vorhaben, Zeitplan und Einsatzort."
-            ></textarea>
+            />
           </label>
 
           <div class="form-actions">
-            <label class="toggle">
-              <input type="checkbox" name="callback" checked>
-              <span class="toggle-slider" aria-hidden="true" />
-              <span class="toggle-label">Bitte um Rückruf</span>
-            </label>
-            <button type="submit" class="cta">
-              <span>{{ submitted ? 'Nachricht gesendet' : 'Abschicken' }}</span>
-              <span class="cta-icon" aria-hidden="true">↗</span>
-            </button>
+            <button type="submit" class="cta cta--solid">{{ submitted ? 'Nachricht gesendet' : 'Abschicken' }}</button>
           </div>
 
-          <p v-if="submitted" class="hint success">
-            Vielen Dank! Wir melden uns zeitnah mit einem konkreten Vorschlag.
-          </p>
-          <p class="hint">
-            Wir verarbeiten Ihre Angaben vertraulich. Eine Kopie Ihrer Anfrage kann auf Wunsch bereitgestellt werden.
-          </p>
+          <p v-if="submitted" class="hint success">Vielen Dank! Wir melden uns zeitnah mit einem konkreten Vorschlag.</p>
+          <p class="hint">Wir verarbeiten Ihre Angaben vertraulich und ausschließlich zur Kontaktaufnahme.</p>
         </form>
 
-        <aside
-          class="kontakt-card"
-          :style="{ '--spot-x': `${spotlight.x}%`, '--spot-y': `${spotlight.y}%` }"
-        >
-          <div class="card-halo" aria-hidden="true" />
-          <div class="card-header">
-            <div class="card-photo" aria-hidden="true" />
-            <div class="badge">
-              <span class="badge-icon">◎</span>
-              <span>Kontaktieren Sie uns</span>
-            </div>
-            <p class="card-title">Wir steuern Ihre Bahndienstleistungen mit Präzision und Sorgfalt.</p>
-            <p class="card-subtitle">Direkter Draht zu Disposition, Sicherheit & Einsatzleitung.</p>
-          </div>
-
+        <aside class="contact-card">
+          <p class="job-card__meta">Babylon Bahndienste</p>
+          <h3>Kontaktinformationen</h3>
           <ul class="contact-list">
-            <li>
-              <span class="contact-icon" aria-hidden="true">📍</span>
-              <div>
-                <p class="contact-label">Standort Leitstelle</p>
-                <p>Frankfurter Weg 27 · 33106 Paderborn</p>
-              </div>
-            </li>
-            <li>
-              <span class="contact-icon" aria-hidden="true">✉️</span>
-              <div>
-                <p class="contact-label">E-Mail</p>
-                <p>info@babylon-bahndienste.de</p>
-              </div>
-            </li>
-            <li>
-              <span class="contact-icon" aria-hidden="true">☎️</span>
-              <div>
-                <p class="contact-label">Telefon</p>
-                <p>+49 123 456 789</p>
-              </div>
-            </li>
-            <li>
-              <span class="contact-icon" aria-hidden="true">🕒</span>
-              <div>
-                <p class="contact-label">Verfügbarkeit</p>
-                <p>Disposition rund um die Uhr!</p>
-              </div>
-            </li>
+            <li><strong>Standort:</strong> Frankfurter Weg 27 · 33106 Paderborn</li>
+            <li><strong>E-Mail:</strong> info@babylon-bahndienste.de</li>
+            <li><strong>Telefon:</strong> +49 123 456 789</li>
+            <li><strong>Verfügbarkeit:</strong> Disposition rund um die Uhr</li>
           </ul>
+          <NuxtLink to="/" class="text-link">Zur Startseite →</NuxtLink>
         </aside>
-      </div>
-    </section>
-
-    <section class="assurance">
-      <div class="assurance-card">
-        <div class="assurance-beam" aria-hidden="true" />
-        <div>
-          <p class="eyebrow">Wie wir arbeiten</p>
-          <h2>Klare Prozesse, dokumentierte Sicherheit, verlässliche Teams.</h2>
-          <p class="lede">
-            Von der Bedarfsaufnahme bis zur Einsatzdokumentation behalten Sie jederzeit den Überblick. Sie erhalten feste
-            Ansprechpartner, verbindliche Zeitpläne und transparentes Reporting.
-          </p>
-        </div>
-        <div class="assurance-grid" role="list">
-          <div class="tile" role="listitem">
-            <p class="tile-badge">01</p>
-            <p class="tile-title">Briefing & Streckencheck</p>
-            <p class="tile-copy">Analyse von Strecken, Baureihen und Sicherheitsauflagen für Ihren Auftrag.</p>
-          </div>
-          <div class="tile" role="listitem">
-            <p class="tile-badge">02</p>
-            <p class="tile-title">Einsatzsteuerung</p>
-            <p class="tile-copy">Disposition mit redundanten Teams, klarer Schichtlogik und Slot-Management.</p>
-          </div>
-          <div class="tile" role="listitem">
-            <p class="tile-badge">03</p>
-            <p class="tile-title">Reporting</p>
-            <p class="tile-copy">Statusmeldungen, Tagesreports und revisionssichere Dokumentation – digital bereitgestellt.</p>
-          </div>
-        </div>
       </div>
     </section>
   </div>
 </template>
 
 <style scoped>
-.kontakt-page {
-  position: relative;
-  isolation: isolate;
+.contact-page {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
-.kontakt-grid {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  mask-image: radial-gradient(circle at 60% 40%, rgba(0, 72, 49, 0.12), transparent 70%);
+.section {
+  background: transparent;
+  border-radius: 24px;
+  padding: clamp(1.5rem, 2vw, 2rem);
 }
 
-.grid-line {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(199, 117, 139, 0.1), transparent 18%, transparent 82%, rgba(199, 117, 139, 0.08));
-  background-size: 240px 1px;
-  opacity: 0.45;
-}
-
-.grid-line--horizontal {
-  background: linear-gradient(180deg, rgba(199, 117, 139, 0.12), transparent 14%, transparent 80%, rgba(199, 117, 139, 0.09));
-  background-size: 1px 220px;
-}
-
-.kontakt-hero {
-  position: relative;
-  border: 1px solid rgba(199, 117, 139, 0.12);
-  border-radius: 28px;
-  padding: 2rem;
-  background: radial-gradient(circle at 30% 20%, rgba(199, 117, 139, 0.08), transparent 28%),
-    radial-gradient(circle at 90% 0%, rgba(0, 72, 49, 0.05), transparent 30%),
-    rgba(255, 250, 243, 0.95);
-  box-shadow: 0 25px 60px rgba(0, 72, 49, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-  overflow: hidden;
-}
-
-.hero-header {
+.section__header {
   display: grid;
-  gap: 0.65rem;
-  max-width: 760px;
-  margin-bottom: 1.3rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin: 0.2rem 0 0.35rem;
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  letter-spacing: -0.01em;
+  color: var(--color-forest);
+}
+
+.section__lead {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.6;
 }
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+  margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-size: 0.75rem;
   color: var(--color-rose);
-  font-weight: 700;
-}
-
-h1 {
-  margin: 0;
-  font-size: clamp(2rem, 3vw + 1rem, 3rem);
-  line-height: 1.15;
-}
-
-.title-row {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-}
-
-
-h2 {
-  margin: 0;
-  font-size: clamp(1.6rem, 1.3vw + 1rem, 2.2rem);
-  line-height: 1.25;
-}
-
-.lede {
-  color: var(--color-muted);
-  max-width: 780px;
-  margin: 0;
-}
-
-.signal-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.signal-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.5rem 0.9rem;
+  font-size: 0.82rem;
+  background: rgba(199, 117, 139, 0.12);
+  padding: 0.3rem 0.75rem;
   border-radius: 999px;
-  background: rgba(0, 72, 49, 0.08);
-  border: 1px solid rgba(0, 72, 49, 0.16);
-  color: var(--color-forest);
-  font-weight: 600;
-}
-
-.pulse {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--color-rose);
-  position: relative;
-  box-shadow: 0 0 0 0 rgba(199, 117, 139, 0.6);
-  animation: pulse 2.4s ease-out infinite;
-}
-
-.pulse--cyan {
-  background: #76e1ff;
-  box-shadow: 0 0 0 0 rgba(0, 72, 49, 0.6);
-}
-
-.pulse--magenta {
-  background: #ff8ad6;
-  box-shadow: 0 0 0 0 rgba(255, 138, 214, 0.55);
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(199, 117, 139, 0.6);
-  }
-  70% {
-    box-shadow: 0 0 0 16px rgba(199, 117, 139, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(199, 117, 139, 0);
-  }
-}
-
-.kontakt-panels {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-  gap: 1.4rem;
-  margin-top: 0.5rem;
-}
-
-.kontakt-form {
-  background: rgba(255, 250, 243, 0.9);
-  border: 1px solid rgba(0, 72, 49, 0.12);
-  border-radius: 24px;
-  padding: 1.3rem;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 16px 40px rgba(0, 72, 49, 0.08);
-  display: grid;
-  gap: 1rem;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
-}
-
-.field {
-  display: grid;
-  gap: 0.4rem;
-  color: var(--color-ink);
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-.field span {
-  color: var(--color-muted);
-}
-
-input,
-select,
-textarea {
-  width: 100%;
-  border-radius: 14px;
-  border: 1px solid rgba(0, 72, 49, 0.16);
-  padding: 0.9rem 1rem;
-  background: #ffffff;
-  color: var(--color-ink);
-  font-size: 1rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-  outline: none;
-}
-
-select {
-  appearance: none;
-  background-image: linear-gradient(135deg, transparent 50%, var(--color-rose) 50%), linear-gradient(45deg, transparent 50%, var(--color-rose) 50%);
-  background-position: calc(100% - 18px) 55%, calc(100% - 12px) 55%;
-  background-size: 8px 8px, 8px 8px;
-  background-repeat: no-repeat;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 140px;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: rgba(199, 117, 139, 0.7);
-  box-shadow: 0 0 0 3px rgba(199, 117, 139, 0.18);
-  transform: translateY(-1px);
-}
-
-.field--wide {
-  grid-column: 1 / -1;
-}
-
-.form-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.9rem;
-}
-
-.toggle {
   display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: var(--color-muted);
-  font-weight: 600;
-  cursor: pointer;
-  user-select: none;
-}
-
-.toggle input {
-  display: none;
-}
-
-.toggle-slider {
-  width: 52px;
-  height: 28px;
-  border-radius: 999px;
-  background: linear-gradient(120deg, rgba(199, 117, 139, 0.75), rgba(0, 72, 49, 0.85));
-  position: relative;
-  box-shadow: 0 6px 18px rgba(199, 117, 139, 0.3);
-}
-
-.toggle-slider::after {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 72, 49, 0.12);
-  transition: transform 0.2s ease;
-}
-
-.toggle input:checked + .toggle-slider::after {
-  transform: translateX(24px);
-}
-
-.toggle-label {
-  font-weight: 600;
 }
 
 .cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.95rem 1.3rem;
-  border-radius: 14px;
-  background: var(--color-forest);
-  color: #ffffff;
-  font-weight: 800;
-  font-size: 1rem;
-  border: none;
+  padding: 0.85rem 1.2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  border: 1px solid transparent;
   cursor: pointer;
-  box-shadow: 0 18px 45px rgba(0, 72, 49, 0.28);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.cta--solid {
+  background: var(--color-rose);
+  color: #ffffff;
+  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.28);
+}
+
+.cta--ghost {
+  background: #ffffff;
+  color: var(--color-forest);
+  border-color: var(--color-border);
 }
 
 .cta:hover,
 .cta:focus-visible {
-  transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 22px 55px rgba(0, 72, 49, 0.36);
+  transform: translateY(-1px);
 }
 
-.cta-icon {
-  font-size: 1.1rem;
+.js-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
-.hint {
-  margin: 0;
-  color: #a8b9d8;
-  font-size: 0.95rem;
+.js-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.success {
-  color: #b2f5b4;
-  font-weight: 700;
-}
-
-.kontakt-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 22px;
-  padding: 1.4rem;
-  background: radial-gradient(circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(199, 117, 139, 0.12), transparent 30%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(0, 72, 49, 0.12)),
-    var(--color-paper);
-  border: 1px solid rgba(199, 117, 139, 0.18);
-  box-shadow: 0 20px 50px rgba(0, 72, 49, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+.contact-hero {
   display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(199, 117, 139, 0.12), rgba(0, 72, 49, 0.08));
+  border-radius: 24px;
+}
+
+.contact-hero__content h1 {
+  margin: 0.2rem 0 0.45rem;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  color: var(--color-forest);
+}
+
+.contact-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.contact-hero__image-wrap {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+}
+
+.contact-hero__image {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 1rem;
 }
 
-.card-halo {
-  position: absolute;
-  inset: 12% 8%;
-  background: radial-gradient(circle at 20% 20%, rgba(199, 117, 139, 0.08), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(0, 72, 49, 0.06), transparent 42%);
-  filter: blur(10px);
-  z-index: 0;
+.contact-form,
+.contact-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.06);
 }
 
-.card-header,
-.contact-list,
-.cta-row {
-  position: relative;
-  z-index: 1;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.45rem 0.85rem;
-  background: rgba(199, 117, 139, 0.12);
-  border-radius: 999px;
-  border: 1px solid rgba(199, 117, 139, 0.28);
-  color: var(--color-rose);
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-
-.badge-icon {
+.form-grid {
   display: grid;
-  place-items: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: rgba(199, 117, 139, 0.2);
-  color: #ffffff;
-}
-
-.card-title {
-  margin: 0.6rem 0 0.25rem;
-  font-size: 1.4rem;
-  line-height: 1.3;
-  color: #ffffff;
-}
-
-.card-subtitle {
-  margin: 0;
-  color: var(--color-muted);
-}
-
-
-.contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 0.85rem;
-}
-
-.contact-list li {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
-  align-items: start;
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.92rem;
+  color: var(--color-muted);
+}
+
+.field--wide {
+  margin-top: 0.75rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
   padding: 0.75rem 0.8rem;
-  border-radius: 16px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 72, 49, 0.14);
+  font: inherit;
 }
 
-.contact-icon {
-  font-size: 1.1rem;
+textarea {
+  resize: vertical;
 }
 
-.contact-label {
-  margin: 0;
-  color: var(--color-rose);
-  font-weight: 700;
+.form-actions {
+  margin-top: 0.9rem;
 }
 
-.contact-list p {
-  margin: 0;
+.hint {
+  margin: 0.65rem 0 0;
   color: var(--color-muted);
+  font-size: 0.92rem;
 }
 
-.cta-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.8rem;
-  padding: 0.9rem 1rem;
-  border-radius: 16px;
-  background: linear-gradient(90deg, rgba(199, 117, 139, 0.08), rgba(0, 72, 49, 0.08));
-  border: 1px solid rgba(199, 117, 139, 0.3);
-}
-
-.micro {
-  margin: 0;
-  color: var(--color-muted);
-  font-size: 0.95rem;
-}
-
-.micro--strong {
+.success {
   color: var(--color-forest);
   font-weight: 700;
 }
 
-.card-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.75rem 1rem;
-  border-radius: 12px;
-  background: var(--color-forest);
-  color: #ffffff;
-  text-decoration: none;
-  border: 1px solid rgba(0, 72, 49, 0.35);
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card-cta:hover,
-.card-cta:focus-visible {
-  transform: translateY(-1px);
-  border-color: rgba(0, 72, 49, 0.6);
-  background: #004831;
-  box-shadow: 0 15px 35px rgba(0, 72, 49, 0.28);
-}
-
-.assurance {
-  position: relative;
-}
-
-.assurance-card {
-  position: relative;
-  padding: 2rem;
-  border-radius: 24px;
-  border: 1px solid rgba(199, 117, 139, 0.14);
-  background: var(--color-paper);
-  box-shadow: 0 20px 60px rgba(0, 72, 49, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
-  display: grid;
-  gap: 1.2rem;
-}
-
-.assurance-beam {
-  position: absolute;
-  inset: -30% 20% auto;
-  height: 120%;
-  background: linear-gradient(120deg, rgba(199, 117, 139, 0.18), rgba(0, 72, 49, 0));
-  filter: blur(40px);
-  transform: rotate(-4deg);
-  opacity: 0.6;
-  z-index: 0;
-}
-
-.assurance-card > * {
-  position: relative;
-  z-index: 1;
-}
-
-.assurance-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-}
-
-.tile {
-  padding: 1rem;
-  border-radius: 16px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 72, 49, 0.14);
-  display: grid;
-  gap: 0.4rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.tile::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(199, 117, 139, 0.14), transparent 40%);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.tile:hover::after,
-.tile:focus-within::after {
-  opacity: 1;
-}
-
-.tile-badge {
+.job-card__meta {
   margin: 0;
+  font-size: 0.85rem;
   color: var(--color-rose);
   font-weight: 700;
-  letter-spacing: 0.06em;
 }
 
-.tile-title {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 700;
+.contact-card h3 {
+  margin: 0.4rem 0;
+  color: var(--color-forest);
 }
 
-.tile-copy {
+.contact-list {
   margin: 0;
+  padding-left: 1rem;
   color: var(--color-muted);
+  display: grid;
+  gap: 0.55rem;
 }
 
-@media (max-width: 1024px) {
-  .kontakt-panels {
+.text-link {
+  margin-top: 0.9rem;
+  display: inline-flex;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--color-forest);
+}
+
+@media (max-width: 900px) {
+  .contact-hero,
+  .contact-grid {
     grid-template-columns: 1fr;
   }
-
-  .kontakt-card {
-    order: -1;
-  }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 620px) {
   .form-grid {
     grid-template-columns: 1fr;
-  }
-
-  .kontakt-hero,
-  .assurance-card {
-    padding: 1.2rem;
   }
 }
 </style>
