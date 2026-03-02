@@ -4,11 +4,11 @@
     <header class="topbar">
       <NuxtRouteAnnouncer />
       <div class="brand">
-        <div class="brand-icon">LOG</div>
-        <div>
-          <p class="brand-kicker">Babylon Bahndienste</p>
-          <!-- <p class="brand-name">Babylon Bahndienste UG</p> -->
-        </div>
+        <img
+          src="/images/logo.jpg"
+          alt="Babylon Bahndienste Logo"
+          class="brand-logo"
+        >
       </div>
 
       <nav class="nav-links" aria-label="Hauptnavigation">
@@ -111,28 +111,12 @@
   letter-spacing: 0.04em;
 }
 
-.brand-icon {
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--color-rose), var(--color-forest));
-  color: #ffffff;
-  font-weight: 800;
-  box-shadow: 0 12px 30px rgba(199, 117, 139, 0.28);
-}
-
-.brand-kicker {
-  margin: 0;
-  font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.brand-name {
-  margin: 0;
-  font-size: 1.05rem;
-  font-weight: 700;
+.brand-logo {
+  height: 44px;
+  width: auto;
+  max-width: min(42vw, 280px);
+  object-fit: contain;
+  border-radius: 6px;
 }
 
 .nav-links {
