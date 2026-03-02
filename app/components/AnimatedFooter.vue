@@ -36,7 +36,6 @@
               E-Mail senden
             </a>
           </div>
-          <NuxtLink to="/kontakt" class="footer__cta">Kontakt aufnehmen</NuxtLink>
         </div>
       </div>
 
