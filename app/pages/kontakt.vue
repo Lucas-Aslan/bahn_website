@@ -11,14 +11,48 @@ const services = [
 ]
 
 const submitted = ref(false)
+const isSubmitting = ref(false)
+const submitError = ref('')
 let revealObserver: IntersectionObserver | null = null
 
-const handleSubmit = (event: Event) => {
+const handleSubmit = async (event: Event) => {
   event.preventDefault()
-  submitted.value = true
-  window.setTimeout(() => {
-    submitted.value = false
-  }, 4200)
+
+  const form = event.target as HTMLFormElement | null
+  if (!form || isSubmitting.value) {
+    return
+  }
+
+  submitted.value = false
+  submitError.value = ''
+  isSubmitting.value = true
+
+  try {
+    const formData = new FormData(form)
+    const response = await fetch('https://formsubmit.co/ajax/info@babylon-bahndienste.de', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json'
+      },
+      body: formData
+    })
+
+    if (!response.ok) {
+      throw new Error('Nachricht konnte nicht gesendet werden.')
+    }
+
+    submitted.value = true
+    form.reset()
+    window.setTimeout(() => {
+      submitted.value = false
+    }, 4200)
+  }
+  catch {
+    submitError.value = 'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.'
+  }
+  finally {
+    isSubmitting.value = false
+  }
 }
 
 onMounted(() => {
@@ -119,14 +153,22 @@ onBeforeUnmount(() => {
               name="message"
               rows="4"
               placeholder="Beschreiben Sie Ihr Vorhaben, Zeitplan und Einsatzort."
+              required
             />
           </label>
 
+          <input type="hidden" name="_subject" value="Neue Kontaktanfrage über die Website">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+
           <div class="form-actions">
-            <button type="submit" class="cta cta--solid">{{ submitted ? 'Nachricht gesendet' : 'Abschicken' }}</button>
+            <button type="submit" class="cta cta--solid" :disabled="isSubmitting">
+              {{ isSubmitting ? 'Wird gesendet ...' : (submitted ? 'Nachricht gesendet' : 'Abschicken') }}
+            </button>
           </div>
 
           <p v-if="submitted" class="hint success">Vielen Dank! Wir melden uns zeitnah mit einem konkreten Vorschlag.</p>
+          <p v-if="submitError" class="hint error">{{ submitError }}</p>
           <p class="hint">Wir verarbeiten Ihre Angaben vertraulich und ausschließlich zur Kontaktaufnahme.</p>
         </form>
 
@@ -221,6 +263,12 @@ h2 {
 .cta:hover,
 .cta:focus-visible {
   transform: translateY(-1px);
+}
+
+.cta:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
 }
 
 .js-reveal {
@@ -330,6 +378,11 @@ textarea {
 
 .success {
   color: var(--color-forest);
+  font-weight: 700;
+}
+
+.error {
+  color: #b3261e;
   font-weight: 700;
 }
 
