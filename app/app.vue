@@ -253,6 +253,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
+  margin-right: clamp(1rem, 4vw, 4rem);
 }
 
 .page-body {
@@ -275,6 +276,7 @@
   .cta-group {
     width: 100%;
     flex-direction: column;
+    margin-right: 0;
   }
 
   .cta-button {

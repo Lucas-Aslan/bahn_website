@@ -201,11 +201,6 @@ watch(currentVideoIndex, async () => {
   gap: 1.1rem;
   color: #ffffff;
   padding: 1.4rem 1.6rem;
-  border-radius: 18px;
-  background: linear-gradient(145deg, rgba(0, 72, 49, 0.85), rgba(0, 72, 49, 0.75));
-  backdrop-filter: blur(12px) saturate(1.05);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   grid-column: 1;
   justify-self: start;
   align-self: start;
