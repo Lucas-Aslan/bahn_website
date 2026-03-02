@@ -140,7 +140,7 @@ watch(currentVideoIndex, async () => {
   padding: calc(1.2rem + var(--hero-overlap)) clamp(2rem, 4vw, 3rem) 3.6rem;
   background: var(--color-forest);
   box-shadow: 0 35px 90px rgba(0, 0, 0, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-  min-height: 540px;
+  min-height: max(540px, calc(100svh - 88px));
   display: grid;
   grid-template-columns: minmax(0, 760px);
   align-items: center;
