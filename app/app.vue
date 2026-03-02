@@ -93,11 +93,10 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 1.25rem;
-  padding: 0.85rem 1.3rem;
-  margin: 1rem auto;
-  max-width: 1100px;
-  width: calc(100% - 2rem);
-  border-radius: 18px;
+  padding: 0.85rem clamp(1rem, 3vw, 2.5rem);
+  margin: 0;
+  width: 100%;
+  border-radius: 0;
   background: var(--color-forest);
   color: #ffffff;
   box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
@@ -257,7 +256,7 @@
 }
 
 .page-body {
-  padding: 1rem 1.5rem 3rem;
+  padding: 0 1.5rem 3rem;
   max-width: 1200px;
   margin: 0 auto;
 }

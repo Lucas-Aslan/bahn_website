@@ -133,8 +133,7 @@ watch(currentVideoIndex, async () => {
 
 <style scoped>
 .hero {
-  --hero-overlap: clamp(4.5rem, 12vh, 6.5rem);
-  --hero-bleed: calc(var(--hero-overlap) + 1.25rem);
+  --hero-overlap: 0rem;
   position: relative;
   overflow: hidden;
   border-radius: 0;
@@ -151,7 +150,7 @@ watch(currentVideoIndex, async () => {
   max-width: none;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  margin-top: calc(-1rem - var(--hero-bleed));
+  margin-top: 0;
 }
 
 .hero__video {
