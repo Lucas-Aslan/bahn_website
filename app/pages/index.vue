@@ -4,10 +4,8 @@ import { onBeforeUnmount, onMounted } from 'vue'
 import HomeAboutSection from '~/components/home/HomeAboutSection.vue'
 import HomeCareerSection from '~/components/home/HomeCareerSection.vue'
 import HomeFaqSection from '~/components/home/HomeFaqSection.vue'
-import HomeGoldCtaSection from '~/components/home/HomeGoldCtaSection.vue'
 import HomeHeroSection from '~/components/home/HomeHeroSection.vue'
 import HomePerformanceSection from '~/components/home/HomePerformanceSection.vue'
-import HomeServiceSection from '~/components/home/HomeServiceSection.vue'
 
 let revealObserver: IntersectionObserver | null = null
 
@@ -45,9 +43,7 @@ onBeforeUnmount(() => {
     <HomeAboutSection />
     <HomePerformanceSection />
     <HomeCareerSection />
-    <HomeGoldCtaSection />
     <HomeFaqSection />
-    <HomeServiceSection />
   </div>
 </template>
 
@@ -59,11 +55,11 @@ onBeforeUnmount(() => {
 }
 
 :global(.section) {
-  background: rgba(6, 12, 26, 0.8);
+  background: transparent;
   border-radius: 24px;
   padding: clamp(1.5rem, 2vw, 2rem);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  border: none;
+  box-shadow: none;
 }
 
 :global(.section__header) {
@@ -77,11 +73,12 @@ onBeforeUnmount(() => {
   margin: 0.2rem 0 0.35rem;
   font-size: clamp(1.8rem, 3vw, 2.3rem);
   letter-spacing: -0.01em;
+  color: var(--color-forest);
 }
 
 :global(.section__lead) {
   margin: 0;
-  color: #c8dbff;
+  color: var(--color-muted);
   line-height: 1.6;
 }
 
@@ -89,8 +86,11 @@ onBeforeUnmount(() => {
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #8ec5ff;
+  color: var(--color-rose);
   font-size: 0.82rem;
+  background: rgba(199, 117, 139, 0.12);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
 }
 
 :global(.cta) {
@@ -107,28 +107,28 @@ onBeforeUnmount(() => {
 }
 
 :global(.cta--solid) {
-  background: linear-gradient(120deg, #f9d270, #c99038);
-  color: #0c0a05;
-  box-shadow: 0 18px 45px rgba(249, 210, 112, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: var(--color-rose);
+  color: #ffffff;
+  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 :global(.cta--solid:hover),
 :global(.cta--solid:focus-visible) {
   transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 22px 60px rgba(249, 210, 112, 0.45);
+  box-shadow: 0 22px 60px rgba(199, 117, 139, 0.35);
 }
 
 :global(.cta--ghost) {
-  background: rgba(255, 255, 255, 0.04);
-  color: #f6e6b4;
-  border-color: rgba(255, 226, 153, 0.3);
+  background: var(--color-rose);
+  color: #ffffff;
+  border-color: rgba(199, 117, 139, 0.4);
   backdrop-filter: blur(8px);
 }
 
 :global(.cta--ghost:hover),
 :global(.cta--ghost:focus-visible) {
   transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.08);
+  background: #b8687d;
 }
 
 :global(.js-reveal) {

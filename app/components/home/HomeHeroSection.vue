@@ -96,7 +96,8 @@ watch(currentVideoIndex, async () => {
       </p>
 
       <div class="hero__actions">
-        <NuxtLink to="/leistungen/transport" class="cta cta--ghost">Leistungen ansehen</NuxtLink>
+        <NuxtLink to="/leistungen" class="cta cta--ghost">Leistungen ansehen</NuxtLink>
+        <NuxtLink to="/kontakt" class="cta cta--contact">Kontakt aufnehmen</NuxtLink>
       </div>
 
       <div class="hero__accolades" role="list">
@@ -132,25 +133,24 @@ watch(currentVideoIndex, async () => {
 
 <style scoped>
 .hero {
-  --hero-overlap: clamp(4.5rem, 12vh, 6.5rem);
-  --hero-bleed: calc(var(--hero-overlap) + 1.25rem);
+  --hero-overlap: 0rem;
   position: relative;
   overflow: hidden;
   border-radius: 0;
   padding: calc(1.2rem + var(--hero-overlap)) clamp(2rem, 4vw, 3rem) 3.6rem;
-  background: linear-gradient(135deg, rgba(9, 12, 24, 0.92), rgba(5, 11, 24, 0.7));
-  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-  min-height: 540px;
+  background: var(--color-forest);
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  min-height: max(540px, calc(100svh - 88px));
   display: grid;
-  grid-template-columns: minmax(0, 760px) 1fr;
-  align-items: start;
-  justify-content: start;
+  grid-template-columns: minmax(0, 760px);
+  align-items: center;
+  justify-content: center;
   column-gap: clamp(1.5rem, 5vw, 3.5rem);
   width: 100vw;
   max-width: none;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  margin-top: calc(-1rem - var(--hero-bleed));
+  margin-top: 0;
 }
 
 .hero__video {
@@ -164,9 +164,9 @@ watch(currentVideoIndex, async () => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(1.05) contrast(1.12) brightness(0.92);
+  filter: saturate(1.05) contrast(1.05) brightness(0.96);
   transform: scale(1.015);
-  opacity: 0.98;
+  opacity: 0.94;
 }
 
 .hero-video-enter-active,
@@ -184,11 +184,12 @@ watch(currentVideoIndex, async () => {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 32% 30%, rgba(255, 185, 80, 0.22), transparent 34%),
-    linear-gradient(130deg, rgba(6, 12, 24, 0.2), rgba(0, 0, 0, 0.55) 55%, rgba(4, 12, 25, 0.78));
-  backdrop-filter: blur(2px);
-  mix-blend-mode: multiply;
-  opacity: 0.94;
+    linear-gradient(160deg, rgba(0, 72, 49, 0.72), rgba(0, 72, 49, 0.58)),
+    radial-gradient(circle at 32% 30%, rgba(199, 117, 139, 0.2), transparent 34%),
+    radial-gradient(circle at 72% 65%, rgba(255, 255, 255, 0.12), transparent 40%);
+  backdrop-filter: blur(6px);
+  mix-blend-mode: normal;
+  opacity: 1;
 }
 
 .hero__content {
@@ -198,29 +199,22 @@ watch(currentVideoIndex, async () => {
   width: min(100%, 720px);
   display: grid;
   gap: 1.1rem;
-  color: #e8f0ff;
+  color: #ffffff;
   padding: 1.4rem 1.6rem;
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(7, 12, 22, 0.78), rgba(5, 10, 20, 0.64));
-  backdrop-filter: blur(9px) saturate(1.05);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   grid-column: 1;
-  justify-self: start;
-  align-self: start;
-  transform: translateX(clamp(0.75rem, 10vw, 10.5rem));
+  justify-self: center;
+  align-self: center;
+  text-align: center;
 }
 
 .hero__title {
   margin: 0;
-  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-size: clamp(3.3rem, 8vw, 6rem);
   font-weight: 900;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  background: linear-gradient(115deg, #f6e6b4, #f9d270 40%, #c99038);
-  -webkit-background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 12px 28px rgba(249, 210, 112, 0.28));
+  color: #c7758b;
+  text-shadow: 0 18px 36px rgba(0, 0, 0, 0.6);
 }
 
 .hero__badge {
@@ -229,36 +223,64 @@ watch(currentVideoIndex, async () => {
   gap: 0.5rem;
   padding: 0.45rem 0.85rem;
   border-radius: 999px;
-  background: linear-gradient(120deg, rgba(255, 205, 120, 0.18), rgba(255, 255, 255, 0.08));
-  color: #f8dba1;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
   font-size: 0.9rem;
   letter-spacing: 0.04em;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 214, 138, 0.2);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
   width: fit-content;
+  justify-self: center;
 }
 
 .hero__gold {
   display: inline-block;
   margin-left: 0.35rem;
-  background: linear-gradient(120deg, #f6e6b4, #f9d270 45%, #c99038);
-  -webkit-background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 12px 28px rgba(249, 210, 112, 0.2));
+  color: #ffffff;
+  filter: drop-shadow(0 12px 24px rgba(199, 117, 139, 0.35));
 }
 
 .hero__lead {
   margin: 0;
   max-width: 640px;
-  color: #cfe2ff;
+  color: rgba(255, 255, 255, 0.92);
   font-size: 1.08rem;
   line-height: 1.6;
-  text-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
+  text-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
 }
 
 .hero__actions {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero :global(.cta--ghost) {
+  background: var(--color-rose);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.hero :global(.cta--ghost:hover),
+.hero :global(.cta--ghost:focus-visible) {
+  background: #b8687d;
+  transform: translateY(-1px);
+  box-shadow: 0 22px 60px rgba(199, 117, 139, 0.38);
+}
+
+.hero :global(.cta--contact) {
+  background: #005f46;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 18px 45px rgba(0, 95, 70, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.hero :global(.cta--contact:hover),
+.hero :global(.cta--contact:focus-visible) {
+  background: #004f3a;
+  transform: translateY(-1px);
+  box-shadow: 0 22px 60px rgba(0, 95, 70, 0.42);
 }
 
 .hero__accolades {
@@ -266,19 +288,20 @@ watch(currentVideoIndex, async () => {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 0.9rem;
   margin-top: 0.5rem;
+  text-align: left;
 }
 
 .hero__accolade {
   padding: 1rem;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
 .hero__accolade p {
   margin: 0.35rem 0 0;
-  color: #d9e7ff;
+  color: #d9d9d9;
   font-size: 0.97rem;
   line-height: 1.5;
 }
@@ -289,8 +312,8 @@ watch(currentVideoIndex, async () => {
   gap: 0.4rem;
   padding: 0.4rem 0.65rem;
   border-radius: 999px;
-  background: rgba(249, 210, 112, 0.15);
-  color: #f9d270;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
   font-size: 0.85rem;
   letter-spacing: 0.03em;
 }
@@ -299,13 +322,13 @@ watch(currentVideoIndex, async () => {
   position: absolute;
   border-radius: 50%;
   filter: blur(40px);
-  opacity: 0.6;
+  opacity: 0.45;
 }
 
 .hero__orbit--one {
   width: 380px;
   height: 380px;
-  background: radial-gradient(circle, rgba(249, 210, 112, 0.28), transparent 60%);
+  background: radial-gradient(circle, rgba(199, 117, 139, 0.3), transparent 60%);
   bottom: -80px;
   right: 14%;
 }
@@ -313,7 +336,7 @@ watch(currentVideoIndex, async () => {
 .hero__orbit--two {
   width: 260px;
   height: 260px;
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.18), transparent 60%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.14), transparent 60%);
   top: -60px;
   left: 10%;
 }
@@ -325,11 +348,11 @@ watch(currentVideoIndex, async () => {
   width: 620px;
   height: 620px;
   background:
-    radial-gradient(circle at 50% 30%, rgba(249, 210, 112, 0.16), transparent 38%),
-    radial-gradient(circle at 40% 80%, rgba(0, 255, 255, 0.14), transparent 45%),
-    conic-gradient(from 140deg at 50% 50%, rgba(249, 210, 112, 0.14), transparent 60%);
-  filter: blur(48px) saturate(1.1);
-  opacity: 0.7;
+    radial-gradient(circle at 50% 30%, rgba(199, 117, 139, 0.2), transparent 38%),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.12), transparent 45%),
+    conic-gradient(from 140deg at 50% 50%, rgba(0, 72, 49, 0.2), transparent 60%);
+  filter: blur(48px) saturate(1.05);
+  opacity: 0.65;
   transition: transform 0.35s ease-out;
   pointer-events: none;
 }
@@ -343,7 +366,7 @@ watch(currentVideoIndex, async () => {
 
   .hero__content {
     grid-column: 1;
-    justify-self: start;
+    justify-self: center;
     width: 100%;
   }
 }

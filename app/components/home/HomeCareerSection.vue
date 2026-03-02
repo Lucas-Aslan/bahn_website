@@ -118,15 +118,16 @@ const careerSteps: CareerStep[] = [
 .career {
   position: relative;
   overflow: hidden;
-  background: radial-gradient(circle at 18% 12%, rgba(249, 210, 112, 0.14), transparent 32%),
-    radial-gradient(circle at 78% 80%, rgba(0, 255, 255, 0.12), transparent 36%),
-    linear-gradient(145deg, #060a14, #0c1528 50%, #060914);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  color: #f6f8fb;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(199, 117, 139, 0.14), transparent 32%),
+    radial-gradient(circle at 78% 80%, rgba(0, 72, 49, 0.12), transparent 36%),
+    linear-gradient(145deg, var(--color-paper), var(--color-cream));
+  border: 1px solid rgba(0, 72, 49, 0.12);
+  color: var(--color-ink);
   isolation: isolate;
   padding: clamp(1.2rem, 2vw, 1.8rem);
   border-radius: 22px;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.08);
 }
 
 .career__backdrop {
@@ -140,10 +141,10 @@ const careerSteps: CareerStep[] = [
   position: absolute;
   inset: -20%;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(0, 72, 49, 0.06) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(0, 72, 49, 0.06) 1px, transparent 1px);
   background-size: 220px 220px;
-  opacity: 0.25;
+  opacity: 0.35;
   filter: blur(1px);
   transform: rotate(-2deg) scale(1.1);
 }
@@ -153,21 +154,21 @@ const careerSteps: CareerStep[] = [
   width: 420px;
   height: 420px;
   filter: blur(80px);
-  opacity: 0.65;
-  mix-blend-mode: screen;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
   animation: careerFloat 12s ease-in-out infinite alternate;
 }
 
 .career__halo--gold {
   top: -12%;
   left: -8%;
-  background: radial-gradient(circle, rgba(249, 210, 112, 0.28), transparent 50%);
+  background: radial-gradient(circle, rgba(199, 117, 139, 0.35), transparent 50%);
 }
 
 .career__halo--cyan {
   bottom: -16%;
   right: -10%;
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent 52%);
+  background: radial-gradient(circle, rgba(0, 72, 49, 0.28), transparent 52%);
   animation-duration: 14s;
   animation-delay: 0.5s;
 }
@@ -185,44 +186,45 @@ const careerSteps: CareerStep[] = [
   gap: 0.5rem;
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 72, 49, 0.06);
   width: fit-content;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .career__spark {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: radial-gradient(circle, #f9d270, #c99038);
+  background: radial-gradient(circle, var(--color-rose), var(--color-rose-soft));
   box-shadow:
-    0 0 0 6px rgba(249, 210, 112, 0.2),
-    0 0 0 14px rgba(249, 210, 112, 0.08);
-  color: #f9d270;
+    0 0 0 6px rgba(199, 117, 139, 0.14),
+    0 0 0 14px rgba(199, 117, 139, 0.08);
+  color: var(--color-rose);
   animation: pulse 1.4s ease-in-out infinite;
 }
 
 .career__eyebrow-pill {
   padding: 0.25rem 0.7rem;
   border-radius: 999px;
-  background: rgba(0, 255, 255, 0.12);
-  color: #74e3ff;
+  background: rgba(0, 72, 49, 0.08);
+  color: var(--color-forest);
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: 0.8rem;
-  border: 1px solid rgba(0, 255, 255, 0.25);
+  border: 1px solid rgba(0, 72, 49, 0.18);
 }
 
 .career__headline h2 {
   margin: 0.2rem 0 0.2rem;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   letter-spacing: -0.02em;
+  color: var(--color-ink);
 }
 
 .career__lead {
   margin: 0;
-  color: #dbe5ff;
+  color: var(--color-muted);
   line-height: 1.6;
   font-size: 1.02rem;
   max-width: 720px;
@@ -239,11 +241,11 @@ const careerSteps: CareerStep[] = [
   overflow: hidden;
   padding: 1rem 0.9rem;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 72, 49, 0.12);
   box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 18px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(8px);
   isolation: isolate;
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.25s ease;
@@ -253,7 +255,7 @@ const careerSteps: CareerStep[] = [
   position: absolute;
   inset: -30% -10% auto;
   height: 70%;
-  background: radial-gradient(circle, rgba(249, 210, 112, 0.16), transparent 55%);
+  background: radial-gradient(circle, rgba(199, 117, 139, 0.18), transparent 55%);
   filter: blur(24px);
   opacity: 0.8;
   z-index: 0;
@@ -266,7 +268,7 @@ const careerSteps: CareerStep[] = [
   inset: auto -20% -40% auto;
   width: 240px;
   height: 240px;
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.18), transparent 60%);
+  background: radial-gradient(circle, rgba(0, 72, 49, 0.16), transparent 60%);
   filter: blur(18px);
   opacity: 0.7;
   z-index: 0;
@@ -274,11 +276,11 @@ const careerSteps: CareerStep[] = [
 }
 
 .career-signal[data-accent='cyan'] .career-signal__glow {
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.16), transparent 55%);
+  background: radial-gradient(circle, rgba(0, 72, 49, 0.16), transparent 55%);
 }
 
 .career-signal[data-accent='magenta'] .career-signal__glow {
-  background: radial-gradient(circle, rgba(255, 135, 255, 0.18), transparent 55%);
+  background: radial-gradient(circle, rgba(219, 161, 178, 0.22), transparent 55%);
 }
 
 .career-signal__header {
@@ -293,12 +295,12 @@ const careerSteps: CareerStep[] = [
 .career-signal__badge {
   padding: 0.35rem 0.65rem;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 72, 49, 0.08);
+  border: 1px solid rgba(0, 72, 49, 0.12);
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #f9d270;
+  color: var(--color-forest);
   font-size: 0.85rem;
 }
 
@@ -309,16 +311,16 @@ const careerSteps: CareerStep[] = [
   width: 34px;
   height: 34px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #fff;
+  background: rgba(199, 117, 139, 0.12);
+  border: 1px solid rgba(199, 117, 139, 0.26);
+  color: var(--color-rose);
   font-weight: 900;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .career-signal__detail {
   margin: 0.6rem 0 0;
-  color: #dbe5ff;
+  color: var(--color-muted);
   line-height: 1.6;
   position: relative;
   z-index: 1;
@@ -327,10 +329,10 @@ const careerSteps: CareerStep[] = [
 .career-signal:hover,
 .career-signal:focus-within {
   transform: translateY(-6px) scale(1.01);
-  border-color: rgba(249, 210, 112, 0.4);
+  border-color: rgba(199, 117, 139, 0.4);
   box-shadow:
-    0 26px 60px rgba(0, 0, 0, 0.48),
-    0 0 0 1px rgba(249, 210, 112, 0.16);
+    0 26px 60px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(199, 117, 139, 0.16);
 }
 
 .career__cta-row {
@@ -350,9 +352,9 @@ const careerSteps: CareerStep[] = [
   gap: 0.6rem;
   padding: 0.85rem 1rem;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(0, 72, 49, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .career-step {
@@ -369,24 +371,25 @@ const careerSteps: CareerStep[] = [
   width: 34px;
   height: 34px;
   border-radius: 12px;
-  background: linear-gradient(140deg, rgba(249, 210, 112, 0.4), rgba(0, 255, 255, 0.28));
-  color: #0a0f1c;
+  background: linear-gradient(140deg, rgba(199, 117, 139, 0.4), rgba(0, 72, 49, 0.32));
+  color: #ffffff;
   font-weight: 900;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(0, 72, 49, 0.14);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    0 14px 30px rgba(0, 0, 0, 0.28);
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 14px 30px rgba(0, 0, 0, 0.12);
 }
 
 .career-step__title {
   margin: 0;
   font-weight: 800;
   letter-spacing: -0.01em;
+  color: var(--color-ink);
 }
 
 .career-step__detail {
   margin: 0.12rem 0 0;
-  color: #cfd9f2;
+  color: var(--color-muted);
   line-height: 1.5;
 }
 
@@ -394,8 +397,8 @@ const careerSteps: CareerStep[] = [
   position: relative;
   padding: 0.65rem 0.85rem;
   border-radius: 12px;
-  background: rgba(249, 210, 112, 0.12);
-  color: #f9e7be;
+  background: rgba(199, 117, 139, 0.12);
+  color: var(--color-ink);
   font-weight: 800;
   overflow: hidden;
 }
@@ -405,7 +408,7 @@ const careerSteps: CareerStep[] = [
   inset: -30% auto auto -10%;
   width: 180px;
   height: 180px;
-  background: radial-gradient(circle, rgba(249, 210, 112, 0.2), transparent 60%);
+  background: radial-gradient(circle, rgba(199, 117, 139, 0.2), transparent 60%);
   filter: blur(14px);
   animation: careerGlow 5s ease-in-out infinite;
 }

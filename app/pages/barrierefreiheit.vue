@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted } from 'vue'
+
 const regulationLinks = [
   { label: 'Behindertengleichstellungsgesetz (BGG)', href: 'https://www.gesetze-im-internet.de/bgg/' },
   { label: 'Barrierefreie-Informationstechnik-Verordnung (BITV 2.0)', href: 'https://www.gesetze-im-internet.de/bitv_2_0/' },
@@ -22,16 +24,44 @@ const partialAreas = [
       'Ältere PDF-Dokumente erfüllen noch nicht überall die PDF/UA-Kriterien. Wir überführen sie schrittweise in barrierearme Formate.'
   }
 ]
+
+let revealObserver: IntersectionObserver | null = null
+
+onMounted(() => {
+  const revealables = Array.from(document.querySelectorAll<HTMLElement>('.js-reveal'))
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          revealObserver?.unobserve(entry.target)
+        }
+      })
+    },
+    {
+      threshold: 0.2,
+      rootMargin: '0px 0px -10% 0px'
+    }
+  )
+
+  revealables.forEach((element, index) => {
+    element.style.setProperty('--reveal-delay', `${index * 70}ms`)
+    revealObserver?.observe(element)
+  })
+})
+
+onBeforeUnmount(() => {
+  revealObserver?.disconnect()
+})
 </script>
 
 <template>
   <div class="a11y-page">
-    <section class="hero">
-      <div class="hero__beam" aria-hidden="true" />
+    <section class="hero section js-reveal">
       <div class="hero__content">
         <p class="eyebrow">Barrierefreiheit</p>
         <h1>Erklärung zur digitalen Barrierefreiheit</h1>
-        <p class="lede">
+        <p class="section__lead">
           Informationen zu unserem barrierefreien Webauftritt – inklusive rechtlicher Grundlagen, aktuellem Status und
           Kontaktwegen für Feedback.
         </p>
@@ -44,14 +74,13 @@ const partialAreas = [
       </div>
 
       <div class="hero__panel" aria-label="Kurzüberblick zur Barrierefreiheit">
-        <div class="panel__halo" aria-hidden="true" />
-        <p class="panel__eyebrow">Was Sie erwartet</p>
-        <p class="panel__title">Transparente Standards & kontinuierliche Verbesserung</p>
-        <p class="panel__text">
+        <p class="hero__panel-eyebrow">Was Sie erwartet</p>
+        <p class="hero__panel-title">Transparente Standards & kontinuierliche Verbesserung</p>
+        <p class="section__lead">
           Unsere Seiten werden fortlaufend geprüft und an aktuelle Anforderungen angepasst. Hinweise und Verbesserungsvorschläge
           setzen wir – soweit möglich – kurzfristig um.
         </p>
-        <div class="panel__tags" role="list">
+        <div class="hero__tags" role="list">
           <span class="pill" role="listitem">Kontraststarke Gestaltung</span>
           <span class="pill" role="listitem">Klare Fokus-Reihenfolge</span>
           <span class="pill" role="listitem">Tastaturnavigation</span>
@@ -59,15 +88,17 @@ const partialAreas = [
       </div>
     </section>
 
-    <section class="grid">
+    <section class="content-grid js-reveal">
       <article class="card card--primary">
-        <div class="card__head">
-          <p class="eyebrow">Selbstverpflichtung</p>
-          <h2>Rechtliche Grundlagen</h2>
-          <p class="lede">
-            Wir setzen alles daran, dass unsere Webinhalte ohne Barrieren nutzbar sind. Maßstab sind die Vorgaben des § 12d BGG
-            sowie die Anforderungen der BITV 2.0.
-          </p>
+        <div class="section__header">
+          <div>
+            <p class="eyebrow">Selbstverpflichtung</p>
+            <h2>Rechtliche Grundlagen</h2>
+            <p class="section__lead">
+              Wir setzen alles daran, dass unsere Webinhalte ohne Barrieren nutzbar sind. Maßstab sind die Vorgaben des § 12d BGG
+              sowie die Anforderungen der BITV 2.0.
+            </p>
+          </div>
         </div>
 
         <div class="card__body">
@@ -99,12 +130,10 @@ const partialAreas = [
         </div>
       </article>
 
-      <aside class="side">
-        <div class="card card--glass">
-          <div class="side__head">
-            <p class="side__eyebrow">Kontakt für Feedback</p>
-            <p class="side__title">Melden Sie Barrieren direkt an unser Team.</p>
-          </div>
+      <aside class="side-stack">
+        <div class="card">
+          <p class="eyebrow">Kontakt für Feedback</p>
+          <h3>Melden Sie Barrieren direkt an unser Team.</h3>
           <ul class="contact-list">
             <li>
               <span class="contact-icon" aria-hidden="true">✉️</span>
@@ -117,7 +146,7 @@ const partialAreas = [
               <span class="contact-icon" aria-hidden="true">☎️</span>
               <div>
                 <p class="contact-label">Telefon</p>
-                <a href="tel:+49123456789">+49 123 456 789</a>
+                <a href="tel:+49123456789">+49 160 216 1223</a>
               </div>
             </li>
           </ul>
@@ -126,21 +155,23 @@ const partialAreas = [
           </p>
         </div>
 
-        <div class="card card--meta">
-          <p class="side__eyebrow">Stand</p>
-          <p class="side__title">Dezember 2025</p>
+        <div class="card">
+          <p class="eyebrow">Stand</p>
+          <h3>Dezember 2025</h3>
           <p class="micro">Diese Seite wird aktualisiert, sobald Prozesse oder Inhalte angepasst werden.</p>
         </div>
       </aside>
     </section>
 
-    <section class="section">
-      <div class="section__head">
-        <p class="eyebrow">Aktuelle Einschränkungen</p>
-        <h2>Welche Bereiche sind noch nicht barrierefrei?</h2>
-        <p class="lede">
-          Einzelne Inhalte erfüllen noch nicht vollständig die Kriterien der WCAG 2.1. Wir arbeiten an folgenden Punkten mit hoher Priorität.
-        </p>
+    <section class="section js-reveal">
+      <div class="section__header">
+        <div>
+          <p class="eyebrow">Aktuelle Einschränkungen</p>
+          <h2>Welche Bereiche sind noch nicht barrierefrei?</h2>
+          <p class="section__lead">
+            Einzelne Inhalte erfüllen noch nicht vollständig die Kriterien der WCAG 2.1. Wir arbeiten an folgenden Punkten mit hoher Priorität.
+          </p>
+        </div>
       </div>
 
       <div class="tiles">
@@ -162,14 +193,16 @@ const partialAreas = [
       </div>
     </section>
 
-    <section class="mediation">
+    <section class="section js-reveal">
       <article class="card card--primary">
-        <div class="card__head">
-          <p class="eyebrow">Schlichtung</p>
-          <h2>Hinweis zum Schlichtungsverfahren</h2>
-          <p class="lede">
-            Sollte Ihr Feedback nicht zu einem zufriedenstellenden Ergebnis führen, können Sie ein Schlichtungsverfahren nach § 16 BGG beantragen.
-          </p>
+        <div class="section__header">
+          <div>
+            <p class="eyebrow">Schlichtung</p>
+            <h2>Hinweis zum Schlichtungsverfahren</h2>
+            <p class="section__lead">
+              Sollte Ihr Feedback nicht zu einem zufriedenstellenden Ergebnis führen, können Sie ein Schlichtungsverfahren nach § 16 BGG beantragen.
+            </p>
+          </div>
         </div>
         <div class="card__body">
           <p>
@@ -198,291 +231,184 @@ const partialAreas = [
 
 <style scoped>
 .a11y-page {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
-  padding: 0.5rem 0 2.5rem;
 }
 
-.hero {
-  position: relative;
+.section {
+  background: transparent;
+  border-radius: 24px;
+  padding: clamp(1.5rem, 2vw, 2rem);
+}
+
+.section__header {
   display: grid;
-  gap: 1.2rem;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-  align-items: stretch;
-  border-radius: 26px;
-  padding: clamp(1.4rem, 2vw, 2rem);
-  background: radial-gradient(circle at 24% 24%, rgba(249, 210, 112, 0.12), transparent 38%),
-    radial-gradient(circle at 80% 16%, rgba(255, 255, 255, 0.06), transparent 36%),
-    rgba(10, 10, 12, 0.92);
-  border: 1px solid rgba(249, 210, 112, 0.18);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.48), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-  overflow: hidden;
-}
-
-.hero__beam {
-  position: absolute;
-  inset: -60% 30% auto -40%;
-  height: 120%;
-  background: radial-gradient(circle, rgba(249, 210, 112, 0.18), transparent 42%);
-  filter: blur(38px);
-  opacity: 0.9;
-  animation: float 9s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-.hero__content {
-  position: relative;
-  display: grid;
-  gap: 0.9rem;
-  z-index: 1;
-}
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.82rem;
-  color: #f9d270;
-  font-weight: 700;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem;
+  align-items: end;
+  margin-bottom: 1rem;
 }
 
 h1 {
-  margin: 0;
-  font-size: clamp(2rem, 2vw + 1.2rem, 2.7rem);
-  line-height: 1.15;
+  margin: 0.2rem 0 0.45rem;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  color: var(--color-forest);
 }
 
 h2 {
-  margin: 0;
-  font-size: clamp(1.6rem, 1vw + 1.1rem, 2.1rem);
-  line-height: 1.2;
+  margin: 0.2rem 0 0.35rem;
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  letter-spacing: -0.01em;
+  color: var(--color-forest);
 }
 
-.lede {
+h3 {
+  margin: 0.2rem 0 0.35rem;
+  color: var(--color-forest);
+}
+
+.section__lead {
   margin: 0;
-  color: #dbe5ff;
-  max-width: 820px;
+  color: var(--color-muted);
   line-height: 1.6;
 }
 
-.hero__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.5rem 0.9rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(249, 210, 112, 0.14);
-  color: #f7f2e6;
-  font-weight: 600;
-}
-
-.chip--solid {
-  background: linear-gradient(120deg, #f9d270, #c99038);
-  color: #0c0a05;
-  border: none;
-  box-shadow: 0 12px 30px rgba(249, 210, 112, 0.3);
-}
-
-.hero__panel {
-  position: relative;
-  z-index: 1;
-  padding: 1.4rem;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 0 0 1px rgba(249, 210, 112, 0.08), 0 16px 40px rgba(0, 0, 0, 0.4);
-  display: grid;
-  gap: 0.6rem;
-}
-
-.panel__halo {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(249, 210, 112, 0.15), transparent 36%),
-    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05), transparent 45%);
-  filter: blur(12px);
-  pointer-events: none;
-}
-
-.panel__eyebrow {
+.eyebrow {
   margin: 0;
-  color: #f6e6b4;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-weight: 700;
-}
-
-.panel__title {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 800;
-}
-
-.panel__text {
-  margin: 0;
-  color: #d8e0f7;
-}
-
-.panel__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.45rem 0.75rem;
+  color: var(--color-rose);
+  font-size: 0.82rem;
+  background: rgba(199, 117, 139, 0.12);
+  padding: 0.3rem 0.75rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #f2f4ff;
-  font-weight: 600;
+  display: inline-flex;
 }
 
-.grid {
+.hero {
   display: grid;
-  gap: 1.2rem;
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(199, 117, 139, 0.12), rgba(0, 72, 49, 0.08));
+  border-radius: 24px;
 }
 
-.card {
-  position: relative;
-  border-radius: 22px;
-  padding: 1.4rem;
-  background: rgba(12, 14, 18, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.42), inset 0 0 0 1px rgba(249, 210, 112, 0.04);
-}
-
-.card--primary {
-  background: radial-gradient(circle at 18% 14%, rgba(249, 210, 112, 0.08), transparent 34%),
-    rgba(12, 12, 16, 0.95);
-  border-color: rgba(249, 210, 112, 0.16);
-}
-
-.card--glass {
-  background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.06);
-}
-
-.card--meta {
-  background: rgba(255, 255, 255, 0.02);
-  border-color: rgba(249, 210, 112, 0.12);
-}
-
-.card--note {
-  background: rgba(10, 12, 16, 0.9);
-  border: 1px dashed rgba(249, 210, 112, 0.3);
-}
-
-.card__head {
+.hero__content {
   display: grid;
-  gap: 0.4rem;
-  margin-bottom: 0.6rem;
+  gap: 0.9rem;
 }
 
-.card__body {
-  display: grid;
-  gap: 0.8rem;
-  color: #e4e8f9;
-}
-
-.card__title {
-  margin: 0 0 0.2rem;
-  font-weight: 800;
-}
-
-.card__text {
-  margin: 0;
-  color: #cbd6f5;
-}
-
+.hero__meta,
+.hero__tags,
 .link-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
 }
 
-.link-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.5rem 0.85rem;
-  border-radius: 999px;
-  background: rgba(249, 210, 112, 0.14);
-  color: #fefcf6;
-  text-decoration: none;
-  font-weight: 700;
-  border: 1px solid rgba(249, 210, 112, 0.26);
-  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+.hero__panel,
+.card,
+.tile {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.06);
 }
 
-.link-pill:hover,
-.link-pill:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 30px rgba(249, 210, 112, 0.24);
-  border-color: rgba(249, 210, 112, 0.4);
-}
-
-.link-pill--ghost {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.08);
-  color: #f2f4ff;
-}
-
-.callout {
-  margin-top: 0.3rem;
-  padding: 0.9rem 1rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 0 0 1px rgba(249, 210, 112, 0.06);
-}
-
-.callout__label {
-  margin: 0 0 0.25rem;
-  font-weight: 700;
-  color: #f9d270;
-}
-
-.callout__text {
-  margin: 0;
-  color: #dce7ff;
-}
-
-.side {
-  display: grid;
-  gap: 0.8rem;
-}
-
-.side__head {
-  display: grid;
-  gap: 0.25rem;
-}
-
-.side__eyebrow {
+.hero__panel-eyebrow {
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #f6e6b4;
+  color: var(--color-rose);
+  font-size: 0.82rem;
   font-weight: 700;
-  font-size: 0.9rem;
 }
 
-.side__title {
+.hero__panel-title {
+  margin: 0.35rem 0;
+  font-size: 1.1rem;
+  color: var(--color-forest);
+  font-weight: 700;
+}
+
+.content-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+}
+
+.card__body {
+  display: grid;
+  gap: 0.9rem;
+  color: var(--color-muted);
+}
+
+.chip,
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  color: var(--color-forest);
+  font-weight: 600;
+}
+
+.chip--solid {
+  background: var(--color-rose);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.link-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(199, 117, 139, 0.12);
+  color: var(--color-forest);
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid rgba(199, 117, 139, 0.26);
+}
+
+.link-pill--ghost {
+  background: #fff;
+}
+
+.callout,
+.card--note {
+  padding: 0.9rem 1rem;
+  border-radius: 16px;
+  background: rgba(199, 117, 139, 0.08);
+  border: 1px solid rgba(199, 117, 139, 0.2);
+}
+
+.callout__label,
+.card__title,
+.tile__title,
+.contact-label {
   margin: 0;
-  font-size: 1.2rem;
-  font-weight: 800;
+  font-weight: 700;
+  color: var(--color-forest);
+}
+
+.callout__text,
+.card__text,
+.tile__text,
+.micro {
+  margin: 0.2rem 0 0;
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+.side-stack {
+  display: grid;
+  gap: 0.8rem;
 }
 
 .contact-list {
@@ -500,50 +426,19 @@ h2 {
   align-items: center;
 }
 
-.contact-icon {
-  display: inline-flex;
-  width: 36px;
-  height: 36px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: rgba(249, 210, 112, 0.15);
-  color: #f9d270;
-  font-size: 1.1rem;
-}
-
-.contact-label {
-  margin: 0;
-  color: #d9e5ff;
-  font-weight: 700;
+.contact-icon,
+.tile__badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(199, 117, 139, 0.16);
 }
 
 a {
-  color: #f9d270;
-  text-decoration: none;
+  color: var(--color-forest);
   font-weight: 700;
-}
-
-a:hover,
-a:focus-visible {
-  text-decoration: underline;
-}
-
-.micro {
-  margin: 0;
-  color: #aeb8d5;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-.section {
-  display: grid;
-  gap: 1rem;
-}
-
-.section__head {
-  display: grid;
-  gap: 0.35rem;
 }
 
 .tiles {
@@ -552,73 +447,22 @@ a:focus-visible {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
-.tile {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.6rem;
-  align-items: start;
-  padding: 0.95rem 1rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 0 0 1px rgba(249, 210, 112, 0.05);
+.js-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
-.tile__badge {
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, #f9d270, #c99038);
-  color: #0c0a05;
-  font-weight: 800;
-}
-
-.tile__title {
-  margin: 0;
-  font-weight: 800;
-  color: #f7f2e6;
-}
-
-.tile__text {
-  margin: 0.15rem 0 0;
-  color: #cbd6f5;
-}
-
-.mediation {
-  display: grid;
-  gap: 0.8rem;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(-12px);
-  }
-  100% {
-    transform: translateY(8px);
-  }
+.js-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 980px) {
   .hero,
-  .grid {
+  .content-grid {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero {
-    padding: 1rem;
-  }
-
-  .card,
-  .card--primary {
-    padding: 1.1rem;
-  }
-
-  .hero__meta {
-    flex-direction: column;
   }
 }
 </style>

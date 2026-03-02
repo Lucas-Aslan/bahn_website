@@ -1,577 +1,386 @@
 <script setup lang="ts">
-const companyDetails = [
+import { onBeforeUnmount, onMounted } from 'vue'
+
+type Detail = {
+  label: string
+  value: string
+}
+
+type Oversight = {
+  title: string
+  description: string
+  link?: string
+}
+
+type LegalNote = {
+  title: string
+  text: string
+}
+
+const companyDetails: Detail[] = [
   { label: 'Firma', value: 'Babylon Bahndienste UG (haftungsbeschränkt)' },
   { label: 'Angaben gemäß § 5 DDG', value: 'Frankfurter Weg 27 · 33106 Paderborn' },
   { label: 'Vertreten durch', value: 'Geschäftsführer: Sanharip Aras' },
-  { label: 'Handelsregister', value: 'Amtsgericht Bielefeld · HRB 123456' },
-  { label: 'Umsatzsteuer-ID', value: 'DE123456789' }
+  { label: 'Handelsregister', value: 'Amtsgericht Paderborn · HRB 16943' },
+  { label: 'Umsatzsteuer-ID', value: 'DE366907962' }
 ]
 
-const contactDetails = [
-  { label: 'Telefon', value: '+49 123 456 789' },
+const contactDetails: Detail[] = [
+  { label: 'Telefon', value: '+49 160 216 1223' },
   { label: 'E-Mail', value: 'info@babylon-bahndienste.de' },
+  { label: 'Dispo', value: '24/7 für eilbedürftige Einsätze erreichbar' }
 ]
 
-const oversightDetails = [
+const oversightDetails: Oversight[] = [
   {
-    label: 'Aufsichtsbehörde',
-    value: 'Eisenbahn-Bundesamt (EBA), Heinemannstraße 6, 53175 Bonn'
+    title: 'Aufsichtsbehörde',
+    description: 'Eisenbahn-Bundesamt (EBA), Heinemannstraße 6, 53175 Bonn'
   },
   {
-    label: 'Online-Streitbeilegung',
-    value: 'Plattform der EU-Kommission:',
-    link: 'https://ec.europa.eu/consumers/odr',
-    note: 'Unsere E-Mail-Adresse finden Sie oben im Impressum.'
+    title: 'Online-Streitbeilegung',
+    description: 'Plattform der EU-Kommission für Verbraucherstreitbeilegung.',
+    link: 'https://ec.europa.eu/consumers/odr'
   },
   {
-    label: 'Verbraucherschlichtung',
-    value: 'Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.'
+    title: 'Verbraucherschlichtung',
+    description:
+      'Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.'
   },
   {
-    label: 'Berufshaftpflicht',
-    value: 'Allianz Versicherungs-AG · Geltungsbereich: EU-Mitgliedsstaaten'
+    title: 'Berufshaftpflicht',
+    description: 'Allianz Versicherungs-AG · Geltungsbereich: EU-Mitgliedsstaaten'
   }
 ]
 
-const liabilityNotes = [
+const liabilityNotes: LegalNote[] = [
   {
     title: 'Haftung für Inhalte',
     text:
-      'Als Diensteanbieter sind wir gemäß § 5 Abs. 1 DDG für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine Haftung ist erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich; bei Bekanntwerden werden wir entsprechende Inhalte umgehend entfernen.'
+      'Als Diensteanbieter sind wir gemäß § 5 Abs. 1 DDG für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich. Verpflichtungen zur Entfernung oder Sperrung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.'
   },
   {
     title: 'Haftung für Links',
     text:
-      'Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte übernehmen wir keine Gewähr; verantwortlich sind die jeweiligen Anbieter. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft; rechtswidrige Inhalte waren nicht erkennbar. Bei Bekanntwerden von Rechtsverletzungen entfernen wir Links umgehend.'
+      'Unser Angebot enthält Links zu externen Websites Dritter. Für diese fremden Inhalte übernehmen wir keine Gewähr; verantwortlich sind die jeweiligen Anbieter der verlinkten Seiten.'
   },
   {
     title: 'Urheberrecht',
     text:
-      'Die durch den Seitenbetreiber erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung oder jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der vorherigen schriftlichen Zustimmung. Inhalte Dritter werden als solche gekennzeichnet; sollten Sie eine Urheberrechtsverletzung feststellen, informieren Sie uns bitte, damit wir die Inhalte umgehend entfernen.'
+      'Die durch den Seitenbetreiber erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht. Bei Bekanntwerden von Rechtsverletzungen entfernen wir betroffene Inhalte umgehend.'
   }
 ]
+
+let revealObserver: IntersectionObserver | null = null
+
+onMounted(() => {
+  const revealables = Array.from(document.querySelectorAll<HTMLElement>('.js-reveal'))
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          revealObserver?.unobserve(entry.target)
+        }
+      })
+    },
+    {
+      threshold: 0.2,
+      rootMargin: '0px 0px -10% 0px'
+    }
+  )
+
+  revealables.forEach((element, index) => {
+    element.style.setProperty('--reveal-delay', `${index * 70}ms`)
+    revealObserver?.observe(element)
+  })
+})
+
+onBeforeUnmount(() => {
+  revealObserver?.disconnect()
+})
 </script>
 
 <template>
   <div class="impressum-page">
-    <section class="impressum-hero">
-      <div class="hero-copy">
+    <section class="impressum-hero section js-reveal">
+      <div class="impressum-hero__content">
         <p class="eyebrow">Rechtliche Angaben</p>
         <h1>Impressum</h1>
-        <p class="lede">
-          Transparente Kontaktdaten, klare Verantwortlichkeiten und Aufsichtsangaben für Babylon Bahndienste. Alle
-          Informationen auf einen Blick, aktuell gepflegt und jederzeit erreichbar.
+        <p class="section__lead">
+          Transparente Kontaktdaten, klare Verantwortlichkeiten und regulatorische Hinweise zu Babylon Bahndienste –
+          übersichtlich dargestellt im Stil unserer Karriereseite.
         </p>
-
-        <div class="hero-chips" role="list">
-          <span class="chip" role="listitem">Verantwortlich nach § 5 DDG</span>
-          <span class="chip" role="listitem">Schnelle Kontaktwege &amp; 24/7-Dispo</span>
+        <div class="impressum-hero__actions">
+          <a href="#angaben" class="cta cta--solid">Unternehmensangaben</a>
+          <NuxtLink to="/kontakt" class="cta cta--ghost">Kontakt aufnehmen</NuxtLink>
         </div>
       </div>
-
-      <div class="hero-panel" aria-label="Schnellkontakt">
-        <div class="panel-halo" aria-hidden="true" />
-        <div class="panel-head">
-          <p class="panel-eyebrow">Kontakt</p>
-          <p class="panel-title">Direkter Draht zur Leitstelle</p>
-          <p class="panel-subtitle">Wir reagieren werktags innerhalb eines Werktags – in Einsatzfällen sofort.</p>
-        </div>
-        <ul class="panel-list">
-          <li>
-            <span class="icon" aria-hidden="true">☎️</span>
-            <div>
-              <p class="label">Telefon</p>
-              <p class="value">+49 123 456 789</p>
-            </div>
-          </li>
-          <li>
-            <span class="icon" aria-hidden="true">✉️</span>
-            <div>
-              <p class="label">E-Mail</p>
-              <p class="value">info@babylon-bahndienste.de</p>
-            </div>
-          </li>
-          <li>
-            <span class="icon" aria-hidden="true">📍</span>
-            <div>
-              <p class="label">Standort</p>
-              <p class="value">Frankfurter Weg 27 · 33106 Paderborn</p>
-            </div>
-          </li>
-        </ul>
-        <div class="panel-foot">
-          <p class="micro">Für eilbedürftige Einsätze ist unsere Disposition telefonisch rund um die Uhr erreichbar.</p>
-          <NuxtLink to="/kontakt" class="panel-cta">Kontakt aufnehmen ↗</NuxtLink>
-        </div>
+      <div class="impressum-hero__image-wrap">
+        <img src="/images/career-illustration.svg" alt="Babylon Bahndienste Impressum" class="impressum-hero__image" loading="lazy">
       </div>
     </section>
 
-    <section class="impressum-details">
-      <div class="card">
-        <div class="card-head">
+    <section id="angaben" class="section js-reveal">
+      <div class="section__header">
+        <div>
           <p class="eyebrow">§ 5 DDG</p>
           <h2>Angaben zum Unternehmen</h2>
-          <p class="lede">Rechtlich Verantwortliche und registrierte Angaben zu Babylon Bahndienste.</p>
-        </div>
-        <dl class="detail-list">
-          <div v-for="item in companyDetails" :key="item.label" class="detail-row">
-            <dt>{{ item.label }}</dt>
-            <dd>{{ item.value }}</dd>
-          </div>
-        </dl>
-      </div>
-
-      <div class="card">
-        <div class="card-head">
-          <p class="eyebrow">Kommunikation</p>
-          <h2>Kontakt &amp; Erreichbarkeit</h2>
-          <p class="lede">Schnelle Rückmeldungen, abgestimmte Ansprechpartner und sichere Kanäle.</p>
-        </div>
-        <dl class="detail-list">
-          <div v-for="item in contactDetails" :key="item.label" class="detail-row">
-            <dt>{{ item.label }}</dt>
-            <dd>{{ item.value }}</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="oversight">
-      <div class="oversight-card">
-        <div class="oversight-glow" aria-hidden="true" />
-        <div class="oversight-head">
-          <p class="eyebrow">Aufsicht &amp; Sicherheit</p>
-          <h2>Regulatorische Hinweise</h2>
-          <p class="lede">Zuständigkeiten, Versicherungsschutz und Hinweise zur Streitbeilegung.</p>
-        </div>
-
-        <div class="oversight-grid" role="list">
-          <article v-for="item in oversightDetails" :key="item.label" class="oversight-tile" role="listitem">
-            <p class="tile-label">{{ item.label }}</p>
-            <p class="tile-value">
-              <span>{{ item.value }}</span>
-              <template v-if="item.link">
-                <a :href="item.link" class="tile-link" rel="noopener noreferrer" target="_blank">
-                  {{ item.link }}
-                </a>
-              </template>
-              <span v-if="item.note" class="tile-note">{{ item.note }}</span>
-            </p>
-          </article>
+          <p class="section__lead">Rechtlich Verantwortliche und registrierte Unternehmensdaten.</p>
         </div>
       </div>
-    </section>
-
-    <section class="liability">
-      <div class="liability-head">
-        <p class="eyebrow">Hinweise</p>
-        <h2>Haftung &amp; Urheberrecht</h2>
-        <p class="lede">Grundsätze zur Nutzung unserer Inhalte und externen Verlinkungen.</p>
-      </div>
-
-      <div class="liability-grid">
-        <article v-for="note in liabilityNotes" :key="note.title" class="liability-card">
-          <p class="liability-title">{{ note.title }}</p>
-          <p class="liability-text">{{ note.text }}</p>
+      <div class="detail-grid">
+        <article v-for="item in companyDetails" :key="item.label" class="detail-card">
+          <p class="detail-card__meta">{{ item.label }}</p>
+          <h3>{{ item.value }}</h3>
         </article>
       </div>
+    </section>
 
-      <div class="liability-bottom">
-        <p class="micro">
-          Hinweise auf Rechtsverstöße oder fehlerhafte Inhalte können Sie jederzeit an
-          <a href="mailto:info@babylon-bahndienste.de">info@babylon-bahndienste.de</a>
-          richten. Wir prüfen Eingaben umgehend und aktualisieren betroffene Inhalte schnellstmöglich.
-          Softwareunternehmen:
-          <a href="https://www.eulah.de" target="_blank" rel="noopener noreferrer">www.eulah.de</a>
-          · Fotos: Babylon Bahndienste.
-        </p>
+    <section class="section js-reveal">
+      <div class="section__header section__header--split">
+        <div>
+          <p class="eyebrow">Kommunikation</p>
+          <h2>Kontakt &amp; Erreichbarkeit</h2>
+          <p class="section__lead">Schnelle Rückmeldungen über abgestimmte Ansprechpartner und sichere Kanäle.</p>
+        </div>
+        <NuxtLink to="/kontakt" class="cta cta--solid">Jetzt Kontakt aufnehmen</NuxtLink>
       </div>
 
+      <div class="detail-grid">
+        <article v-for="item in contactDetails" :key="item.label" class="detail-card">
+          <p class="detail-card__meta">{{ item.label }}</p>
+          <h3>{{ item.value }}</h3>
+        </article>
+      </div>
+    </section>
+
+    <section class="section js-reveal">
+      <div class="section__header">
+        <div>
+          <p class="eyebrow">Aufsicht &amp; Sicherheit</p>
+          <h2>Regulatorische Hinweise</h2>
+          <p class="section__lead">Zuständigkeiten, Versicherungen und Informationen zur Streitbeilegung.</p>
+        </div>
+      </div>
+      <div class="detail-grid">
+        <article v-for="item in oversightDetails" :key="item.title" class="detail-card">
+          <p class="detail-card__meta">{{ item.title }}</p>
+          <h3>{{ item.description }}</h3>
+          <a v-if="item.link" :href="item.link" class="text-link" rel="noopener noreferrer" target="_blank">
+            {{ item.link }}
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--cta js-reveal">
+      <div>
+        <p class="eyebrow">Haftung &amp; Urheberrecht</p>
+        <h2>Rechtliche Hinweise</h2>
+        <p class="section__lead">
+          Hinweise zu Inhalten, externen Links und Nutzungsrechten. Bei Rechtsverstößen bitte an
+          <a href="mailto:info@babylon-bahndienste.de">info@babylon-bahndienste.de</a> wenden.
+        </p>
+      </div>
+      <div class="notes-list">
+        <article v-for="note in liabilityNotes" :key="note.title" class="note-item">
+          <p class="detail-card__meta">{{ note.title }}</p>
+          <p>{{ note.text }}</p>
+        </article>
+      </div>
     </section>
   </div>
 </template>
 
 <style scoped>
 .impressum-page {
-  position: relative;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
-  padding: 1rem 0 2rem;
 }
 
-.impressum-hero {
-  position: relative;
+.section {
+  background: transparent;
+  border-radius: 24px;
+  padding: clamp(1.5rem, 2vw, 2rem);
+}
+
+.section__header {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.4rem;
-  padding: 1.5rem;
-  border-radius: 26px;
-  background: radial-gradient(circle at 12% 18%, rgba(249, 210, 112, 0.1), transparent 32%),
-    radial-gradient(circle at 82% 24%, rgba(118, 225, 255, 0.08), transparent 36%),
-    rgba(8, 8, 10, 0.9);
-  border: 1px solid rgba(249, 210, 112, 0.16);
-  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-  overflow: hidden;
+  align-items: end;
+  margin-bottom: 1rem;
 }
 
-.hero-copy {
-  display: grid;
-  gap: 0.65rem;
-  align-content: start;
-}
-
-.eyebrow {
-  display: inline-flex;
+.section__header--split {
   align-items: center;
-  gap: 0.4rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.75rem;
-  color: #f9d270;
-  font-weight: 700;
-}
-
-h1 {
-  margin: 0;
-  font-size: clamp(2rem, 2.4vw + 1rem, 2.8rem);
-  line-height: 1.1;
 }
 
 h2 {
+  margin: 0.2rem 0 0.35rem;
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  letter-spacing: -0.01em;
+  color: var(--color-forest);
+}
+
+.section__lead {
   margin: 0;
-  font-size: clamp(1.6rem, 1.5vw + 1rem, 2.1rem);
-  line-height: 1.2;
+  color: var(--color-muted);
+  line-height: 1.6;
 }
 
-.lede {
+.eyebrow {
   margin: 0;
-  color: #dbe8ff;
-  max-width: 780px;
-}
-
-.hero-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.2rem;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.5rem 0.85rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(249, 210, 112, 0.18);
-  color: #f7f1e7;
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-.hero-panel {
-  position: relative;
-  border-radius: 20px;
-  padding: 1.25rem;
-  background: linear-gradient(135deg, rgba(249, 210, 112, 0.12), rgba(0, 0, 0, 0.3)), rgba(6, 6, 8, 0.9);
-  border: 1px solid rgba(249, 210, 112, 0.3);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-  display: grid;
-  gap: 0.9rem;
-  overflow: hidden;
-}
-
-.panel-halo {
-  position: absolute;
-  inset: 10% 12% auto;
-  height: 60%;
-  background: radial-gradient(circle at 10% 14%, rgba(249, 210, 112, 0.18), transparent 42%),
-    radial-gradient(circle at 90% 30%, rgba(118, 225, 255, 0.12), transparent 40%);
-  filter: blur(10px);
-  opacity: 0.8;
-  pointer-events: none;
-}
-
-.panel-head,
-.panel-list,
-.panel-foot {
-  position: relative;
-  z-index: 1;
-}
-
-.panel-eyebrow {
-  margin: 0;
-  color: #f9d270;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-rose);
   font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 700;
+  background: rgba(199, 117, 139, 0.12);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  display: inline-flex;
 }
 
-.panel-title {
-  margin: 0.2rem 0;
-  font-size: 1.3rem;
-  font-weight: 800;
-}
-
-.panel-subtitle {
-  margin: 0;
-  color: #d6e4ff;
-}
-
-.panel-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 0.7rem;
-}
-
-.panel-list li {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.7rem;
-  align-items: start;
-  padding: 0.7rem 0.8rem;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.icon {
-  font-size: 1.1rem;
-}
-
-.label {
-  margin: 0;
-  color: #f9d270;
-  font-weight: 700;
-}
-
-.value {
-  margin: 0;
-  color: #e8f0ff;
-}
-
-.panel-foot {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.7rem;
-  padding: 0.75rem 0.85rem;
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(249, 210, 112, 0.2);
-}
-
-.panel-cta {
+.cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.65rem 0.95rem;
-  border-radius: 10px;
-  background: linear-gradient(120deg, #f9d270, #c99038);
-  color: #0c0a05;
-  text-decoration: none;
-  font-weight: 800;
-  box-shadow: 0 12px 30px rgba(249, 210, 112, 0.32);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.panel-cta:hover,
-.panel-cta:focus-visible {
-  transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 16px 40px rgba(201, 144, 56, 0.36);
-}
-
-.micro {
-  margin: 0;
-  color: #c7d7f7;
-  font-size: 0.95rem;
-}
-
-.impressum-details {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-}
-
-.card {
-  background: rgba(8, 8, 10, 0.86);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 22px;
-  padding: 1.4rem;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(249, 210, 112, 0.05);
-  display: grid;
-  gap: 0.9rem;
-}
-
-.card-head {
-  display: grid;
-  gap: 0.3rem;
-}
-
-.detail-list {
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.6rem;
-}
-
-.detail-row {
-  display: grid;
-  grid-template-columns: minmax(140px, 0.8fr) minmax(0, 1fr);
-  gap: 0.5rem 1rem;
-  padding: 0.75rem 0.85rem;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-dt {
-  margin: 0;
-  color: #f9d270;
+  justify-content: center;
+  padding: 0.85rem 1.2rem;
+  border-radius: 12px;
   font-weight: 700;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  border: 1px solid transparent;
 }
 
-dd {
-  margin: 0;
-  color: #e8f0ff;
+.cta--solid {
+  background: var(--color-rose);
+  color: #ffffff;
+  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.28);
 }
 
-.oversight {
-  position: relative;
+.cta--ghost {
+  background: #ffffff;
+  color: var(--color-forest);
+  border-color: var(--color-border);
 }
 
-.oversight-card {
-  position: relative;
-  padding: 1.5rem;
+.cta:hover,
+.cta:focus-visible {
+  transform: translateY(-1px);
+}
+
+.js-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.impressum-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(199, 117, 139, 0.12), rgba(0, 72, 49, 0.08));
   border-radius: 24px;
-  background: rgba(7, 9, 16, 0.9);
-  border: 1px solid rgba(249, 210, 112, 0.14);
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.52), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.impressum-hero__content h1 {
+  margin: 0.2rem 0 0.45rem;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  color: var(--color-forest);
+}
+
+.impressum-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.impressum-hero__image-wrap {
+  border-radius: 18px;
   overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.impressum-hero__image {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.detail-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1rem;
 }
 
-.oversight-glow {
-  position: absolute;
-  inset: 12% -10% auto;
-  height: 60%;
-  background: linear-gradient(110deg, rgba(249, 210, 112, 0.22), transparent 50%),
-    radial-gradient(circle at 82% 36%, rgba(118, 225, 255, 0.12), transparent 38%);
-  filter: blur(30px);
-  opacity: 0.8;
-  pointer-events: none;
-}
-
-.oversight-head,
-.oversight-grid {
-  position: relative;
-  z-index: 1;
-}
-
-.oversight-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.85rem;
-}
-
-.oversight-tile {
+.detail-card,
+.note-item {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
   padding: 1rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  display: grid;
-  gap: 0.35rem;
-  min-height: 140px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.06);
 }
 
-.tile-label {
+.detail-card h3 {
   margin: 0;
-  color: #f9d270;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: 0.9rem;
+  color: var(--color-forest);
+  font-size: 1.05rem;
+  line-height: 1.4;
 }
 
-.tile-value {
-  margin: 0;
-  color: #dbe8ff;
-  line-height: 1.5;
-  display: grid;
-  gap: 0.2rem;
-}
-
-.tile-link {
-  color: #f9d270;
+.detail-card__meta {
+  margin: 0 0 0.45rem;
+  font-size: 0.85rem;
+  color: var(--color-rose);
   font-weight: 700;
-  word-break: break-all;
+}
+
+.text-link {
+  margin-top: 0.9rem;
+  display: inline-flex;
   text-decoration: none;
+  font-weight: 700;
+  color: var(--color-forest);
+  word-break: break-all;
 }
 
-.tile-link:hover,
-.tile-link:focus-visible {
-  text-decoration: underline;
-}
-
-.tile-note {
-  color: #c7d7f7;
-}
-
-.liability {
+.section--cta {
   display: grid;
   gap: 1rem;
+  background: linear-gradient(135deg, rgba(0, 72, 49, 0.08), rgba(199, 117, 139, 0.12));
+  border-radius: 24px;
 }
 
-.liability-head {
-  display: grid;
-  gap: 0.4rem;
-}
-
-.liability-grid {
+.notes-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 0.9rem;
+  gap: 1rem;
 }
 
-.liability-card {
-  padding: 1rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
-  display: grid;
-  gap: 0.35rem;
-}
-
-.liability-title {
+.note-item p {
   margin: 0;
-  color: #f9d270;
-  font-weight: 800;
+  color: var(--color-muted);
+  line-height: 1.55;
 }
 
-.liability-text {
-  margin: 0;
-  color: #e2eaff;
-}
-
-.liability-bottom {
-  padding: 0.9rem 1rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(249, 210, 112, 0.2);
-}
-
-@media (max-width: 720px) {
-  .impressum-hero,
-  .oversight-card {
-    padding: 1.1rem;
-  }
-
-  .detail-row {
+@media (max-width: 900px) {
+  .impressum-hero {
     grid-template-columns: 1fr;
   }
 }
