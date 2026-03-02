@@ -291,8 +291,8 @@ onBeforeUnmount(() => {
   height: 28px;
   padding: 0 0.55rem;
   border-radius: 999px;
-  background: rgba(199, 117, 139, 0.16);
-  color: var(--color-rose);
+  background: rgba(184, 111, 134, 0.62);
+  color: #fff;
   font-weight: 800;
 }
 
