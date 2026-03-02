@@ -120,8 +120,8 @@
   margin: 2rem 1.5rem 3rem;
   padding: 2.4rem clamp(1rem, 4vw, 2.6rem);
   border-radius: 24px;
-  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.14), transparent 42%),
-    radial-gradient(circle at 80% 25%, rgba(255, 255, 255, 0.08), transparent 38%), #be7991;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.16), transparent 42%),
+    radial-gradient(circle at 80% 25%, rgba(255, 255, 255, 0.1), transparent 38%), #005d40;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.24);
   color: #ffffff;
@@ -132,8 +132,8 @@
 .footer__glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 60%, rgba(199, 117, 139, 0.12), transparent 30%),
-    radial-gradient(circle at 80% 10%, rgba(0, 72, 49, 0.08), transparent 34%);
+  background: radial-gradient(circle at 30% 60%, rgba(255, 255, 255, 0.14), transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(0, 44, 30, 0.2), transparent 34%);
   filter: blur(28px);
   opacity: 0.7;
   animation: glowShift 9s ease-in-out infinite alternate;
