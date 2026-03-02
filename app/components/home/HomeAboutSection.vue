@@ -103,10 +103,10 @@
   overflow: hidden;
   padding: clamp(2rem, 3vw, 2.8rem);
   background:
-    linear-gradient(140deg, rgba(255, 255, 255, 0.98), rgba(255, 247, 250, 0.96) 48%, rgba(250, 255, 252, 0.94)),
-    radial-gradient(circle at 12% 18%, rgba(199, 117, 139, 0.2), transparent 42%),
-    radial-gradient(circle at 85% 78%, rgba(0, 72, 49, 0.1), transparent 38%);
-  border: 1px solid rgba(0, 72, 49, 0.14);
+    linear-gradient(140deg, rgba(245, 255, 250, 0.88), rgba(239, 253, 247, 0.8) 48%, rgba(252, 255, 254, 0.86)),
+    radial-gradient(circle at 12% 18%, rgba(0, 95, 66, 0.14), transparent 44%),
+    radial-gradient(circle at 85% 78%, rgba(0, 95, 66, 0.1), transparent 40%);
+  border: 1px solid rgba(0, 95, 66, 0.2);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
   color: var(--color-ink);
   transform-style: preserve-3d;
@@ -414,14 +414,14 @@
 }
 
 .about__cta--solid {
-  background: linear-gradient(135deg, #005f42, #004831);
+  background: linear-gradient(135deg, #be7691, #b16b85);
   color: #ffffff;
-  border: 1px solid rgba(0, 72, 49, 0.4);
+  border: 1px solid rgba(177, 107, 133, 0.55);
 }
 
 .about__cta--solid:hover,
 .about__cta--solid:focus-visible {
-  box-shadow: 0 14px 35px rgba(0, 72, 49, 0.26), 0 0 0 1px rgba(0, 72, 49, 0.24);
+  box-shadow: 0 14px 35px rgba(177, 107, 133, 0.34), 0 0 0 1px rgba(177, 107, 133, 0.26);
   transform: translateY(-2px) scale(1.01);
 }
 
