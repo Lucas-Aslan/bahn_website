@@ -139,7 +139,7 @@ watch(currentVideoIndex, async () => {
   overflow: hidden;
   border-radius: 0;
   padding: calc(1.2rem + var(--hero-overlap)) clamp(2rem, 4vw, 3rem) 3.6rem;
-  background: #000;
+  background: var(--color-forest);
   box-shadow: 0 35px 90px rgba(0, 0, 0, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
   min-height: 540px;
   display: grid;
@@ -185,9 +185,9 @@ watch(currentVideoIndex, async () => {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(160deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
-    radial-gradient(circle at 32% 30%, rgba(45, 191, 119, 0.18), transparent 34%),
-    radial-gradient(circle at 72% 65%, rgba(255, 255, 255, 0.08), transparent 40%);
+    linear-gradient(160deg, rgba(0, 72, 49, 0.72), rgba(0, 72, 49, 0.58)),
+    radial-gradient(circle at 32% 30%, rgba(199, 117, 139, 0.2), transparent 34%),
+    radial-gradient(circle at 72% 65%, rgba(255, 255, 255, 0.12), transparent 40%);
   backdrop-filter: blur(6px);
   mix-blend-mode: normal;
   opacity: 1;
@@ -200,10 +200,10 @@ watch(currentVideoIndex, async () => {
   width: min(100%, 720px);
   display: grid;
   gap: 1.1rem;
-  color: #f6f6f6;
+  color: #ffffff;
   padding: 1.4rem 1.6rem;
   border-radius: 18px;
-  background: linear-gradient(145deg, rgba(0, 0, 0, 0.78), rgba(12, 12, 12, 0.82));
+  background: linear-gradient(145deg, rgba(0, 72, 49, 0.85), rgba(0, 72, 49, 0.75));
   backdrop-filter: blur(12px) saturate(1.05);
   border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -240,14 +240,14 @@ watch(currentVideoIndex, async () => {
 .hero__gold {
   display: inline-block;
   margin-left: 0.35rem;
-  color: #b4ffd9;
-  filter: drop-shadow(0 12px 24px rgba(45, 191, 119, 0.35));
+  color: #ffffff;
+  filter: drop-shadow(0 12px 24px rgba(199, 117, 139, 0.35));
 }
 
 .hero__lead {
   margin: 0;
   max-width: 640px;
-  color: #e7e7e7;
+  color: rgba(255, 255, 255, 0.92);
   font-size: 1.08rem;
   line-height: 1.6;
   text-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
@@ -260,17 +260,17 @@ watch(currentVideoIndex, async () => {
 }
 
 .hero :global(.cta--ghost) {
-  background: linear-gradient(135deg, #1fbf75, #0c9f5c);
+  background: var(--color-rose);
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.24);
-  box-shadow: 0 18px 45px rgba(31, 191, 117, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .hero :global(.cta--ghost:hover),
 .hero :global(.cta--ghost:focus-visible) {
-  background: linear-gradient(135deg, #26d483, #10b36b);
+  background: #b8687d;
   transform: translateY(-1px);
-  box-shadow: 0 22px 60px rgba(16, 179, 107, 0.35);
+  box-shadow: 0 22px 60px rgba(199, 117, 139, 0.38);
 }
 
 .hero__accolades {
@@ -302,7 +302,7 @@ watch(currentVideoIndex, async () => {
   padding: 0.4rem 0.65rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.06);
-  color: #c8f5e0;
+  color: #ffffff;
   font-size: 0.85rem;
   letter-spacing: 0.03em;
 }
@@ -317,7 +317,7 @@ watch(currentVideoIndex, async () => {
 .hero__orbit--one {
   width: 380px;
   height: 380px;
-  background: radial-gradient(circle, rgba(45, 191, 119, 0.25), transparent 60%);
+  background: radial-gradient(circle, rgba(199, 117, 139, 0.3), transparent 60%);
   bottom: -80px;
   right: 14%;
 }
@@ -337,9 +337,9 @@ watch(currentVideoIndex, async () => {
   width: 620px;
   height: 620px;
   background:
-    radial-gradient(circle at 50% 30%, rgba(45, 191, 119, 0.18), transparent 38%),
+    radial-gradient(circle at 50% 30%, rgba(199, 117, 139, 0.2), transparent 38%),
     radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.12), transparent 45%),
-    conic-gradient(from 140deg at 50% 50%, rgba(45, 191, 119, 0.16), transparent 60%);
+    conic-gradient(from 140deg at 50% 50%, rgba(0, 72, 49, 0.2), transparent 60%);
   filter: blur(48px) saturate(1.05);
   opacity: 0.65;
   transition: transform 0.35s ease-out;

@@ -44,8 +44,8 @@
   --color-rose-soft: #dba1b2;
   --color-forest: #004831;
   --color-forest-soft: #1b6c50;
-  --color-cream: #f6f1eb;
-  --color-paper: #fffaf3;
+  --color-cream: #ffffff;
+  --color-paper: #ffffff;
   --color-ink: #1f2520;
   --color-muted: #3f564c;
   --color-border: rgba(0, 72, 49, 0.14);
@@ -57,7 +57,7 @@
   background:
     radial-gradient(circle at 16% 18%, rgba(199, 117, 139, 0.12) 0, transparent 26%),
     radial-gradient(circle at 82% 10%, rgba(0, 72, 49, 0.12) 0, transparent 22%),
-    linear-gradient(135deg, #fffdf8, var(--color-cream));
+    linear-gradient(135deg, #ffffff, var(--color-cream));
   color: var(--color-ink);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -234,7 +234,7 @@
   justify-content: center;
   padding: 0.65rem 1.1rem;
   border-radius: 12px;
-  background: #c7758b;
+  background: var(--color-rose);
   color: #ffffff;
   font-weight: 800;
   text-decoration: none;

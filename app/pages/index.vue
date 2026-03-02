@@ -59,10 +59,10 @@ onBeforeUnmount(() => {
 }
 
 :global(.section) {
-  background: linear-gradient(145deg, rgba(255, 250, 243, 0.9), rgba(246, 241, 235, 0.95));
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.92));
   border-radius: 24px;
   padding: clamp(1.5rem, 2vw, 2rem);
-  border: 1px solid rgba(0, 72, 49, 0.12);
+  border: 1px solid rgba(0, 72, 49, 0.16);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.06);
 }
 
@@ -111,28 +111,28 @@ onBeforeUnmount(() => {
 }
 
 :global(.cta--solid) {
-  background: var(--color-forest);
+  background: var(--color-rose);
   color: #ffffff;
-  box-shadow: 0 18px 45px rgba(0, 72, 49, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 :global(.cta--solid:hover),
 :global(.cta--solid:focus-visible) {
   transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 22px 60px rgba(0, 72, 49, 0.3);
+  box-shadow: 0 22px 60px rgba(199, 117, 139, 0.35);
 }
 
 :global(.cta--ghost) {
-  background: rgba(0, 72, 49, 0.06);
-  color: var(--color-forest);
-  border-color: rgba(0, 72, 49, 0.2);
+  background: var(--color-rose);
+  color: #ffffff;
+  border-color: rgba(199, 117, 139, 0.4);
   backdrop-filter: blur(8px);
 }
 
 :global(.cta--ghost:hover),
 :global(.cta--ghost:focus-visible) {
   transform: translateY(-1px);
-  background: rgba(0, 72, 49, 0.12);
+  background: #b8687d;
 }
 
 :global(.js-reveal) {
