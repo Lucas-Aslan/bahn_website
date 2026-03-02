@@ -55,11 +55,11 @@ onBeforeUnmount(() => {
 }
 
 :global(.section) {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.92));
+  background: transparent;
   border-radius: 24px;
   padding: clamp(1.5rem, 2vw, 2rem);
-  border: 1px solid rgba(0, 72, 49, 0.16);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.06);
+  border: none;
+  box-shadow: none;
 }
 
 :global(.section__header) {
