@@ -142,9 +142,9 @@ watch(currentVideoIndex, async () => {
   box-shadow: 0 35px 90px rgba(0, 0, 0, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
   min-height: 540px;
   display: grid;
-  grid-template-columns: minmax(0, 760px) 1fr;
-  align-items: start;
-  justify-content: start;
+  grid-template-columns: minmax(0, 760px);
+  align-items: center;
+  justify-content: center;
   column-gap: clamp(1.5rem, 5vw, 3.5rem);
   width: 100vw;
   max-width: none;
@@ -202,9 +202,9 @@ watch(currentVideoIndex, async () => {
   color: #ffffff;
   padding: 1.4rem 1.6rem;
   grid-column: 1;
-  justify-self: start;
-  align-self: start;
-  transform: translateX(clamp(0.75rem, 10vw, 10.5rem));
+  justify-self: center;
+  align-self: center;
+  text-align: center;
 }
 
 .hero__title {
@@ -229,6 +229,7 @@ watch(currentVideoIndex, async () => {
   letter-spacing: 0.04em;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
   width: fit-content;
+  justify-self: center;
 }
 
 .hero__gold {
@@ -251,6 +252,7 @@ watch(currentVideoIndex, async () => {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .hero :global(.cta--ghost) {
@@ -272,6 +274,7 @@ watch(currentVideoIndex, async () => {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 0.9rem;
   margin-top: 0.5rem;
+  text-align: left;
 }
 
 .hero__accolade {
@@ -349,7 +352,7 @@ watch(currentVideoIndex, async () => {
 
   .hero__content {
     grid-column: 1;
-    justify-self: start;
+    justify-self: center;
     width: 100%;
   }
 }
