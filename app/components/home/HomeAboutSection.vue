@@ -397,7 +397,7 @@
   color: var(--color-forest);
   text-decoration: none;
   margin-top: 0.2rem;
-  padding: 0.65rem 1rem;
+  padding: 0.65rem 0.85rem;
   border-radius: 12px;
   border: 1px solid rgba(0, 72, 49, 0.22);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;

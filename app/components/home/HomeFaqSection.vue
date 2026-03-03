@@ -115,7 +115,7 @@ const toggleFaq = (index: number) => {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.85rem 1.15rem;
+  padding: 0.85rem 0.95rem;
   border-radius: 12px;
   background: linear-gradient(135deg, #be7691, #b16b85);
   color: #ffffff;

@@ -343,7 +343,7 @@ const careerSteps: CareerStep[] = [
 }
 
 .career__cta {
-  min-width: 220px;
+  min-width: 180px;
   backdrop-filter: blur(10px);
 }
 

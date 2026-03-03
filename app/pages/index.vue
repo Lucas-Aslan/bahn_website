@@ -97,7 +97,7 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.85rem 1.2rem;
+  padding: 0.85rem 0.95rem;
   border-radius: 12px;
   font-weight: 700;
   letter-spacing: 0.01em;
