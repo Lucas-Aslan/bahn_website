@@ -397,6 +397,9 @@ watch(currentVideoIndex, async () => {
   .hero :global(.cta) {
     width: 100%;
     justify-content: center;
+    padding: 0.72rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 10px;
   }
 
   .hero__orbit--one {
@@ -419,6 +422,11 @@ watch(currentVideoIndex, async () => {
 
   .hero__badge {
     font-size: 0.78rem;
+  }
+
+  .hero :global(.cta) {
+    padding: 0.68rem 0.9rem;
+    font-size: 0.9rem;
   }
 
   .hero__chip {
