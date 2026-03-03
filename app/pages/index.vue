@@ -64,7 +64,7 @@ onBeforeUnmount(() => {
 
 :global(.section__header) {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 1.4rem;
   align-items: end;
 }

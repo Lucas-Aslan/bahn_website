@@ -207,7 +207,7 @@ onBeforeUnmount(() => {
 
 .section__header {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 1.4rem;
   align-items: end;
   margin-bottom: 1rem;
@@ -324,7 +324,7 @@ h2 {
 .card-grid,
 .visual-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
   gap: 1rem;
 }
 

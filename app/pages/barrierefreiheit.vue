@@ -244,7 +244,7 @@ onBeforeUnmount(() => {
 
 .section__header {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 1.4rem;
   align-items: end;
   margin-bottom: 1rem;
@@ -337,7 +337,7 @@ h3 {
 .content-grid {
   display: grid;
   gap: 1.2rem;
-  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(min(100%, 300px), 0.9fr);
 }
 
 .card__body {
@@ -444,7 +444,7 @@ a {
 .tiles {
   display: grid;
   gap: 0.7rem;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
 }
 
 .js-reveal {

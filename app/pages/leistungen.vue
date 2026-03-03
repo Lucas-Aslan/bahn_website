@@ -169,7 +169,7 @@ onBeforeUnmount(() => {
 .leistungen-hero__grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 2rem;
   align-items: center;
 }

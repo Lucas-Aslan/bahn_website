@@ -56,7 +56,7 @@
 
 .gold-cta__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: clamp(1.4rem, 2vw, 2rem);
   align-items: center;
 }

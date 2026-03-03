@@ -285,7 +285,7 @@ watch(currentVideoIndex, async () => {
 
 .hero__accolades {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 0.9rem;
   margin-top: 0.5rem;
   text-align: left;
