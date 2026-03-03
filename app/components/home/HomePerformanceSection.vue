@@ -21,9 +21,8 @@ const performanceBlocks: PerformanceBlock[] = [
     summary:
       'Bremsproberechtigte Wagenprüfer mit langjähriger Erfahrung im Güter-, Nah- und Fernverkehr sowie auf Gleisbaustellen.',
     points: [
-      'Rangierarbeiten im Güter-, Nah- und Fernverkehr',
+      'Rangierarbeiten im Güter-, und Fernverkehr',
       'Rangierarbeiten im Gleisbau',
-      'Rangierarbeiten im Hafen',
       'Rangierarbeiten in Anschlüssen'
     ]
   },
