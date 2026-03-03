@@ -396,7 +396,7 @@ watch(currentVideoIndex, async () => {
   }
 
   .hero :global(.cta) {
-    width: min(100%, 18rem);
+    width: min(80%, 14rem);
     justify-content: center;
     padding: 0.72rem 1rem;
     font-size: 0.95rem;
@@ -426,6 +426,7 @@ watch(currentVideoIndex, async () => {
   }
 
   .hero :global(.cta) {
+    width: min(78%, 13.5rem);
     padding: 0.68rem 0.9rem;
     font-size: 0.9rem;
   }
