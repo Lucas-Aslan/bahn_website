@@ -392,10 +392,11 @@ watch(currentVideoIndex, async () => {
 
   .hero__actions {
     width: 100%;
+    align-items: center;
   }
 
   .hero :global(.cta) {
-    width: 100%;
+    width: min(100%, 18rem);
     justify-content: center;
     padding: 0.72rem 1rem;
     font-size: 0.95rem;
