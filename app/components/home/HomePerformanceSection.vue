@@ -129,7 +129,7 @@ const performanceBlocks: PerformanceBlock[] = [
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.85rem 1.1rem;
+  padding: 0.85rem 0.9rem;
   border-radius: 12px;
   background: linear-gradient(135deg, #be7691, #b16b85);
   color: #ffffff;
