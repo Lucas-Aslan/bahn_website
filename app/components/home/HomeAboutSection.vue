@@ -456,18 +456,61 @@
 }
 
 @media (max-width: 960px) {
+  .about {
+    padding: clamp(1.4rem, 4vw, 2rem);
+  }
+
   .about__inner {
     grid-template-columns: 1fr;
+    gap: 1.3rem;
   }
 
   .about__visual {
-    order: -1;
+    gap: 0.85rem;
+  }
+
+  .about h2 {
+    font-size: clamp(1.9rem, 5vw, 2.4rem);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  .about .section__lead {
+    font-size: 1.02rem;
   }
 }
 
 @media (max-width: 640px) {
+  .about {
+    border-radius: 20px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+  }
+
+  .about__visual-panel,
+  .about__timeline {
+    border-radius: 16px;
+  }
+
+  .about__visual-panel {
+    padding: 1rem;
+  }
+
   .about__metrics {
     grid-template-columns: 1fr;
+  }
+
+  .about__timeline {
+    padding: 0.85rem;
+  }
+
+  .about__timeline-item {
+    gap: 0.6rem;
+    padding: 0.68rem;
+  }
+
+  .about__highlight {
+    border-radius: 12px;
+    padding: 0.65rem 0.72rem;
   }
 }
 
@@ -477,14 +520,15 @@
     padding: 1.2rem 0.9rem;
   }
 
-  .about__timeline-item,
   .about__highlight {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr;
     gap: 0.5rem;
   }
 
-  .about__timeline-step {
-    justify-self: start;
+  .about__timeline-copy,
+  .about__description,
+  .about__metric-label {
+    font-size: 0.9rem;
   }
 
   .about__actions {
@@ -494,6 +538,18 @@
   .about__cta {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .about__timeline-item,
+  .about__highlight {
+    grid-template-columns: 1fr;
+  }
+
+  .about__timeline-step,
+  .about__pulse {
+    justify-self: start;
   }
 }
 
