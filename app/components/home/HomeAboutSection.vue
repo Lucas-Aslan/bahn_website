@@ -471,6 +471,33 @@
   }
 }
 
+
+@media (max-width: 520px) {
+  .about {
+    padding: 1.2rem 0.9rem;
+  }
+
+  .about__timeline-item,
+  .about__highlight {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .about__timeline-step {
+    justify-self: start;
+  }
+
+  .about__actions {
+    flex-direction: column;
+  }
+
+  .about__cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
 .about__pulse {
   margin-top: 0.12rem;
   width: 14px;

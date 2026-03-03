@@ -195,6 +195,16 @@
   box-shadow: 0 22px 55px rgba(0, 0, 0, 0.12);
 }
 
+@media (max-width: 960px) {
+  .gold-cta {
+    padding: 1.3rem;
+  }
+
+  .gold-cta__legend {
+    flex-wrap: wrap;
+  }
+}
+
 @media (max-width: 700px) {
   .gold-cta__grid {
     grid-template-columns: 1fr;
@@ -209,6 +219,16 @@
     width: 100%;
     justify-content: center;
     text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .gold-cta {
+    padding: 1rem 0.8rem;
+  }
+
+  .gold-cta h2 {
+    font-size: clamp(1.5rem, 8vw, 1.9rem);
   }
 }
 </style>

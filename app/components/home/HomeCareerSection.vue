@@ -449,10 +449,42 @@ const careerSteps: CareerStep[] = [
   }
 }
 
+@media (max-width: 900px) {
+  .career__eyebrow {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .career__eyebrow-pill {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 @media (max-width: 700px) {
+  .career {
+    padding: 1rem;
+  }
+
+  .career-step {
+    align-items: start;
+  }
+
   .career__cta {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .career-signal__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .career-step {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
   }
 }
 </style>

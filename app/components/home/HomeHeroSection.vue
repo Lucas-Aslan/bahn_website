@@ -373,7 +373,17 @@ watch(currentVideoIndex, async () => {
 
 @media (max-width: 700px) {
   .hero {
+    min-height: auto;
     padding: 2.4rem 1.2rem 2.6rem;
+  }
+
+  .hero__content {
+    transform: none;
+    padding: 0.8rem 0.2rem;
+  }
+
+  .hero__title {
+    font-size: clamp(2rem, 11vw, 3.1rem);
   }
 
   .hero__lead {
@@ -383,8 +393,36 @@ watch(currentVideoIndex, async () => {
   .hero__actions {
     width: 100%;
   }
-  .hero__content {
-    transform: none;
+
+  .hero :global(.cta) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero__orbit--one {
+    width: 260px;
+    height: 260px;
+    right: -20%;
+  }
+
+  .hero__orbit--two {
+    width: 180px;
+    height: 180px;
+    left: -12%;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    padding: 2rem 0.9rem 2.2rem;
+  }
+
+  .hero__badge {
+    font-size: 0.78rem;
+  }
+
+  .hero__chip {
+    font-size: 0.78rem;
   }
 }
 </style>
