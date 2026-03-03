@@ -331,6 +331,8 @@ watch(
 
   .menu-toggle {
     display: inline-flex;
+    margin-left: 0;
+    justify-self: start;
   }
 
   .nav-links {
