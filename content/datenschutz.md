@@ -13,7 +13,7 @@ Wir sind für die Erhebung, Verarbeitung und Nutzung Ihrer personenbezogenen Dat
 Frankfurter Weg 27  
 33106 Paderborn  
 Deutschland  
-Telefon: +49 123 456 789  
+Telefon: +49 160 216 1223  
 E-Mail: info@babylon-bahndienste.de
 
 ## 3. Datenschutzbeauftragter
