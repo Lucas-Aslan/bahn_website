@@ -17,16 +17,26 @@ const { color } = defineProps({
 .alert {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
   padding: 1rem;
   border: 2px solid;
   border-radius: 0.5rem;
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow-wrap: anywhere;
 }
 
 .alert:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 520px) {
+  .alert {
+    padding: 0.8rem;
+    border-radius: 0.45rem;
+  }
 }
 </style>

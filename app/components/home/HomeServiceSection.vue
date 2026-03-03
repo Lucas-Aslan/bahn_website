@@ -134,4 +134,23 @@ type Service = {
 .service-card:focus-within .service-card__glow {
   opacity: 1;
 }
+
+@media (max-width: 720px) {
+  .metrics,
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .metric,
+  .service-card {
+    padding: 0.95rem 0.85rem;
+  }
+}
+
 </style>

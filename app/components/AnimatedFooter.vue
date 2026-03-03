@@ -568,6 +568,20 @@
     font-size: 1.25rem;
   }
 
+  .footer__contact-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__social-link {
+    width: 46px;
+    height: 46px;
+  }
+
+  .footer__social-icon {
+    width: 22px;
+    height: 22px;
+  }
+
   .footer__ticker {
     width: 100%;
     justify-content: center;

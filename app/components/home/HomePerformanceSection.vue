@@ -442,6 +442,12 @@ const performanceBlocks: PerformanceBlock[] = [
   }
 }
 
+@media (max-width: 960px) {
+  .performance__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 700px) {
   .performance__header {
     grid-template-columns: 1fr;
@@ -451,6 +457,21 @@ const performanceBlocks: PerformanceBlock[] = [
     justify-self: start;
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .performance-card {
+    padding: 1rem 0.85rem;
+  }
+
+  .performance-card__eyeline {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .performance-card h3 {
+    font-size: 1.08rem;
   }
 }
 </style>

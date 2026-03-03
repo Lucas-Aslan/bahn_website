@@ -289,4 +289,19 @@ const toggleFaq = (index: number) => {
     justify-self: start;
   }
 }
+
+@media (max-width: 480px) {
+  .faq__trigger {
+    padding: 0.95rem 0.95rem 0.9rem;
+  }
+
+  .faq__question h3 {
+    font-size: 1rem;
+  }
+
+  .faq__answer {
+    padding: 0 0.95rem 0.95rem;
+  }
+}
+
 </style>

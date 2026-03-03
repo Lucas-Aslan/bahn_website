@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <h3>Counter: {{ count }}</h3>
-    <button @click="increment">
+  <div class="counter">
+    <h3 class="counter__title">Counter: {{ count }}</h3>
+    <button class="counter__button" @click="increment">
       Increment
     </button>
-    <button @click="decrement">
+    <button class="counter__button" @click="decrement">
       Decrement
     </button>
   </div>
@@ -23,7 +23,17 @@ const decrement = () => {
 </script>
 
 <style scoped>
-button {
+.counter {
+  display: grid;
+  gap: 0.4rem;
+  width: min(100%, 360px);
+}
+
+.counter__title {
+  margin: 0;
+}
+
+.counter__button {
   margin: 5px;
   background: #004831;
   color: #ffffff;
@@ -31,5 +41,16 @@ button {
   border-radius: 8px;
   padding: 0.35rem 0.75rem;
   cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .counter {
+    width: 100%;
+  }
+
+  .counter__button {
+    width: 100%;
+    margin: 0;
+  }
 }
 </style>
