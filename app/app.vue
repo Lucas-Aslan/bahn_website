@@ -257,9 +257,11 @@
 }
 
 .page-body {
-  padding: 0 1.5rem 3rem;
+  padding: 0 clamp(0.9rem, 3vw, 1.5rem) 3rem;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 900px) {
@@ -271,6 +273,7 @@
 
   .nav-links {
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .cta-group {
@@ -294,6 +297,30 @@
     transform: none;
     top: 0;
     margin-top: 0.35rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .topbar {
+    padding-inline: 0.8rem;
+  }
+
+  .brand {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav-links {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .nav-link,
+  .cta-button {
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 </style>

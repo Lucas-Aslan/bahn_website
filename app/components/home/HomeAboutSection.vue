@@ -129,7 +129,7 @@
 .about__inner {
   display: grid;
   gap: 2.4rem;
-  grid-template-columns: minmax(320px, 1.2fr) minmax(260px, 0.8fr);
+  grid-template-columns: minmax(min(100%, 320px), 1.2fr) minmax(min(100%, 260px), 0.8fr);
   align-items: start;
   position: relative;
 }
