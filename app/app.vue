@@ -11,7 +11,25 @@
         </div>
       </div>
 
-      <nav class="nav-links" aria-label="Hauptnavigation">
+      <button
+        class="menu-toggle"
+        type="button"
+        :aria-expanded="isMobileMenuOpen"
+        aria-controls="mobile-navigation"
+        aria-label="Menü öffnen oder schließen"
+        @click="toggleMobileMenu"
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      <nav
+        id="mobile-navigation"
+        class="nav-links"
+        :class="{ 'is-open': isMobileMenuOpen }"
+        aria-label="Hauptnavigation"
+      >
         <NuxtLink to="/" class="nav-link">Startseite</NuxtLink>
 
       <div class="nav-dropdown" role="presentation">
@@ -38,6 +56,22 @@
     <AnimatedFooter />
   </div>
 </template>
+
+<script setup lang="ts">
+const isMobileMenuOpen = ref(false)
+const route = useRoute()
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
+}
+
+watch(
+  () => route.path,
+  () => {
+    isMobileMenuOpen.value = false
+  }
+)
+</script>
 
 <style scoped>
 :global(:root) {
@@ -133,6 +167,29 @@
   margin: 0;
   font-size: 1.05rem;
   font-weight: 700;
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.28rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.menu-toggle span {
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: #ffffff;
+  display: block;
 }
 
 .nav-links {
@@ -266,20 +323,40 @@
 
 @media (max-width: 900px) {
   .topbar {
-    grid-template-columns: 1fr;
-    row-gap: 0.8rem;
-    text-align: center;
+    grid-template-columns: auto auto;
+    row-gap: 0;
+    text-align: left;
+    column-gap: 0.8rem;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
   }
 
   .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
+    grid-column: 1 / -1;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.45rem;
+    padding-top: 0.35rem;
+  }
+
+  .nav-links.is-open {
+    display: flex;
   }
 
   .cta-group {
+    grid-column: 1 / -1;
     width: 100%;
-    flex-direction: column;
+    display: none;
     margin-right: 0;
+  }
+
+  .nav-links.is-open ~ .cta-group {
+    display: inline-flex;
+    flex-direction: column;
   }
 
   .cta-button {
@@ -306,15 +383,8 @@
   }
 
   .brand {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .nav-links {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.45rem;
+    justify-content: flex-start;
+    text-align: left;
   }
 
   .nav-link,
