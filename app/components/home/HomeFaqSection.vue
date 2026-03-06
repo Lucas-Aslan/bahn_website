@@ -275,9 +275,10 @@ const toggleFaq = (index: number) => {
   }
 
   .faq__cta {
-    width: 100%;
+    width: auto;
     justify-content: center;
     text-align: center;
+    padding-inline: 1.35rem;
   }
 
   .faq__trigger {
