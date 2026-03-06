@@ -391,7 +391,7 @@ watch(
 
   .nav-link,
   .cta-button {
-    width: 100%;
+    width: 12.5rem;
     box-sizing: border-box;
   }
 }
