@@ -147,5 +147,10 @@ onBeforeUnmount(() => {
   :global(.cta) {
     width: 100%;
   }
+
+  :global(.cta--solid),
+  :global(.cta--ghost) {
+    width: min(100%, 12.5rem);
+  }
 }
 </style>
