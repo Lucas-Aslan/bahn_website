@@ -27,7 +27,7 @@ if (!page.value) {
 .datenschutz-content :deep(h4),
 .datenschutz-content :deep(h5),
 .datenschutz-content :deep(h6) {
-  color: #ffffff !important;
+  color: #000000 !important;
   line-height: 1.3;
 }
 
@@ -41,9 +41,14 @@ if (!page.value) {
 }
 
 .datenschutz-content {
+  color: #000000;
   max-width: 72ch;
   margin: 0 auto;
   padding: 0 0 2.5rem;
+}
+
+.datenschutz-content :deep(*) {
+  color: #000000;
 }
 
 .datenschutz-content :deep(p),
