@@ -122,7 +122,7 @@ onBeforeUnmount(() => {
               <span>Vorname</span>
               <input name="firstName" type="text" placeholder="Vorname" autocomplete="given-name">
             </label>
-            <label class="field">
+            <label class="field field--separated">
               <span>Nachname *</span>
               <input name="lastName" type="text" placeholder="Nachname" autocomplete="family-name" required>
             </label>
@@ -130,7 +130,7 @@ onBeforeUnmount(() => {
               <span>Firma</span>
               <input name="company" type="text" placeholder="Unternehmen" autocomplete="organization">
             </label>
-            <label class="field">
+            <label class="field field--separated">
               <span>E-Mail *</span>
               <input name="email" type="email" placeholder="name@unternehmen.de" autocomplete="email" required>
             </label>
@@ -347,6 +347,13 @@ h2 {
   font-size: 0.92rem;
   color: var(--color-muted);
   min-width: 0;
+}
+
+.field--separated {
+  padding: 0.55rem;
+  border: 1px solid rgba(199, 117, 139, 0.28);
+  border-radius: 14px;
+  background: rgba(199, 117, 139, 0.06);
 }
 
 
