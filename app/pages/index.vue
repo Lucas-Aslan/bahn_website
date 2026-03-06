@@ -145,7 +145,7 @@ onBeforeUnmount(() => {
 
 @media (max-width: 700px) {
   :global(.cta) {
-    width: 100%;
+    width: 12.5rem;
   }
 
   :global(.cta--solid),
