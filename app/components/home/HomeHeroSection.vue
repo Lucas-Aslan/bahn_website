@@ -403,6 +403,10 @@ watch(currentVideoIndex, async () => {
     border-radius: 10px;
   }
 
+  .hero :global(.cta--contact) {
+    width: min(56%, 10.25rem);
+  }
+
   .hero__orbit--one {
     width: 260px;
     height: 260px;
@@ -429,6 +433,10 @@ watch(currentVideoIndex, async () => {
     width: min(62%, 10.75rem);
     padding: 0.68rem 0.9rem;
     font-size: 0.9rem;
+  }
+
+  .hero :global(.cta--contact) {
+    width: min(54%, 9.75rem);
   }
 
   .hero__chip {
