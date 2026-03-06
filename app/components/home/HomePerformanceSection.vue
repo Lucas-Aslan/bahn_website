@@ -454,8 +454,9 @@ const performanceBlocks: PerformanceBlock[] = [
 
   .performance__cta {
     justify-self: start;
-    width: 100%;
+    width: auto;
     justify-content: center;
+    padding-inline: 1.35rem;
   }
 }
 
