@@ -471,8 +471,9 @@ const careerSteps: CareerStep[] = [
   }
 
   .career__cta {
-    width: 100%;
+    width: auto;
     justify-content: center;
+    padding-inline: 1.35rem;
   }
 }
 
