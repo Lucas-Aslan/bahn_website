@@ -539,6 +539,12 @@
     width: 100%;
     justify-content: center;
   }
+
+  .about__cta--solid {
+    width: auto;
+    align-self: flex-start;
+    padding-inline: 1.35rem;
+  }
 }
 
 @media (max-width: 420px) {
