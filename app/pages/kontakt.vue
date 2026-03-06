@@ -346,7 +346,9 @@ h2 {
   gap: 0.35rem;
   font-size: 0.92rem;
   color: var(--color-muted);
+  min-width: 0;
 }
+
 
 .field--wide {
   margin-top: 0.75rem;
@@ -356,6 +358,8 @@ input,
 select,
 textarea {
   width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
   border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 0.75rem 0.8rem;
