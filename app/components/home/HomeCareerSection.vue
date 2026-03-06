@@ -81,7 +81,6 @@ const careerSteps: CareerStep[] = [
           <span class="career-signal__pulse" aria-hidden="true" />
           <div class="career-signal__header">
             <span class="career-signal__badge">{{ signal.title }}</span>
-            <span class="career-signal__icon" aria-hidden="true">✹</span>
           </div>
           <p class="career-signal__detail">{{ signal.detail }}</p>
         </article>
@@ -304,19 +303,7 @@ const careerSteps: CareerStep[] = [
   font-size: 0.85rem;
 }
 
-.career-signal__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
-  background: rgba(199, 117, 139, 0.12);
-  border: 1px solid rgba(199, 117, 139, 0.26);
-  color: var(--color-rose);
-  font-weight: 900;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
-}
+
 
 .career-signal__detail {
   margin: 0.6rem 0 0;
