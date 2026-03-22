@@ -152,8 +152,8 @@ onBeforeUnmount(() => {
   overflow: hidden;
   border-radius: 28px;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(237, 247, 242, 0.88));
-  border: 1px solid rgba(0, 72, 49, 0.12);
-  box-shadow: 0 26px 60px rgba(0, 72, 49, 0.12);
+  border: 1px solid rgba(47, 52, 57, 0.12);
+  box-shadow: 0 26px 60px rgba(47, 52, 57, 0.12);
 }
 
 .hero__pattern {
@@ -161,9 +161,9 @@ onBeforeUnmount(() => {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 14% 12%, rgba(199, 117, 139, 0.18), transparent 36%),
-    radial-gradient(circle at 85% 90%, rgba(0, 72, 49, 0.16), transparent 30%),
-    repeating-linear-gradient(120deg, rgba(0, 72, 49, 0.04) 0 2px, transparent 2px 24px);
+    radial-gradient(circle at 14% 12%, rgba(11, 122, 92, 0.18), transparent 36%),
+    radial-gradient(circle at 85% 90%, rgba(47, 52, 57, 0.16), transparent 30%),
+    repeating-linear-gradient(120deg, rgba(47, 52, 57, 0.04) 0 2px, transparent 2px 24px);
 }
 
 .leistungen-hero__grid {
@@ -199,8 +199,8 @@ onBeforeUnmount(() => {
   align-items: center;
   padding: 0.62rem 0.95rem;
   border-radius: 999px;
-  background: rgba(0, 72, 49, 0.08);
-  border: 1px solid rgba(0, 72, 49, 0.2);
+  background: rgba(47, 52, 57, 0.08);
+  border: 1px solid rgba(47, 52, 57, 0.2);
   color: var(--color-forest);
   font-weight: 600;
 }
@@ -215,8 +215,8 @@ onBeforeUnmount(() => {
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 20px;
-  border: 1px solid rgba(0, 72, 49, 0.18);
-  box-shadow: 0 24px 52px rgba(0, 72, 49, 0.22);
+  border: 1px solid rgba(47, 52, 57, 0.18);
+  box-shadow: 0 24px 52px rgba(47, 52, 57, 0.22);
 }
 
 .visual__image {
@@ -239,7 +239,7 @@ onBeforeUnmount(() => {
   background: var(--color-rose);
   color: #fff;
   font-weight: 700;
-  box-shadow: 0 12px 26px rgba(199, 117, 139, 0.32);
+  box-shadow: 0 12px 26px rgba(11, 122, 92, 0.32);
 }
 
 .leistungen-stack {
@@ -250,11 +250,11 @@ onBeforeUnmount(() => {
 .leistung-card {
   position: relative;
   background: linear-gradient(130deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.82));
-  border: 1px solid rgba(0, 72, 49, 0.12);
+  border: 1px solid rgba(47, 52, 57, 0.12);
   border-left: 7px solid var(--color-forest);
   border-radius: 20px;
   padding: 1.25rem 1.35rem;
-  box-shadow: 0 16px 34px rgba(0, 72, 49, 0.1);
+  box-shadow: 0 16px 34px rgba(47, 52, 57, 0.1);
   opacity: 0;
   transform: translateY(24px);
   transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
@@ -263,8 +263,8 @@ onBeforeUnmount(() => {
 .leistung-card:hover,
 .leistung-card:focus-within {
   transform: translateY(-3px);
-  border-color: rgba(199, 117, 139, 0.4);
-  box-shadow: 0 18px 44px rgba(0, 72, 49, 0.16);
+  border-color: rgba(11, 122, 92, 0.4);
+  box-shadow: 0 18px 44px rgba(47, 52, 57, 0.16);
 }
 
 .leistungen-stack .js-reveal.is-visible {
@@ -299,7 +299,7 @@ onBeforeUnmount(() => {
 .leistung-card__tag {
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
-  background: rgba(0, 72, 49, 0.09);
+  background: rgba(47, 52, 57, 0.09);
   color: var(--color-forest);
   font-weight: 700;
   text-transform: uppercase;
@@ -356,7 +356,7 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 72, 49, 0.12);
+  background: rgba(47, 52, 57, 0.12);
   color: var(--color-forest);
   font-size: 0.8rem;
   font-weight: 900;

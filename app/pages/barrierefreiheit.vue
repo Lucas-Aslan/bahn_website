@@ -280,7 +280,7 @@ h3 {
   letter-spacing: 0.12em;
   color: var(--color-rose);
   font-size: 0.82rem;
-  background: rgba(199, 117, 139, 0.12);
+  background: rgba(11, 122, 92, 0.12);
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
   display: inline-flex;
@@ -291,7 +291,7 @@ h3 {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 1.5rem;
   align-items: center;
-  background: linear-gradient(135deg, rgba(199, 117, 139, 0.12), rgba(0, 72, 49, 0.08));
+  background: linear-gradient(135deg, rgba(11, 122, 92, 0.12), rgba(47, 52, 57, 0.08));
   border-radius: 24px;
 }
 
@@ -369,11 +369,11 @@ h3 {
   align-items: center;
   padding: 0.5rem 0.85rem;
   border-radius: 999px;
-  background: rgba(199, 117, 139, 0.12);
+  background: rgba(11, 122, 92, 0.12);
   color: var(--color-forest);
   text-decoration: none;
   font-weight: 700;
-  border: 1px solid rgba(199, 117, 139, 0.26);
+  border: 1px solid rgba(11, 122, 92, 0.26);
 }
 
 .link-pill--ghost {
@@ -384,8 +384,8 @@ h3 {
 .card--note {
   padding: 0.9rem 1rem;
   border-radius: 16px;
-  background: rgba(199, 117, 139, 0.08);
-  border: 1px solid rgba(199, 117, 139, 0.2);
+  background: rgba(11, 122, 92, 0.08);
+  border: 1px solid rgba(11, 122, 92, 0.2);
 }
 
 .callout__label,
@@ -433,7 +433,7 @@ h3 {
   border-radius: 999px;
   display: grid;
   place-items: center;
-  background: rgba(199, 117, 139, 0.16);
+  background: rgba(11, 122, 92, 0.16);
 }
 
 a {

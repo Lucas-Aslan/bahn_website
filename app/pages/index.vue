@@ -88,7 +88,7 @@ onBeforeUnmount(() => {
   letter-spacing: 0.12em;
   color: var(--color-rose);
   font-size: 0.82rem;
-  background: rgba(199, 117, 139, 0.12);
+  background: rgba(11, 122, 92, 0.12);
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
 }
@@ -109,26 +109,26 @@ onBeforeUnmount(() => {
 :global(.cta--solid) {
   background: var(--color-rose);
   color: #ffffff;
-  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  box-shadow: 0 18px 45px rgba(11, 122, 92, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 :global(.cta--solid:hover),
 :global(.cta--solid:focus-visible) {
   transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 22px 60px rgba(199, 117, 139, 0.35);
+  box-shadow: 0 22px 60px rgba(11, 122, 92, 0.35);
 }
 
 :global(.cta--ghost) {
   background: var(--color-rose);
   color: #ffffff;
-  border-color: rgba(199, 117, 139, 0.4);
+  border-color: rgba(11, 122, 92, 0.4);
   backdrop-filter: blur(8px);
 }
 
 :global(.cta--ghost:hover),
 :global(.cta--ghost:focus-visible) {
   transform: translateY(-1px);
-  background: #b8687d;
+  background: #08694f;
 }
 
 :global(.js-reveal) {

@@ -118,10 +118,10 @@ const careerSteps: CareerStep[] = [
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 18% 12%, rgba(199, 117, 139, 0.14), transparent 32%),
-    radial-gradient(circle at 78% 80%, rgba(0, 72, 49, 0.12), transparent 36%),
+    radial-gradient(circle at 18% 12%, rgba(11, 122, 92, 0.14), transparent 32%),
+    radial-gradient(circle at 78% 80%, rgba(47, 52, 57, 0.12), transparent 36%),
     linear-gradient(145deg, var(--color-paper), var(--color-cream));
-  border: 1px solid rgba(0, 72, 49, 0.12);
+  border: 1px solid rgba(47, 52, 57, 0.12);
   color: var(--color-ink);
   isolation: isolate;
   padding: clamp(1.2rem, 2vw, 1.8rem);
@@ -140,8 +140,8 @@ const careerSteps: CareerStep[] = [
   position: absolute;
   inset: -20%;
   background:
-    linear-gradient(90deg, rgba(0, 72, 49, 0.06) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(0, 72, 49, 0.06) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(47, 52, 57, 0.06) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(47, 52, 57, 0.06) 1px, transparent 1px);
   background-size: 220px 220px;
   opacity: 0.35;
   filter: blur(1px);
@@ -161,13 +161,13 @@ const careerSteps: CareerStep[] = [
 .career__halo--gold {
   top: -12%;
   left: -8%;
-  background: radial-gradient(circle, rgba(199, 117, 139, 0.35), transparent 50%);
+  background: radial-gradient(circle, rgba(11, 122, 92, 0.35), transparent 50%);
 }
 
 .career__halo--cyan {
   bottom: -16%;
   right: -10%;
-  background: radial-gradient(circle, rgba(0, 72, 49, 0.28), transparent 52%);
+  background: radial-gradient(circle, rgba(47, 52, 57, 0.28), transparent 52%);
   animation-duration: 14s;
   animation-delay: 0.5s;
 }
@@ -185,7 +185,7 @@ const careerSteps: CareerStep[] = [
   gap: 0.5rem;
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
-  background: rgba(0, 72, 49, 0.06);
+  background: rgba(47, 52, 57, 0.06);
   width: fit-content;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
@@ -196,8 +196,8 @@ const careerSteps: CareerStep[] = [
   border-radius: 50%;
   background: radial-gradient(circle, var(--color-rose), var(--color-rose-soft));
   box-shadow:
-    0 0 0 6px rgba(199, 117, 139, 0.14),
-    0 0 0 14px rgba(199, 117, 139, 0.08);
+    0 0 0 6px rgba(11, 122, 92, 0.14),
+    0 0 0 14px rgba(11, 122, 92, 0.08);
   color: var(--color-rose);
   animation: pulse 1.4s ease-in-out infinite;
 }
@@ -205,13 +205,13 @@ const careerSteps: CareerStep[] = [
 .career__eyebrow-pill {
   padding: 0.25rem 0.7rem;
   border-radius: 999px;
-  background: rgba(0, 72, 49, 0.08);
+  background: rgba(47, 52, 57, 0.08);
   color: var(--color-forest);
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: 0.8rem;
-  border: 1px solid rgba(0, 72, 49, 0.18);
+  border: 1px solid rgba(47, 52, 57, 0.18);
 }
 
 .career__headline h2 {
@@ -241,7 +241,7 @@ const careerSteps: CareerStep[] = [
   padding: 1rem 0.9rem;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(0, 72, 49, 0.12);
+  border: 1px solid rgba(47, 52, 57, 0.12);
   box-shadow:
     0 18px 40px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -254,7 +254,7 @@ const careerSteps: CareerStep[] = [
   position: absolute;
   inset: -30% -10% auto;
   height: 70%;
-  background: radial-gradient(circle, rgba(199, 117, 139, 0.18), transparent 55%);
+  background: radial-gradient(circle, rgba(11, 122, 92, 0.18), transparent 55%);
   filter: blur(24px);
   opacity: 0.8;
   z-index: 0;
@@ -267,7 +267,7 @@ const careerSteps: CareerStep[] = [
   inset: auto -20% -40% auto;
   width: 240px;
   height: 240px;
-  background: radial-gradient(circle, rgba(0, 72, 49, 0.16), transparent 60%);
+  background: radial-gradient(circle, rgba(47, 52, 57, 0.16), transparent 60%);
   filter: blur(18px);
   opacity: 0.7;
   z-index: 0;
@@ -275,7 +275,7 @@ const careerSteps: CareerStep[] = [
 }
 
 .career-signal[data-accent='cyan'] .career-signal__glow {
-  background: radial-gradient(circle, rgba(0, 72, 49, 0.16), transparent 55%);
+  background: radial-gradient(circle, rgba(47, 52, 57, 0.16), transparent 55%);
 }
 
 .career-signal[data-accent='magenta'] .career-signal__glow {
@@ -294,8 +294,8 @@ const careerSteps: CareerStep[] = [
 .career-signal__badge {
   padding: 0.35rem 0.65rem;
   border-radius: 999px;
-  background: rgba(0, 72, 49, 0.08);
-  border: 1px solid rgba(0, 72, 49, 0.12);
+  background: rgba(47, 52, 57, 0.08);
+  border: 1px solid rgba(47, 52, 57, 0.12);
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -316,10 +316,10 @@ const careerSteps: CareerStep[] = [
 .career-signal:hover,
 .career-signal:focus-within {
   transform: translateY(-6px) scale(1.01);
-  border-color: rgba(199, 117, 139, 0.4);
+  border-color: rgba(11, 122, 92, 0.4);
   box-shadow:
     0 26px 60px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(199, 117, 139, 0.16);
+    0 0 0 1px rgba(11, 122, 92, 0.16);
 }
 
 .career__cta-row {
@@ -340,7 +340,7 @@ const careerSteps: CareerStep[] = [
   padding: 0.85rem 1rem;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(0, 72, 49, 0.12);
+  border: 1px solid rgba(47, 52, 57, 0.12);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
@@ -358,10 +358,10 @@ const careerSteps: CareerStep[] = [
   width: 34px;
   height: 34px;
   border-radius: 12px;
-  background: linear-gradient(140deg, rgba(199, 117, 139, 0.4), rgba(0, 72, 49, 0.32));
+  background: linear-gradient(140deg, rgba(11, 122, 92, 0.4), rgba(47, 52, 57, 0.32));
   color: #ffffff;
   font-weight: 900;
-  border: 1px solid rgba(0, 72, 49, 0.14);
+  border: 1px solid rgba(47, 52, 57, 0.14);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.8),
     0 14px 30px rgba(0, 0, 0, 0.12);
@@ -384,7 +384,7 @@ const careerSteps: CareerStep[] = [
   position: relative;
   padding: 0.65rem 0.85rem;
   border-radius: 12px;
-  background: rgba(199, 117, 139, 0.12);
+  background: rgba(11, 122, 92, 0.12);
   color: var(--color-ink);
   font-weight: 800;
   overflow: hidden;
@@ -395,7 +395,7 @@ const careerSteps: CareerStep[] = [
   inset: -30% auto auto -10%;
   width: 180px;
   height: 180px;
-  background: radial-gradient(circle, rgba(199, 117, 139, 0.2), transparent 60%);
+  background: radial-gradient(circle, rgba(11, 122, 92, 0.2), transparent 60%);
   filter: blur(14px);
   animation: careerGlow 5s ease-in-out infinite;
 }

@@ -87,10 +87,10 @@ const performanceBlocks: PerformanceBlock[] = [
 .performance {
   position: relative;
   background:
-    radial-gradient(circle at 18% 18%, rgba(0, 95, 66, 0.12), transparent 44%),
-    radial-gradient(circle at 82% 80%, rgba(0, 95, 66, 0.1), transparent 44%),
+    radial-gradient(circle at 18% 18%, rgba(47, 52, 57, 0.12), transparent 44%),
+    radial-gradient(circle at 82% 80%, rgba(47, 52, 57, 0.1), transparent 44%),
     linear-gradient(160deg, rgba(245, 255, 250, 0.9), rgba(239, 253, 247, 0.82));
-  border: 1px solid rgba(0, 95, 66, 0.2);
+  border: 1px solid rgba(47, 52, 57, 0.2);
   box-shadow:
     0 34px 90px rgba(0, 0, 0, 0.08),
     inset 0 0 0 1px rgba(255, 255, 255, 0.6);
@@ -102,8 +102,8 @@ const performanceBlocks: PerformanceBlock[] = [
   position: absolute;
   inset: -12px;
   border-radius: 20px;
-  background: radial-gradient(circle at 20% 20%, rgba(0, 95, 66, 0.12), transparent 58%),
-    radial-gradient(circle at 80% 75%, rgba(0, 95, 66, 0.08), transparent 58%);
+  background: radial-gradient(circle at 20% 20%, rgba(47, 52, 57, 0.12), transparent 58%),
+    radial-gradient(circle at 80% 75%, rgba(47, 52, 57, 0.08), transparent 58%);
   filter: blur(18px);
   opacity: 0.35;
   z-index: 0;
@@ -130,24 +130,24 @@ const performanceBlocks: PerformanceBlock[] = [
   gap: 0.35rem;
   padding: 0.85rem 0.9rem;
   border-radius: 12px;
-  background: linear-gradient(135deg, #be7691, #b16b85);
+  background: linear-gradient(135deg, #0b7a5c, #08694f);
   color: #ffffff;
   text-decoration: none;
   font-weight: 800;
   letter-spacing: 0.02em;
   box-shadow:
-    0 18px 45px rgba(177, 107, 133, 0.3),
+    0 18px 45px rgba(11, 122, 92, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-  border: 1px solid rgba(177, 107, 133, 0.55);
+  border: 1px solid rgba(11, 122, 92, 0.55);
 }
 
 .performance__cta:hover,
 .performance__cta:focus-visible {
   transform: translateY(-2px);
   box-shadow:
-    0 24px 60px rgba(177, 107, 133, 0.34),
-    0 0 0 1px rgba(177, 107, 133, 0.28);
+    0 24px 60px rgba(11, 122, 92, 0.34),
+    0 0 0 1px rgba(11, 122, 92, 0.28);
   filter: saturate(1.03);
 }
 
@@ -164,10 +164,10 @@ const performanceBlocks: PerformanceBlock[] = [
   padding: 1.2rem 1.2rem 1.1rem;
   border-radius: 18px;
   background:
-    radial-gradient(circle at 18% 22%, rgba(199, 117, 139, 0.08), transparent 32%),
-    radial-gradient(circle at 84% 76%, rgba(0, 72, 49, 0.08), transparent 36%),
+    radial-gradient(circle at 18% 22%, rgba(11, 122, 92, 0.08), transparent 32%),
+    radial-gradient(circle at 84% 76%, rgba(47, 52, 57, 0.08), transparent 36%),
     linear-gradient(140deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 243, 0.92));
-  border: 1px solid rgba(0, 72, 49, 0.14);
+  border: 1px solid rgba(47, 52, 57, 0.14);
   box-shadow:
     0 22px 55px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
@@ -190,10 +190,10 @@ const performanceBlocks: PerformanceBlock[] = [
 .performance-card:hover,
 .performance-card:focus-within {
   transform: translateY(-8px) scale(1.01);
-  border-color: rgba(199, 117, 139, 0.35);
+  border-color: rgba(11, 122, 92, 0.35);
   box-shadow:
     0 26px 70px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(199, 117, 139, 0.18);
+    0 0 0 1px rgba(11, 122, 92, 0.18);
   filter: saturate(1.05);
 }
 
@@ -219,8 +219,8 @@ const performanceBlocks: PerformanceBlock[] = [
   width: 42px;
   height: 26px;
   border-radius: 999px;
-  border: 1px solid rgba(0, 72, 49, 0.2);
-  background: rgba(199, 117, 139, 0.12);
+  border: 1px solid rgba(47, 52, 57, 0.2);
+  background: rgba(11, 122, 92, 0.12);
   font-weight: 800;
   color: var(--color-forest);
   box-shadow:
@@ -231,7 +231,7 @@ const performanceBlocks: PerformanceBlock[] = [
 .performance-card__divider {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, rgba(199, 117, 139, 0.4), rgba(0, 72, 49, 0.35));
+  background: linear-gradient(90deg, rgba(11, 122, 92, 0.4), rgba(47, 52, 57, 0.35));
   filter: blur(0.25px);
   opacity: 0.7;
 }
@@ -240,12 +240,12 @@ const performanceBlocks: PerformanceBlock[] = [
   width: fit-content;
   padding: 0.28rem 0.65rem;
   border-radius: 999px;
-  background: rgba(0, 72, 49, 0.06);
+  background: rgba(47, 52, 57, 0.06);
   color: var(--color-forest);
   letter-spacing: 0.08em;
   font-size: 0.78rem;
   text-transform: uppercase;
-  border: 1px solid rgba(177, 107, 133, 0.55);
+  border: 1px solid rgba(11, 122, 92, 0.55);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.8),
     0 10px 26px rgba(0, 0, 0, 0.08);
@@ -297,8 +297,8 @@ const performanceBlocks: PerformanceBlock[] = [
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: rgba(199, 117, 139, 0.12);
-  border: 1px solid rgba(0, 72, 49, 0.24);
+  background: rgba(11, 122, 92, 0.12);
+  border: 1px solid rgba(47, 52, 57, 0.24);
   color: var(--color-forest);
   font-size: 0.85rem;
   box-shadow:
@@ -313,8 +313,8 @@ const performanceBlocks: PerformanceBlock[] = [
 .performance-card__glow {
   position: absolute;
   inset: -12%;
-  background: radial-gradient(circle at 24% 24%, rgba(199, 117, 139, 0.12), transparent 40%),
-    radial-gradient(circle at 78% 70%, rgba(0, 72, 49, 0.1), transparent 42%);
+  background: radial-gradient(circle at 24% 24%, rgba(11, 122, 92, 0.12), transparent 40%),
+    radial-gradient(circle at 78% 70%, rgba(47, 52, 57, 0.1), transparent 42%);
   opacity: 0.35;
   pointer-events: none;
   animation: performanceGlow 6s ease-in-out infinite;
@@ -332,9 +332,9 @@ const performanceBlocks: PerformanceBlock[] = [
 .performance-card__beam {
   background: conic-gradient(
     from 120deg,
-    rgba(199, 117, 139, 0.14),
+    rgba(11, 122, 92, 0.14),
     rgba(0, 0, 0, 0),
-    rgba(0, 72, 49, 0.16),
+    rgba(47, 52, 57, 0.16),
     rgba(0, 0, 0, 0)
   );
   filter: blur(22px);
@@ -343,8 +343,8 @@ const performanceBlocks: PerformanceBlock[] = [
 }
 
 .performance-card__halo {
-  background: radial-gradient(circle at 50% 45%, rgba(199, 117, 139, 0.22), transparent 36%),
-    radial-gradient(circle at 20% 80%, rgba(0, 72, 49, 0.16), transparent 34%);
+  background: radial-gradient(circle at 50% 45%, rgba(11, 122, 92, 0.22), transparent 36%),
+    radial-gradient(circle at 20% 80%, rgba(47, 52, 57, 0.16), transparent 34%);
   filter: blur(20px);
   animation: performanceHaloPulse 6.5s ease-in-out infinite;
   opacity: 0.4;
