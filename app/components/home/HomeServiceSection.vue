@@ -53,8 +53,8 @@ type Service = {
 .metric {
   padding: 0.9rem 1rem;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(199, 117, 139, 0.12), rgba(0, 72, 49, 0.08));
-  border: 1px solid rgba(0, 72, 49, 0.12);
+  background: linear-gradient(135deg, rgba(11, 122, 92, 0.12), rgba(47, 52, 57, 0.08));
+  border: 1px solid rgba(47, 52, 57, 0.12);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   display: grid;
   gap: 0.18rem;
@@ -85,7 +85,7 @@ type Service = {
   padding: 1.4rem 1.2rem;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 72, 49, 0.12);
+  border: 1px solid rgba(47, 52, 57, 0.12);
   min-height: 180px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
@@ -94,7 +94,7 @@ type Service = {
 .service-card:hover,
 .service-card:focus-within {
   transform: translateY(-4px);
-  border-color: rgba(199, 117, 139, 0.35);
+  border-color: rgba(11, 122, 92, 0.35);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
 }
 
@@ -114,7 +114,7 @@ type Service = {
   display: inline-flex;
   padding: 0.3rem 0.65rem;
   border-radius: 999px;
-  background: rgba(0, 72, 49, 0.08);
+  background: rgba(47, 52, 57, 0.08);
   color: var(--color-forest);
   font-size: 0.85rem;
   letter-spacing: 0.04em;
@@ -124,8 +124,8 @@ type Service = {
 .service-card__glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(199, 117, 139, 0.12), transparent 45%),
-    radial-gradient(circle at 20% 80%, rgba(0, 72, 49, 0.12), transparent 40%);
+  background: radial-gradient(circle at 80% 20%, rgba(11, 122, 92, 0.12), transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(47, 52, 57, 0.12), transparent 40%);
   opacity: 0;
   transition: opacity 0.2s ease;
 }

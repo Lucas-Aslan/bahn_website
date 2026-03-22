@@ -98,10 +98,10 @@ const toggleFaq = (index: number) => {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 18% 18%, rgba(0, 95, 66, 0.12), transparent 44%),
-    radial-gradient(circle at 82% 82%, rgba(0, 95, 66, 0.1), transparent 46%),
+    radial-gradient(circle at 18% 18%, rgba(47, 52, 57, 0.12), transparent 44%),
+    radial-gradient(circle at 82% 82%, rgba(47, 52, 57, 0.1), transparent 46%),
     linear-gradient(135deg, rgba(245, 255, 250, 0.9), rgba(239, 253, 247, 0.82));
-  border: 1px solid rgba(0, 95, 66, 0.2);
+  border: 1px solid rgba(47, 52, 57, 0.2);
   color: var(--color-ink);
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.08);
 }
@@ -117,20 +117,20 @@ const toggleFaq = (index: number) => {
   gap: 0.35rem;
   padding: 0.85rem 0.95rem;
   border-radius: 12px;
-  background: linear-gradient(135deg, #be7691, #b16b85);
+  background: linear-gradient(135deg, #0b7a5c, #08694f);
   color: #ffffff;
   text-decoration: none;
   font-weight: 800;
   letter-spacing: 0.02em;
-  border: 1px solid rgba(177, 107, 133, 0.55);
-  box-shadow: 0 18px 45px rgba(177, 107, 133, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(11, 122, 92, 0.55);
+  box-shadow: 0 18px 45px rgba(11, 122, 92, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .faq__cta:hover,
 .faq__cta:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 22px 55px rgba(177, 107, 133, 0.34), 0 0 0 1px rgba(177, 107, 133, 0.26);
+  box-shadow: 0 22px 55px rgba(11, 122, 92, 0.34), 0 0 0 1px rgba(11, 122, 92, 0.26);
   color: #ffffff;
 }
 
@@ -144,7 +144,7 @@ const toggleFaq = (index: number) => {
   position: relative;
   overflow: hidden;
   border-radius: 18px;
-  border: 1px solid rgba(0, 72, 49, 0.14);
+  border: 1px solid rgba(47, 52, 57, 0.14);
   background: rgba(255, 255, 255, 0.85);
   box-shadow:
     0 16px 40px rgba(0, 0, 0, 0.08),
@@ -167,10 +167,10 @@ const toggleFaq = (index: number) => {
 
 .faq__item:hover,
 .faq__item:focus-within {
-  border-color: rgba(199, 117, 139, 0.3);
+  border-color: rgba(11, 122, 92, 0.3);
   box-shadow:
     0 22px 55px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(199, 117, 139, 0.12),
+    0 0 0 1px rgba(11, 122, 92, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
@@ -193,13 +193,13 @@ const toggleFaq = (index: number) => {
   gap: 0.4rem;
   padding: 0.35rem 0.65rem;
   border-radius: 999px;
-  background: rgba(0, 72, 49, 0.08);
+  background: rgba(47, 52, 57, 0.08);
   color: var(--color-forest);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   font-weight: 800;
   font-size: 0.78rem;
-  border: 1px solid rgba(0, 72, 49, 0.18);
+  border: 1px solid rgba(47, 52, 57, 0.18);
 }
 
 .faq__icon {
@@ -207,8 +207,8 @@ const toggleFaq = (index: number) => {
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  background: rgba(199, 117, 139, 0.1);
-  border: 1px solid rgba(199, 117, 139, 0.24);
+  background: rgba(11, 122, 92, 0.1);
+  border: 1px solid rgba(11, 122, 92, 0.24);
   display: grid;
   place-items: center;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -220,7 +220,7 @@ const toggleFaq = (index: number) => {
   width: 14px;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #be7691, #b16b85);
+  background: linear-gradient(135deg, #0b7a5c, #08694f);
   transition: transform 0.2s ease;
 }
 
@@ -230,7 +230,7 @@ const toggleFaq = (index: number) => {
 
 .faq__trigger[aria-expanded='true'] .faq__icon {
   transform: rotate(180deg);
-  border-color: rgba(0, 72, 49, 0.5);
+  border-color: rgba(47, 52, 57, 0.5);
 }
 
 .faq__trigger[aria-expanded='true'] .faq__icon-line--vertical {
@@ -251,7 +251,7 @@ const toggleFaq = (index: number) => {
 .faq__glow {
   position: absolute;
   inset: -20% -40% 10% auto;
-  background: radial-gradient(circle, rgba(199, 117, 139, 0.14), transparent 55%);
+  background: radial-gradient(circle, rgba(11, 122, 92, 0.14), transparent 55%);
   filter: blur(28px);
   opacity: 0.9;
   pointer-events: none;

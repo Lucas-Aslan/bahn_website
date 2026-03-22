@@ -41,11 +41,11 @@
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 18% 20%, rgba(199, 117, 139, 0.16), transparent 42%),
-    radial-gradient(circle at 82% 72%, rgba(0, 72, 49, 0.12), transparent 42%),
+    radial-gradient(circle at 18% 20%, rgba(11, 122, 92, 0.16), transparent 42%),
+    radial-gradient(circle at 82% 72%, rgba(47, 52, 57, 0.12), transparent 42%),
     linear-gradient(135deg, var(--color-paper), var(--color-cream));
   color: var(--color-ink);
-  border: 1px solid rgba(0, 72, 49, 0.12);
+  border: 1px solid rgba(47, 52, 57, 0.12);
   box-shadow:
     0 30px 80px rgba(0, 0, 0, 0.08),
     inset 0 0 0 1px rgba(255, 255, 255, 0.5);
@@ -64,10 +64,10 @@
 .gold-cta__media {
   margin: 0;
   background:
-    radial-gradient(circle at 28% 20%, rgba(199, 117, 139, 0.12), transparent 52%),
+    radial-gradient(circle at 28% 20%, rgba(11, 122, 92, 0.12), transparent 52%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 250, 243, 0.65));
   border-radius: 18px;
-  border: 1px solid rgba(0, 72, 49, 0.12);
+  border: 1px solid rgba(47, 52, 57, 0.12);
   padding: clamp(0.9rem, 2vw, 1.2rem);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.8),
@@ -98,14 +98,14 @@
   height: 10px;
   border-radius: 50%;
   background: var(--color-rose);
-  box-shadow: 0 0 14px rgba(199, 117, 139, 0.35);
+  box-shadow: 0 0 14px rgba(11, 122, 92, 0.35);
 }
 
 .gold-cta__content {
   background: rgba(255, 250, 243, 0.86);
   border-radius: 16px;
   padding: clamp(1.2rem, 2.5vw, 1.8rem);
-  border: 1px solid rgba(0, 72, 49, 0.12);
+  border: 1px solid rgba(47, 52, 57, 0.12);
   box-shadow:
     0 18px 50px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -148,9 +148,9 @@
   gap: 0.45rem;
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
-  background: rgba(0, 72, 49, 0.06);
+  background: rgba(47, 52, 57, 0.06);
   color: var(--color-forest);
-  border: 1px solid rgba(0, 72, 49, 0.18);
+  border: 1px solid rgba(47, 52, 57, 0.18);
   font-weight: 700;
   letter-spacing: 0.02em;
 }
@@ -172,21 +172,21 @@
   font-weight: 800;
   text-decoration: none;
   letter-spacing: 0.01em;
-  border: 1px solid rgba(0, 72, 49, 0.18);
+  border: 1px solid rgba(47, 52, 57, 0.18);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .gold-cta__button--solid {
-  background: var(--color-forest);
+  background: var(--color-rose);
   color: #ffffff;
-  box-shadow: 0 18px 45px rgba(0, 72, 49, 0.25);
+  box-shadow: 0 18px 45px rgba(11, 122, 92, 0.25);
 }
 
 .gold-cta__button--ghost {
-  background: rgba(0, 72, 49, 0.08);
-  color: var(--color-forest);
-  border-color: rgba(0, 72, 49, 0.3);
+  background: rgba(11, 122, 92, 0.12);
+  color: #ffffff;
+  border-color: rgba(11, 122, 92, 0.3);
 }
 
 .gold-cta__button:hover,

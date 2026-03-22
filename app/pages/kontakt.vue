@@ -228,7 +228,7 @@ h2 {
   letter-spacing: 0.12em;
   color: var(--color-rose);
   font-size: 0.82rem;
-  background: rgba(199, 117, 139, 0.12);
+  background: rgba(11, 122, 92, 0.12);
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
   display: inline-flex;
@@ -251,13 +251,13 @@ h2 {
 .cta--solid {
   background: var(--color-rose);
   color: #ffffff;
-  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.28);
+  box-shadow: 0 18px 45px rgba(11, 122, 92, 0.28);
 }
 
 .cta--ghost {
-  background: #ffffff;
-  color: var(--color-forest);
-  border-color: var(--color-border);
+  background: var(--color-rose);
+  color: #ffffff;
+  border-color: rgba(11, 122, 92, 0.35);
 }
 
 .cta:hover,
@@ -288,7 +288,7 @@ h2 {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 1.5rem;
   align-items: center;
-  background: linear-gradient(135deg, rgba(199, 117, 139, 0.12), rgba(0, 72, 49, 0.08));
+  background: linear-gradient(135deg, rgba(11, 122, 92, 0.12), rgba(47, 52, 57, 0.08));
   border-radius: 24px;
 }
 
@@ -351,9 +351,9 @@ h2 {
 
 .field--separated {
   padding: 0.55rem;
-  border: 1px solid rgba(199, 117, 139, 0.28);
+  border: 1px solid rgba(11, 122, 92, 0.28);
   border-radius: 14px;
-  background: rgba(199, 117, 139, 0.06);
+  background: rgba(11, 122, 92, 0.06);
 }
 
 

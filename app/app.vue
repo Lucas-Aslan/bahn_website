@@ -75,23 +75,23 @@ watch(
 
 <style scoped>
 :global(:root) {
-  --color-rose: #c7758b;
-  --color-rose-soft: #dba1b2;
-  --color-forest: #004831;
-  --color-forest-soft: #1b6c50;
+  --color-rose: #0b7a5c;
+  --color-rose-soft: #55a58d;
+  --color-forest: #2f3439;
+  --color-forest-soft: #4a525a;
   --color-cream: #ffffff;
   --color-paper: #ffffff;
   --color-ink: #1f2520;
   --color-muted: #3f564c;
-  --color-border: rgba(0, 72, 49, 0.14);
+  --color-border: rgba(47, 52, 57, 0.14);
 }
 
 :global(body) {
   margin: 0;
   font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
   background:
-    radial-gradient(circle at 16% 18%, rgba(199, 117, 139, 0.12) 0, transparent 26%),
-    radial-gradient(circle at 82% 10%, rgba(0, 72, 49, 0.12) 0, transparent 22%),
+    radial-gradient(circle at 16% 18%, rgba(11, 122, 92, 0.12) 0, transparent 26%),
+    radial-gradient(circle at 82% 10%, rgba(47, 52, 57, 0.12) 0, transparent 22%),
     linear-gradient(135deg, #ffffff, var(--color-cream));
   color: var(--color-ink);
   min-height: 100vh;
@@ -99,7 +99,7 @@ watch(
 }
 
 :global(::selection) {
-  background: rgba(199, 117, 139, 0.18);
+  background: rgba(11, 122, 92, 0.18);
   color: var(--color-ink);
 }
 
@@ -112,8 +112,8 @@ watch(
 .tech-grid {
   position: absolute;
   inset: 0;
-  background: linear-gradient(transparent 96%, rgba(0, 72, 49, 0.06)),
-    linear-gradient(90deg, transparent 96%, rgba(199, 117, 139, 0.06));
+  background: linear-gradient(transparent 96%, rgba(47, 52, 57, 0.06)),
+    linear-gradient(90deg, transparent 96%, rgba(11, 122, 92, 0.06));
   background-size: 32px 32px;
   mask-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5), transparent 65%);
   pointer-events: none;
@@ -154,7 +154,7 @@ watch(
   background: linear-gradient(135deg, var(--color-rose), var(--color-forest));
   color: #ffffff;
   font-weight: 800;
-  box-shadow: 0 12px 30px rgba(199, 117, 139, 0.28);
+  box-shadow: 0 12px 30px rgba(11, 122, 92, 0.28);
 }
 
 .brand-kicker {
@@ -252,7 +252,7 @@ watch(
   padding: 0.5rem;
   border-radius: 14px;
   background: rgba(255, 250, 243, 0.96);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(0, 72, 49, 0.08);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(47, 52, 57, 0.08);
   opacity: 0;
   pointer-events: none;
   transform: translateY(-6px);
@@ -274,14 +274,14 @@ watch(
   padding: 0.7rem 0.85rem;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(199, 117, 139, 0.18);
+  border: 1px solid rgba(11, 122, 92, 0.18);
   transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .dropdown-item:hover,
 .dropdown-item:focus-visible {
-  background: linear-gradient(135deg, rgba(199, 117, 139, 0.14), rgba(0, 72, 49, 0.14));
-  border-color: rgba(0, 72, 49, 0.28);
+  background: linear-gradient(135deg, rgba(11, 122, 92, 0.14), rgba(47, 52, 57, 0.14));
+  border-color: rgba(47, 52, 57, 0.28);
   transform: translateX(4px);
 }
 
@@ -296,14 +296,14 @@ watch(
   font-weight: 800;
   text-decoration: none;
   letter-spacing: 0.02em;
-  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.35);
+  box-shadow: 0 18px 45px rgba(11, 122, 92, 0.35);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .cta-button:hover,
 .cta-button:focus-visible {
   transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 22px 55px rgba(199, 117, 139, 0.42);
+  box-shadow: 0 22px 55px rgba(11, 122, 92, 0.42);
 }
 
 .cta-group {

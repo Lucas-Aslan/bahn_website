@@ -184,8 +184,8 @@ watch(currentVideoIndex, async () => {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(160deg, rgba(0, 72, 49, 0.72), rgba(0, 72, 49, 0.58)),
-    radial-gradient(circle at 32% 30%, rgba(199, 117, 139, 0.2), transparent 34%),
+    linear-gradient(160deg, rgba(47, 52, 57, 0.72), rgba(47, 52, 57, 0.58)),
+    radial-gradient(circle at 32% 30%, rgba(11, 122, 92, 0.2), transparent 34%),
     radial-gradient(circle at 72% 65%, rgba(255, 255, 255, 0.12), transparent 40%);
   backdrop-filter: blur(6px);
   mix-blend-mode: normal;
@@ -213,7 +213,7 @@ watch(currentVideoIndex, async () => {
   font-weight: 900;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  color: #c7758b;
+  color: #0b7a5c;
   text-shadow: 0 18px 36px rgba(0, 0, 0, 0.6);
 }
 
@@ -236,7 +236,7 @@ watch(currentVideoIndex, async () => {
   display: inline-block;
   margin-left: 0.35rem;
   color: #ffffff;
-  filter: drop-shadow(0 12px 24px rgba(199, 117, 139, 0.35));
+  filter: drop-shadow(0 12px 24px rgba(11, 122, 92, 0.35));
 }
 
 .hero__lead {
@@ -259,28 +259,28 @@ watch(currentVideoIndex, async () => {
   background: var(--color-rose);
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.24);
-  box-shadow: 0 18px 45px rgba(199, 117, 139, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  box-shadow: 0 18px 45px rgba(11, 122, 92, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .hero :global(.cta--ghost:hover),
 .hero :global(.cta--ghost:focus-visible) {
-  background: #b8687d;
+  background: #08694f;
   transform: translateY(-1px);
-  box-shadow: 0 22px 60px rgba(199, 117, 139, 0.38);
+  box-shadow: 0 22px 60px rgba(11, 122, 92, 0.38);
 }
 
 .hero :global(.cta--contact) {
-  background: #005f46;
+  background: var(--color-rose);
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.28);
-  box-shadow: 0 18px 45px rgba(0, 95, 70, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  box-shadow: 0 18px 45px rgba(11, 122, 92, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .hero :global(.cta--contact:hover),
 .hero :global(.cta--contact:focus-visible) {
-  background: #004f3a;
+  background: #08694f;
   transform: translateY(-1px);
-  box-shadow: 0 22px 60px rgba(0, 95, 70, 0.42);
+  box-shadow: 0 22px 60px rgba(11, 122, 92, 0.42);
 }
 
 .hero__accolades {
@@ -328,7 +328,7 @@ watch(currentVideoIndex, async () => {
 .hero__orbit--one {
   width: 380px;
   height: 380px;
-  background: radial-gradient(circle, rgba(199, 117, 139, 0.3), transparent 60%);
+  background: radial-gradient(circle, rgba(11, 122, 92, 0.3), transparent 60%);
   bottom: -80px;
   right: 14%;
 }
@@ -348,9 +348,9 @@ watch(currentVideoIndex, async () => {
   width: 620px;
   height: 620px;
   background:
-    radial-gradient(circle at 50% 30%, rgba(199, 117, 139, 0.2), transparent 38%),
+    radial-gradient(circle at 50% 30%, rgba(11, 122, 92, 0.2), transparent 38%),
     radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.12), transparent 45%),
-    conic-gradient(from 140deg at 50% 50%, rgba(0, 72, 49, 0.2), transparent 60%);
+    conic-gradient(from 140deg at 50% 50%, rgba(47, 52, 57, 0.2), transparent 60%);
   filter: blur(48px) saturate(1.05);
   opacity: 0.65;
   transition: transform 0.35s ease-out;

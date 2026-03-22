@@ -35,9 +35,9 @@ const decrement = () => {
 
 .counter__button {
   margin: 5px;
-  background: #004831;
+  background: var(--color-rose);
   color: #ffffff;
-  border: 1px solid rgba(0, 72, 49, 0.4);
+  border: 1px solid rgba(11, 122, 92, 0.4);
   border-radius: 8px;
   padding: 0.35rem 0.75rem;
   cursor: pointer;
