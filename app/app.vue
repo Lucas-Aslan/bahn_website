@@ -3,13 +3,13 @@
     <div class="tech-grid" aria-hidden="true" />
     <header class="topbar">
       <NuxtRouteAnnouncer />
-      <div class="brand">
-        <div class="brand-icon">LOG</div>
-        <div>
-          <p class="brand-kicker">Babylon Bahndienste</p>
-          <!-- <p class="brand-name">Babylon Bahndienste UG</p> -->
-        </div>
-      </div>
+      <NuxtLink to="/" class="brand" aria-label="Babylon Bahndienste Startseite">
+        <img
+          src="/images/bb-logo.png"
+          alt="Babylon Bahndienste"
+          class="brand-logo"
+        >
+      </NuxtLink>
 
       <button
         class="menu-toggle"
@@ -144,33 +144,16 @@ watch(
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  text-decoration: none;
+  min-width: 0;
 }
 
-.brand-icon {
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--color-rose), var(--color-forest));
-  color: #ffffff;
-  font-weight: 800;
-  box-shadow: 0 12px 30px rgba(11, 122, 92, 0.28);
-}
-
-.brand-kicker {
-  margin: 0;
-  font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.brand-name {
-  margin: 0;
-  font-size: 1.05rem;
-  font-weight: 700;
+.brand-logo {
+  display: block;
+  height: 44px;
+  width: auto;
+  max-width: min(260px, 28vw);
+  object-fit: contain;
 }
 
 .menu-toggle {
