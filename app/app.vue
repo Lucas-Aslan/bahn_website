@@ -86,6 +86,10 @@ watch(
   --color-border: rgba(47, 52, 57, 0.14);
 }
 
+:global(html) {
+  font-size: 112.5%;
+}
+
 :global(body) {
   margin: 0;
   font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -321,7 +325,17 @@ watch(
   box-sizing: border-box;
 }
 
+@media (min-width: 1200px) {
+  :global(html) {
+    font-size: 120%;
+  }
+}
+
 @media (max-width: 900px) {
+  :global(html) {
+    font-size: 106.25%;
+  }
+
   .topbar {
     grid-template-columns: auto auto;
     row-gap: 0;
@@ -376,6 +390,12 @@ watch(
     transform: none;
     top: 0;
     margin-top: 0.35rem;
+  }
+}
+
+@media (max-width: 700px) {
+  :global(html) {
+    font-size: 100%;
   }
 }
 
