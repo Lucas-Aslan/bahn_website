@@ -131,7 +131,7 @@ watch(
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 1.25rem;
-  padding: 0.85rem clamp(1rem, 3vw, 2.5rem);
+  padding: 1rem clamp(1rem, 3vw, 2.5rem);
   margin: 0;
   width: 100%;
   border-radius: 0;
@@ -146,13 +146,14 @@ watch(
   align-items: center;
   text-decoration: none;
   min-width: 0;
+  padding-block: 0.1rem;
 }
 
 .brand-logo {
   display: block;
-  height: 44px;
+  height: clamp(64px, 7vw, 88px);
   width: auto;
-  max-width: min(260px, 28vw);
+  max-width: min(360px, 34vw);
   object-fit: contain;
 }
 
@@ -390,6 +391,11 @@ watch(
   .brand {
     justify-content: flex-start;
     text-align: left;
+  }
+
+  .brand-logo {
+    height: 56px;
+    max-width: min(260px, 58vw);
   }
 
   .nav-link,
