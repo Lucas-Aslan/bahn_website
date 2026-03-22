@@ -139,22 +139,32 @@ watch(
   color: #ffffff;
   box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: visible;
 }
 
 .brand {
+  position: relative;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
   min-width: 0;
+  width: clamp(108px, 9vw, 132px);
+  height: 3.25rem;
   padding-block: 0.1rem;
+  overflow: visible;
 }
 
 .brand-logo {
+  position: absolute;
+  left: 0;
+  top: 50%;
   display: block;
-  height: clamp(64px, 7vw, 88px);
+  height: clamp(108px, 13vw, 148px);
   width: auto;
-  max-width: min(360px, 34vw);
+  max-width: none;
   object-fit: contain;
+  object-position: left center;
+  transform: translateY(-50%);
 }
 
 .menu-toggle {
@@ -393,9 +403,13 @@ watch(
     text-align: left;
   }
 
+  .brand {
+    width: min(112px, 30vw);
+    height: 2.8rem;
+  }
+
   .brand-logo {
-    height: 56px;
-    max-width: min(260px, 58vw);
+    height: min(96px, 30vw);
   }
 
   .nav-link,
