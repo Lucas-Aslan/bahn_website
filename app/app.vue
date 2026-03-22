@@ -145,15 +145,20 @@ watch(
   display: inline-flex;
   align-items: center;
   text-decoration: none;
+  width: clamp(180px, 16vw, 240px);
+  height: 52px;
   min-width: 0;
+  overflow: hidden;
 }
 
 .brand-logo {
   display: block;
-  height: 44px;
-  width: auto;
-  max-width: min(260px, 28vw);
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 61%;
+  transform: scale(1.85);
+  transform-origin: center;
 }
 
 .menu-toggle {
@@ -390,6 +395,7 @@ watch(
   .brand {
     justify-content: flex-start;
     text-align: left;
+    width: clamp(150px, 44vw, 220px);
   }
 
   .nav-link,
