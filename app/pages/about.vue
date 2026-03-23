@@ -157,26 +157,6 @@ onBeforeUnmount(() => {
       </div>
     </section>
 
-    <section class="section js-reveal">
-      <div class="section__header">
-        <div>
-          <p class="eyebrow">Einblicke</p>
-          <h2>Starke Bilder für starke Einsätze</h2>
-          <p class="section__lead">
-            Ob Einsatzteams, Leitstelle oder Bahninfrastruktur: So sieht Zusammenarbeit mit Babylon Bahndienste aus.
-          </p>
-        </div>
-      </div>
-      <div class="visual-grid">
-        <figure v-for="module in imageModules" :key="module.title" class="visual-card">
-          <img :src="module.src" :alt="module.title" loading="lazy">
-          <figcaption>
-            <h3>{{ module.title }}</h3>
-            <p>{{ module.caption }}</p>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
 
     <section class="section section--cta js-reveal">
       <div>

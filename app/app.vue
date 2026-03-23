@@ -87,7 +87,7 @@ watch(
 }
 
 :global(html) {
-  font-size: 112.5%;
+  font-size: 110%;
 }
 
 :global(body) {
@@ -321,13 +321,13 @@ watch(
 
 @media (min-width: 1200px) {
   :global(html) {
-    font-size: 120%;
+    font-size: 100%;
   }
 }
 
 @media (max-width: 900px) {
   :global(html) {
-    font-size: 106.25%;
+    font-size: 100.00%;
   }
 
   .topbar {
