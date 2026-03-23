@@ -204,6 +204,7 @@ watch(currentVideoIndex, async () => {
   grid-column: 1;
   justify-self: center;
   align-self: center;
+  justify-items: center;
   text-align: center;
 }
 
@@ -242,6 +243,7 @@ watch(currentVideoIndex, async () => {
 .hero__lead {
   margin: 0;
   max-width: 640px;
+  justify-self: center;
   color: rgba(255, 255, 255, 0.92);
   font-size: 1.08rem;
   line-height: 1.6;
