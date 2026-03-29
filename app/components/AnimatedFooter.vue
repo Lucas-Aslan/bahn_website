@@ -385,6 +385,49 @@
   background: rgba(8, 105, 79, 0.98);
 }
 
+.footer__social {
+  padding: 0.75rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(249, 210, 112, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.footer__social-list {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  color: #c0c8d8;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.footer__social-icon {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+.footer__social-link:hover,
+.footer__social-link:focus-visible {
+  color: #f9d270;
+  border-color: rgba(249, 210, 112, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(249, 210, 112, 0.25);
+  background: rgba(249, 210, 112, 0.08);
+}
+
 .footer__card {
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.28);
